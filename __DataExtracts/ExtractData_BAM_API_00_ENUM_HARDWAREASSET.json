@@ -1,0 +1,173 @@
+{
+  "RecordCount": 21,
+  "Data": [
+    {
+      "Id": "ad423236-9ca2-e625-1192-75befe5604f8",
+      "Text": "(Not In Use) Received",
+      "Name": "(Not In Use) Received",
+      "HasChildren": false,
+      "Ordinal": 1.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "e9f66ad2-10ea-70d4-52c3-102fd73a08a1",
+      "Text": "Active (SIM)",
+      "Name": "Active (SIM)",
+      "HasChildren": false,
+      "Ordinal": 6.125,
+      "EnumNodes": []
+    },
+    {
+      "Id": "f48ca5b3-eec1-ec29-061e-f99edeff5b5f",
+      "Text": "Cancelled (Line)",
+      "Name": "Cancelled (Line)",
+      "HasChildren": false,
+      "Ordinal": 9.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "c95a14fc-0d0b-5524-df14-81be66fac040",
+      "Text": "Ceased (Line)",
+      "Name": "Ceased (Line)",
+      "HasChildren": false,
+      "Ordinal": 13.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "523e3fb2-7161-b861-c786-b177034dd35b",
+      "Text": "Deleted",
+      "Name": "Deleted",
+      "HasChildren": false,
+      "Ordinal": 13.5,
+      "EnumNodes": []
+    },
+    {
+      "Id": "e264653e-9ef1-ad9b-9b02-e249554635e2",
+      "Text": "Deployed",
+      "Name": "Deployed",
+      "HasChildren": false,
+      "Ordinal": 3.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "49fad5cb-8bc4-dac7-56c1-f6e21eddb565",
+      "Text": "Disconnected (SIM)",
+      "Name": "Disconnected (SIM)",
+      "HasChildren": false,
+      "Ordinal": 6.25,
+      "EnumNodes": []
+    },
+    {
+      "Id": "020822bd-7d3a-4c0f-1be4-325ef1aa52b4",
+      "Text": "Disposed",
+      "Name": "Disposed",
+      "HasChildren": false,
+      "Ordinal": 6.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "6e3af0fb-38ee-a227-536d-4fcd26506854",
+      "Text": "In Stock",
+      "Name": "In Stock",
+      "HasChildren": false,
+      "Ordinal": 2.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "f7b4fafd-063b-8213-81b9-efc149150ca5",
+      "Text": "In Stock (Configured)",
+      "Name": "In Stock (Configured)",
+      "HasChildren": false,
+      "Ordinal": 2.5,
+      "EnumNodes": []
+    },
+    {
+      "Id": "65236342-1385-0f28-d40a-f49927749b40",
+      "Text": "Live (Line)",
+      "Name": "Live (Line)",
+      "HasChildren": false,
+      "Ordinal": 10.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "48607c47-bbcf-71bd-ed24-3ad99d6e50b1",
+      "Text": "Loaned",
+      "Name": "Loaned",
+      "HasChildren": false,
+      "Ordinal": 4.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "020f5305-2f7f-1ea9-99c6-6e6c6e8e9bda",
+      "Text": "Lost",
+      "Name": "Lost",
+      "HasChildren": false,
+      "Ordinal": 4.5,
+      "EnumNodes": []
+    },
+    {
+      "Id": "3dc6ada2-6589-ac6d-66af-8d58b53afbef",
+      "Text": "Not Known",
+      "Name": "Not Known",
+      "HasChildren": false,
+      "Ordinal": 14.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "4a14d49e-f512-1d3a-23cc-2afd6b06e9b1",
+      "Text": "Notice Period (Line)",
+      "Name": "Notice Period (Line)",
+      "HasChildren": false,
+      "Ordinal": 11.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "24354b7b-83d4-701c-c91e-4c97e1e091b0",
+      "Text": "Ordered",
+      "Name": "Ordered",
+      "HasChildren": false,
+      "Ordinal": 0.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "f7509abb-c85a-9ff7-db05-827866313f07",
+      "Text": "Ordered (Line)",
+      "Name": "Ordered (Line)",
+      "HasChildren": false,
+      "Ordinal": 8.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "51d4f57a-b088-2b4b-d50b-e351004d0b67",
+      "Text": "Retired",
+      "Name": "Retired",
+      "HasChildren": false,
+      "Ordinal": 5.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "795fe21f-a4af-7863-4ae5-36a21568a8e7",
+      "Text": "Soft Ceased (Line)",
+      "Name": "Soft Ceased (Line)",
+      "HasChildren": false,
+      "Ordinal": 12.0,
+      "EnumNodes": []
+    },
+    {
+      "Id": "f4f2fe1a-3a12-1070-0f62-fd3246c3a147",
+      "Text": "Stolen",
+      "Name": "Stolen",
+      "HasChildren": false,
+      "Ordinal": 4.75,
+      "EnumNodes": []
+    },
+    {
+      "Id": "4fa83b2f-68e8-1256-da11-0242effd521e",
+      "Text": "Suspended (SIM)",
+      "Name": "Suspended (SIM)",
+      "HasChildren": false,
+      "Ordinal": 6.1875,
+      "EnumNodes": []
+    }
+  ]
+}

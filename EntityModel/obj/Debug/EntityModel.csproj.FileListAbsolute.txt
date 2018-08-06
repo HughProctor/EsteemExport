@@ -1,8 +1,0 @@
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\obj\Debug\EntityModel.csproj.CoreCompileInputs.cache
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\bin\Debug\EntityModel.dll
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\bin\Debug\EntityModel.pdb
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\obj\Debug\EntityModel.dll
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\obj\Debug\EntityModel.pdb
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\bin\Debug\EntityModel.dll.config
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\bin\Debug\App.config
-C:\Users\proctorh\source\repos\Tesseract_Extract\EntityModel\obj\Debug\EntityModel.csprojAssemblyReference.cache

@@ -32,6 +32,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "__DataExtracts", "__DataExt
 		__DataExtracts\ExtractData_SCPart_00_NEWITEM_ALL.json = __DataExtracts\ExtractData_SCPart_00_NEWITEM_ALL.json
 		__DataExtracts\ExtractData_SCPart_00_NEWITEM_ALL_MANU.json = __DataExtracts\ExtractData_SCPart_00_NEWITEM_ALL_MANU.json
 		__DataExtracts\ExtractData_SCPart_00_NEWITEM_ALL_NO_MANU.json = __DataExtracts\ExtractData_SCPart_00_NEWITEM_ALL_NO_MANU.json
+		__DataExtracts\ExtractData_SCPart_00_Ordered_DescCode.json = __DataExtracts\ExtractData_SCPart_00_Ordered_DescCode.json
+		__DataExtracts\ExtractData_SCPart_00_Ordered_DescCode_Manufacturer.json = __DataExtracts\ExtractData_SCPart_00_Ordered_DescCode_Manufacturer.json
+		__DataExtracts\ExtractData_SCPart_00_Ordered_DescCode_No_Manufacturer.json = __DataExtracts\ExtractData_SCPart_00_Ordered_DescCode_No_Manufacturer.json
+		__DataExtracts\ExtractData_SCPart_00_Ordered_DescCode_Original.json = __DataExtracts\ExtractData_SCPart_00_Ordered_DescCode_Original.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04_Infrastructure", "04_Infrastructure", "{0DC787FA-F26C-4F52-900B-E173BAAA8F9C}"

@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="BAM_API_Tests\BAM_API_Authentication_Tests.cs" />
     <Compile Include="BAM_API_Tests\BaseTestClient.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Models\BAM\BAM_Article.cs" />
     <Compile Include="Models\BAM\BAM_ArticleCategory.cs" />
     <Compile Include="Models\BAM\BAM_Config.cs" />

@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-09-26T00:00:00",
+  "EndDate": "2017-09-27T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-008-NEW",
+      "Audit_Prod_Desc": "TARGUS DRIFTER 14\" BACKPACK",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-09-26T14:54:17",
+      "Audit_Move_Date": "2017-09-26T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-008-NEW",
+      "Audit_Prod_Desc": "TARGUS DRIFTER 14\" BACKPACK",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-09-26T15:03:24",
+      "Audit_Move_Date": "2017-09-26T00:00:00"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "StartDate": "2018-03-13T00:00:00",
+  "EndDate": "2018-03-14T00:00:00",
+  "RecordCount": 8,
+  "Data": [
+    {
+      "Audit_Ser_Num": "5CG80936ZV",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:00",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG80936VD",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:01",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG80937R3",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:02",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG80936TN",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:03",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG80936V7",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:05",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG80936TT",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:06",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG80936V2",
+      "Audit_Part_Num": "BNL-840G3-NEW",
+      "Audit_Prod_Desc": "BNL HP 840G3 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681955",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-13T10:00:09",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-741727-001",
+      "Audit_Prod_Desc": "HP 45W 19.5V 2.31A 4.5MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-03-13T16:41:01",
+      "Audit_Move_Date": "2018-03-13T00:00:00"
+    }
+  ]
+}

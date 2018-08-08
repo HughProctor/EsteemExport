@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-02-15T00:00:00",
+  "EndDate": "2017-02-16T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KBD-MOU-BL",
+      "Audit_Prod_Desc": "USB KBD & MOUSE",
+      "Audit_Prod_Desc_Alt": "KBDCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-02-15T13:37:18",
+      "Audit_Move_Date": "2017-02-15T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "L-003345/CNU415B2RS",
+      "Audit_Part_Num": "BNL-9470M",
+      "Audit_Prod_Desc": "HP 9470M ELITEBOOK MOB WORKSTA",
+      "Audit_Prod_Desc_Alt": "NOBHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2017-02-15T17:59:06",
+      "Audit_Move_Date": "2017-02-15T00:00:00"
+    }
+  ]
+}

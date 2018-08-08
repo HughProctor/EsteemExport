@@ -46,21 +46,6 @@ namespace EntityModel
                     }
                 }
                 return _manufacturer;
-                //Asset_Desc_Code_Split.Where(t2 => TestData.GetManufacturers().Any(t1 => t2.Contains(t1.Code))).FirstOrDefault()
-                //    return "Hewlet Packard (HP)";
-                //else if (Asset_Desc_Code_Split.Contains("DELL"))
-                //    return "Dell (DELL)";
-                //else if (Asset_Desc_Code_Split.Contains("IBM"))
-                //    return "IBM (IBM)";
-                //else if (Asset_Desc_Code_Split.Contains("LEN"))
-                //    return "Lenovo (LEN)";
-                //else if (Asset_Desc_Code_Split.Contains("ACER"))
-                //    return "ACER (ACER)";
-                //else if (Asset_Desc_Code_Split.Contains("DIG"))
-                //    return "DigiPos";
-                //else if (Asset_Desc_Code_Split.Contains("J2X"))
-                //    return "J2 Retailing (J2X)";
-                //else return "";
             }
         }
         public string Model { get; set; }

@@ -1,0 +1,46 @@
+{
+  "StartDate": "2017-02-13T00:00:00",
+  "EndDate": "2017-02-14T00:00:00",
+  "RecordCount": 3,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-02-13T14:42:18",
+      "Audit_Move_Date": "2017-02-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-007-NEW",
+      "Audit_Prod_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-02-13T14:48:34",
+      "Audit_Move_Date": "2017-02-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-PWR-005",
+      "Audit_Prod_Desc": "CLOVER IEC MAINS LEAD 2M",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-02-13T14:54:41",
+      "Audit_Move_Date": "2017-02-13T00:00:00"
+    }
+  ]
+}

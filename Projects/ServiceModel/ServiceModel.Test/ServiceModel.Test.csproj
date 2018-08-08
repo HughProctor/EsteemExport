@@ -72,14 +72,6 @@
   <ItemGroup>
     <Compile Include="BAM_API_Tests\BAM_API_Authentication_Tests.cs" />
     <Compile Include="BAM_API_Tests\BaseTestClient.cs" />
-    <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Models\BAM\BAM_Article.cs" />
-    <Compile Include="Models\BAM\BAM_ArticleCategory.cs" />
-    <Compile Include="Models\BAM\BAM_Config.cs" />
-    <Compile Include="Models\BAM\BAM_Enum.cs" />
-    <Compile Include="Models\BAM\BAM_HardwareTemplate.cs" />
-    <Compile Include="Models\BAM\BAM_User.cs" />
-    <Compile Include="Models\BAM\BAM_TemplateClass.cs" />
     <Compile Include="ProjectionTemplate.cs" />
     <Compile Include="TransactionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +87,10 @@
     <Content Include="Temp.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ServiceModel\ServiceModel.csproj">
+      <Project>{ad7f470e-51d3-4bad-a663-d8afae8de24e}</Project>
+      <Name>ServiceModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
       <Project>{66E4081A-8098-4755-8DC5-B1D1218E76DB}</Project>
       <Name>Infrastructure</Name>

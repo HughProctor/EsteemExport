@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-09-12T00:00:00",
+  "EndDate": "2017-09-13T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-741727-001",
+      "Audit_Prod_Desc": "HP 45W 19.5V 2.31A 4.5MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2017-09-12T11:35:56",
+      "Audit_Move_Date": "2017-09-12T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-741727-001",
+      "Audit_Prod_Desc": "HP 45W 19.5V 2.31A 4.5MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2017-09-12T11:28:03",
+      "Audit_Move_Date": "2017-09-12T00:00:00"
+    }
+  ]
+}

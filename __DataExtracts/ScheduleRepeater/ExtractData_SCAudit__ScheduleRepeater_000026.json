@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-01-26T00:00:00",
+  "EndDate": "2017-01-27T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "1871989328",
+      "Audit_Part_Num": "BNL-R9861017EU",
+      "Audit_Prod_Desc": "OTH BAR CLICKSHARE MEETING SET",
+      "Audit_Prod_Desc_Alt": "OTHBAR",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-26T14:16:32",
+      "Audit_Move_Date": "2017-01-26T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-LOG960-000983",
+      "Audit_Prod_Desc": "OTH LOG CONFERENCE CAM CC3000E",
+      "Audit_Prod_Desc_Alt": "OTCLOG",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-26T14:17:54",
+      "Audit_Move_Date": "2017-01-26T00:00:00"
+    }
+  ]
+}

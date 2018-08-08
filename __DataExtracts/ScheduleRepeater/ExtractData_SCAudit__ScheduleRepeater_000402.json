@@ -1,0 +1,72 @@
+{
+  "StartDate": "2018-02-06T00:00:00",
+  "EndDate": "2018-02-07T00:00:00",
+  "RecordCount": 5,
+  "Data": [
+    {
+      "Audit_Ser_Num": "9CT7450110",
+      "Audit_Part_Num": "BNL-N4E85AV",
+      "Audit_Prod_Desc": "TAC HPX KEYBOARD TOUCHPAD",
+      "Audit_Prod_Desc_Alt": "TACHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2018-02-06T11:06:43",
+      "Audit_Move_Date": "2018-02-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "TIPS12",
+      "Audit_Part_Num": "BNL-914305-001",
+      "Audit_Prod_Desc": "NOP HPX ACTIVE PEN TIPS X3",
+      "Audit_Prod_Desc_Alt": "NOPHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2018-02-06T11:08:58",
+      "Audit_Move_Date": "2018-02-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-213351-010",
+      "Audit_Prod_Desc": "NOP HPX POWER CORD 18 AWG 0.5M",
+      "Audit_Prod_Desc_Alt": "NOPHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2018-02-06T11:09:35",
+      "Audit_Move_Date": "2018-02-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "PSU12",
+      "Audit_Part_Num": "BNL-828769-001",
+      "Audit_Prod_Desc": "NOP HPX AC ADAPTER 45W 5V 2A",
+      "Audit_Prod_Desc_Alt": "NOPHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2018-02-06T11:11:09",
+      "Audit_Move_Date": "2018-02-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "9CR746177G",
+      "Audit_Part_Num": "BNL-P5Q63AV",
+      "Audit_Prod_Desc": "NOP HPX ACTIVE PEN",
+      "Audit_Prod_Desc_Alt": "NOPHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2018-02-06T11:11:23",
+      "Audit_Move_Date": "2018-02-06T00:00:00"
+    }
+  ]
+}

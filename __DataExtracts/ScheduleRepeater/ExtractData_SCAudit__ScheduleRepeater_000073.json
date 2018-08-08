@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-03-14T00:00:00",
+  "EndDate": "2017-03-15T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "BAM-L-004171/8CG50101LV",
+      "Audit_Part_Num": "BNL-1040G1",
+      "Audit_Prod_Desc": "HP ELITEBOOK 1040 G1",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-03-14T16:10:19",
+      "Audit_Move_Date": "2017-03-14T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-609939-001",
+      "Audit_Prod_Desc": "HP AC PSU",
+      "Audit_Prod_Desc_Alt": "NOPCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-03-14T16:08:58",
+      "Audit_Move_Date": "2017-03-14T00:00:00"
+    }
+  ]
+}

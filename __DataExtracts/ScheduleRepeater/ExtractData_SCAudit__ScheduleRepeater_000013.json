@@ -1,0 +1,72 @@
+{
+  "StartDate": "2017-01-13T00:00:00",
+  "EndDate": "2017-01-14T00:00:00",
+  "RecordCount": 5,
+  "Data": [
+    {
+      "Audit_Ser_Num": "CND70109XP",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-661980",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-01-13T09:16:37",
+      "Audit_Move_Date": "2017-01-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND70109XN",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-661980",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-01-13T09:16:43",
+      "Audit_Move_Date": "2017-01-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND70109XM",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-661980",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-01-13T09:16:44",
+      "Audit_Move_Date": "2017-01-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND70109XQ",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-661980",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-01-13T09:17:49",
+      "Audit_Move_Date": "2017-01-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND70109XL",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-661980",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-01-13T09:17:52",
+      "Audit_Move_Date": "2017-01-13T00:00:00"
+    }
+  ]
+}

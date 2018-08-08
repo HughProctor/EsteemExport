@@ -1,0 +1,46 @@
+{
+  "StartDate": "2017-07-24T00:00:00",
+  "EndDate": "2017-07-25T00:00:00",
+  "RecordCount": 3,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-007-NEW",
+      "Audit_Prod_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-24T11:08:36",
+      "Audit_Move_Date": "2017-07-24T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "T-000142/DMPMQTWKF4YD",
+      "Audit_Part_Num": "BNL-IPAD-AIR",
+      "Audit_Prod_Desc": "IPAD AIR 16GB GREY",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-24T11:31:30",
+      "Audit_Move_Date": "2017-07-24T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-011",
+      "Audit_Prod_Desc": "GRIFFIN SURVIVOR IPAD AIR BLK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-24T12:22:04",
+      "Audit_Move_Date": "2017-07-24T00:00:00"
+    }
+  ]
+}

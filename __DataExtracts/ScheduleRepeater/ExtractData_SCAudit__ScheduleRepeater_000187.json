@@ -1,0 +1,72 @@
+{
+  "StartDate": "2017-07-06T00:00:00",
+  "EndDate": "2017-07-07T00:00:00",
+  "RecordCount": 5,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-07-06T13:06:38",
+      "Audit_Move_Date": "2017-07-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-PWR-001",
+      "Audit_Prod_Desc": "MAINS LEAD 2M",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-07-06T13:13:51",
+      "Audit_Move_Date": "2017-07-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-PWR-005",
+      "Audit_Prod_Desc": "CLOVER IEC MAINS LEAD 2M",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-07-06T13:13:55",
+      "Audit_Move_Date": "2017-07-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-07-06T11:35:39",
+      "Audit_Move_Date": "2017-07-06T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-07-06T11:25:29",
+      "Audit_Move_Date": "2017-07-06T00:00:00"
+    }
+  ]
+}

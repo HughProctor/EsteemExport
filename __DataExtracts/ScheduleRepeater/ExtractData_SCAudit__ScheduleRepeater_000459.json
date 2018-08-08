@@ -1,0 +1,20 @@
+{
+  "StartDate": "2018-04-04T00:00:00",
+  "EndDate": "2018-04-05T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "SGCGVT3T0HP62",
+      "Audit_Part_Num": "BNL-IPAD5-NEW",
+      "Audit_Prod_Desc": "IPAD 5 32GB SPACE GREY",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-678850",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-04-04T15:39:17",
+      "Audit_Move_Date": "2018-04-04T00:00:00"
+    }
+  ]
+}

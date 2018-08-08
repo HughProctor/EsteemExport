@@ -1,0 +1,46 @@
+{
+  "StartDate": "2017-05-25T00:00:00",
+  "EndDate": "2017-05-26T00:00:00",
+  "RecordCount": 3,
+  "Data": [
+    {
+      "Audit_Ser_Num": "CN33BX51QJ",
+      "Audit_Part_Num": "BNL-JE009A",
+      "Audit_Prod_Desc": "HP PROCURVE 1910-24G 24PORT",
+      "Audit_Prod_Desc_Alt": "NETHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-25T12:53:14",
+      "Audit_Move_Date": "2017-05-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CN30BX5341",
+      "Audit_Part_Num": "BNL-JE009A",
+      "Audit_Prod_Desc": "HP PROCURVE 1910-24G 24PORT",
+      "Audit_Prod_Desc_Alt": "NETHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-25T12:52:59",
+      "Audit_Move_Date": "2017-05-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "40068850800766",
+      "Audit_Part_Num": "BNL-TS3400D",
+      "Audit_Prod_Desc": "BUFFALO 4 BAY NAS",
+      "Audit_Prod_Desc_Alt": "NETQNA",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-25T12:53:38",
+      "Audit_Move_Date": "2017-05-25T00:00:00"
+    }
+  ]
+}

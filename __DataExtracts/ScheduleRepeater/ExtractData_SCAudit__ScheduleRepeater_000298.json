@@ -1,0 +1,20 @@
+{
+  "StartDate": "2017-10-25T00:00:00",
+  "EndDate": "2017-10-26T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-STRAP-011-NEW",
+      "Audit_Prod_Desc": "OTTERBOX AIR/2 STRAP",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-10-25T10:51:57",
+      "Audit_Move_Date": "2017-10-25T00:00:00"
+    }
+  ]
+}

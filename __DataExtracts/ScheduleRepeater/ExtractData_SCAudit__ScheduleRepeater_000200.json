@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-07-19T00:00:00",
+  "EndDate": "2017-07-20T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-19T15:45:55",
+      "Audit_Move_Date": "2017-07-19T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KBD-MOU-BL",
+      "Audit_Prod_Desc": "USB KBD & MOUSE",
+      "Audit_Prod_Desc_Alt": "KBDCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-19T15:55:34",
+      "Audit_Move_Date": "2017-07-19T00:00:00"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
-using ServiceModel.Test.Models.BAM;
+using ServiceModel.Models.BAM;
 
 namespace ServiceModel.Test.BAM_API_Tests
 {

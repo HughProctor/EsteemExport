@@ -1,0 +1,20 @@
+{
+  "StartDate": "2018-04-19T00:00:00",
+  "EndDate": "2018-04-20T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-741727-001",
+      "Audit_Prod_Desc": "HP 45W 19.5V 2.31A 4.5MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-04-19T15:09:31",
+      "Audit_Move_Date": "2018-04-19T00:00:00"
+    }
+  ]
+}

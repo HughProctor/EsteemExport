@@ -1,0 +1,59 @@
+{
+  "StartDate": "2017-05-31T00:00:00",
+  "EndDate": "2017-06-01T00:00:00",
+  "RecordCount": 4,
+  "Data": [
+    {
+      "Audit_Ser_Num": "L-001036/5CB24904VY",
+      "Audit_Part_Num": "BNL-6570B-NEW",
+      "Audit_Prod_Desc": "HP 6570B i5 4GB 500GB LAPTOP",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-31T15:30:59",
+      "Audit_Move_Date": "2017-05-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CNT210Q3PV",
+      "Audit_Part_Num": "BNL-MON-TFT-22-WS",
+      "Audit_Prod_Desc": "BAM NUTTAL 22\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-31T15:30:00",
+      "Audit_Move_Date": "2017-05-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "L-003366/5CG5482XDZ",
+      "Audit_Part_Num": "BNL-G8R97AV",
+      "Audit_Prod_Desc": "*** USE BNL-840G2 ***",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-31T15:30:33",
+      "Audit_Move_Date": "2017-05-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-006-NEW",
+      "Audit_Prod_Desc": "CLONE 17\" LAPTOP RUCKSACK BAG",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-31T15:31:10",
+      "Audit_Move_Date": "2017-05-31T00:00:00"
+    }
+  ]
+}

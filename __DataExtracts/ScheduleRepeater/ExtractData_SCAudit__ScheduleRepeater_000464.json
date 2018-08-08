@@ -1,0 +1,85 @@
+{
+  "StartDate": "2018-04-09T00:00:00",
+  "EndDate": "2018-04-10T00:00:00",
+  "RecordCount": 6,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-04-09T13:48:39",
+      "Audit_Move_Date": "2018-04-09T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KBD-MOU-BL",
+      "Audit_Prod_Desc": "USB KBD & MOUSE",
+      "Audit_Prod_Desc_Alt": "KBDCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-04-09T13:59:10",
+      "Audit_Move_Date": "2018-04-09T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-741727-001",
+      "Audit_Prod_Desc": "HP 45W 19.5V 2.31A 4.5MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-04-09T15:43:30",
+      "Audit_Move_Date": "2018-04-09T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-006-NEW",
+      "Audit_Prod_Desc": "CLONE 17\" LAPTOP RUCKSACK BAG",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-04-09T15:21:29",
+      "Audit_Move_Date": "2018-04-09T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-04-09T15:27:40",
+      "Audit_Move_Date": "2018-04-09T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KBD-MOU-BL",
+      "Audit_Prod_Desc": "USB KBD & MOUSE",
+      "Audit_Prod_Desc_Alt": "KBDCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-04-09T15:25:23",
+      "Audit_Move_Date": "2018-04-09T00:00:00"
+    }
+  ]
+}

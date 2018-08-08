@@ -1,0 +1,20 @@
+{
+  "StartDate": "2017-07-25T00:00:00",
+  "EndDate": "2017-07-26T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-008-NEW",
+      "Audit_Prod_Desc": "TARGUS DRIFTER 14\" BACKPACK",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-25T16:03:28",
+      "Audit_Move_Date": "2017-07-25T00:00:00"
+    }
+  ]
+}

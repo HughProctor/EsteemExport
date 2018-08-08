@@ -1,0 +1,20 @@
+{
+  "StartDate": "2018-03-26T00:00:00",
+  "EndDate": "2018-03-27T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-007-NEW",
+      "Audit_Prod_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-03-26T16:13:19",
+      "Audit_Move_Date": "2018-03-26T00:00:00"
+    }
+  ]
+}

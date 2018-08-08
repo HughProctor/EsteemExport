@@ -1,0 +1,33 @@
+{
+  "StartDate": "2018-03-02T00:00:00",
+  "EndDate": "2018-03-03T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "5CG808147Y",
+      "Audit_Part_Num": "BNL-1030G2-360-NEW",
+      "Audit_Prod_Desc": "BNL HP 1030G2 X360 ELITEBOOK",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681316",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-02T13:23:52",
+      "Audit_Move_Date": "2018-03-02T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "5CG8082HNP",
+      "Audit_Part_Num": "BNL-ZBOOK15U-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 15U G3 MOBILE WSTA",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-681316",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2018-03-02T13:28:11",
+      "Audit_Move_Date": "2018-03-02T00:00:00"
+    }
+  ]
+}

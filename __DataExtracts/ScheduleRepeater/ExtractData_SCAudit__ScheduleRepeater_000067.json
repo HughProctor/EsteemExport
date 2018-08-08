@@ -1,0 +1,46 @@
+{
+  "StartDate": "2017-03-08T00:00:00",
+  "EndDate": "2017-03-09T00:00:00",
+  "RecordCount": 3,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "",
+      "Audit_Last_Update": "2017-03-08T18:03:37",
+      "Audit_Move_Date": "2017-03-08T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-03-08T18:08:42",
+      "Audit_Move_Date": "2017-03-08T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-006-NEW",
+      "Audit_Prod_Desc": "CLONE 17\" LAPTOP RUCKSACK BAG",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-03-08T18:15:20",
+      "Audit_Move_Date": "2017-03-08T00:00:00"
+    }
+  ]
+}

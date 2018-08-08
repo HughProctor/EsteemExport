@@ -1,0 +1,20 @@
+{
+  "StartDate": "2018-02-15T00:00:00",
+  "EndDate": "2018-02-16T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-014-NEW",
+      "Audit_Prod_Desc": "GRIFFIN MINI4 CASE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2018-02-15T12:00:32",
+      "Audit_Move_Date": "2018-02-15T00:00:00"
+    }
+  ]
+}

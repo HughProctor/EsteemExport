@@ -1,0 +1,111 @@
+{
+  "StartDate": "2017-10-20T00:00:00",
+  "EndDate": "2017-10-21T00:00:00",
+  "RecordCount": 8,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-014-NEW",
+      "Audit_Prod_Desc": "GRIFFIN MINI4 CASE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-10-20T14:20:19",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-015-NEW",
+      "Audit_Prod_Desc": "GRIFFIN IPAD AIR/2 5TH",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-10-20T14:23:10",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-609940-001",
+      "Audit_Prod_Desc": "HP 6730B/DOCKING STATION PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-10-20T15:16:36",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-693711-001",
+      "Audit_Prod_Desc": "HP 65W 19.5V 3.33A LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-10-20T15:16:46",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-693712-001",
+      "Audit_Prod_Desc": "HP 90W 19.5V 4.62A 7.4MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-10-20T15:16:53",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-609939-001",
+      "Audit_Prod_Desc": "HP AC PSU",
+      "Audit_Prod_Desc_Alt": "NOPCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-10-20T15:17:04",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-STRAP-010-NEW",
+      "Audit_Prod_Desc": "OTTERBOX MINI/4 STRAP",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-10-20T14:38:04",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CNU317XMRG",
+      "Audit_Part_Num": "BNL-A7E32",
+      "Audit_Prod_Desc": "HP 2012 90W DOCKING STATION",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-10-20T13:40:23",
+      "Audit_Move_Date": "2017-10-20T00:00:00"
+    }
+  ]
+}

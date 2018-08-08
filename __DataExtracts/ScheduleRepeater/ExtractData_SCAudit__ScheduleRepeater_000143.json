@@ -1,0 +1,20 @@
+{
+  "StartDate": "2017-05-23T00:00:00",
+  "EndDate": "2017-05-24T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "WACLQ01BMYI15W",
+      "Audit_Part_Num": "BNL-463958-001",
+      "Audit_Prod_Desc": "HP 6715 AC ADAPTER",
+      "Audit_Prod_Desc_Alt": "CPTHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-23T16:17:04",
+      "Audit_Move_Date": "2017-05-23T00:00:00"
+    }
+  ]
+}

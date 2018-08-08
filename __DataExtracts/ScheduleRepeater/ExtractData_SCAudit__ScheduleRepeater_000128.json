@@ -1,0 +1,46 @@
+{
+  "StartDate": "2017-05-08T00:00:00",
+  "EndDate": "2017-05-09T00:00:00",
+  "RecordCount": 3,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-08T12:55:19",
+      "Audit_Move_Date": "2017-05-08T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-VID-003",
+      "Audit_Prod_Desc": "DB15M - 15M VGA VIDEO CABLE",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-08T13:01:09",
+      "Audit_Move_Date": "2017-05-08T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-PWR-005",
+      "Audit_Prod_Desc": "CLOVER IEC MAINS LEAD 2M",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-08T13:08:50",
+      "Audit_Move_Date": "2017-05-08T00:00:00"
+    }
+  ]
+}

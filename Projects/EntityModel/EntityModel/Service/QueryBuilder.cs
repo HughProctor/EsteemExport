@@ -35,6 +35,7 @@ namespace EntityModel.Service
             UseQueryBuilder = true;
             PageCount = 100;
             SkipCount = DateRange = TimeRange = 0;
+            EndDateInclusive = false;
             StartDate = EndDate = new DateTime();
             EndDateInclusive = true;
         }

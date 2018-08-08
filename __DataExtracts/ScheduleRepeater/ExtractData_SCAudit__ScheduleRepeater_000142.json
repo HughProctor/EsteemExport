@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-05-22T00:00:00",
+  "EndDate": "2017-05-23T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "CN47100X2W",
+      "Audit_Part_Num": "BNL-MON-TFT-23-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 23\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-22T13:55:35",
+      "Audit_Move_Date": "2017-05-22T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CN47100X36",
+      "Audit_Part_Num": "BNL-MON-TFT-23-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 23\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-22T13:55:37",
+      "Audit_Move_Date": "2017-05-22T00:00:00"
+    }
+  ]
+}

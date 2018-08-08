@@ -1,0 +1,98 @@
+{
+  "StartDate": "2017-01-25T00:00:00",
+  "EndDate": "2017-01-26T00:00:00",
+  "RecordCount": 7,
+  "Data": [
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300TY",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:11:51",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300U0",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:11:54",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300U1",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:12:02",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300U2",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:13:41",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300TX",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:13:45",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300V0",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:13:53",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "WCNVN0EHH300U4",
+      "Audit_Part_Num": "BNL-693708-001",
+      "Audit_Prod_Desc": "HP LAPTOP PSU",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-01-25T14:14:00",
+      "Audit_Move_Date": "2017-01-25T00:00:00"
+    }
+  ]
+}

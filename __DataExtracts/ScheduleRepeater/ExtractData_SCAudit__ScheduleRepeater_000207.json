@@ -1,0 +1,72 @@
+{
+  "StartDate": "2017-07-26T00:00:00",
+  "EndDate": "2017-07-27T00:00:00",
+  "RecordCount": 5,
+  "Data": [
+    {
+      "Audit_Ser_Num": "1650LZ0JHLQ9",
+      "Audit_Part_Num": "BNL-LOG960-001057",
+      "Audit_Prod_Desc": "OTH LOG CONFERENCE CAMERA",
+      "Audit_Prod_Desc_Alt": "OTCLOG",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-26T14:22:00",
+      "Audit_Move_Date": "2017-07-26T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1650LZ0JHLP9",
+      "Audit_Part_Num": "BNL-LOG960-001057",
+      "Audit_Prod_Desc": "OTH LOG CONFERENCE CAMERA",
+      "Audit_Prod_Desc_Alt": "OTCLOG",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-26T14:22:01",
+      "Audit_Move_Date": "2017-07-26T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1650LZ0JHMQ9",
+      "Audit_Part_Num": "BNL-LOG960-001057",
+      "Audit_Prod_Desc": "OTH LOG CONFERENCE CAMERA",
+      "Audit_Prod_Desc_Alt": "OTCLOG",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-26T14:22:03",
+      "Audit_Move_Date": "2017-07-26T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1650LZ0JHM09",
+      "Audit_Part_Num": "BNL-LOG960-001057",
+      "Audit_Prod_Desc": "OTH LOG CONFERENCE CAMERA",
+      "Audit_Prod_Desc_Alt": "OTCLOG",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-26T14:22:09",
+      "Audit_Move_Date": "2017-07-26T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1650LZ0JHM89",
+      "Audit_Part_Num": "BNL-LOG960-001057",
+      "Audit_Prod_Desc": "OTH LOG CONFERENCE CAMERA",
+      "Audit_Prod_Desc_Alt": "OTCLOG",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-07-26T14:22:11",
+      "Audit_Move_Date": "2017-07-26T00:00:00"
+    }
+  ]
+}

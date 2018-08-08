@@ -1,0 +1,20 @@
+{
+  "StartDate": "2017-07-27T00:00:00",
+  "EndDate": "2017-07-28T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-015-NEW",
+      "Audit_Prod_Desc": "GRIFFIN IPAD AIR/2 5TH",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-07-27T13:07:09",
+      "Audit_Move_Date": "2017-07-27T00:00:00"
+    }
+  ]
+}

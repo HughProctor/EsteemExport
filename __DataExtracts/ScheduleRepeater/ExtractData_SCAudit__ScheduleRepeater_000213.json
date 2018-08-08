@@ -1,0 +1,85 @@
+{
+  "StartDate": "2017-08-01T00:00:00",
+  "EndDate": "2017-08-02T00:00:00",
+  "RecordCount": 6,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-R9861500T01",
+      "Audit_Prod_Desc": "OTH BAR CLICKSHARE TRAY",
+      "Audit_Prod_Desc_Alt": "OTHBAR",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-01T14:49:37",
+      "Audit_Move_Date": "2017-08-01T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1872165169",
+      "Audit_Part_Num": "BNL-R9861520EU",
+      "Audit_Prod_Desc": "CLICKSHARE CSE-200",
+      "Audit_Prod_Desc_Alt": "NETNET",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-01T14:51:55",
+      "Audit_Move_Date": "2017-08-01T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1872165171",
+      "Audit_Part_Num": "BNL-R9861520EU",
+      "Audit_Prod_Desc": "CLICKSHARE CSE-200",
+      "Audit_Prod_Desc_Alt": "NETNET",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-01T14:51:57",
+      "Audit_Move_Date": "2017-08-01T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1872165189",
+      "Audit_Part_Num": "BNL-R9861520EU",
+      "Audit_Prod_Desc": "CLICKSHARE CSE-200",
+      "Audit_Prod_Desc_Alt": "NETNET",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-01T14:51:58",
+      "Audit_Move_Date": "2017-08-01T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1872165188",
+      "Audit_Part_Num": "BNL-R9861520EU",
+      "Audit_Prod_Desc": "CLICKSHARE CSE-200",
+      "Audit_Prod_Desc_Alt": "NETNET",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-01T14:52:05",
+      "Audit_Move_Date": "2017-08-01T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "1872165164",
+      "Audit_Part_Num": "BNL-R9861520EU",
+      "Audit_Prod_Desc": "CLICKSHARE CSE-200",
+      "Audit_Prod_Desc_Alt": "NETNET",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-01T14:52:10",
+      "Audit_Move_Date": "2017-08-01T00:00:00"
+    }
+  ]
+}

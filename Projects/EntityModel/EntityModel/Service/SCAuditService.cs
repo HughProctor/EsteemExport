@@ -37,7 +37,7 @@ namespace EntityModel.Service
                 "[Audit_Move_Date] AS [MOVE_DATE], " +
                 "[Audit_Last_Update] AS [UPDATE_DATE] " +
                 "FROM [SCAudit] (NOLOCK) ";
-            QueryStringJoin = "LEFT OUTER JOIN [SCPart] ON [Audit_Part_Num] = [Part_Num] ";
+            QueryStringJoin = "FULL OUTER JOIN [SCPart] ON [Audit_Part_Num] = [Part_Num] ";
             QueryString = QueryString + QueryStringJoin;
 
             //if (string.IsNullOrEmpty(WhereExpression))

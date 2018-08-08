@@ -1,0 +1,33 @@
+{
+  "StartDate": "2017-09-15T00:00:00",
+  "EndDate": "2017-09-16T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Ser_Num": "CND7358NP4",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2017-09-15T14:30:59",
+      "Audit_Move_Date": "2017-09-15T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7358NP3",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2017-09-15T14:31:00",
+      "Audit_Move_Date": "2017-09-15T00:00:00"
+    }
+  ]
+}

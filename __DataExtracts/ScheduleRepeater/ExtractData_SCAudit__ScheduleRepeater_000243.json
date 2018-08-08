@@ -1,0 +1,85 @@
+{
+  "StartDate": "2017-08-31T00:00:00",
+  "EndDate": "2017-09-01T00:00:00",
+  "RecordCount": 6,
+  "Data": [
+    {
+      "Audit_Ser_Num": "CN47190V9P",
+      "Audit_Part_Num": "BNL-MON-TFT-24-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-31T16:29:03",
+      "Audit_Move_Date": "2017-08-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CN47181B1Q",
+      "Audit_Part_Num": "BNL-MON-TFT-24-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-31T16:29:21",
+      "Audit_Move_Date": "2017-08-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CN47190V9T",
+      "Audit_Part_Num": "BNL-MON-TFT-24-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-31T16:29:23",
+      "Audit_Move_Date": "2017-08-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CN47190VB5",
+      "Audit_Part_Num": "BNL-MON-TFT-24-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-31T16:29:24",
+      "Audit_Move_Date": "2017-08-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7220DCN",
+      "Audit_Part_Num": "BNL-P5Q61-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 200W TH BOLT 3 DOCK",
+      "Audit_Prod_Desc_Alt": "NOPHEX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-31T16:36:03",
+      "Audit_Move_Date": "2017-08-31T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7232ZFC",
+      "Audit_Part_Num": "BNL-P5Q61-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 200W TH BOLT 3 DOCK",
+      "Audit_Prod_Desc_Alt": "NOPHEX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-673539",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-31T16:36:05",
+      "Audit_Move_Date": "2017-08-31T00:00:00"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "StartDate": "2017-05-17T00:00:00",
+  "EndDate": "2017-05-18T00:00:00",
+  "RecordCount": 5,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-PWR-033",
+      "Audit_Prod_Desc": "CAB CLO 3M 8 WAY GANG PLUG",
+      "Audit_Prod_Desc_Alt": "CABCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-17T12:25:37",
+      "Audit_Move_Date": "2017-05-17T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-17T13:36:34",
+      "Audit_Move_Date": "2017-05-17T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-17T13:39:00",
+      "Audit_Move_Date": "2017-05-17T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-17T13:42:11",
+      "Audit_Move_Date": "2017-05-17T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CAB-NET-005",
+      "Audit_Prod_Desc": "3M RJ45 CAT5 CABLE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-17T13:43:58",
+      "Audit_Move_Date": "2017-05-17T00:00:00"
+    }
+  ]
+}

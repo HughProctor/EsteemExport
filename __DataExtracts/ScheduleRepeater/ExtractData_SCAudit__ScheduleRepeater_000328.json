@@ -1,0 +1,46 @@
+{
+  "StartDate": "2017-11-24T00:00:00",
+  "EndDate": "2017-11-25T00:00:00",
+  "RecordCount": 3,
+  "Data": [
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-014-NEW",
+      "Audit_Prod_Desc": "GRIFFIN MINI4 CASE",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-11-24T10:21:24",
+      "Audit_Move_Date": "2017-11-24T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-STRAP-010-NEW",
+      "Audit_Prod_Desc": "OTTERBOX MINI/4 STRAP",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-11-24T10:22:55",
+      "Audit_Move_Date": "2017-11-24T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-010-NEW",
+      "Audit_Prod_Desc": "GRIFFIN SURVIVOR IPAD MINI BLK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CGW",
+      "Audit_Last_Update": "2017-11-24T09:55:14",
+      "Audit_Move_Date": "2017-11-24T00:00:00"
+    }
+  ]
+}

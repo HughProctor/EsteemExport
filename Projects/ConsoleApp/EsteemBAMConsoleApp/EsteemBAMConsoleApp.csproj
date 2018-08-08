@@ -50,10 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ServiceModel\ServiceModel.csproj">
-      <Project>{ad7f470e-51d3-4bad-a663-d8afae8de24e}</Project>
-      <Name>ServiceModel</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\EntityModel\EntityModel\EntityModel.csproj">
       <Project>{6516b7eb-1179-420b-9c3d-eb0861be2254}</Project>
       <Name>EntityModel</Name>

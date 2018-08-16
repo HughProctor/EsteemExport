@@ -35,7 +35,7 @@ namespace EntityModel
             get {
                 if (string.IsNullOrEmpty(_manufacturer))
                 {
-                    var item = TestData.GetManufacturers().Where(t1 => Asset_Desc_Code_Split.Any(t2 => t1.Name?.ToUpper() == t2.ToUpper() || 
+                    var item = ManufacturerModel_Data.GetManufacturers().Where(t1 => Asset_Desc_Code_Split.Any(t2 => t1.Name?.ToUpper() == t2.ToUpper() || 
                         t1.Code?.ToUpper() == t2.ToUpper() || t1.CodeEsteem?.ToUpper() == t2.ToUpper()
                         || t1.CodeEsteemAlt?.ToUpper() == t2.ToUpper()))?.FirstOrDefault();
                     if (item != null)

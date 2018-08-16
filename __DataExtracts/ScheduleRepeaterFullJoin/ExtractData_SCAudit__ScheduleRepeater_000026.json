@@ -4,6 +4,25 @@
   "RecordCount": 2,
   "Data": [
     {
+      "Audit_Part_Num_New": "R9861017EU",
+      "Asset_Desc": "OTH BAR CLICKSHARE MEETING SET",
+      "Asset_Desc_Code": "OTHBAR",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "BAR",
+      "Asset_Desc_Code_Split": [
+        "OTH",
+        "BAR",
+        "CLICKSHARE",
+        "MEETING",
+        "SET"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "1871989328",
+      "AssetName": "OTH BAR CLICKSHARE MEETING SET",
+      "DisplayName": "OTH BAR CLICKSHARE MEETING SET",
       "Audit_Ser_Num": "1871989328",
       "Audit_Part_Num": "BNL-R9861017EU",
       "Audit_Prod_Desc": "OTH BAR CLICKSHARE MEETING SET",
@@ -17,6 +36,25 @@
       "Audit_Move_Date": "2017-01-26T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "LOG960-000983",
+      "Asset_Desc": "OTH LOG CONFERENCE CAM CC3000E",
+      "Asset_Desc_Code": "OTCLOG",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTC",
+      "Asset_Desc_Code_Suf": "LOG",
+      "Asset_Desc_Code_Split": [
+        "OTH",
+        "LOG",
+        "CONFERENCE",
+        "CAM",
+        "CC3000E"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "OTH LOG CONFERENCE CAM CC3000E",
+      "DisplayName": "OTH LOG CONFERENCE CAM CC3000E",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-LOG960-000983",
       "Audit_Prod_Desc": "OTH LOG CONFERENCE CAM CC3000E",

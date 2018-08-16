@@ -4,16 +4,16 @@ using System.Linq;
 
 namespace EntityModel.BusinessLogic
 {
-    public class TestData
+    public class ManufacturerModel_Data
     {
-        public static List<string> manufacturerCodes = TestData.GetManufacturers().Select(a => a.Code).ToList();
-        public static List<string> manufacturerNames = TestData.GetManufacturers().Select(a => a.Name.ToUpper()).ToList();
+        public static List<string> manufacturerCodes = GetManufacturers().Select(a => a.Code).ToList();
+        public static List<string> manufacturerNames = GetManufacturers().Select(a => a.Name.ToUpper()).ToList();
 
         public static List<ManufacturerModel> GetManufacturers()
         {
             var returnList = new List<ManufacturerModel>()
             {
-                new ManufacturerModel() { Name = "Hewlet Packard", Code = "HP", CodeEsteem = "HPX", CodeEsteemAlt = "HEW" },
+                new ManufacturerModel() { Name = "Hewlet-Packard", Code = "HP", CodeEsteem = "HPX", CodeEsteemAlt = "HEW" },
                 new ManufacturerModel() { Name = "Dell", Code = "DELL", CodeEsteem = "DEL" },
                 new ManufacturerModel() { Name = "IBM", Code = "IBM", CodeEsteem = "IBM" },
                 new ManufacturerModel() { Name = "Lenovo", Code = "LEN", CodeEsteem = "LEN "},

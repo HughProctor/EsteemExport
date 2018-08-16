@@ -1,0 +1,71 @@
+{
+  "StartDate": "2017-11-01T00:00:00",
+  "EndDate": "2017-11-02T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Asset_Desc": "HP SMART AC ADAPTOR 18.5V 3.5A",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "SMART",
+        "AC",
+        "ADAPTOR",
+        "18.5V",
+        "3.5A"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": null,
+      "AssetName": null,
+      "DisplayName": null,
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-613152-001",
+      "Audit_Prod_Desc": "HP SMART AC ADAPTOR 18.5V 3.5A",
+      "Audit_Prod_Desc_Alt": "PSUHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-01T15:48:04",
+      "Audit_Move_Date": "2017-11-01T00:00:00"
+    },
+    {
+      "Asset_Desc": "HP 90W 19.5V 4.62A 7.4MM PSU",
+      "Asset_Desc_Code": "NOPHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "NOP",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "90W",
+        "19.5V",
+        "4.62A",
+        "7.4MM",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": null,
+      "AssetName": null,
+      "DisplayName": null,
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-693712-001",
+      "Audit_Prod_Desc": "HP 90W 19.5V 4.62A 7.4MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-01T15:48:14",
+      "Audit_Move_Date": "2017-11-01T00:00:00"
+    }
+  ]
+}

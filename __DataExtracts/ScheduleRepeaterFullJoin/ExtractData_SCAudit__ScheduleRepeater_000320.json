@@ -1,0 +1,36 @@
+{
+  "StartDate": "2017-11-16T00:00:00",
+  "EndDate": "2017-11-17T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Asset_Desc": "KENSINGTON SECURTY LOCK",
+      "Asset_Desc_Code": "OTHER",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "ER",
+      "Asset_Desc_Code_Split": [
+        "KENSINGTON",
+        "SECURTY",
+        "LOCK"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": null,
+      "AssetName": null,
+      "DisplayName": null,
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-16T15:16:40",
+      "Audit_Move_Date": "2017-11-16T00:00:00"
+    }
+  ]
+}

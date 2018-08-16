@@ -51,8 +51,10 @@ namespace EntityModel.Test
         [TestMethod]
         public void ExportToJson_All()
         {
-            _startDateTimeString = "01/01/2010";
+            //_startDateTimeString = "01/01/2010";
+            _startDateTimeString = "01/01/2017";
             _endDateTimeString = "30/12/2019";
+
             _sCPartService.PageCount = 10000000;
             var returnList = GetAll_BaseQuery();
 
@@ -65,6 +67,25 @@ namespace EntityModel.Test
             JSON_FileExport.WriteFile(_typePrefix + "00_NEWITEM_ALL", returnList, returnList.Count);
         }
 
+        [TestMethod]
+        public void ExportToJson_All_BNL()
+        {
+            //_startDateTimeString = "01/01/2010";
+            _startDateTimeString = "01/01/2017";
+            _endDateTimeString = "30/12/2019";
+            _sCPartService.WhereExpression = "WHERE [Part_Type] = 'R' AND [PART_DESC] NOT LIKE '%**%' AND [Part_Num] LIKE '%BNL%' ";
+
+            _sCPartService.PageCount = 10000000;
+            var returnList = GetAll_BaseQuery();
+
+            returnList = returnList
+                .Where(x => !x.Asset_Desc.Contains("**"))
+                .OrderBy(x => x.Asset_Desc).ToList();
+
+            Assert.IsTrue(returnList.Any(), "Query didn't return any results");
+
+            JSON_FileExport.WriteFile(_typePrefix + "00_NEWITEM_ALL_BNL", returnList, returnList.Count);
+        }
         [TestMethod]
         public void ExportToJson_Split_HP()
         {

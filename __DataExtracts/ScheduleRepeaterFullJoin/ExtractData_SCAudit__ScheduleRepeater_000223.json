@@ -1,0 +1,38 @@
+{
+  "StartDate": "2017-08-11T00:00:00",
+  "EndDate": "2017-08-12T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "CASE-007",
+      "Asset_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Asset_Desc_Code": "OTHOTH",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "OTH",
+      "Asset_Desc_Code_Split": [
+        "TARGUS",
+        "TRANSIT",
+        "14\"",
+        "TOPLOADER"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "TARGUS TRANSIT 14\" TOPLOADER",
+      "DisplayName": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-007-NEW",
+      "Audit_Prod_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-11T11:47:31",
+      "Audit_Move_Date": "2017-08-11T00:00:00"
+    }
+  ]
+}

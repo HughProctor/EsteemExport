@@ -1,0 +1,38 @@
+{
+  "StartDate": "2017-09-13T00:00:00",
+  "EndDate": "2017-09-14T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "CASE-008",
+      "Asset_Desc": "TARGUS DRIFTER 14\" BACKPACK",
+      "Asset_Desc_Code": "OTHOTH",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "OTH",
+      "Asset_Desc_Code_Split": [
+        "TARGUS",
+        "DRIFTER",
+        "14\"",
+        "BACKPACK"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "TARGUS DRIFTER 14\" BACKPACK",
+      "DisplayName": "TARGUS DRIFTER 14\" BACKPACK",
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-CASE-008-NEW",
+      "Audit_Prod_Desc": "TARGUS DRIFTER 14\" BACKPACK",
+      "Audit_Prod_Desc_Alt": "OTHOTH",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "SMAR",
+      "Audit_Last_Update": "2017-09-13T12:47:45",
+      "Audit_Move_Date": "2017-09-13T00:00:00"
+    }
+  ]
+}

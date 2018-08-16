@@ -1,0 +1,68 @@
+{
+  "StartDate": "2017-03-14T00:00:00",
+  "EndDate": "2017-03-15T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "1040G1",
+      "Asset_Desc": "HP ELITEBOOK 1040 G1",
+      "Asset_Desc_Code": "NOCHPX",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "NOC",
+      "Asset_Desc_Code_Suf": "HPX",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "ELITEBOOK",
+        "1040",
+        "G1"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "BAM-L-004171/8CG50101LV",
+      "AssetName": "HP ELITEBOOK 1040 G1",
+      "DisplayName": "HP ELITEBOOK 1040 G1",
+      "Audit_Ser_Num": "BAM-L-004171/8CG50101LV",
+      "Audit_Part_Num": "BNL-1040G1",
+      "Audit_Prod_Desc": "HP ELITEBOOK 1040 G1",
+      "Audit_Prod_Desc_Alt": "NOCHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-03-14T16:10:19",
+      "Audit_Move_Date": "2017-03-14T00:00:00"
+    },
+    {
+      "Audit_Part_Num_New": "609939-001",
+      "Asset_Desc": "HP AC PSU",
+      "Asset_Desc_Code": "NOPCOM",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "NOP",
+      "Asset_Desc_Code_Suf": "COM",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "AC",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "HP AC PSU",
+      "DisplayName": "HP AC PSU",
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-609939-001",
+      "Audit_Prod_Desc": "HP AC PSU",
+      "Audit_Prod_Desc_Alt": "NOPCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-03-14T16:08:58",
+      "Audit_Move_Date": "2017-03-14T00:00:00"
+    }
+  ]
+}

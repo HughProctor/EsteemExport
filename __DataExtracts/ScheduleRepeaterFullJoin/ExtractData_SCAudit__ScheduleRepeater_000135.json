@@ -1,0 +1,40 @@
+{
+  "StartDate": "2017-05-15T00:00:00",
+  "EndDate": "2017-05-16T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "M9L92AV",
+      "Asset_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Asset_Desc_Code": "NOBCOM",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "NOB",
+      "Asset_Desc_Code_Suf": "COM",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "ZBOOK",
+        "17",
+        "G3",
+        "MOBILE",
+        "WSTATION"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "CND7182VPB",
+      "AssetName": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "DisplayName": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Ser_Num": "CND7182VPB",
+      "Audit_Part_Num": "BNL-M9L92AV-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "e-667611",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-05-15T13:25:30",
+      "Audit_Move_Date": "2017-05-15T00:00:00"
+    }
+  ]
+}

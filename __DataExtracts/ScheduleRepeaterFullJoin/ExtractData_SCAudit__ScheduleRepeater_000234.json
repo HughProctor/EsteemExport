@@ -1,0 +1,40 @@
+{
+  "StartDate": "2017-08-22T00:00:00",
+  "EndDate": "2017-08-23T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "744893-001",
+      "Asset_Desc": "PSU HPX G8R97AV / 9470M 45W",
+      "Asset_Desc_Code": "PSUHPX",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HPX",
+      "Asset_Desc_Code_Split": [
+        "PSU",
+        "HPX",
+        "G8R97AV",
+        "/",
+        "9470M",
+        "45W"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "PSU HPX G8R97AV / 9470M 45W",
+      "DisplayName": "PSU HPX G8R97AV / 9470M 45W",
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-744893-001",
+      "Audit_Prod_Desc": "PSU HPX G8R97AV / 9470M 45W",
+      "Audit_Prod_Desc_Alt": "PSUHPX",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "CSTU",
+      "Audit_Last_Update": "2017-08-22T17:05:56",
+      "Audit_Move_Date": "2017-08-22T00:00:00"
+    }
+  ]
+}

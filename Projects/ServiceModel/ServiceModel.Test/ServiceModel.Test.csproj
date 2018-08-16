@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BAM_API_Tests\BAM_API_Authentication_Tests.cs" />
+    <Compile Include="BAM_API_Tests\BAM_GetUsers.cs" />
+    <Compile Include="BAM_API_Tests\BAM_GetHardwareItem_Tests.cs" />
+    <Compile Include="BAM_API_Tests\BAM_InsertHardwareItem_Tests.cs" />
     <Compile Include="BAM_API_Tests\BaseTestClient.cs" />
     <Compile Include="ProjectionTemplate.cs" />
     <Compile Include="TransactionType.cs" />
@@ -90,6 +93,10 @@
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
       <Project>{66E4081A-8098-4755-8DC5-B1D1218E76DB}</Project>
       <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceModel\ServiceModel.csproj">
+      <Project>{AD7F470E-51D3-4BAD-A663-D8AFAE8DE24E}</Project>
+      <Name>ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

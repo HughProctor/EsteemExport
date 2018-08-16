@@ -4,6 +4,25 @@
   "RecordCount": 1,
   "Data": [
     {
+      "Audit_Part_Num_New": "CAB-PWR-005",
+      "Asset_Desc": "CLOVER IEC MAINS LEAD 2M",
+      "Asset_Desc_Code": "CABCLO",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "CAB",
+      "Asset_Desc_Code_Suf": "CLO",
+      "Asset_Desc_Code_Split": [
+        "CLOVER",
+        "IEC",
+        "MAINS",
+        "LEAD",
+        "2M"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "CLOVER IEC MAINS LEAD 2M",
+      "DisplayName": "CLOVER IEC MAINS LEAD 2M",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-CAB-PWR-005",
       "Audit_Prod_Desc": "CLOVER IEC MAINS LEAD 2M",

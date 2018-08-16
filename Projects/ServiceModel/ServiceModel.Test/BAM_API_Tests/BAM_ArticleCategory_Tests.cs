@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -79,6 +76,8 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsNotNull(result, "Query result is null");
             Assert.IsNotNull(result.TemplateClasses, "Articles list is null");
             Assert.IsTrue(result.TemplateClasses.Any(), "Articles doesn't contain any items");
+            JSON_FileExport.WriteFile(_typePrefix + "BAM_Template_Classes_Get_List", result.TemplateClasses, result.TemplateClasses.Count);
+
         }
 
         [TestMethod]
@@ -112,7 +111,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         {
             var templateList = GetTemplateList();
 
-            var deviceItem = templateList.TemplateClasses.Where(x => x.Name == "Device").FirstOrDefault();
+            var deviceItem = templateList.TemplateClasses.Where(x => x.Name == "Computer").FirstOrDefault();
             Assert.IsNotNull(deviceItem, "deviceItem is empty");
             Assert.IsFalse(string.IsNullOrEmpty(deviceItem.Id), "deviceItem id is empty");
 
@@ -158,21 +157,21 @@ namespace ServiceModel.Test.BAM_API_Tests
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
             Assert.IsFalse(string.IsNullOrEmpty(resultSring), "Query resultSring is null");
 
-            var resultTemp = JsonConvert.DeserializeObject<User[]>(resultSring);
+            var resultTemp = JsonConvert.DeserializeObject<BAM_User[]>(resultSring);
             Assert.IsNotNull(resultTemp, "Query resultTemp is null");
             Assert.IsTrue(resultTemp.Any(), "Query resultTemp doesn't contain any items");
 
             var result = new BAM_UserList()
             {
-                Users = resultTemp.ToList()
+                BAM_Users = resultTemp.ToList()
             };
             //var result = queryResult.Content.ReadAsAsync<ArticleList>().Result;
 
             Assert.IsNotNull(result, "Query result is null");
-            Assert.IsNotNull(result.Users, "Articles list is null");
-            Assert.IsTrue(result.Users.Any(), "Articles doesn't contain any items");
+            Assert.IsNotNull(result.BAM_Users, "Articles list is null");
+            Assert.IsTrue(result.BAM_Users.Any(), "Articles doesn't contain any items");
 
-            var esteemUser = result.Users.Where(x => x.Name.Contains("Esteem")).FirstOrDefault();
+            var esteemUser = result.BAM_Users.Where(x => x.Name.Contains("Esteem")).FirstOrDefault();
             Assert.IsNotNull(esteemUser, "Esteem User is null");
         }
 
@@ -205,15 +204,13 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsNotNull(hardwareAssetConfigItem, "HardwareAsset Config Item is null");
         }
 
-
-
         [TestMethod]
         public async Task BAM_EnumFlatList_HardwareAsset_Get_List()
         {
             //var hardwareConfigItem = Get_HardwareAsset_ConfigItem();
             var id = "6b7304c4-1b09-bffc-3fe3-1cfd3eb630cb";
-            var itemFiler = "";
-            var flatten = false;
+            var itemFiler = BAM_HWAssetStatus.NewItem.ToDescriptionString(); // "";
+            var flatten = true;
             //id = hardwareConfigItem.m_Item1;
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
@@ -226,20 +223,22 @@ namespace ServiceModel.Test.BAM_API_Tests
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
             Assert.IsFalse(string.IsNullOrEmpty(resultSring), "Query resultSring is null");
 
-            var resultTemp = JsonConvert.DeserializeObject<List<BAM_Enum>>(resultSring);
+            var resultTemp = JsonConvert.DeserializeObject<List<BAM_AssetStatus>>(resultSring);
             Assert.IsNotNull(resultTemp, "Query resultTemp is null");
             Assert.IsTrue(resultTemp.Any(), "Query resultTemp doesn't contain any items");
 
-            var result = new BAM_EnumList()
+            var result = new BAM_AssetStatusList()
             {
-                BAM_Enums = resultTemp.OrderBy(x => x.Name).ToList()
+                BAM_AssetStatuses = resultTemp.OrderBy(x => x.Name).ToList()
             };
-
-            JSON_FileExport.WriteFile(_typePrefix + "00_ENUM_HARDWAREASSET", result.BAM_Enums, result.BAM_Enums.Count);
+            var newItem = result.BAM_AssetStatuses.Where(x => x.Name == BAM_HWAssetStatus.NewItem.ToDescriptionString()).FirstOrDefault();
+            Assert.IsNotNull(newItem, "New Item record is null");
+            Assert.IsTrue(newItem.Name == BAM_HWAssetStatus.NewItem.ToDescriptionString(), "New Item is not correct name " + newItem.Name);
+            JSON_FileExport.WriteFile(_typePrefix + "00_ENUM_HARDWAREASSET", result.BAM_AssetStatuses, result.BAM_AssetStatuses.Count);
 
             Assert.IsNotNull(result, "Query result is null");
-            Assert.IsNotNull(result.BAM_Enums, "Articles list is null");
-            Assert.IsTrue(result.BAM_Enums.Any(), "Articles doesn't contain any items");
+            Assert.IsNotNull(result.BAM_AssetStatuses, "Articles list is null");
+            Assert.IsTrue(result.BAM_AssetStatuses.Any(), "Articles doesn't contain any items");
         }
 
         private TemplateClassList GetTemplateList()

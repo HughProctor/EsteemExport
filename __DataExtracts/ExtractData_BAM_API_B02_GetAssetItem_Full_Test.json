@@ -1,0 +1,437 @@
+{
+  "RecordCount": 1,
+  "Data": [
+    {
+      "ClassTypeId": "20d06950-4c1a-1afa-41a6-f46f4f863550",
+      "BaseId": "a24d8d63-cd26-d859-59b0-713adddacbfe",
+      "DisplayName": "BAM0-L-005088",
+      "FullName": "Cireson.AssetManagement.HardwareAsset:76a1194d-94db-4d65-b2c5-249f0c094804",
+      "Path": null,
+      "ClassName": "Cireson.AssetManagement.HardwareAsset",
+      "FullClassName": "Hardware Asset",
+      "TimeAdded": "2018-01-25T09:01:50.9266431",
+      "LastModified": "2018-08-15T16:08:30.22",
+      "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+      "AssetStatus": {
+        "Id": null,
+        "Name": "",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "AssetTag": "BAM-L-005088",
+      "Target_HardwareAssetHasPrimaryUser": {
+        "ClassTypeId": "a1239454-c42e-7f65-6ce0-47bb8141adea",
+        "BaseId": "fe7561df-5a7f-7e0b-58c6-1c2db75ea36b",
+        "DisplayName": "Walker, Chris",
+        "FullName": "System.Domain.User:EDMUNDNUTTALL.chriswalker",
+        "Path": null,
+        "ClassName": "System.Domain.User",
+        "FullClassName": "Domain User or Group",
+        "TimeAdded": "2018-01-22T17:54:32.57",
+        "LastModified": "2018-07-30T23:31:26.53",
+        "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+        "AssetStatus": {
+          "Id": null,
+          "Name": "",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "BAMCostCode": null,
+        "BAMEmployeeNumber": null,
+        "BAMMultiPC": false,
+        "BusinessPhone": null,
+        "BusinessPhone2": null,
+        "City": null,
+        "Company": "BAM Nuttall Ltd",
+        "Country": null,
+        "Department": "Hinkley Earthworks Project",
+        "DistinguishedName": "CN=Chris Walker,OU=User Default,DC=EdmundNuttall,DC=net",
+        "Domain": "EDMUNDNUTTALL",
+        "EmployeeId": null,
+        "Fax": null,
+        "FirstName": "Chris",
+        "FQDN": "EdmundNuttall.net",
+        "HomePhone": null,
+        "HomePhone2": null,
+        "Initials": null,
+        "LastName": "Walker",
+        "Mobile": null,
+        "Notes": null,
+        "stringGuid": null,
+        "ObjectStatus": {
+          "Id": "acdcedb7-100c-8c91-d664-4629a218bd94",
+          "Name": "Active",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "Office": null,
+        "OrganizationalUnit": "User Default",
+        "Pager": null,
+        "SID": "S-1-5-21-3258840528-2078541389-1666112867-228190",
+        "State": null,
+        "StreetAddress": null,
+        "Title": "Geologist",
+        "UPN": "chriswalker@EdmundNuttall.Net",
+        "UserName": "chriswalker",
+        "Zip": null
+      },
+      "OwnedBy": {
+        "ClassTypeId": "a1239454-c42e-7f65-6ce0-47bb8141adea",
+        "BaseId": "fe7561df-5a7f-7e0b-58c6-1c2db75ea36b",
+        "DisplayName": "Walker, Chris",
+        "FullName": "System.Domain.User:EDMUNDNUTTALL.chriswalker",
+        "Path": null,
+        "ClassName": "System.Domain.User",
+        "FullClassName": "Domain User or Group",
+        "TimeAdded": "2018-01-22T17:54:32.57",
+        "LastModified": "2018-07-30T23:31:26.53",
+        "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+        "AssetStatus": {
+          "Id": null,
+          "Name": "",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "BAMCostCode": null,
+        "BAMEmployeeNumber": null,
+        "BAMMultiPC": false,
+        "BusinessPhone": null,
+        "BusinessPhone2": null,
+        "City": null,
+        "Company": "BAM Nuttall Ltd",
+        "Country": null,
+        "Department": "Hinkley Earthworks Project",
+        "DistinguishedName": "CN=Chris Walker,OU=User Default,DC=EdmundNuttall,DC=net",
+        "Domain": "EDMUNDNUTTALL",
+        "EmployeeId": null,
+        "Fax": null,
+        "FirstName": "Chris",
+        "FQDN": "EdmundNuttall.net",
+        "HomePhone": null,
+        "HomePhone2": null,
+        "Initials": null,
+        "LastName": "Walker",
+        "Mobile": null,
+        "Notes": null,
+        "stringGuid": null,
+        "ObjectStatus": {
+          "Id": "acdcedb7-100c-8c91-d664-4629a218bd94",
+          "Name": "Active",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "Office": null,
+        "OrganizationalUnit": "User Default",
+        "Pager": null,
+        "SID": "S-1-5-21-3258840528-2078541389-1666112867-228190",
+        "State": null,
+        "StreetAddress": null,
+        "Title": "Geologist",
+        "UPN": "chriswalker@EdmundNuttall.Net",
+        "UserName": "chriswalker",
+        "Zip": null
+      },
+      "Target_HardwareAssetHasAssociatedCI": {
+        "ClassTypeId": "ea99500d-8d52-fc52-b5a5-10dcd1e9d2bd",
+        "BaseId": "a94d3079-3b7a-73d2-9e7d-53c8ff8814ca",
+        "DisplayName": "BAM0-L-005088",
+        "FullName": "Microsoft.Windows.Computer:BAM0-L-005088.EdmundNuttall.net",
+        "Path": null,
+        "ClassName": "Microsoft.Windows.Computer",
+        "FullClassName": "Windows Computer",
+        "TimeAdded": "2018-01-24T11:37:39.6066667",
+        "LastModified": "2018-08-16T02:13:13.09",
+        "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+        "ActiveDirectorystringSid": null,
+        "ActiveDirectorySite": "Egham",
+        "AssetStatus": {
+          "Id": null,
+          "Name": "",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "DNSName": null,
+        "DomainDnsName": null,
+        "ForestDnsName": null,
+        "HostServerName": null,
+        "IPAddress": null,
+        "IsVirtualMachine": false,
+        "LastInventoryDate": "2018-08-15T16:04:32",
+        "LogicalProcessors": null,
+        "NetbiosComputerName": "BAM0-L-005088",
+        "NetbiosDomainName": "EDMUNDNUTTALL",
+        "NetworkName": null,
+        "Notes": null,
+        "ObjectStatus": {
+          "Id": "acdcedb7-100c-8c91-d664-4629a218bd94",
+          "Name": "Active",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "OffsetInMinuteFromGreenwichTime": 60,
+        "OrganizationalUnit": null,
+        "PhysicalProcessors": null,
+        "PrincipalName": "BAM0-L-005088.EdmundNuttall.net",
+        "VirtualMachineName": null
+      },
+      "Target_HardwareAssetHasCostCenter": {
+        "ClassTypeId": "128bdb2d-f5bd-f8b6-440e-e3f7d8ab4858",
+        "BaseId": "c9f7b68f-ad80-b59f-8bcf-f51671ac4d55",
+        "DisplayName": "BBN.014A",
+        "FullName": "Cireson.AssetManagement.CostCenter:BBN.014A",
+        "Path": null,
+        "ClassName": "Cireson.AssetManagement.CostCenter",
+        "FullClassName": "Cost Center",
+        "TimeAdded": "2018-01-25T08:57:39.3806672",
+        "LastModified": "2018-01-25T08:57:39.387",
+        "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+        "AssetStatus": {
+          "Id": null,
+          "Name": "",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "Description": "Hinkley Earthworks Project",
+        "Name": "BBN.014A",
+        "Notes": null,
+        "ObjectStatus": {
+          "Id": "acdcedb7-100c-8c91-d664-4629a218bd94",
+          "Name": "Active",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        }
+      },
+      "Target_HardwareAssetHasLocation": {
+        "ClassTypeId": "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
+        "BaseId": "ae7423eb-0952-d69c-4d7d-77f1699bfe92",
+        "DisplayName": "Esteem",
+        "FullName": "Cireson.AssetManagement.Location:Esteem",
+        "Path": null,
+        "ClassName": "Cireson.AssetManagement.Location",
+        "FullClassName": "Location",
+        "TimeAdded": "2018-01-25T08:57:38.8181788",
+        "LastModified": "2018-01-25T08:57:38.817",
+        "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+        "AssetStatus": {
+          "Id": null,
+          "Name": "",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        },
+        "LocationAddress1": null,
+        "LocationAddress2": null,
+        "LocationCity": null,
+        "LocationContact": null,
+        "LocationCountry": null,
+        "LocationEmail": null,
+        "LocationFax": null,
+        "LocationPhone": null,
+        "LocationPostCode": null,
+        "LocationState": null,
+        "LocationTaxRate": null,
+        "Name": "Esteem",
+        "Notes": null,
+        "ObjectStatus": {
+          "Id": "acdcedb7-100c-8c91-d664-4629a218bd94",
+          "Name": "Active",
+          "HierarchyLevel": 0,
+          "HierarchyPath": null
+        }
+      },
+      "AssignedDate": null,
+      "BAMAcessoriesCost": null,
+      "BAMAverageSpeed": null,
+      "BAMBackupConnection": null,
+      "BAMDevicePassword": null,
+      "BAMDeviceUsername": null,
+      "BAMDirectInternet": null,
+      "BAMExcessCosts": null,
+      "BAMFollowUser": true,
+      "BAMGreenSky": null,
+      "BAMIMEINumber": null,
+      "BAMIPAddress": null,
+      "BAMLineSpeed": null,
+      "BAMMonthlyCharge": 65.0,
+      "BAMPhoneLine": null,
+      "BAMPhoneSystem": null,
+      "BAMSIMNumber": null,
+      "BAMWhiteSky": null,
+      "Cost": 1860.58,
+      "Currency": {
+        "Id": null,
+        "Name": "",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "Description": null,
+      "DisposalDate": null,
+      "DisposalReference": null,
+      "ExpectedDate": null,
+      "ExpectedEndDate": null,
+      "HardwareAssetID": "76a1194d-94db-4d65-b2c5-249f0c094804",
+      "HardwareAssetStatus": {
+        "Id": "e264653e-9ef1-ad9b-9b02-e249554635e2",
+        "Name": "Deployed",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "HardwareAssetType": {
+        "Id": "893fd199-b6c0-2099-d6ca-f334153e00ec",
+        "Name": "BIM Laptop",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "LoanedDate": null,
+      "LoanReturnedDate": null,
+      "LocationDetails": null,
+      "ManualInventoryDate": null,
+      "Manufacturer": "HP",
+      "ManufacturerEnum": {
+        "Id": null,
+        "Name": "",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "MasterContractEndDate": null,
+      "MasterContractRenewedOn": null,
+      "MasterContractStartingDate": null,
+      "MasterContractStatus": {
+        "Id": "6a397180-2a99-7d58-813f-3b5ea370746b",
+        "Name": "None",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "Model": "HP ZBook 17 G3",
+      "ModelEnum": {
+        "Id": null,
+        "Name": "",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "Name": "BAM0-L-005088",
+      "Notes": "Deployed 05/01/2018\n",
+      "ObjectStatus": {
+        "Id": "acdcedb7-100c-8c91-d664-4629a218bd94",
+        "Name": "Active",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "ReceivedDate": "2018-01-04T00:00:00",
+      "SerialNumber": "CND7506PT8",
+      "NameRelationship": [
+        {
+          "Name": "Target_HardwareAssetHasVendor",
+          "RelationshipId": "829383eb-3e95-e0ba-0eda-a67d1a4a9f94"
+        },
+        {
+          "Name": "Target_HardwareAssetHasLocation",
+          "RelationshipId": "98dad5a4-3880-7a7e-c2ae-b5a89aa964ae"
+        },
+        {
+          "Name": "Target_HardwareAssetHasPurchaseOrder",
+          "RelationshipId": "514b5285-1f7b-398c-7839-f43c2e1a3148"
+        },
+        {
+          "Name": "Target_HardwareAssetHasOrganization",
+          "RelationshipId": "29234d2d-1e45-febe-5ef2-45bf9d3c5dad"
+        },
+        {
+          "Name": "Target_HardwareAssetHasCostCenter",
+          "RelationshipId": "5ce07bee-d4f3-9ed4-2e95-7eb6558c34b5"
+        },
+        {
+          "Name": "RelatesToWorkItem",
+          "RelationshipId": "d96c8b59-8554-6e77-0aa7-f51448868b43"
+        },
+        {
+          "Name": "IsAboutConfigItems",
+          "RelationshipId": "b73a6094-c64c-b0ff-9706-1822df5c2e82"
+        },
+        {
+          "Name": "FileAttachment",
+          "RelationshipId": "095ebf2a-ee83-b956-7176-ab09eded6784"
+        },
+        {
+          "Name": "AddedBy",
+          "RelationshipId": "ffd71f9e-7346-d12b-85d6-7c39f507b7bb"
+        },
+        {
+          "Name": "TargetConfigItem",
+          "RelationshipId": "4448664f-b657-407a-cdbe-b7433af0ccdb"
+        },
+        {
+          "Name": "SourceConfigItem",
+          "RelationshipId": "4448664f-b657-407a-cdbe-b7433af0ccdb"
+        },
+        {
+          "Name": "OwnedBy",
+          "RelationshipId": "cbb45424-b0a2-72f0-d535-541941cdf8e1"
+        },
+        {
+          "Name": "Target_HardwareAssetHasPrimaryUser",
+          "RelationshipId": "28ba5ae2-dfaa-4b7a-ecd6-10cec092c957"
+        },
+        {
+          "Name": "KnowledgeDocument",
+          "RelationshipId": "ec8a256b-cc89-6f18-af6a-e9cdc38cc573"
+        },
+        {
+          "Name": "Target_HardwareAssetHasAssociatedCI",
+          "RelationshipId": "eafcd80a-546b-fde6-8fc6-5e247f345821"
+        },
+        {
+          "Name": "Target_HardwareAssetHasWarranty",
+          "RelationshipId": "7feb2584-810c-45f0-93e0-242be10eb52d"
+        },
+        {
+          "Name": "Target_HardwareAssetHasLease",
+          "RelationshipId": "e6a968f8-a01e-2b02-56db-61744c2211a9"
+        },
+        {
+          "Name": "Target_HardwareAssetHasInvoice",
+          "RelationshipId": "de3a80fe-ed1c-6117-3ac1-ed1f9ddcc221"
+        },
+        {
+          "Name": "Target_HardwareAssetHasCatalogItem",
+          "RelationshipId": "9c76eda6-7603-9d1b-673f-e1e06999ebf5"
+        },
+        {
+          "Name": "Target_HardwareAssetHasSupportContract",
+          "RelationshipId": "e2b50bab-81f4-4041-04b7-8a4615a27bbb"
+        },
+        {
+          "Name": "Target_HardwareAssetHasHardwareAsset",
+          "RelationshipId": "834b3a81-be9d-720c-d5a3-7c7d06e7833b"
+        },
+        {
+          "Name": "Source_HardwareAssetHasHardwareAsset",
+          "RelationshipId": "834b3a81-be9d-720c-d5a3-7c7d06e7833b"
+        },
+        {
+          "Name": "Target_HardwareAssetHasPurchase",
+          "RelationshipId": "c084b489-a8be-f4bd-f65b-7fc6fd028af1"
+        },
+        {
+          "Name": "Target_PurchaseHasVendor",
+          "RelationshipId": "003494b1-95b4-b042-c434-f9df62ef3bb0"
+        },
+        {
+          "Name": "Target_PurchaseHasCostCenter",
+          "RelationshipId": "ebf762cb-4f10-6284-f105-adc23d6cf418"
+        },
+        {
+          "Name": "Target_PurchaseHasInvoice",
+          "RelationshipId": "2d3a62ff-1626-0100-1eac-5452d3de856c"
+        },
+        {
+          "Name": "Target_PurchaseHasPurchaseOrder",
+          "RelationshipId": "809152b3-d6a3-bf05-c602-cf446669a9f1"
+        },
+        {
+          "Name": "Source_ConsumableHasAssignedAssets",
+          "RelationshipId": "f37bf8f3-8e86-4815-3ac5-cfae633e4901"
+        }
+      ]
+    }
+  ]
+}

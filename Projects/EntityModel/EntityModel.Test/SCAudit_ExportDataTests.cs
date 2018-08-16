@@ -32,7 +32,7 @@ namespace EntityModel.Test
             DateTime.TryParse(_endDateTimeString, out var endDateTime);
             _sCAuditService.StartDate = startDateTime;
             _sCAuditService.EndDate = endDateTime;
-            _sCAuditService.PageCount = 10000;
+            _sCAuditService.PageCount = 10000000;
 
             returnList = _sCAuditService.GetAll();
             return returnList;
@@ -46,6 +46,33 @@ namespace EntityModel.Test
 
             JSON_FileExport.WriteFile(_typePrefix + "00_NEWITEM_ALL", returnList, returnList.Count);
         }
+
+        [TestMethod]
+        public void ExportToJson_TypeR()
+        {
+            _startDateTimeString = "01/01/2017";
+            _endDateTimeString = "30/12/2019";
+            _sCAuditService.WhereExpression = "WHERE [Part_Type] = 'R' AND [PART_DESC] NOT LIKE '%**%' ";
+
+            var returnList = GetAll_BaseQuery();
+            Assert.IsTrue(returnList.Any(), "Query didn't return any results");
+
+            JSON_FileExport.WriteFile(_typePrefix + "00_NEWITEM_ALL_TypeR", returnList, returnList.Count);
+        }
+
+        [TestMethod]
+        public void ExportToJson_TypeR_BNL()
+        {
+            _startDateTimeString = "01/01/2017";
+            _endDateTimeString = "30/12/2019";
+            _sCAuditService.WhereExpression = "WHERE [Part_Type] = 'R' AND [PART_DESC] NOT LIKE '%**%' AND [Part_Num] LIKE '%BNL%' ";
+
+            var returnList = GetAll_BaseQuery();
+            Assert.IsTrue(returnList.Any(), "Query didn't return any results");
+
+            JSON_FileExport.WriteFile(_typePrefix + "00_NEWITEM_ALL_TypeR_BNL", returnList, returnList.Count);
+        }
+
 
         [TestMethod]
         public void Specification_01_BNL_and_AddedPO()

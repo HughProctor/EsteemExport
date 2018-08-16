@@ -46,6 +46,8 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAM_Report_QueryDataSet_Tests.cs" />
+    <Compile Include="SCAuditDeploy_ExportDataTests.cs" />
     <Compile Include="SCPart_ExportDataTests.cs" />
     <Compile Include="SCAudit_ExportDataTests.cs" />
     <Compile Include="Specifications\EsteemSpec_Base.cs" />
@@ -67,7 +69,7 @@
   <ItemGroup />
   <ItemGroup>
     <PackageReference Include="AutoMapper">
-      <Version>7.0.1</Version>
+      <Version>4.2.1</Version>
     </PackageReference>
     <PackageReference Include="MSTest.TestAdapter">
       <Version>1.3.2</Version>

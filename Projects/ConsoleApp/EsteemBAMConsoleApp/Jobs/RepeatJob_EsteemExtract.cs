@@ -1,4 +1,6 @@
-﻿using EntityModel;
+﻿using AutoMapper;
+using EntityModel;
+using EntityModel.Mappers;
 using EntityModel.Service;
 using Infrastructure.FileExport;
 using SchedulerManager.Mechanism;
@@ -57,15 +59,18 @@ namespace EsteemBAMConsoleApp.Jobs
                         item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
                             && item.Audit_Rem.StartsWith("Added PO")
                             && (item.Audit_Dest_Site_Num.ToUpper().StartsWith("E-") || item.Audit_Dest_Site_Num.ToUpper() == "LTX")
-                    ).ToList();
+                    )
+                    .ToList();
             }
 
             return returnList;
         }
 
+
         private void ExportToJson()
         {
-            var returnList = GetAll_BaseQuery();
+            var returnList = Map.Map_Results(GetAll_BaseQuery());
+
             JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_" + (counter + 1).ToString().PadLeft(6, '0'), returnList, returnList.Count, "ScheduleRepeaterFullJoin",
                 _startDateTime, _currentTime);
         }
@@ -114,6 +119,8 @@ namespace EsteemBAMConsoleApp.Jobs
         /// <returns>Returns true because this job is repeatable.</returns>
         public override bool IsRepeatable()
         {
+            if (_startDateTime >= _startDateTime.AddYears(1)) return false;
+            if (_startDateTime >= DateTime.Now) return false;
             return true;
         }
 

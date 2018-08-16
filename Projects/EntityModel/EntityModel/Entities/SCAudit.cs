@@ -9,8 +9,10 @@ namespace EntityModel
         public string Audit_Part_Num { get; set; }
         public string Audit_Prod_Desc { get; set; }
         public string Audit_Prod_Desc_Alt { get; set; }
-        public string Audit_Source_Site_Num { get; set; }
-        public string Audit_Dest_Site_Num { get; set; }
+        private string audit_Source_Site_Num;
+        public string Audit_Source_Site_Num { get { return audit_Source_Site_Num; }  set { audit_Source_Site_Num = value?.ToUpper(); } }
+        private string audit_Dest_Site_Num;
+        public string Audit_Dest_Site_Num { get { return audit_Dest_Site_Num; } set { audit_Dest_Site_Num = value?.ToUpper(); } }
         public string Audit_Part_Type { get; set; }
         public string Audit_Rem { get; set; }
         public string Audit_User { get; set; }

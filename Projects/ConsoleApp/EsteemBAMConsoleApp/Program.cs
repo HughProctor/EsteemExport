@@ -1,4 +1,5 @@
-﻿using SchedulerManager.Mechanism;
+﻿using EsteemBAMConsoleApp.Mappers;
+using SchedulerManager.Mechanism;
 
 namespace EsteemBAMConsoleApp
 {
@@ -6,6 +7,7 @@ namespace EsteemBAMConsoleApp
     {
         static void Main(string[] args)
         {
+            Map.Init();
             JobManager jobManager = new JobManager();
             jobManager.ExecuteAllJobs();
         }

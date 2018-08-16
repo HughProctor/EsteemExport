@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,12 +47,21 @@
     <Compile Include="BusinessLogic\ManufacturerComparer.cs" />
     <Compile Include="BusinessLogic\SemiNumericComparer.cs" />
     <Compile Include="BusinessLogic\TestData.cs" />
+    <Compile Include="Entities\HWAssetStatus.cs" />
+    <Compile Include="Entities\SCAuditDeployExt.cs" />
+    <Compile Include="Entities\SCAuditDeploy.cs" />
+    <Compile Include="Entities\SCAuditExt.cs" />
     <Compile Include="Entities\SCPart.cs" />
     <Compile Include="Entities\TransactionType.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Mappers\AutoMapperExtensions.cs" />
+    <Compile Include="Mappers\Map.cs" />
     <Compile Include="Models\ManufacturerModel.cs" />
     <Compile Include="Models\PartDescriptionModel.cs" />
+    <Compile Include="Models\SCAuditDeployModel.cs" />
     <Compile Include="Models\SCPartModel.cs" />
     <Compile Include="Service\QueryBuilder.cs" />
+    <Compile Include="Service\SCDeployService.cs" />
     <Compile Include="Service\SCPartService.cs" />
     <Compile Include="Service\SCAuditService.cs" />
     <Compile Include="Connection\SqlDbConnection.cs" />
@@ -62,6 +74,7 @@
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

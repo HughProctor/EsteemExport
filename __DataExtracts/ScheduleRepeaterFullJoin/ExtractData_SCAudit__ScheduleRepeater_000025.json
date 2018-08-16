@@ -4,6 +4,23 @@
   "RecordCount": 7,
   "Data": [
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300TY",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300TY",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",
@@ -17,6 +34,23 @@
       "Audit_Move_Date": "2017-01-25T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300U0",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300U0",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",
@@ -30,6 +64,23 @@
       "Audit_Move_Date": "2017-01-25T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300U1",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300U1",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",
@@ -43,6 +94,23 @@
       "Audit_Move_Date": "2017-01-25T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300U2",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300U2",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",
@@ -56,6 +124,23 @@
       "Audit_Move_Date": "2017-01-25T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300TX",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300TX",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",
@@ -69,6 +154,23 @@
       "Audit_Move_Date": "2017-01-25T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300V0",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300V0",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",
@@ -82,6 +184,23 @@
       "Audit_Move_Date": "2017-01-25T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "693708-001",
+      "Asset_Desc": "HP LAPTOP PSU",
+      "Asset_Desc_Code": "PSUHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "PSU",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "LAPTOP",
+        "PSU"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WCNVN0EHH300U4",
+      "AssetName": "HP LAPTOP PSU",
+      "DisplayName": "HP LAPTOP PSU",
       "Audit_Ser_Num": "WCNVN0EHH300U4",
       "Audit_Part_Num": "BNL-693708-001",
       "Audit_Prod_Desc": "HP LAPTOP PSU",

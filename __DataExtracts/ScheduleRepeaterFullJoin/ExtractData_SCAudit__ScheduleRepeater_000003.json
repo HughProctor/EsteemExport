@@ -4,6 +4,24 @@
   "RecordCount": 1,
   "Data": [
     {
+      "Audit_Part_Num_New": "KBD-USB-WLS-BL",
+      "Asset_Desc": "KBD USB WLS BL",
+      "Asset_Desc_Code": "KBDCLO",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "KBD",
+      "Asset_Desc_Code_Suf": "CLO",
+      "Asset_Desc_Code_Split": [
+        "KBD",
+        "USB",
+        "WLS",
+        "BL"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "KBD USB WLS BL",
+      "DisplayName": "KBD USB WLS BL",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-KBD-USB-WLS-BL",
       "Audit_Prod_Desc": "KBD USB WLS BL",

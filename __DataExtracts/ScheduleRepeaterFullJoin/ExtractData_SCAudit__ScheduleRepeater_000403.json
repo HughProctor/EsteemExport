@@ -1,0 +1,66 @@
+{
+  "StartDate": "2018-02-07T00:00:00",
+  "EndDate": "2018-02-08T00:00:00",
+  "RecordCount": 2,
+  "Data": [
+    {
+      "Asset_Desc": "KENSINGTON SECURTY LOCK",
+      "Asset_Desc_Code": "OTHER",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "ER",
+      "Asset_Desc_Code_Split": [
+        "KENSINGTON",
+        "SECURTY",
+        "LOCK"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": null,
+      "AssetName": null,
+      "DisplayName": null,
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KEN-LOCK",
+      "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
+      "Audit_Prod_Desc_Alt": "OTHER",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-02-07T13:30:05",
+      "Audit_Move_Date": "2018-02-07T00:00:00"
+    },
+    {
+      "Asset_Desc": "USB KBD & MOUSE",
+      "Asset_Desc_Code": "KBDCLO",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "KBD",
+      "Asset_Desc_Code_Suf": "CLO",
+      "Asset_Desc_Code_Split": [
+        "USB",
+        "KBD",
+        "&",
+        "MOUSE"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": null,
+      "AssetName": null,
+      "DisplayName": null,
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-KBD-MOU-BL",
+      "Audit_Prod_Desc": "USB KBD & MOUSE",
+      "Audit_Prod_Desc_Alt": "KBDCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2018-02-07T11:06:57",
+      "Audit_Move_Date": "2018-02-07T00:00:00"
+    }
+  ]
+}

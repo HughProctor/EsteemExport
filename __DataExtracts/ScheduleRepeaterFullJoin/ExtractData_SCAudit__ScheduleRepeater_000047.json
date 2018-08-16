@@ -4,6 +4,25 @@
   "RecordCount": 1,
   "Data": [
     {
+      "Audit_Part_Num_New": "CASE-006",
+      "Asset_Desc": "CLONE 17\" LAPTOP RUCKSACK BAG",
+      "Asset_Desc_Code": "OTHER",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "ER",
+      "Asset_Desc_Code_Split": [
+        "CLONE",
+        "17\"",
+        "LAPTOP",
+        "RUCKSACK",
+        "BAG"
+      ],
+      "Manufacturer": "CLONE (CLO)",
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "CLONE 17\" LAPTOP RUCKSACK BAG",
+      "DisplayName": "CLONE 17\" LAPTOP RUCKSACK BAG",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-CASE-006-NEW",
       "Audit_Prod_Desc": "CLONE 17\" LAPTOP RUCKSACK BAG",

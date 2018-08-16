@@ -30,7 +30,7 @@ namespace EntityModel.Service
                 "NULLIF(LTRIM(RTRIM([Part_Type])), '') AS [PART_TYPE], " +
                 "NULLIF(LTRIM(RTRIM([Part_Last_Update])), '') AS [UPDATE_DATE] " +
                 "FROM [SCPart] (NOLOCK) ";
-            //QueryStringJoin = "LEFT OUTER JOIN [SCPart] ON audit_part_num = [Part_Num]";
+            //QueryStringJoin = "LEFT JOIN [SCPart] ON audit_part_num = [Part_Num]";
             //QueryString = QueryString + QueryStringJoin;
 
             //if (string.IsNullOrEmpty(WhereExpression))

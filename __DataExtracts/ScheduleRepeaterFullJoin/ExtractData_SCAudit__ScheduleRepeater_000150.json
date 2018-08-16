@@ -1,0 +1,40 @@
+{
+  "StartDate": "2017-05-30T00:00:00",
+  "EndDate": "2017-05-31T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "MON-TFT-24-WS",
+      "Asset_Desc": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Asset_Desc_Code": "MONCLO",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "MON",
+      "Asset_Desc_Code_Suf": "CLO",
+      "Asset_Desc_Code_Split": [
+        "BAM",
+        "NUTTAL",
+        "24\"",
+        "TFT",
+        "WIDE",
+        "SCREEN"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "CN454507KD",
+      "AssetName": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "DisplayName": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Audit_Ser_Num": "CN454507KD",
+      "Audit_Part_Num": "BNL-MON-TFT-24-WS-NEW",
+      "Audit_Prod_Desc": "BAM NUTTAL 24\" TFT WIDE SCREEN",
+      "Audit_Prod_Desc_Alt": "MONCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "JMAC",
+      "Audit_Last_Update": "2017-05-30T17:05:38",
+      "Audit_Move_Date": "2017-05-30T00:00:00"
+    }
+  ]
+}

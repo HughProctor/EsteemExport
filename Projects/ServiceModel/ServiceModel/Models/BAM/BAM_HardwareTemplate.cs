@@ -3,6 +3,11 @@ using System.Collections.Generic;
 
 namespace ServiceModel.Models.BAM
 {
+    public class HardwareTemplateList
+    {
+        public List<BAM_HardwareTemplate> BAM_HardwareTemplates { get; set; }
+    }
+
     public class AssetStatus
     {
         public string Id { get; set; }

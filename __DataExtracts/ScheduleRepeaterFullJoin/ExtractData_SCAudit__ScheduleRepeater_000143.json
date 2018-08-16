@@ -1,0 +1,38 @@
+{
+  "StartDate": "2017-05-23T00:00:00",
+  "EndDate": "2017-05-24T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "463958-001",
+      "Asset_Desc": "HP 6715 AC ADAPTER",
+      "Asset_Desc_Code": "CPTHEW",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "CPT",
+      "Asset_Desc_Code_Suf": "HEW",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "6715",
+        "AC",
+        "ADAPTER"
+      ],
+      "Manufacturer": "Hewlet Packard (HP)",
+      "Model": null,
+      "SerialNumber": "WACLQ01BMYI15W",
+      "AssetName": "HP 6715 AC ADAPTER",
+      "DisplayName": "HP 6715 AC ADAPTER",
+      "Audit_Ser_Num": "WACLQ01BMYI15W",
+      "Audit_Part_Num": "BNL-463958-001",
+      "Audit_Prod_Desc": "HP 6715 AC ADAPTER",
+      "Audit_Prod_Desc_Alt": "CPTHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-05-23T16:17:04",
+      "Audit_Move_Date": "2017-05-23T00:00:00"
+    }
+  ]
+}

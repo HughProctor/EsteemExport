@@ -1,0 +1,39 @@
+{
+  "StartDate": "2017-08-07T00:00:00",
+  "EndDate": "2017-08-08T00:00:00",
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "PZX1U",
+      "Asset_Desc": "OTH CLO SLIMLINE POZIMOUNT XA1",
+      "Asset_Desc_Code": "OTHCLO",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "CLO",
+      "Asset_Desc_Code_Split": [
+        "OTH",
+        "CLO",
+        "SLIMLINE",
+        "POZIMOUNT",
+        "XA1"
+      ],
+      "Manufacturer": "Generic Clone Parts (CLO)",
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "OTH CLO SLIMLINE POZIMOUNT XA1",
+      "DisplayName": "OTH CLO SLIMLINE POZIMOUNT XA1",
+      "Audit_Ser_Num": "",
+      "Audit_Part_Num": "BNL-PZX1U",
+      "Audit_Prod_Desc": "OTH CLO SLIMLINE POZIMOUNT XA1",
+      "Audit_Prod_Desc_Alt": "OTHCLO",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-08-07T16:23:04",
+      "Audit_Move_Date": "2017-08-07T00:00:00"
+    }
+  ]
+}

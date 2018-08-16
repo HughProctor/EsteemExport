@@ -4,6 +4,24 @@
   "RecordCount": 1,
   "Data": [
     {
+      "Audit_Part_Num_New": "CASE-008",
+      "Asset_Desc": "TARGUS DRIFTER 14\" BACKPACK",
+      "Asset_Desc_Code": "OTHOTH",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "OTH",
+      "Asset_Desc_Code_Split": [
+        "TARGUS",
+        "DRIFTER",
+        "14\"",
+        "BACKPACK"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "TARGUS DRIFTER 14\" BACKPACK",
+      "DisplayName": "TARGUS DRIFTER 14\" BACKPACK",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-CASE-008-NEW",
       "Audit_Prod_Desc": "TARGUS DRIFTER 14\" BACKPACK",

@@ -4,6 +4,23 @@
   "RecordCount": 3,
   "Data": [
     {
+      "Audit_Part_Num_New": "KEN-LOCK",
+      "Asset_Desc": "KENSINGTON SECURTY LOCK",
+      "Asset_Desc_Code": "OTHER",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "ER",
+      "Asset_Desc_Code_Split": [
+        "KENSINGTON",
+        "SECURTY",
+        "LOCK"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "KENSINGTON SECURTY LOCK",
+      "DisplayName": "KENSINGTON SECURTY LOCK",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-KEN-LOCK",
       "Audit_Prod_Desc": "KENSINGTON SECURTY LOCK",
@@ -17,6 +34,24 @@
       "Audit_Move_Date": "2017-02-13T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "CASE-007",
+      "Asset_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
+      "Asset_Desc_Code": "OTHOTH",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "OTH",
+      "Asset_Desc_Code_Suf": "OTH",
+      "Asset_Desc_Code_Split": [
+        "TARGUS",
+        "TRANSIT",
+        "14\"",
+        "TOPLOADER"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "TARGUS TRANSIT 14\" TOPLOADER",
+      "DisplayName": "TARGUS TRANSIT 14\" TOPLOADER",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-CASE-007-NEW",
       "Audit_Prod_Desc": "TARGUS TRANSIT 14\" TOPLOADER",
@@ -30,6 +65,25 @@
       "Audit_Move_Date": "2017-02-13T00:00:00"
     },
     {
+      "Audit_Part_Num_New": "CAB-PWR-005",
+      "Asset_Desc": "CLOVER IEC MAINS LEAD 2M",
+      "Asset_Desc_Code": "CABCLO",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Changed": false,
+      "Asset_Desc_Code_Pre": "CAB",
+      "Asset_Desc_Code_Suf": "CLO",
+      "Asset_Desc_Code_Split": [
+        "CLOVER",
+        "IEC",
+        "MAINS",
+        "LEAD",
+        "2M"
+      ],
+      "Manufacturer": null,
+      "Model": null,
+      "SerialNumber": "",
+      "AssetName": "CLOVER IEC MAINS LEAD 2M",
+      "DisplayName": "CLOVER IEC MAINS LEAD 2M",
       "Audit_Ser_Num": "",
       "Audit_Part_Num": "BNL-CAB-PWR-005",
       "Audit_Prod_Desc": "CLOVER IEC MAINS LEAD 2M",

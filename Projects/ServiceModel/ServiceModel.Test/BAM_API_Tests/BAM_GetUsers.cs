@@ -1,11 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
+using ServiceModel.Services;
 using ServiceModel.Models.BAM;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceModel.Services.Abstract;
 
 namespace ServiceModel.Test.BAM_API_Tests
 {
@@ -86,6 +88,17 @@ namespace ServiceModel.Test.BAM_API_Tests
             var esteemUser = result.BAM_Users.Where(x => x.Name.Contains("Westwood"));
             var esteemUser2 = esteemUser.Where(x => x.Name.Contains("Eleanor")).FirstOrDefault();
             Assert.IsNotNull(esteemUser, "Eleanor Westwood is null");
+        }
+
+        [TestMethod]
+        public async Task BAM_User_Get_WestwoodEleanor_Refactored()
+        {
+            var userFilter = "Westwood, Eleanor";
+            IBAM_UserService bamUserService = new BAM_UserService();
+            var user = bamUserService.GetUser(userFilter);
+
+            Assert.IsNotNull(user, "Eleanor Westwood is null");
+            Assert.IsTrue(user.Name == userFilter, "Eleanor Westwood is null");
         }
     }
 }

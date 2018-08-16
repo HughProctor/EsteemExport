@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using ServiceModel.Models.BAM;
+using ServiceModel.Models.Esteem;
+using ServiceModel.Services;
 //using ServiceModel.Models.BAM;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ using System.Threading.Tasks;
 namespace ServiceModel.Test.BAM_API_Tests
 {
     [TestClass]
-    public class BAM_GetHardwareItem_Tests : BaseTestClient
+    public class BAM__GetHardwareItem_Tests : BaseTestClient
     {
         private string _typePrefix = "BAM_API_";
 
@@ -165,46 +167,44 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsTrue(result.First().SerialNumber == serialNumber, "SerialNumbers don't match");
         }
 
-
-        private BAM_User GetUser(string userName)
+        [TestMethod]
+        public async Task B04_GetAssetItem_Test()
         {
-            var userFilter = userName;
-            var filterByAnalyst = false;
-            var groupsOnly = false;
-            var maxNumberOfResults = 100;
-            var fetchAll = false;
-            var queryFilter = string.Format("?userFilter={0}&filterByAnalyst={1}&groupsOnly={2}&maxNumberOfResults={3}&fetchAll={4}",
-                    userFilter, filterByAnalyst, groupsOnly, maxNumberOfResults, fetchAll
-                );
-            var queryResult = _client.GetAsync("User/GetUserList" + queryFilter).Result;
+            var hardwareAssetTemplateId = "c0c58e7f-7865-55cc-4600-753305b9be64";
+            var serialNumber = "CNU0183F33"; // "BAM -L-00"; //0852
+            var serialNumberFull = "CND7506PT8"; // "BAM -L-00"; //0852
 
-            var resultSring = queryResult.Content.ReadAsStringAsync().Result;
+            var hardwareAssetService = new BAM_HardwareAssetServices();
+            var result = hardwareAssetService.GetHardwareAsset(serialNumber);
 
-            var result = JsonConvert.DeserializeObject<BAM_User[]>(resultSring);
-            return result.FirstOrDefault();
+            Assert.IsNotNull(result, "Result didn't deserialize to BAM_HardwareTemplate_Full");
+            Assert.IsTrue(result.Any(), "Result didn't any results");
+            Assert.IsTrue(result.First().SerialNumber == serialNumber, "SerialNumbers don't match");
         }
 
-        private BAM_AssetStatus GetAssetStatusTemplate(BAM_HWAssetStatus assetStatus)
+        [TestMethod]
+        public async Task B05_GetAssetItem_SetHardwareStatus_Test()
         {
-            var id = "6b7304c4-1b09-bffc-3fe3-1cfd3eb630cb";
-            var itemFiler = BAM_HWAssetStatus.NewItem.ToDescriptionString(); // "";
-            var flatten = true;
-            //id = hardwareConfigItem.m_Item1;
+            var hardwareAssetTemplateId = "c0c58e7f-7865-55cc-4600-753305b9be64";
+            var serialNumber = "CNU0183F33"; // "BAM -L-00"; //0852
+            var serialNumberFull = "CND7506PT8"; // "BAM -L-00"; //0852
 
-            var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
-                id, itemFiler, flatten);
-            var queryResult = _client.GetAsync("Enum/GetList" + queryFilter).Result;
+            var hardwareAssetService = new BAM_HardwareAssetServices();
+            var result = hardwareAssetService.GetHardwareAsset(serialNumber);
 
-            var resultSring = queryResult.Content.ReadAsStringAsync().Result;
+            Assert.IsNotNull(result, "Result didn't deserialize to BAM_HardwareTemplate_Full");
+            Assert.IsTrue(result.Any(), "Result didn't any results");
+            Assert.IsTrue(result.First().SerialNumber == serialNumber, "SerialNumbers don't match");
 
-            var resultTemp = JsonConvert.DeserializeObject<List<BAM_AssetStatus>>(resultSring);
-            var result = new BAM_AssetStatusList()
-            {
-                BAM_AssetStatuses = resultTemp.OrderBy(x => x.Name).ToList()
-            };
-            var newItem = result.BAM_AssetStatuses.Where(x => x.Name == assetStatus.ToDescriptionString()).FirstOrDefault();
-            return newItem;
+            var hardwareAsset = result.First();
+            var newHardwareAsset = hardwareAssetService.SetHardwareAssetStatus(hardwareAsset, EST_HWAssetStatus.Deployed);
+
+            Assert.IsNotNull(newHardwareAsset, "Updated Hardware Asset returned null");
+            Assert.IsFalse(newHardwareAsset.Equals(hardwareAsset));
+            Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name != hardwareAsset.HardwareAssetStatus.Name);
+            Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name == "Deployed");
         }
+
     }
 
     public class BAM_Asset
@@ -216,6 +216,6 @@ namespace ServiceModel.Test.BAM_API_Tests
         public string AssetName { get; set; }
         public string DisplayName { get; set; }
         public string RequestUser { get; set; }
-        public BAM_HWAssetStatus HWAssetStatus { get; set; }
+        public EST_HWAssetStatus HWAssetStatus { get; set; }
     }
 }

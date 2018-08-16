@@ -5,6 +5,7 @@ using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using ServiceModel.Models.BAM;
+using ServiceModel.Models.Esteem;
 
 namespace ServiceModel.Test.BAM_API_Tests
 {
@@ -170,6 +171,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsNotNull(result, "Query result is null");
             Assert.IsNotNull(result.BAM_Users, "Articles list is null");
             Assert.IsTrue(result.BAM_Users.Any(), "Articles doesn't contain any items");
+            JSON_FileExport.WriteFile(_typePrefix + "BAM_UserList_Get_List", result.BAM_Users, result.BAM_Users.Count);
 
             var esteemUser = result.BAM_Users.Where(x => x.Name.Contains("Esteem")).FirstOrDefault();
             Assert.IsNotNull(esteemUser, "Esteem User is null");
@@ -209,7 +211,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         {
             //var hardwareConfigItem = Get_HardwareAsset_ConfigItem();
             var id = "6b7304c4-1b09-bffc-3fe3-1cfd3eb630cb";
-            var itemFiler = BAM_HWAssetStatus.NewItem.ToDescriptionString(); // "";
+            var itemFiler = EST_HWAssetStatus.NewItem.ToDescriptionString(); // "";
             var flatten = true;
             //id = hardwareConfigItem.m_Item1;
 
@@ -223,22 +225,22 @@ namespace ServiceModel.Test.BAM_API_Tests
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
             Assert.IsFalse(string.IsNullOrEmpty(resultSring), "Query resultSring is null");
 
-            var resultTemp = JsonConvert.DeserializeObject<List<BAM_AssetStatus>>(resultSring);
+            var resultTemp = JsonConvert.DeserializeObject<List<AssetStatus>>(resultSring);
             Assert.IsNotNull(resultTemp, "Query resultTemp is null");
             Assert.IsTrue(resultTemp.Any(), "Query resultTemp doesn't contain any items");
 
             var result = new BAM_AssetStatusList()
             {
-                BAM_AssetStatuses = resultTemp.OrderBy(x => x.Name).ToList()
+                AssetStatuses = resultTemp.OrderBy(x => x.Name).ToList()
             };
-            var newItem = result.BAM_AssetStatuses.Where(x => x.Name == BAM_HWAssetStatus.NewItem.ToDescriptionString()).FirstOrDefault();
+            var newItem = result.AssetStatuses.Where(x => x.Name == EST_HWAssetStatus.NewItem.ToDescriptionString()).FirstOrDefault();
             Assert.IsNotNull(newItem, "New Item record is null");
-            Assert.IsTrue(newItem.Name == BAM_HWAssetStatus.NewItem.ToDescriptionString(), "New Item is not correct name " + newItem.Name);
-            JSON_FileExport.WriteFile(_typePrefix + "00_ENUM_HARDWAREASSET", result.BAM_AssetStatuses, result.BAM_AssetStatuses.Count);
+            Assert.IsTrue(newItem.Name == EST_HWAssetStatus.NewItem.ToDescriptionString(), "New Item is not correct name " + newItem.Name);
+            JSON_FileExport.WriteFile(_typePrefix + "00_ENUM_HARDWAREASSET", result.AssetStatuses, result.AssetStatuses.Count);
 
             Assert.IsNotNull(result, "Query result is null");
-            Assert.IsNotNull(result.BAM_AssetStatuses, "Articles list is null");
-            Assert.IsTrue(result.BAM_AssetStatuses.Any(), "Articles doesn't contain any items");
+            Assert.IsNotNull(result.AssetStatuses, "Articles list is null");
+            Assert.IsTrue(result.AssetStatuses.Any(), "Articles doesn't contain any items");
         }
 
         private TemplateClassList GetTemplateList()

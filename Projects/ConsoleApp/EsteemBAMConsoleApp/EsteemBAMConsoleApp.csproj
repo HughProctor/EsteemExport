@@ -70,6 +70,10 @@
       <Project>{fc82eab5-3e3a-4ec6-aeb7-c1e3707f6483}</Project>
       <Name>SchedulerManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ServiceModel\ServiceModel\ServiceModel.csproj">
+      <Project>{abee5d8f-7141-4c54-958f-e50b4d350c89}</Project>
+      <Name>ServiceModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -72,10 +72,10 @@
   <ItemGroup>
     <Compile Include="BAM_API_Tests\BAM_API_Authentication_Tests.cs" />
     <Compile Include="BAM_API_Tests\BAM_GetUsers.cs" />
-    <Compile Include="BAM_API_Tests\BAM_GetHardwareItem_Tests.cs" />
-    <Compile Include="BAM_API_Tests\BAM_InsertHardwareItem_Tests.cs" />
+    <Compile Include="BAM_API_Tests\BAM__GetHardwareItem_Tests.cs" />
+    <Compile Include="BAM_API_Tests\BAM__InsertHardwareItem_Tests.cs" />
+    <Compile Include="BAM_API_Tests\BAM__UpdateHardwareItem_Tests.cs" />
     <Compile Include="BAM_API_Tests\BaseTestClient.cs" />
-    <Compile Include="ProjectionTemplate.cs" />
     <Compile Include="TransactionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BAM_API_Tests\BAM_ArticleCategory_Tests.cs" />
@@ -95,7 +95,7 @@
       <Name>Infrastructure</Name>
     </ProjectReference>
     <ProjectReference Include="..\ServiceModel\ServiceModel.csproj">
-      <Project>{AD7F470E-51D3-4BAD-A663-D8AFAE8DE24E}</Project>
+      <Project>{abee5d8f-7141-4c54-958f-e50b4d350c89}</Project>
       <Name>ServiceModel</Name>
     </ProjectReference>
   </ItemGroup>

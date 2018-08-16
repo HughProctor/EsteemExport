@@ -1,9 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel;
 
-namespace ServiceModel.Test
+namespace ServiceModel
 {
-    public class ProjectionTemplate
+    public class BAM_ProjectionTemplate
     {
         public int TemplateId { get; set; }
         public Guid CreatedById { get; set; }
@@ -19,28 +20,40 @@ namespace ServiceModel.Test
         public string Model { get; set; }
         public string HWAssetStatus { get; set; }
         [JsonIgnore]
-        public HWAssetStatus HWAssetStatus_Enum { get; set; }
+        public BAM_HWAssetStatus HWAssetStatus_Enum { get; set; }
         public string ObjectStatus { get; set; }
 
     }
 
-    public enum HWAssetStatus
+    public enum BAM_HWAssetStatus
     {
         [StringValue("Purchase Order")]
+        [Description("Purchase Order")]
         PurchaseOrder = 1,
         [StringValue("New Item")]
+        [Description("In Stock")]
         NewItem = 2,
         [StringValue("Commissioned")]
+        [Description("Commissioned")]
         Commissioned = 3,
-        [StringValue("Stocked")]
+        [StringValue("In Stock")]
+        [Description("In Stock")]
         Stocked = 4,
         [StringValue("Deployed")]
+        [Description("Deployed")]
         Deployed = 5,
         [StringValue("Returned")]
+        [Description("Returned")]
         Returned = 6,
         [StringValue("Retired")]
+        [Description("Retired")]
         Retired = 7,
         [StringValue("Ammended")]
-        Ammended = 8
+        [Description("Ammended")]
+        Ammended = 8,
+        [StringValue("Disposed")]
+        [Description("Disposed")]
+        Disposed = 9
+
     }
 }

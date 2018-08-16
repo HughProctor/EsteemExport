@@ -2,23 +2,6 @@
   "RecordCount": 1,
   "Data": [
     {
-      "ClassTypeId": "20d06950-4c1a-1afa-41a6-f46f4f863550",
-      "BaseId": "a24d8d63-cd26-d859-59b0-713adddacbfe",
-      "DisplayName": "BAM0-L-005088",
-      "FullName": "Cireson.AssetManagement.HardwareAsset:76a1194d-94db-4d65-b2c5-249f0c094804",
-      "Path": null,
-      "ClassName": "Cireson.AssetManagement.HardwareAsset",
-      "FullClassName": "Hardware Asset",
-      "TimeAdded": "2018-01-25T09:01:50.9266431",
-      "LastModified": "2018-08-15T16:08:30.22",
-      "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
-      "AssetStatus": {
-        "Id": null,
-        "Name": "",
-        "HierarchyLevel": 0,
-        "HierarchyPath": null
-      },
-      "AssetTag": "BAM-L-005088",
       "Target_HardwareAssetHasPrimaryUser": {
         "ClassTypeId": "a1239454-c42e-7f65-6ce0-47bb8141adea",
         "BaseId": "fe7561df-5a7f-7e0b-58c6-1c2db75ea36b",
@@ -199,7 +182,8 @@
           "Name": "Active",
           "HierarchyLevel": 0,
           "HierarchyPath": null
-        }
+        },
+        "Id": null
       },
       "Target_HardwareAssetHasLocation": {
         "ClassTypeId": "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
@@ -236,9 +220,9 @@
           "Name": "Active",
           "HierarchyLevel": 0,
           "HierarchyPath": null
-        }
+        },
+        "Id": null
       },
-      "AssignedDate": null,
       "BAMAcessoriesCost": null,
       "BAMAverageSpeed": null,
       "BAMBackupConnection": null,
@@ -256,6 +240,24 @@
       "BAMPhoneSystem": null,
       "BAMSIMNumber": null,
       "BAMWhiteSky": null,
+      "ClassTypeId": "20d06950-4c1a-1afa-41a6-f46f4f863550",
+      "BaseId": "a24d8d63-cd26-d859-59b0-713adddacbfe",
+      "DisplayName": "BAM0-L-005088",
+      "FullName": "Cireson.AssetManagement.HardwareAsset:76a1194d-94db-4d65-b2c5-249f0c094804",
+      "Path": null,
+      "ClassName": "Cireson.AssetManagement.HardwareAsset",
+      "FullClassName": "Hardware Asset",
+      "TimeAdded": "2018-01-25T09:01:50.9266431",
+      "LastModified": "2018-08-15T16:08:30.22",
+      "LastModifiedBy": "7431e155-3d9e-4724-895e-c03ba951a352",
+      "AssetStatus": {
+        "Id": null,
+        "Name": "",
+        "HierarchyLevel": 0,
+        "HierarchyPath": null
+      },
+      "AssetTag": "BAM-L-005088",
+      "AssignedDate": null,
       "Cost": 1860.58,
       "Currency": {
         "Id": null,
@@ -318,6 +320,7 @@
       },
       "ReceivedDate": "2018-01-04T00:00:00",
       "SerialNumber": "CND7506PT8",
+      "ObjectId": null,
       "NameRelationship": [
         {
           "Name": "Target_HardwareAssetHasVendor",

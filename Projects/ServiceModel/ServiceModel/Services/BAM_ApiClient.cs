@@ -1,27 +1,22 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using ServiceModel.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace ServiceModel.Test.BAM_API_Tests
+namespace ServiceModel.Services
 {
-    [TestClass]
-    public class BaseTestClient
+    public class BAM_ApiClient
     {
         public HttpClientHandler _handler;
         public HttpClient _client;
         public Uri _clientUri;
         public AuthorizationModel _authLogin;
 
-        [TestInitialize]
-        public async Task TestSetup()
+        public async Task Setup()
         {
             _handler = new HttpClientHandler();
             _handler.ClientCertificateOptions = ClientCertificateOption.Manual;
@@ -56,13 +51,5 @@ namespace ServiceModel.Test.BAM_API_Tests
             _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Token", _authLogin.AuthToken);
         }
 
-        [TestCleanup]
-        public void TestCleanup()
-        {
-            _handler.Dispose();
-            _client.Dispose();
-            _handler = null;
-            _client = null;
-        }
     }
 }

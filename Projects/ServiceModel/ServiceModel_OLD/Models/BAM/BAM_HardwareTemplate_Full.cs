@@ -104,6 +104,7 @@ namespace ServiceModel.Models.BAM
         public string Zip { get; set; }
     }
 
+
     public class TargetHardwareAssetHasAssociatedCI
     {
         public string ClassTypeId { get; set; }
@@ -156,7 +157,6 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        public string Id { get; set; }
     }
 
     public class TargetHardwareAssetHasLocation
@@ -186,16 +186,28 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        public string Id { get; set; }
     }
 
-    public class BAM_HardwareTemplate_Full : BAM_HardwareTemplate
+    public class BAM_HardwareTemplate_Full
     {
+        public string ClassTypeId { get; set; }
+        public string BaseId { get; set; }
+        public string DisplayName { get; set; }
+        public string FullName { get; set; }
+        public string Path { get; set; }
+        public string ClassName { get; set; }
+        public string FullClassName { get; set; }
+        public DateTime TimeAdded { get; set; }
+        public DateTime LastModified { get; set; }
+        public string LastModifiedBy { get; set; }
+        public AssetStatus AssetStatus { get; set; }
+        public string AssetTag { get; set; }
         public TargetHardwareAssetHasPrimaryUser Target_HardwareAssetHasPrimaryUser { get; set; }
         public OwnedBy OwnedBy { get; set; }
         public TargetHardwareAssetHasAssociatedCI Target_HardwareAssetHasAssociatedCI { get; set; }
         public TargetHardwareAssetHasCostCenter Target_HardwareAssetHasCostCenter { get; set; }
         public TargetHardwareAssetHasLocation Target_HardwareAssetHasLocation { get; set; }
+        public DateTime? AssignedDate { get; set; }
         public string BAMAcessoriesCost { get; set; }
         public string BAMAverageSpeed { get; set; }
         public string BAMBackupConnection { get; set; }
@@ -213,5 +225,33 @@ namespace ServiceModel.Models.BAM
         public string BAMPhoneSystem { get; set; }
         public string BAMSIMNumber { get; set; }
         public string BAMWhiteSky { get; set; }
+        public double Cost { get; set; }
+        public Currency Currency { get; set; }
+        public string Description { get; set; }
+        public DateTime? DisposalDate { get; set; }
+        public string DisposalReference { get; set; }
+        public DateTime? ExpectedDate { get; set; }
+        public DateTime? ExpectedEndDate { get; set; }
+        public string HardwareAssetID { get; set; }
+        public HardwareAssetStatus HardwareAssetStatus { get; set; }
+        public HardwareAssetType HardwareAssetType { get; set; }
+        public DateTime? LoanedDate { get; set; }
+        public DateTime? LoanReturnedDate { get; set; }
+        public string LocationDetails { get; set; }
+        public string ManualInventoryDate { get; set; }
+        public string Manufacturer { get; set; }
+        public ManufacturerEnum ManufacturerEnum { get; set; }
+        public DateTime? MasterContractEndDate { get; set; }
+        public DateTime? MasterContractRenewedOn { get; set; }
+        public DateTime? MasterContractStartingDate { get; set; }
+        public MasterContractStatus MasterContractStatus { get; set; }
+        public string Model { get; set; }
+        public ModelEnum ModelEnum { get; set; }
+        public string Name { get; set; }
+        public string Notes { get; set; }
+        public ObjectStatus ObjectStatus { get; set; }
+        public DateTime ReceivedDate { get; set; }
+        public string SerialNumber { get; set; }
+        public List<NameRelationship> NameRelationship { get; set; }
     }
 }

@@ -1,5 +1,4 @@
-﻿using ServiceModel.Models.Esteem;
-using System;
+﻿using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Reflection;
@@ -8,7 +7,7 @@ namespace ServiceModel
 {
     public static class EnumExtensions
     {
-        public static string ToDescriptionString(this EST_HWAssetStatus val)
+        public static string ToDescriptionString(this BAM_HWAssetStatus val)
         {
             DescriptionAttribute[] attributes = (DescriptionAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(DescriptionAttribute), false);
             return attributes.Length > 0 ? attributes[0].Description : string.Empty;

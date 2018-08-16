@@ -8,6 +8,7 @@ using Newtonsoft;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System;
+using ServiceModel.Models;
 
 namespace ServiceModel.Test.BAM_API_Tests
 {
@@ -56,13 +57,5 @@ namespace ServiceModel.Test.BAM_API_Tests
         }
 
         //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", "Your Oauth token");
-    }
-
-    public class AuthorizationModel
-    {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string LanguageCode { get; set; }
-        public string AuthToken { get; set; }
     }
 }

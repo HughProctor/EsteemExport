@@ -8,36 +8,68 @@ namespace ServiceModel.Models.BAM
         public List<BAM_HardwareTemplate> BAM_HardwareTemplates { get; set; }
     }
 
-    public class AssetStatus : BAM_Object
+    public class AssetStatus
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class Currency : BAM_Object
+    public class Currency
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class HardwareAssetStatus : BAM_Object
+    public class HardwareAssetStatus
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class HardwareAssetType : BAM_Object
+    public class HardwareAssetType
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class ManufacturerEnum : BAM_Object
+    public class ManufacturerEnum
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class MasterContractStatus : BAM_Object
+    public class MasterContractStatus
     {
+        public object Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class ModelEnum : BAM_Object
+    public class ModelEnum
     {
+        public object Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
-    public class ObjectStatus : BAM_Object
+    public class ObjectStatus
     {
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public int HierarchyLevel { get; set; }
+        public string HierarchyPath { get; set; }
     }
 
     public class NameRelationship
@@ -89,6 +121,6 @@ namespace ServiceModel.Models.BAM
         public DateTime? ReceivedDate { get; set; }
         public string SerialNumber { get; set; }
         public string ObjectId { get; set; }
-        //public List<NameRelationship> NameRelationship { get; set; }
+        public List<NameRelationship> NameRelationship { get; set; }
     }
 }

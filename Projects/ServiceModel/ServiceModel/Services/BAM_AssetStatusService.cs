@@ -39,8 +39,8 @@ namespace ServiceModel.Services
         public HardwareAssetStatus GetAssetStatusTemplate(EST_HWAssetStatus assetStatus)
         {
             var id = "6b7304c4-1b09-bffc-3fe3-1cfd3eb630cb";
-            var itemFiler = EST_HWAssetStatus.NewItem.ToDescriptionString();
-            var flatten = true;
+            var itemFiler = EST_HWAssetStatus.NewItem.ToBAMString();
+            var flatten = false;
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
                 id, itemFiler, flatten);
@@ -53,7 +53,7 @@ namespace ServiceModel.Services
             {
                 HardwareAssetStatuses = resultTemp.OrderBy(x => x.Name).ToList()
             };
-            var newItem = result.HardwareAssetStatuses.Where(x => x.Name == assetStatus.ToDescriptionString()).FirstOrDefault();
+            var newItem = result.HardwareAssetStatuses.Where(x => x.Name == assetStatus.ToBAMString()).FirstOrDefault();
             return newItem;
         }
     }

@@ -14,6 +14,12 @@ namespace ServiceModel
             return attributes.Length > 0 ? attributes[0].Description : string.Empty;
         }
 
+        public static string ToBAMString(this EST_HWAssetStatus val)
+        {
+            BAMStringValueAttribute[] attributes = (BAMStringValueAttribute[])val.GetType().GetField(val.ToString()).GetCustomAttributes(typeof(BAMStringValueAttribute), false);
+            return attributes.Length > 0 ? attributes[0].Value : string.Empty;
+        }
+
         static Hashtable _stringValues;
 
         public static string GetStringValue(Enum value)
@@ -23,13 +29,13 @@ namespace ServiceModel
 
             //Check first in our cached results...
             if (_stringValues.ContainsKey(value))
-                output = (_stringValues[value] as StringValueAttribute).Value;
+                output = (_stringValues[value] as BAMStringValueAttribute).Value;
             else
             {
                 //Look for our 'StringValueAttribute' 
                 //in the field's custom attributes
                 FieldInfo fi = type.GetField(value.ToString());
-                StringValueAttribute[] attrs = fi.GetCustomAttributes(typeof(StringValueAttribute), false) as StringValueAttribute[];
+                BAMStringValueAttribute[] attrs = fi.GetCustomAttributes(typeof(BAMStringValueAttribute), false) as BAMStringValueAttribute[];
                 if (attrs.Length > 0)
                 {
                     _stringValues.Add(value, attrs[0]);
@@ -40,9 +46,9 @@ namespace ServiceModel
         }
     }
 
-    public class StringValueAttribute : Attribute
+    public class BAMStringValueAttribute : Attribute
     {
-        public StringValueAttribute(string value)
+        public BAMStringValueAttribute(string value)
         { Value = value; }
         public string Value { get; }
     }

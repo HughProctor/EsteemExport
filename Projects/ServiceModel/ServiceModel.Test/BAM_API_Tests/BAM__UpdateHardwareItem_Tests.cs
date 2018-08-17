@@ -44,6 +44,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var hardwareAssetTemplateId = "c0c58e7f-7865-55cc-4600-753305b9be64";
             var serialNumber = "CNU0183F33"; // "BAM -L-00"; //0852
             var serialNumberFull = "CND7506PT8"; // "BAM -L-00"; //0852
+            var updateAssetStatus = EST_HWAssetStatus.Retired;
 
             var hardwareAssetService = new BAM_HardwareAssetServices();
             var result = hardwareAssetService.GetHardwareAsset(serialNumber);
@@ -53,12 +54,12 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsTrue(result.First().SerialNumber == serialNumber, "SerialNumbers don't match");
 
             var originalhardwareAsset = result.First();
-            var newHardwareAsset = hardwareAssetService.SetHardwareAssetStatus(originalhardwareAsset, EST_HWAssetStatus.Deployed);
+            var newHardwareAsset = hardwareAssetService.SetHardwareAssetStatus(originalhardwareAsset, updateAssetStatus);
 
             Assert.IsNotNull(newHardwareAsset, "Updated Hardware Asset returned null");
-            Assert.IsFalse(newHardwareAsset.Equals(originalhardwareAsset));
-            Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name != originalhardwareAsset.HardwareAssetStatus.Name);
-            Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name == "Deployed");
+            Assert.IsFalse(newHardwareAsset.Equals(originalhardwareAsset), "Clone object didn't work");
+            Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name != originalhardwareAsset.HardwareAssetStatus.Name, "Pre-Update Asset status didn't change");
+            Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name == updateAssetStatus.ToBAMString(), "Pre-Update Asset status doesn't equal BAM AssetStatus Enum");
             List<BAM_HardwareTemplate> hardwareAssetList = new List<BAM_HardwareTemplate>();
             try
             {
@@ -72,8 +73,8 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsNotNull(hardwareAssetList, "Return list is null");
             Assert.IsTrue(hardwareAssetList.Count > 1, "Return list doesn't include 2 records");
 
-            Assert.IsTrue(hardwareAssetList[0].HardwareAssetStatus.Name != hardwareAssetList[1].HardwareAssetStatus.Name);
-            Assert.IsTrue(hardwareAssetList[0].HardwareAssetStatus.Name == "Deployed");
+            Assert.IsTrue(hardwareAssetList[0].HardwareAssetStatus.Name != hardwareAssetList[1].HardwareAssetStatus.Name, "Original and Updated Hardware Assets Status is the same");
+            Assert.IsTrue(hardwareAssetList[0].HardwareAssetStatus.Name == updateAssetStatus.ToBAMString(), "Updated Asset status doesn't equal BAM AssetStatus Enum");
         }
     }
 }

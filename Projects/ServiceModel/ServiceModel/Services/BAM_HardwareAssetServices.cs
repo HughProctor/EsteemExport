@@ -55,6 +55,7 @@ namespace ServiceModel.Services
 
         public List<BAM_HardwareTemplate> UpdateTemplate(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate)
         {
+            var returnValue = new List<BAM_HardwareTemplate>();
             if (newTemplate == null || originalTemplate == null)
                 throw new Exception("Template must not be null");
 
@@ -82,9 +83,15 @@ namespace ServiceModel.Services
 
             var resultSring = queryResult_Set.Content.ReadAsStringAsync().Result;
 
-            var result = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate>>(resultSring);
-            result.Add(originalTemplate);
-            return result;
+            //var result = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate>>(resultSring);
+            /////-------------This could be moved out and converted into an async Task ---- we can handle response outside///
+            var result = JsonConvert.DeserializeObject<BAM_Api_SuccessResponse>(resultSring);
+            if (result.BaseId != newTemplate.BaseId)
+                throw new Exception("Updated BaseId's didn't match");
+
+            returnValue.Add(newTemplate);
+            returnValue.Add(originalTemplate);
+            return returnValue;
         }
 
         public string CreateProjectionFilter(string serialNumber)

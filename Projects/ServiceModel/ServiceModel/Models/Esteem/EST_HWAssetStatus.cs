@@ -4,31 +4,31 @@ namespace ServiceModel.Models.Esteem
 {
     public enum EST_HWAssetStatus
     {
-        [StringValue("Purchase Order")]
+        [BAMStringValue("In Stock")]
         [Description("Purchase Order")]
         PurchaseOrder = 1,
-        [StringValue("New Item")]
+        [BAMStringValue("In Stock")]
         [Description("In Stock")]
         NewItem = 2,
-        [StringValue("Commissioned")]
+        [BAMStringValue("Commissioned")]
         [Description("Commissioned")]
         Commissioned = 3,
-        [StringValue("In Stock")]
+        [BAMStringValue("In Stock")]
         [Description("In Stock")]
         Stocked = 4,
-        [StringValue("Deployed")]
+        [BAMStringValue("Deployed")]
         [Description("Deployed")]
         Deployed = 5,
-        [StringValue("Returned")]
+        [BAMStringValue("In Stock")]
         [Description("Returned")]
         Returned = 6,
-        [StringValue("Retired")]
+        [BAMStringValue("Retired")]
         [Description("Retired")]
         Retired = 7,
-        [StringValue("Ammended")]
+        [BAMStringValue("In Stock")]
         [Description("Ammended")]
         Ammended = 8,
-        [StringValue("Disposed")]
+        [BAMStringValue("Disposed")]
         [Description("Disposed")]
         Disposed = 9
     }

@@ -36,7 +36,7 @@ namespace BusinessModel.Test
         }
 
         [TestMethod]
-        public void E00_EstService_GetExportData_Exists_in_BAMService()
+        public void E01_EstService_GetExportData_Exists_in_BAMService()
         {
             var estService = new EST_Service();
             var queryBuilder = new QueryBuilder();
@@ -59,7 +59,7 @@ namespace BusinessModel.Test
         }
 
         [TestMethod]
-        public void E00_EstService_GetExportData_Exists_in_BAMService_Random()
+        public void E02_EstService_GetExportData_Exists_in_BAMService_Random()
         {
             var estService = new EST_Service();
             var queryBuilder = new QueryBuilder
@@ -90,7 +90,7 @@ namespace BusinessModel.Test
         }
 
         [TestMethod]
-        public void E00_EstService_GetExportData_Exists_in_BAMService_Update()
+        public void E03_EstService_GetExportData_Exists_in_BAMService_Update()
         {
             var updateAssetStatus = EST_HWAssetStatus.Retired;
 
@@ -149,7 +149,7 @@ namespace BusinessModel.Test
         }
 
         [TestMethod]
-        public void E00_EstService_GetExportData_Exists_in_BAMService_UpdateDeployedToUser()
+        public void E04_EstService_GetExportData_Exists_in_BAMService_UpdateDeployedToUser()
         {
             var updateAssetStatus = EST_HWAssetStatus.Deployed;
 

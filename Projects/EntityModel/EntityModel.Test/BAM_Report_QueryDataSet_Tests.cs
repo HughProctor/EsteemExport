@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EntityModel.Mappers;
-using EntityModel.Service;
+using EntityModel.Repository;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -17,8 +17,8 @@ namespace EntityModel.Test
     [TestClass]
     public class BAM_Report_QueryDataSet_Tests
     {
-        SCAuditService _sCAuditService;
-        SCDeployService _sCDeployService;
+        SCAuditRepository _sCAuditService;
+        SCDeployRepository _sCDeployService;
         private string _typePrefix = "BAMReport_";
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
@@ -29,8 +29,8 @@ namespace EntityModel.Test
         public void Startup()
         {
             Map.Init();
-            _sCAuditService = new SCAuditService();
-            _sCDeployService = new SCDeployService();
+            _sCAuditService = new SCAuditRepository();
+            _sCDeployService = new SCDeployRepository();
         }
 
         private List<SCAudit> GetAll_Audit_BaseQuery()

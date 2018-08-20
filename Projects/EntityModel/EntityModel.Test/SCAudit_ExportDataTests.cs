@@ -1,4 +1,4 @@
-﻿using EntityModel.Service;
+﻿using EntityModel.Repository;
 using EntityModel.Test.Specifications;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -11,7 +11,7 @@ namespace EntityModel.Test
     [TestClass]
     public class SCAudit_ExportDataTests
     {
-        SCAuditService _sCAuditService;
+        SCAuditRepository _sCAuditService;
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
         private string _typePrefix = "SCAudit_";
@@ -19,7 +19,7 @@ namespace EntityModel.Test
         [TestInitialize]
         public void Startup()
         {
-            _sCAuditService = new SCAuditService();
+            _sCAuditService = new SCAuditRepository();
         }
 
         private List<SCAudit> GetAll_BaseQuery()

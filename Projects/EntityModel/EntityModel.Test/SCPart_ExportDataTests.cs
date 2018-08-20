@@ -1,5 +1,5 @@
 ﻿using EntityModel.BusinessLogic;
-using EntityModel.Service;
+using EntityModel.Repository;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -11,7 +11,7 @@ namespace EntityModel.Test
     [TestClass]
     public class SCPart_ExportDataTests
     {
-        SCPartService _sCPartService;
+        SCPartRepository _sCPartService;
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
         private string _typePrefix = "SCPart_";
@@ -19,7 +19,7 @@ namespace EntityModel.Test
         [TestInitialize]
         public void Startup()
         {
-            _sCPartService = new SCPartService();
+            _sCPartService = new SCPartRepository();
         }
 
         private List<SCPart> GetAll_BaseQuery()

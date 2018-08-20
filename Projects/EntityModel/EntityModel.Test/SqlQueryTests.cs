@@ -1,4 +1,4 @@
-﻿using EntityModel.Service;
+﻿using EntityModel.Repository;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -9,12 +9,12 @@ namespace EntityModel.Test
     [TestClass]
     public class SqlQueryTests
     {
-        SCAuditService _sCAuditService;
+        SCAuditRepository _sCAuditService;
 
         [TestInitialize]
         public void Startup()
         {
-            _sCAuditService = new SCAuditService();
+            _sCAuditService = new SCAuditRepository();
         }
 
         [TestMethod]

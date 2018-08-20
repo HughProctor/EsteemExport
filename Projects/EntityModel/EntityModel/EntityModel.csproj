@@ -60,10 +60,13 @@
     <Compile Include="Models\PartDescriptionModel.cs" />
     <Compile Include="Models\SCAuditDeployModel.cs" />
     <Compile Include="Models\SCPartModel.cs" />
-    <Compile Include="Service\QueryBuilder.cs" />
-    <Compile Include="Service\SCDeployService.cs" />
-    <Compile Include="Service\SCPartService.cs" />
-    <Compile Include="Service\SCAuditService.cs" />
+    <Compile Include="Repository\Abstract\ISCAuditRepository.cs" />
+    <Compile Include="Repository\Abstract\ISCDeployRepository.cs" />
+    <Compile Include="Repository\Abstract\IQueryBuilder.cs" />
+    <Compile Include="Repository\QueryBuilder.cs" />
+    <Compile Include="Repository\SCDeployRepository.cs" />
+    <Compile Include="Repository\SCPartRepository.cs" />
+    <Compile Include="Repository\SCAuditRepository.cs" />
     <Compile Include="Connection\SqlDbConnection.cs" />
     <Compile Include="Entities\AuditItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

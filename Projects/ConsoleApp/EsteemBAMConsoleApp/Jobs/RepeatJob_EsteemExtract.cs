@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using EntityModel;
 using EntityModel.Mappers;
-using EntityModel.Service;
+using EntityModel.Repository;
 using Infrastructure.FileExport;
 using SchedulerManager.Mechanism;
 using System;
@@ -14,7 +14,7 @@ namespace EsteemBAMConsoleApp.Jobs
 {
     public class RepeatJob_EsteemExtract : Job
     {
-        SCAuditService _sCAuditService;
+        SCAuditRepository _sCAuditService;
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
         private string _typePrefix = "SCAudit_";
@@ -23,7 +23,7 @@ namespace EsteemBAMConsoleApp.Jobs
 
         public RepeatJob_EsteemExtract()
         {
-            _sCAuditService = new SCAuditService();
+            _sCAuditService = new SCAuditRepository();
 
             _startDateTimeString = string.IsNullOrEmpty(_startDateTimeString) ? "01/01/2017" : _startDateTimeString;
             _endDateTimeString = string.IsNullOrEmpty(_endDateTimeString) ? "30/11/2017" : _endDateTimeString;

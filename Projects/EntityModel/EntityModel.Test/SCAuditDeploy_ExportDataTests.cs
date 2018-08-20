@@ -1,4 +1,4 @@
-﻿using EntityModel.Service;
+﻿using EntityModel.Repository;
 using EntityModel.Test.Specifications;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -11,7 +11,7 @@ namespace EntityModel.Test
     [TestClass]
     public class SCAuditDeploy_ExportDataTests
     {
-        SCDeployService _sCDeployService;
+        SCDeployRepository _sCDeployService;
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
         private string _typePrefix = "SCAuditDeploy_";
@@ -19,7 +19,7 @@ namespace EntityModel.Test
         [TestInitialize]
         public void Startup()
         {
-            _sCDeployService = new SCDeployService();
+            _sCDeployService = new SCDeployRepository();
         }
 
         private List<SCAuditDeploy> GetAll_BaseQuery()

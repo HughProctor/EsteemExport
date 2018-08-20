@@ -1,0 +1,146 @@
+﻿using BusinessModel.Models;
+using BusinessModel.Services.Abstract;
+using EntityModel;
+using EntityModel.Mappers;
+using EntityModel.Repository;
+using EntityModel.Repository.Abstract;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace BusinessModel.Services
+{
+    public class EST_Service : IEST_Service
+    {
+        #region Fields
+        ISCAuditRepository _sCAuditService;
+        ISCDeployRepository _sCDeployService;
+        private string _startDateTimeString = "";
+        private string _endDateTimeString = "";
+        DateTime _startDateTime;
+        DateTime _endDateTime;
+        #endregion Fields
+
+        public EST_Service() : this(new SCAuditRepository(), new SCDeployRepository())
+        {
+        }
+
+        public EST_Service(ISCAuditRepository auditService, ISCDeployRepository deployService)
+        {
+            Map.Init();
+            _sCAuditService = auditService;
+            _sCDeployService = deployService;
+        }
+
+        public EST_DataExportModel GetExportData(IQueryBuilder queryBuilder)
+        {
+            var returnValue = new EST_DataExportModel();
+
+            IQueryBuilder _queryBuilder = SetDefaultValues(queryBuilder);
+
+            string whereExpression = "WHERE [Part_Type] = 'R' AND [PART_DESC] NOT LIKE '%**%' ";
+            _queryBuilder.WhereExpression = whereExpression;
+
+            _sCAuditService.QueryBuilderObject = _queryBuilder;
+            _sCDeployService.QueryBuilderObject = _queryBuilder;
+
+            var returnAuditList = GetData_Audit_BaseQuery();
+            var returnDeployList = GetData_Deploy_BaseQuery();
+
+            returnValue.NewItemList = Get_New_Item(returnAuditList);
+            returnValue.LocationChangeList = Get_Location_Change(returnAuditList);
+            returnValue.AssetTagChangeList = Get_Asset_Tag_Change(returnAuditList);
+            returnValue.DeployedToBAMUserList = Get_Deployed_to_BAM_User(returnDeployList);
+            returnValue.ReturnedFromBAMUserList = Get_Returned_from_BAM_User(returnDeployList);
+
+            return returnValue;
+        }
+
+        #region private Methods
+        private IQueryBuilder SetDefaultValues(IQueryBuilder queryBuilder)
+        {
+            if (queryBuilder != null) return queryBuilder;
+            var _queryBuilder = queryBuilder ?? new QueryBuilder();
+            if (_queryBuilder.StartDate.Equals(new DateTime())) _queryBuilder.StartDateString = "01/01/2017";
+            if (_queryBuilder.EndDate.Equals(new DateTime())) _queryBuilder.EndDateString = "30/12/2019";
+            _queryBuilder.PageCount = 10000000;
+            return _queryBuilder;
+        }
+
+        internal List<SCAudit> GetData_Audit_BaseQuery()
+        {
+            var returnList = new List<SCAudit>();
+            returnList = _sCAuditService.GetAll();
+            return returnList;
+        }
+
+        internal List<SCAuditDeploy> GetData_Deploy_BaseQuery()
+        {
+            var returnList = new List<SCAuditDeploy>();
+            returnList = _sCDeployService.GetAll();
+            return returnList;
+        }
+
+        internal List<SCAuditExt> Get_New_Item(List<SCAudit> returnList)
+        {
+            var newItemList = Map.Map_Results(returnList
+                .Where
+                (
+                    item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
+                        && item.Audit_Rem.StartsWith("Added PO")
+                        && (item.Audit_Dest_Site_Num.ToUpper().StartsWith("E-") || item.Audit_Dest_Site_Num.ToUpper() == "LTX")
+                ).ToList());
+            return newItemList;
+        }
+
+        internal List<SCAuditExt> Get_Location_Change(List<SCAudit> returnList)
+        {
+            var newItemList = Map.Map_Results(returnList
+                .Where
+                (
+                    item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
+                        && (item.Audit_Dest_Site_Num.ToUpper() == "LTX"
+                         || item.Audit_Dest_Site_Num.ToUpper() == "LTXR"
+                         || item.Audit_Dest_Site_Num.ToUpper() == "LTX BAD"
+                         || item.Audit_Dest_Site_Num.ToUpper() == "BNLSCRAP"
+                        )
+                ).ToList());
+            return newItemList;
+        }
+
+        internal List<SCAuditExt> Get_Asset_Tag_Change(List<SCAudit> returnList)
+        {
+            var newItemList = Map.Map_Results(returnList
+                .Where
+                (
+                    item => (item.Audit_Part_Num.ToUpper().StartsWith("BNL")
+                        && item.Audit_Rem.ToUpper().StartsWith("ID CHANGED FROM")
+                        && (item.Audit_Dest_Site_Num.ToUpper().StartsWith("E-") || item.Audit_Dest_Site_Num.ToUpper() == "LTX")
+                        && (item.Audit_Ser_Num.StartsWith("BAM-") && item.Audit_Ser_Num.Contains("/"))
+                )).ToList());
+            return newItemList;
+        }
+
+        internal List<SCAuditDeployExt> Get_Deployed_to_BAM_User(List<SCAuditDeploy> returnList)
+        {
+            var newItemList = Map.Map_Results(returnList
+                .Where
+                (
+                    item => item.Audit_Ser_Num.StartsWith("BAM")
+                ).ToList());
+            return newItemList;
+        }
+
+        internal List<SCAuditDeployExt> Get_Returned_from_BAM_User(List<SCAuditDeploy> returnList)
+        {
+            var newItemList = Map.Map_Results(returnList
+                .Where
+                (
+                    item => !string.IsNullOrEmpty(item.Audit_Ser_Num_Returned)
+                        && item.Audit_Ser_Num.StartsWith("BAM")
+                ).ToList());
+            return newItemList;
+        }
+        #endregion
+    }
+}

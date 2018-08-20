@@ -42,15 +42,18 @@ namespace ServiceModel.Services
             return returnValue;
         }
 
-        public BAM_HardwareTemplate SetHardwareAssetStatus(BAM_HardwareTemplate template, EST_HWAssetStatus hWAssetStatus)
+        public List<BAM_HardwareTemplate_Full> GetHardwareAsset_Full(string serialNumber)
         {
-            if (template == null)
-                throw new Exception("Template must not be null");
+            var returnValue = new List<BAM_HardwareTemplate_Full>();
 
-            // Clone the object so we can check the changes
-            var newHardwareAsset = CloneObject.Clone(template);
-            newHardwareAsset.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(hWAssetStatus);
-            return newHardwareAsset;
+            var content = CreateProjectionFilter_StringContent(serialNumber, true);
+            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+
+            var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
+
+            returnValue = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate_Full>>(resultSring_Get);
+
+            return returnValue;
         }
 
         public List<BAM_HardwareTemplate> UpdateTemplate(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate)
@@ -67,8 +70,50 @@ namespace ServiceModel.Services
                     Current = newTemplate
                 }
             };
-            var jsonSettings = new JsonSerializerSettings();
-            jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            return BAM_ApiPost(newTemplate, originalTemplate, returnValue, template);
+        }
+
+        public List<BAM_HardwareTemplate_Full> UpdateTemplate(BAM_HardwareTemplate_Full newTemplate, BAM_HardwareTemplate_Full originalTemplate)
+        {
+            var returnValue = new List<BAM_HardwareTemplate_Full>();
+            if (newTemplate == null || originalTemplate == null)
+                throw new Exception("Template must not be null");
+
+            var template = new HardwareTemplate()
+            {
+                formJson = new FormJson()
+                {
+                    Original = originalTemplate,
+                    Current = newTemplate
+                }
+            };
+            return BAM_ApiPost(newTemplate, originalTemplate, returnValue, template);
+        }
+
+        public List<BAM_HardwareTemplate> InsertTemplate(BAM_HardwareTemplate newTemplate)
+        {
+            var returnValue = new List<BAM_HardwareTemplate>();
+            if (newTemplate == null)
+                throw new Exception("Template must not be null");
+
+            var template = new HardwareTemplate()
+            {
+                formJson = new FormJson()
+                {
+                    Original = null,
+                    Current = newTemplate
+                }
+            };
+            return BAM_ApiPost(newTemplate, null, returnValue, template);
+        }
+
+
+        private List<BAM_HardwareTemplate> BAM_ApiPost(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate, List<BAM_HardwareTemplate> returnValue, HardwareTemplate template)
+        {
+            var jsonSettings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
 
             var json = JsonConvert.SerializeObject(template);//, jsonSettings
             var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
@@ -94,13 +139,44 @@ namespace ServiceModel.Services
             return returnValue;
         }
 
-        public string CreateProjectionFilter(string serialNumber)
+        private List<BAM_HardwareTemplate_Full> BAM_ApiPost(BAM_HardwareTemplate_Full newTemplate, BAM_HardwareTemplate_Full originalTemplate, List<BAM_HardwareTemplate_Full> returnValue, HardwareTemplate template)
+        {
+            var jsonSettings = new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+
+            var json = JsonConvert.SerializeObject(template);//, jsonSettings
+            var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
+
+            var queryResult_Set = _client.PostAsync("Projection/Commit", content).Result;
+            if (!queryResult_Set.IsSuccessStatusCode)
+            {
+                string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;
+                ExceptionResponse exceptionResponse = JsonConvert.DeserializeObject<ExceptionResponse>(responseContent);
+                throw new Exception(exceptionResponse.Exception);
+            }
+
+            var resultSring = queryResult_Set.Content.ReadAsStringAsync().Result;
+
+            //var result = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate>>(resultSring);
+            /////-------------This could be moved out and converted into an async Task ---- we can handle response outside///
+            var result = JsonConvert.DeserializeObject<BAM_Api_SuccessResponse>(resultSring);
+            if (result.BaseId != newTemplate.BaseId)
+                throw new Exception("Updated BaseId's didn't match");
+
+            returnValue.Add(newTemplate);
+            returnValue.Add(originalTemplate);
+            return returnValue;
+        }
+
+        public string CreateProjectionFilter(string serialNumber, bool useFullProjection = false)
         {
             var returnValue = "";
             var projectionId = "6fd42dd3-81b4-ec8d-14d6-08af1e83f63a";
-            //var projectionIdFullUser = "7dd5144c-bd5d-af27-e3af-debcb5a53546";
+            var projectionIdFullUser = "7dd5144c-bd5d-af27-e3af-debcb5a53546";
             //serialNumber = serialNumberFull;
-            //projectionId = projectionIdFullUser;
+            if (useFullProjection) projectionId = projectionIdFullUser;
 
             returnValue = "{\"Id\": \"" + projectionId + "\",\"Criteria\": {\"Base\": {" +
                     "\"Expression\": { \"And\": { \"Expression\": [{" +
@@ -116,9 +192,90 @@ namespace ServiceModel.Services
             return returnValue;
         }
 
-        public StringContent CreateProjectionFilter_StringContent(string serialNumber)
+        public StringContent CreateProjectionFilter_StringContent(string serialNumber, bool useFullProjection = false)
         {
-            return new StringContent(CreateProjectionFilter(serialNumber), Encoding.UTF8, "application/json");
+            return new StringContent(CreateProjectionFilter(serialNumber, useFullProjection), Encoding.UTF8, "application/json");
+        }
+
+        public BAM_HardwareTemplate CreateNewTemplate()
+        {
+            var returnValue = new BAM_HardwareTemplate() {
+                LastModified = new DateTime(0001, 01, 01, 00, 00, 00),
+                LastModifiedBy = "7431e155-3d9e-4724-895e-c03ba951a352",
+                ClassTypeId = "20d06950-4c1a-1afa-41a6-f46f4f863550",
+          //      BaseId = "e728d3d3-3104-47e3-b760-9b9863ebbd9a", -- This is the Unique Identifier
+                ClassName = "Cireson.AssetManagement.HardwareAsset",
+                FullClassName = "Hardware Asset",
+            };
+
+            return returnValue;
+        }
+
+        public BAM_HardwareTemplate SetHardwareAssetStatus(BAM_HardwareTemplate template, EST_HWAssetStatus hWAssetStatus)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(hWAssetStatus);
+            return newHardwareAsset;
+        }
+
+        public BAM_HardwareTemplate_Full SetHardwareAssetStatus(BAM_HardwareTemplate_Full template, EST_HWAssetStatus hWAssetStatus)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(hWAssetStatus);
+            return newHardwareAsset;
+        }
+
+        public BAM_HardwareTemplate_Full SetHardwareAssetPrimaryUser(BAM_HardwareTemplate_Full template, BAM_User user)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.Target_HardwareAssetHasPrimaryUser = new TargetHardwareAssetHasPrimaryUser
+            {
+                ClassTypeId = "a1239454-c42e-7f65-6ce0-47bb8141adea",
+                BaseId = user.Id,
+                DisplayName = user.Name,
+                UPN = user.Email
+            }; //bamAsset.Target_HardwareAssetHasPrimaryUser ??
+            return newHardwareAsset;
+        }
+
+        public BAM_HardwareTemplate_Full SetLocation(BAM_HardwareTemplate_Full template, string audit_Dest_Site_Num)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation
+            {
+                ClassTypeId = "a1239454-c42e-7f65-6ce0-47bb8141adea",
+                //BaseId = user.Id,
+                //DisplayName = user.Name,
+                //UPN = user.Email
+            }; 
+            return newHardwareAsset;
+        }
+
+        public BAM_HardwareTemplate SetAssetTag(BAM_HardwareTemplate template, string assetTag)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.AssetTag = assetTag;
+            return newHardwareAsset;
         }
     }
 }

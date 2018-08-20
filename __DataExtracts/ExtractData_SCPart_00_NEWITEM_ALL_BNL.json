@@ -111,7 +111,7 @@
         "X360",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -134,7 +134,7 @@
         "X360",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -156,7 +156,7 @@
         "850G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -178,7 +178,7 @@
         "850G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -200,7 +200,7 @@
         "DOCKING",
         "STATION"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -224,7 +224,7 @@
         "PS",
         "PLOTTER"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -490,7 +490,7 @@
         "DOCKING",
         "STATION"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -514,7 +514,7 @@
         "SVR",
         "AD"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -537,7 +537,7 @@
         "IMAGING",
         "DRUM"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -560,7 +560,7 @@
         "IMAGING",
         "DRUM"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -585,7 +585,7 @@
         "500GB",
         "PC"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -609,7 +609,7 @@
         "8GB",
         "ELIT"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -631,7 +631,7 @@
         "NOTEBOOK",
         "PC"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -653,7 +653,7 @@
         "DOCKING",
         "STATION"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -677,7 +677,7 @@
         "3.10GHZ",
         "SVR"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -698,7 +698,7 @@
         "DOCKING",
         "STATION"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -721,7 +721,7 @@
         "900",
         "G1"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -743,7 +743,7 @@
         "2540P",
         "D/STATION"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -766,7 +766,7 @@
         "170X",
         "PRINTSER"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -788,7 +788,7 @@
         "2430DTN",
         "PRINTER"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -810,7 +810,7 @@
         "ENTERPRISE",
         "M603"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -834,7 +834,7 @@
         "M251N",
         "PRINTER"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -857,7 +857,7 @@
         "MFP",
         "PRINTER"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -879,7 +879,7 @@
         "P1102",
         "PRINTER"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -903,7 +903,7 @@
         "PORT",
         "GIGA"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -928,7 +928,7 @@
         "ETH",
         "AD"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -952,7 +952,7 @@
         "V3800",
         "WORKSTAI"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -976,7 +976,7 @@
         "V3800",
         "WORKSTAI"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1002,7 +1002,7 @@
         "W7",
         "1TB"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1028,7 +1028,7 @@
         "1TB",
         "HDD"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1053,7 +1053,7 @@
         "3",
         "DOCK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1077,7 +1077,7 @@
         "MOBILE",
         "WSTA"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1101,7 +1101,7 @@
         "MOBILE",
         "WSTATION"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1126,7 +1126,7 @@
         "3",
         "DOCK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1396,7 +1396,7 @@
         "5V",
         "2A"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1418,7 +1418,7 @@
         "ACTIVE",
         "PEN"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1442,7 +1442,7 @@
         "TIPS",
         "X3"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1466,7 +1466,7 @@
         "TB3",
         "DOCK"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1490,7 +1490,7 @@
         "19.5V",
         "3.33A"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1513,7 +1513,7 @@
         "POW",
         "CAB"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1578,7 +1578,7 @@
         "8300",
         "USDT"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1601,7 +1601,7 @@
         "RACK",
         "RAIL"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1625,7 +1625,7 @@
         "1012",
         "G1"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1647,7 +1647,7 @@
         "KEYBOARD",
         "TOUCHPAD"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,
@@ -1672,7 +1672,7 @@
         "ADV",
         "KBD"
       ],
-      "Manufacturer": "Hewlet Packard (HP)",
+      "Manufacturer": "Hewlet-Packard (HP)",
       "Model": null,
       "SerialNumber": null,
       "AssetName": null,

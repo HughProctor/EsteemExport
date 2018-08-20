@@ -93,7 +93,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         [TestMethod]
         public async Task BAM_User_Get_WestwoodEleanor_Refactored()
         {
-            var userFilter = "Westwood, Eleanor";
+            var userFilter = "Britton, David";
             IBAM_UserService bamUserService = new BAM_UserService();
             var user = bamUserService.GetUser(userFilter);
 

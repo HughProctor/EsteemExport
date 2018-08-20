@@ -38,12 +38,15 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name == "Deployed");
         }
 
+        /// <summary>
+        /// For this test to run successfully the updateAssetStatus must be changed
+        /// </summary>
+        /// <returns></returns>
         [TestMethod]
-        public async Task B01_GetAssetItem_SetHardwareStatus_Test()
+        public async Task B01_GetAssetItem_SetHardwareStatus_and_Update_FullAssertTest()
         {
-            var hardwareAssetTemplateId = "c0c58e7f-7865-55cc-4600-753305b9be64";
-            var serialNumber = "CNU0183F33"; // "BAM -L-00"; //0852
-            var serialNumberFull = "CND7506PT8"; // "BAM -L-00"; //0852
+            var serialNumber = "CNU0183F33"; 
+
             var updateAssetStatus = EST_HWAssetStatus.Retired;
 
             var hardwareAssetService = new BAM_HardwareAssetServices();
@@ -75,6 +78,45 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             Assert.IsTrue(hardwareAssetList[0].HardwareAssetStatus.Name != hardwareAssetList[1].HardwareAssetStatus.Name, "Original and Updated Hardware Assets Status is the same");
             Assert.IsTrue(hardwareAssetList[0].HardwareAssetStatus.Name == updateAssetStatus.ToBAMString(), "Updated Asset status doesn't equal BAM AssetStatus Enum");
+        }
+
+        /// <summary>
+        /// For this test to run successfully the updateAssetStatus must be changed
+        /// </summary>
+        /// <returns></returns>
+        [TestMethod]
+        public async Task B02_Update_Asset_LastModified_DateTime_Test()
+        {
+            var serialNumber = "CNU0183F33";
+
+            var updateAssetStatus = EST_HWAssetStatus.Retired;
+            var originalModifiedDate = new DateTime();
+            var updatedModifiedDate = new DateTime();
+
+            var hardwareAssetService = new BAM_HardwareAssetServices();
+            var result = hardwareAssetService.GetHardwareAsset(serialNumber);
+
+            var originalhardwareAsset = result.First();
+
+            originalModifiedDate = originalhardwareAsset.LastModified;
+
+            var newHardwareAsset = hardwareAssetService.SetHardwareAssetStatus(originalhardwareAsset, updateAssetStatus);
+
+            newHardwareAsset.LastModified = DateTime.Now;
+            List<BAM_HardwareTemplate> hardwareAssetList = new List<BAM_HardwareTemplate>();
+            hardwareAssetList = hardwareAssetService.UpdateTemplate(newHardwareAsset, originalhardwareAsset);
+            Assert.IsNotNull(hardwareAssetList, "Return list is null");
+            Assert.IsTrue(hardwareAssetList.Count > 1, "Return list doesn't include 2 records");
+
+            var updatedHardwareAsset = hardwareAssetService.GetHardwareAsset(serialNumber).FirstOrDefault();
+
+            Assert.IsNotNull(updatedHardwareAsset, "Updated Asset is null");
+            Assert.IsTrue(updatedHardwareAsset.SerialNumber == serialNumber, "SerialNumbers don't match");
+
+            updatedModifiedDate = updatedHardwareAsset.LastModified;
+
+            Assert.IsTrue(updatedModifiedDate != originalModifiedDate, "Original and Updated LastModified Date are the same");
+            Assert.IsTrue(updatedModifiedDate > originalModifiedDate, "Updated LastModified Date is not greater that the Original");
         }
     }
 }

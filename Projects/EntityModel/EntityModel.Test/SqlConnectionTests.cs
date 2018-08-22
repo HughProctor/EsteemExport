@@ -25,6 +25,19 @@ namespace EntityModel.Test
         }
 
         [TestMethod]
+        public void OpenConnection_Test_2()
+        {
+            // Prepare
+            var connectionString = @"Server=EST-SQL-SVR01;Database=BAMEsteemExportDb;User ID=Esteem\BAMEsteemExportAdmin;Password=4m18w0:0&X39;Integrated Security=SSPI;";
+            var sqlDbConnection = new SqlDbConnection();
+            var connection = sqlDbConnection.CreateConnection(connectionString);
+            // Act
+            // Assert
+            Assert.IsTrue(sqlDbConnection.OpenConnection_Test(connectionString), "Failed to Open Database Connection");
+            connection.Close();
+        }
+
+        [TestMethod]
         public void Inline_Linq_Query_To_DB()
         {
             var connectionString = "Server=Tesseract;Database=LineTess;Uid=Hugh;Pwd=Pr0ct0r";

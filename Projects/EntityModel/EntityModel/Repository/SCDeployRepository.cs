@@ -52,7 +52,7 @@ namespace EntityModel.Repository
                 "NULLIF(LTRIM(RTRIM(SCP.[Part_Alt_Part_Num])), '') AS [Part_Code], " +
                 "NULLIF(LTRIM(RTRIM(SL.[Fsrl_Call_Num])), '') AS [Call_Num], " +
                 "NULLIF(LTRIM(RTRIM(SC.[Call_Contact])), '') AS [Call_Contact], " +
-                "CASE WHEN LEFT([Call_Phone], 2) LIKE '0%' THEN NULL ELSE LTRIM([Call_Phone]) END AS [CostCode], " +
+                "CASE WHEN LEFT([Call_Phone], 2) LIKE '0%' THEN NULL ELSE LTRIM(RTRIM([Call_Phone])) END AS [CostCode], " +
                 "SL.[Fsrl_Last_Update] AS [UPDATE_DATE] " +
                 "FROM [SCFsrl] AS SL (NOLOCK) ";
             QueryStringJoin = "FULL JOIN [SCPart] AS SCP ON SL.[Fsrl_Ret_Part_Num] = SCP.[Part_Num] ";

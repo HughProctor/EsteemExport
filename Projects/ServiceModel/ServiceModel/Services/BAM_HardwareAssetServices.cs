@@ -18,6 +18,7 @@ namespace ServiceModel.Services
     {
         IBAM_AssetStatusService _assetStatusService;
 
+        #region Constructors
         public BAM_HardwareAssetServices() : this(new BAM_AssetStatusService())
         {
         }
@@ -27,7 +28,9 @@ namespace ServiceModel.Services
             _assetStatusService = assetStatusService;
             Task.Run(() => this.Setup()).Wait();
         }
+        #endregion
 
+        #region CRUD
         public List<BAM_HardwareTemplate> GetHardwareAsset(string serialNumber)
         {
             var returnValue = new List<BAM_HardwareTemplate>();
@@ -59,7 +62,7 @@ namespace ServiceModel.Services
         public List<BAM_HardwareTemplate> UpdateTemplate(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate)
         {
             var returnValue = new List<BAM_HardwareTemplate>();
-            if (newTemplate == null || originalTemplate == null)
+            if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
             var template = new HardwareTemplate()
@@ -76,7 +79,7 @@ namespace ServiceModel.Services
         public List<BAM_HardwareTemplate_Full> UpdateTemplate(BAM_HardwareTemplate_Full newTemplate, BAM_HardwareTemplate_Full originalTemplate)
         {
             var returnValue = new List<BAM_HardwareTemplate_Full>();
-            if (newTemplate == null || originalTemplate == null)
+            if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
             var template = new HardwareTemplate()
@@ -106,8 +109,9 @@ namespace ServiceModel.Services
             };
             return BAM_ApiPost(newTemplate, null, returnValue, template);
         }
+        #endregion
 
-
+        #region Private Post
         private List<BAM_HardwareTemplate> BAM_ApiPost(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate, List<BAM_HardwareTemplate> returnValue, HardwareTemplate template)
         {
             var jsonSettings = new JsonSerializerSettings
@@ -169,7 +173,9 @@ namespace ServiceModel.Services
             returnValue.Add(originalTemplate);
             return returnValue;
         }
+        #endregion
 
+        #region Filters
         public string CreateProjectionFilter(string serialNumber, bool useFullProjection = false)
         {
             var returnValue = "";
@@ -196,7 +202,9 @@ namespace ServiceModel.Services
         {
             return new StringContent(CreateProjectionFilter(serialNumber, useFullProjection), Encoding.UTF8, "application/json");
         }
+        #endregion
 
+        #region Set Values
         public BAM_HardwareTemplate CreateNewTemplate()
         {
             var returnValue = new BAM_HardwareTemplate() {
@@ -246,24 +254,29 @@ namespace ServiceModel.Services
                 BaseId = user.Id,
                 DisplayName = user.Name,
                 UPN = user.Email
-            }; //bamAsset.Target_HardwareAssetHasPrimaryUser ??
+            }; 
             return newHardwareAsset;
         }
 
-        public BAM_HardwareTemplate_Full SetLocation(BAM_HardwareTemplate_Full template, string audit_Dest_Site_Num)
+        public BAM_HardwareTemplate_Full SetLocation(BAM_HardwareTemplate_Full template, string siteLocation)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
 
             // Clone the object so we can check the changes
             var newHardwareAsset = CloneObject.Clone(template);
-            newHardwareAsset.Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation
-            {
-                ClassTypeId = "a1239454-c42e-7f65-6ce0-47bb8141adea",
-                //BaseId = user.Id,
-                //DisplayName = user.Name,
-                //UPN = user.Email
-            }; 
+            //if (siteLocation == "Esteem" || siteLocation == "LTX")
+            //{
+                newHardwareAsset.Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation
+                {
+                    ClassTypeId = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
+                    BaseId = "ae7423eb-0952-d69c-4d7d-77f1699bfe92",
+                    DisplayName = "Esteem",
+                    ClassName = "Cireson.AssetManagement.Location",
+                    FullClassName = "Location",
+                    LastModified = DateTime.Now,
+                };
+            //}
             return newHardwareAsset;
         }
 
@@ -277,5 +290,6 @@ namespace ServiceModel.Services
             newHardwareAsset.AssetTag = assetTag;
             return newHardwareAsset;
         }
+        #endregion
     }
 }

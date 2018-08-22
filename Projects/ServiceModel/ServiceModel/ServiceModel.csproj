@@ -73,6 +73,8 @@
     <Compile Include="Extensions\CloneObject.cs" />
     <Compile Include="Mappers\AutoMapperExtensions.cs" />
     <Compile Include="Models\BAM\BAM_Object.cs" />
+    <Compile Include="Models\Abstract\IBAM_HardwareTemplate_Full.cs" />
+    <Compile Include="Models\Abstract\IBAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_Api_SuccessResponse.cs" />
     <Compile Include="Models\Esteem\EST_HWAssetStatus.cs" />
     <Compile Include="Models\ExceptionResponse.cs" />

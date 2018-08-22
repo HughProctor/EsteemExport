@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceModel.Models.BAM.Abstract;
+using System;
 using System.Collections.Generic;
 
 namespace ServiceModel.Models.BAM
@@ -189,7 +190,7 @@ namespace ServiceModel.Models.BAM
         public string Id { get; set; }
     }
 
-    public class BAM_HardwareTemplate_Full : BAM_HardwareTemplate
+    public class BAM_HardwareTemplate_Full : BAM_HardwareTemplate, IBAM_HardwareTemplate_Full, IBAM_HardwareTemplate
     {
         public TargetHardwareAssetHasPrimaryUser Target_HardwareAssetHasPrimaryUser { get; set; }
         public OwnedBy OwnedBy { get; set; }

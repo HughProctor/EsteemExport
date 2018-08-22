@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceModel.Models.BAM.Abstract;
+using System;
 using System.Collections.Generic;
 
 namespace ServiceModel.Models.BAM
@@ -46,7 +47,7 @@ namespace ServiceModel.Models.BAM
         public string RelationshipId { get; set; }
     }
 
-    public class BAM_HardwareTemplate
+    public class BAM_HardwareTemplate : IBAM_HardwareTemplate
     {
         public string ClassTypeId { get; set; }
         public string BaseId { get; set; }

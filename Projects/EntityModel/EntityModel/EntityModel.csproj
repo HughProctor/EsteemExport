@@ -48,6 +48,7 @@
     <Compile Include="BusinessLogic\SemiNumericComparer.cs" />
     <Compile Include="BusinessLogic\TestData.cs" />
     <Compile Include="Entities\HWAssetStatus.cs" />
+    <Compile Include="Entities\Abstract\ISCAuditExt.cs" />
     <Compile Include="Entities\SCAuditDeployExt.cs" />
     <Compile Include="Entities\SCAuditDeploy.cs" />
     <Compile Include="Entities\SCAuditExt.cs" />

@@ -54,71 +54,6 @@
       "Audit_Move_Date": "2017-11-16T00:00:00"
     },
     {
-      "Audit_Ser_Num": "CND7443J5H",
-      "Audit_Part_Num": "BNL-M9L92AV-NEW",
-      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
-      "Audit_Prod_Desc_Alt": "NOBCOM",
-      "Audit_Source_Site_Num": "",
-      "Audit_Dest_Site_Num": "E-676452",
-      "Audit_Part_Type": "R",
-      "Audit_Rem": "Added PO",
-      "Audit_User": "ACL",
-      "Audit_Last_Update": "2017-11-13T13:11:54",
-      "Audit_Move_Date": "2017-11-13T00:00:00"
-    },
-    {
-      "Audit_Ser_Num": "CND7443J5D",
-      "Audit_Part_Num": "BNL-M9L92AV-NEW",
-      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
-      "Audit_Prod_Desc_Alt": "NOBCOM",
-      "Audit_Source_Site_Num": "",
-      "Audit_Dest_Site_Num": "E-676452",
-      "Audit_Part_Type": "R",
-      "Audit_Rem": "Added PO",
-      "Audit_User": "ACL",
-      "Audit_Last_Update": "2017-11-13T13:11:55",
-      "Audit_Move_Date": "2017-11-13T00:00:00"
-    },
-    {
-      "Audit_Ser_Num": "CND7443J5G",
-      "Audit_Part_Num": "BNL-M9L92AV-NEW",
-      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
-      "Audit_Prod_Desc_Alt": "NOBCOM",
-      "Audit_Source_Site_Num": "",
-      "Audit_Dest_Site_Num": "E-676452",
-      "Audit_Part_Type": "R",
-      "Audit_Rem": "Added PO",
-      "Audit_User": "ACL",
-      "Audit_Last_Update": "2017-11-13T13:11:56",
-      "Audit_Move_Date": "2017-11-13T00:00:00"
-    },
-    {
-      "Audit_Ser_Num": "CND7443J5F",
-      "Audit_Part_Num": "BNL-M9L92AV-NEW",
-      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
-      "Audit_Prod_Desc_Alt": "NOBCOM",
-      "Audit_Source_Site_Num": "",
-      "Audit_Dest_Site_Num": "E-676452",
-      "Audit_Part_Type": "R",
-      "Audit_Rem": "Added PO",
-      "Audit_User": "ACL",
-      "Audit_Last_Update": "2017-11-13T13:11:58",
-      "Audit_Move_Date": "2017-11-13T00:00:00"
-    },
-    {
-      "Audit_Ser_Num": "CND7443J5J",
-      "Audit_Part_Num": "BNL-M9L92AV-NEW",
-      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
-      "Audit_Prod_Desc_Alt": "NOBCOM",
-      "Audit_Source_Site_Num": "",
-      "Audit_Dest_Site_Num": "E-676452",
-      "Audit_Part_Type": "R",
-      "Audit_Rem": "Added PO",
-      "Audit_User": "ACL",
-      "Audit_Last_Update": "2017-11-13T13:11:59",
-      "Audit_Move_Date": "2017-11-13T00:00:00"
-    },
-    {
       "Audit_Ser_Num": "CND7303PW7",
       "Audit_Part_Num": "BNL-P5Q58-NEW",
       "Audit_Prod_Desc": "HP ZBOOK 150W TH BOLT 3 DOCK",
@@ -311,6 +246,71 @@
       "Audit_Rem": "Added PO",
       "Audit_User": "ACL",
       "Audit_Last_Update": "2017-11-13T13:18:02",
+      "Audit_Move_Date": "2017-11-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7443J5H",
+      "Audit_Part_Num": "BNL-M9L92AV-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "E-676452",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-13T13:11:54",
+      "Audit_Move_Date": "2017-11-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7443J5D",
+      "Audit_Part_Num": "BNL-M9L92AV-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "E-676452",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-13T13:11:55",
+      "Audit_Move_Date": "2017-11-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7443J5G",
+      "Audit_Part_Num": "BNL-M9L92AV-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "E-676452",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-13T13:11:56",
+      "Audit_Move_Date": "2017-11-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7443J5F",
+      "Audit_Part_Num": "BNL-M9L92AV-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "E-676452",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-13T13:11:58",
+      "Audit_Move_Date": "2017-11-13T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": "CND7443J5J",
+      "Audit_Part_Num": "BNL-M9L92AV-NEW",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Alt": "NOBCOM",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "E-676452",
+      "Audit_Part_Type": "R",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-13T13:11:59",
       "Audit_Move_Date": "2017-11-13T00:00:00"
     },
     {
@@ -575,19 +575,6 @@
     },
     {
       "Audit_Ser_Num": null,
-      "Audit_Part_Num": "BNL-693712-001",
-      "Audit_Prod_Desc": "HP 90W 19.5V 4.62A 7.4MM PSU",
-      "Audit_Prod_Desc_Alt": "NOPHEW",
-      "Audit_Source_Site_Num": "",
-      "Audit_Dest_Site_Num": "LTX",
-      "Audit_Part_Type": "D",
-      "Audit_Rem": "Added PO",
-      "Audit_User": "ACL",
-      "Audit_Last_Update": "2017-11-01T15:48:14",
-      "Audit_Move_Date": "2017-11-01T00:00:00"
-    },
-    {
-      "Audit_Ser_Num": null,
       "Audit_Part_Num": "BNL-613152-001",
       "Audit_Prod_Desc": "HP SMART AC ADAPTOR 18.5V 3.5A",
       "Audit_Prod_Desc_Alt": "PSUHEW",
@@ -597,6 +584,19 @@
       "Audit_Rem": "Added PO",
       "Audit_User": "ACL",
       "Audit_Last_Update": "2017-11-01T15:48:04",
+      "Audit_Move_Date": "2017-11-01T00:00:00"
+    },
+    {
+      "Audit_Ser_Num": null,
+      "Audit_Part_Num": "BNL-693712-001",
+      "Audit_Prod_Desc": "HP 90W 19.5V 4.62A 7.4MM PSU",
+      "Audit_Prod_Desc_Alt": "NOPHEW",
+      "Audit_Source_Site_Num": "",
+      "Audit_Dest_Site_Num": "LTX",
+      "Audit_Part_Type": "D",
+      "Audit_Rem": "Added PO",
+      "Audit_User": "ACL",
+      "Audit_Last_Update": "2017-11-01T15:48:14",
       "Audit_Move_Date": "2017-11-01T00:00:00"
     }
   ]

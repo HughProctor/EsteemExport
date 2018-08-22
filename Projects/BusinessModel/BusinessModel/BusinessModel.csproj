@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mappers\AutoMapperExtensions.cs" />
+    <Compile Include="Mappers\Map.cs" />
     <Compile Include="Models\EST_DataExportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BAM_Service.cs" />

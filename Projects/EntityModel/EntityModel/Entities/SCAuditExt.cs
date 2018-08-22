@@ -1,10 +1,11 @@
 ﻿using EntityModel.BusinessLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace EntityModel
 {
-    public class SCAuditExt : SCAudit
+    public class SCAuditExt : SCAudit, ISCBaseObject
     {
         public string Audit_Part_Num_New { get { return Audit_Part_Num.Replace("BNL-", "").Replace("-NEW", ""); } }
 
@@ -54,7 +55,8 @@ namespace EntityModel
                 return _manufacturer;
             }
         }
-        public string Model { get; set; }
+        private string _model;
+        public string Model { get { _model = String.Join(" ", Asset_Desc_Code_Split); return _model; } set { _model = value; } }
         public string SerialNumber { get { return (bool)Audit_Ser_Num?.Contains('/') ? Audit_Ser_Num.Substring(Audit_Ser_Num.IndexOf('/') + 1) : Audit_Ser_Num; } }
         public string AssetName { get { return Asset_Desc; } }
         public string DisplayName { get { return Asset_Desc; } }

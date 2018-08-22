@@ -1,16 +1,17 @@
 ﻿using BusinessModel.Models;
 using BusinessModel.Services.Abstract;
+using BusinessModel.Mappers;
+using EntityModel;
 using EntityModel.Repository.Abstract;
 using ServiceModel.Models;
 using ServiceModel.Models.BAM;
+using ServiceModel.Models.BAM.Abstract;
 using ServiceModel.Models.Esteem;
 using ServiceModel.Services;
 using ServiceModel.Services.Abstract;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ServiceModel.Extensions;
 
 namespace BusinessModel.Services
 {
@@ -32,103 +33,176 @@ namespace BusinessModel.Services
             _userService = userService ?? new BAM_UserService();
         }
 
-        public bool ExportDataToBAM(IQueryBuilder queryBuilder)
+        public EST_DataExportModel ExportDataToBAM(IQueryBuilder queryBuilder)
         {
-            var returnValue = true;
-
             var dataExport = _estService.GetExportData(queryBuilder);
 
+            //dataExport = Process_NewItemList(dataExport);
+            //dataExport = Process_LocationChangeList(dataExport);
+            dataExport = Process_AssetTagChangeList(dataExport);
+            //dataExport = Process_DeployedToBAMUserList(dataExport);
+            //dataExport = Process_ReturnedFromBAMUserList(dataExport);
 
-            return returnValue;
+            return dataExport;
         }
 
-        internal void Process_NewItemList(EST_DataExportModel model)
+        internal EST_DataExportModel Process_NewItemList(EST_DataExportModel model)
         {
+            if (model == null) return model;
             var returnList = new List<HardwareTemplate>();
-            if (model == null) return;
-            if (!model.NewItemList.Any()) return;
-            model.NewItemList.ForEach(asset => {
-                var bamTemplate = _hardwareAssetService.CreateNewTemplate();
 
-                bamTemplate.Manufacturer = asset.Manufacturer;
-                bamTemplate.Model = asset.Model;
-                bamTemplate.SerialNumber = asset.SerialNumber;
-                bamTemplate.AssetTag = asset.AssetName;
-                bamTemplate.DisplayName = asset.DisplayName;
-                bamTemplate.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(EST_HWAssetStatus.NewItem);
-                bamTemplate.Description = "Hugh Testing";
-                bamTemplate.HardwareAssetType = new HardwareAssetType()
-                {
-                    Id = "b4a14ffd-52c8-064f-c936-67616c245b35",
-                    Name = "Computer"
-                };
+            model.NewItemList.ForEach(asset =>
+            {
+                // Create New Item Template - set default values
+                BAM_HardwareTemplate bamTemplate = CreateNewItem(asset);
                 _hardwareAssetService.UpdateTemplate(bamTemplate, null);
+                model.NewItemList.Remove(asset);
             });
+            return model;
         }
 
-        internal void Process_LocationChangeList(EST_DataExportModel model)
+        private BAM_HardwareTemplate CreateNewItem(ISCBaseObject asset)
         {
-            var returnList = new List<HardwareTemplate>();
-            if (model == null) return;
-            if (!model.NewItemList.Any()) return;
+            var bamTemplate = _hardwareAssetService.CreateNewTemplate();
+
+            bamTemplate.Manufacturer = asset.Manufacturer;
+            bamTemplate.Model = asset.Model;
+            bamTemplate.SerialNumber = asset.SerialNumber;
+            bamTemplate.AssetTag = asset.AssetName;
+            bamTemplate.DisplayName = asset.DisplayName;
+            bamTemplate.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(EST_HWAssetStatus.NewItem);
+            bamTemplate.Description = "Hugh Testing";
+            bamTemplate.HardwareAssetType = new HardwareAssetType()
+            {
+                Id = "b4a14ffd-52c8-064f-c936-67616c245b35",
+                Name = "Computer"
+            };
+            return bamTemplate;
+        }
+
+        internal EST_DataExportModel Process_LocationChangeList(EST_DataExportModel model)
+        {
+            if (model == null) return model;
+            var returnList = new List<SCAuditExt>();
+
             model.LocationChangeList.ForEach(asset => {
+                BAM_HardwareTemplate_Full newHardwareAsset;
+
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-                if (bamTemplate == null) return;
+                if (bamTemplate != null)
+                    newHardwareAsset = CloneObject.Clone(bamTemplate);
+                else
+                    newHardwareAsset = Map.Map_Results(CreateNewItem(asset));
 
-                var newHardwareAsset = _hardwareAssetService.SetLocation(bamTemplate, asset.Audit_Dest_Site_Num);
+                newHardwareAsset = _hardwareAssetService.SetLocation(newHardwareAsset, asset.Audit_Dest_Site_Num);
                 _hardwareAssetService.UpdateTemplate(newHardwareAsset, bamTemplate);
+
+                // Check Update was successful
+                var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
+                if (updatedbamTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
+                    returnList.Add(asset);
             });
+            model.LocationChangeList = returnList;
+            return model;
         }
 
-        internal void Process_AssetTagChangeList(EST_DataExportModel model)
+        internal EST_DataExportModel Process_AssetTagChangeList(EST_DataExportModel model)
         {
-            var returnList = new List<HardwareTemplate>();
-            if (model == null) return;
-            if (!model.NewItemList.Any()) return;
-            model.LocationChangeList.ForEach(asset => {
+            if (model == null) return model;
+            var returnList = new List<SCAuditExt>();
+
+            model.AssetTagChangeList.ForEach(asset => {
+                BAM_HardwareTemplate newHardwareAsset;
+
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset(asset.SerialNumber).FirstOrDefault();
-                if (bamTemplate == null) return;
+                if (bamTemplate != null)
+                    newHardwareAsset = CloneObject.Clone(bamTemplate);
+                else
+                    newHardwareAsset = CreateNewItem(asset);
 
-                var newHardwareAsset = _hardwareAssetService.SetAssetTag(bamTemplate, asset.Audit_Part_Num);
+                newHardwareAsset = _hardwareAssetService.SetAssetTag(newHardwareAsset, asset.Audit_Part_Num);
                 _hardwareAssetService.UpdateTemplate(newHardwareAsset, bamTemplate);
+
+                // Check Update was successful
+                var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset(asset.SerialNumber).FirstOrDefault();
+                if (updatedbamTemplate?.AssetTag != asset.Audit_Part_Num)
+                    returnList.Add(asset);
             });
+            model.AssetTagChangeList = returnList;
+            return model;
         }
 
-        internal void Process_DeployedToBAMUserList(EST_DataExportModel model)
+        internal EST_DataExportModel Process_DeployedToBAMUserList(EST_DataExportModel model)
         {
-            var returnList = new List<HardwareTemplate>();
-            if (model == null) return;
-            if (!model.NewItemList.Any()) return;
+            if (model == null) return model;
+            var returnList = new List<SCAuditDeployExt>();
+
             model.DeployedToBAMUserList.ForEach(asset => {
-                var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-                if (bamTemplate == null) return;
-
-                var newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(bamTemplate, EST_HWAssetStatus.Deployed);
-
+                BAM_HardwareTemplate_Full newHardwareAsset;
+                if (string.IsNullOrEmpty(asset.RequestUser)) {
+                    returnList.Add(asset); return;
+                }
                 var user = _userService.GetUser(asset.RequestUser);
-                if (user == null) return;
+                if (user == null || user.Name != asset.RequestUser) {
+                    returnList.Add(asset); return;
+                }
+
+                var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
+                if (bamTemplate != null)
+                    newHardwareAsset = CloneObject.Clone(bamTemplate);
+                else
+                    newHardwareAsset = Map.Map_Results(CreateNewItem(asset));
+
+                newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Deployed);
 
                 newHardwareAsset = _hardwareAssetService.SetHardwareAssetPrimaryUser(newHardwareAsset, user);
 
                 _hardwareAssetService.UpdateTemplate(newHardwareAsset, bamTemplate);
+
+                // Check Update was successful
+                var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
+                if (updatedbamTemplate?.Target_HardwareAssetHasPrimaryUser?.DisplayName != asset.RequestUser)
+                    returnList.Add(asset);
             });
+            model.DeployedToBAMUserList = returnList;
+            return model;
         }
 
-        internal void Process_ReturnedFromBAMUserList(EST_DataExportModel model)
+        internal EST_DataExportModel Process_ReturnedFromBAMUserList(EST_DataExportModel model)
         {
-            var returnList = new List<HardwareTemplate>();
-            if (model == null) return;
-            if (!model.NewItemList.Any()) return;
+            if (model == null) return model;
+            var returnList = new List<SCAuditDeployExt>();
+
             model.ReturnedFromBAMUserList.ForEach(asset => {
+                BAM_HardwareTemplate_Full newHardwareAsset;
+
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-                if (bamTemplate == null) return;
+                if (bamTemplate != null)
+                    newHardwareAsset = CloneObject.Clone(bamTemplate);
+                else
+                    newHardwareAsset = Map.Map_Results(CreateNewItem(asset));
 
-                var newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(bamTemplate, EST_HWAssetStatus.Returned);
+                // Set Hardware Status is BAD, Scrapped or Returned
+                if (asset.Audit_Dest_Site_Num != null && asset.Audit_Dest_Site_Num.Contains("BNLSCRAP"))
+                    newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Disposed);
+                else if (asset.Audit_Dest_Site_Num != null && asset.Audit_Dest_Site_Num.Contains("LTX BAD"))
+                    newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Retired);
+                else
+                    newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Returned);
 
-                newHardwareAsset = _hardwareAssetService.SetHardwareAssetPrimaryUser(newHardwareAsset, null);
+                // Set Location to Esteem and User to Null
+                newHardwareAsset = _hardwareAssetService.SetLocation(newHardwareAsset, "Esteem");
+                newHardwareAsset.Target_HardwareAssetHasPrimaryUser = null;
 
                 _hardwareAssetService.UpdateTemplate(newHardwareAsset, bamTemplate);
+
+                // Check Update was successful
+                var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
+                if (updatedbamTemplate?.Target_HardwareAssetHasLocation?.DisplayName == "Esteem")
+                    returnList.Add(asset);
             });
+            model.ReturnedFromBAMUserList = returnList;
+            return model;
         }
     }
 }

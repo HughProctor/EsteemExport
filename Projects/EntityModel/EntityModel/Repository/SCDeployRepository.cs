@@ -52,6 +52,7 @@ namespace EntityModel.Repository
                 "NULLIF(LTRIM(RTRIM(SCP.[Part_Alt_Part_Num])), '') AS [Part_Code], " +
                 "NULLIF(LTRIM(RTRIM(SL.[Fsrl_Call_Num])), '') AS [Call_Num], " +
                 "NULLIF(LTRIM(RTRIM(SC.[Call_Contact])), '') AS [Call_Contact], " +
+                "CASE WHEN LEFT([Call_Phone], 2) LIKE '0%' THEN NULL ELSE LTRIM([Call_Phone]) END AS [CostCode], " +
                 "SL.[Fsrl_Last_Update] AS [UPDATE_DATE] " +
                 "FROM [SCFsrl] AS SL (NOLOCK) ";
             QueryStringJoin = "FULL JOIN [SCPart] AS SCP ON SL.[Fsrl_Ret_Part_Num] = SCP.[Part_Num] ";
@@ -114,6 +115,7 @@ namespace EntityModel.Repository
                             //Audit_Dest_Site_Num = reader["DESTINATION_SITE_NO"].ToString(),
                             Audit_Part_Type = reader["Part_Type"].ToString(),
                             Audit_Part_Code = reader["Part_Code"].ToString(),
+                            Audit_Cost_Code = reader["Cost_Code"].ToString(),
                             //Audit_Rem = reader["REMARK"].ToString(),
                             Audit_User = reader["Call_Contact"].ToString(),
                             //Audit_Move_Date = DateTime.Parse(reader["MOVE_DATE"].ToString()),

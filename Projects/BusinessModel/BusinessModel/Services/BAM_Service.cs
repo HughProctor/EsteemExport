@@ -83,7 +83,7 @@ namespace BusinessModel.Services
         internal EST_DataExportModel Process_LocationChangeList(EST_DataExportModel model)
         {
             if (model == null) return model;
-            var returnList = new List<SCAuditExt>();
+            var returnList = new List<SCAuditBsm>();
 
             model.LocationChangeList.ForEach(asset => {
                 BAM_HardwareTemplate_Full newHardwareAsset;
@@ -109,7 +109,7 @@ namespace BusinessModel.Services
         internal EST_DataExportModel Process_AssetTagChangeList(EST_DataExportModel model)
         {
             if (model == null) return model;
-            var returnList = new List<SCAuditExt>();
+            var returnList = new List<SCAuditBsm>();
 
             model.AssetTagChangeList.ForEach(asset => {
                 BAM_HardwareTemplate newHardwareAsset;
@@ -135,7 +135,7 @@ namespace BusinessModel.Services
         internal EST_DataExportModel Process_DeployedToBAMUserList(EST_DataExportModel model)
         {
             if (model == null) return model;
-            var returnList = new List<SCAuditDeployExt>();
+            var returnList = new List<SCAuditDeployBsm>();
 
             model.DeployedToBAMUserList.ForEach(asset => {
                 BAM_HardwareTemplate_Full newHardwareAsset;
@@ -171,7 +171,7 @@ namespace BusinessModel.Services
         internal EST_DataExportModel Process_ReturnedFromBAMUserList(EST_DataExportModel model)
         {
             if (model == null) return model;
-            var returnList = new List<SCAuditDeployExt>();
+            var returnList = new List<SCAuditDeployBsm>();
 
             model.ReturnedFromBAMUserList.ForEach(asset => {
                 BAM_HardwareTemplate_Full newHardwareAsset;

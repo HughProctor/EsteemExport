@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BusinessModel.Models;
 using EntityModel;
 using ServiceModel.Models.BAM;
 using System.Collections.Generic;
@@ -12,36 +13,38 @@ namespace BusinessModel.Mappers
         {
             Mapper.Initialize(cfg => {
                 cfg.AllowNullCollections = true;
-                cfg.CreateMap<SCAudit, SCAuditExt>().IgnoreAllNonExisting();
-                cfg.CreateMap<SCAuditDeploy, SCAuditDeployExt>().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAudit, SCAuditBsm>().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditDeploy, SCAuditDeployBsm>().IgnoreAllNonExisting();
                 cfg.CreateMap<BAM_HardwareTemplate, BAM_HardwareTemplate_Full>().IgnoreAllNonExisting();
                 cfg.CreateMap<BAM_HardwareTemplate_Full, BAM_HardwareTemplate>().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditBsm, BAMDataModel>().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditDeployBsm, BAMDataModel>().IgnoreAllNonExisting();
 
             });
             Mapper.AssertConfigurationIsValid();
         }
 
-        public static List<SCAuditExt> Map_Results(List<SCAudit> records)
-        {
-            var mappedList = new List<SCAuditExt>();
-            if (records == null || !records.Any()) return mappedList;
+        //public static List<SCAuditExt> Map_Results(List<SCAudit> records)
+        //{
+        //    var mappedList = new List<SCAuditExt>();
+        //    if (records == null || !records.Any()) return mappedList;
 
-            mappedList = Mapper.Map<List<SCAudit>, List<SCAuditExt>>(records);
-            mappedList.ForEach(item => item.Asset_Desc_Code_Split = item.Asset_Desc.ToUpper().Split(' ').ToList());
+        //    mappedList = Mapper.Map<List<SCAudit>, List<SCAuditExt>>(records);
+        //    mappedList.ForEach(item => item.Asset_Desc_Code_Split = item.Asset_Desc.ToUpper().Split(' ').ToList());
 
-            return mappedList;
-        }
+        //    return mappedList;
+        //}
 
-        public static List<SCAuditDeployExt> Map_Results(List<SCAuditDeploy> records)
-        {
-            var mappedList = new List<SCAuditDeployExt>();
-            if (records == null || !records.Any()) return mappedList;
+        //public static List<SCAuditDeployExt> Map_Results(List<SCAuditDeploy> records)
+        //{
+        //    var mappedList = new List<SCAuditDeployExt>();
+        //    if (records == null || !records.Any()) return mappedList;
 
-            mappedList = Mapper.Map<List<SCAuditDeploy>, List<SCAuditDeployExt>>(records);
-            mappedList.ForEach(item => item.Asset_Desc_Code_Split = item.Asset_Desc.ToUpper().Split(' ').ToList());
+        //    mappedList = Mapper.Map<List<SCAuditDeploy>, List<SCAuditDeployExt>>(records);
+        //    mappedList.ForEach(item => item.Asset_Desc_Code_Split = item.Asset_Desc.ToUpper().Split(' ').ToList());
 
-            return mappedList;
-        }
+        //    return mappedList;
+        //}
 
         public static BAM_HardwareTemplate Map_Results(BAM_HardwareTemplate_Full record)
         {
@@ -52,5 +55,36 @@ namespace BusinessModel.Mappers
         {
             return Mapper.Map<BAM_HardwareTemplate, BAM_HardwareTemplate_Full>(record);
         }
+
+        public static SCAuditBsm Map_Results(SCAudit record)
+        {
+            return Mapper.Map<SCAudit, SCAuditBsm>(record);
+        }
+
+        public static SCAuditDeployBsm Map_Results(SCAuditDeploy record)
+        {
+            return Mapper.Map<SCAuditDeploy, SCAuditDeployBsm>(record);
+        }
+
+        public static BAMDataModel Map_Results(SCAuditBsm record)
+        {
+            return Mapper.Map<SCAuditBsm, BAMDataModel>(record);
+        }
+
+        public static BAMDataModel Map_Results(SCAuditDeployBsm record)
+        {
+            return Mapper.Map<SCAuditDeployBsm, BAMDataModel>(record);
+        }
+
+        public static List<BAMDataModel> Map_Results(List<SCAuditBsm> record)
+        {
+            return Mapper.Map<List<SCAuditBsm>, List<BAMDataModel>>(record);
+        }
+
+        public static List<BAMDataModel> Map_Results(List<SCAuditDeployBsm> record)
+        {
+            return Mapper.Map<List<SCAuditDeployBsm>, List<BAMDataModel>>(record);
+        }
+
     }
 }

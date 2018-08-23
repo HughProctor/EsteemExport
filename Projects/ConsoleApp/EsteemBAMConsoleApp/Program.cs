@@ -1,4 +1,4 @@
-﻿using EntityModel.Mappers;
+﻿using BusinessModel.Mappers;
 using SchedulerManager.Mechanism;
 
 namespace EsteemBAMConsoleApp

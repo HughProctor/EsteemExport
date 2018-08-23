@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using ESTReporting.EntityModel.Models;
 
 namespace ESTReporting.EntityModel.Context
@@ -18,5 +19,14 @@ namespace ESTReporting.EntityModel.Context
         public DbSet<PartManufacturer> PartManufacturers { get; set; }
         public DbSet<ESTPartDescription> ESTPartDescriptions { get; set; }
         public DbSet<PartModel> PartModels { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+
+            //modelBuilder.Entity<Item>().ToTable("Items");
+        }
     }
 }

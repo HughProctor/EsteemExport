@@ -33,8 +33,19 @@
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,25 +56,35 @@
   <ItemGroup>
     <Compile Include="Mappers\AutoMapperExtensions.cs" />
     <Compile Include="Mappers\Map.cs" />
+    <Compile Include="Models\Abstract\ISCBaseObject.cs" />
     <Compile Include="Models\EST_DataExportModel.cs" />
+    <Compile Include="Models\BAMDataModel.cs" />
+    <Compile Include="Models\SCAuditDeployBsm.cs" />
+    <Compile Include="Models\SCAuditBsm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BAM_Service.cs" />
+    <Compile Include="Services\EST_DataCleanseService.cs" />
     <Compile Include="Services\EST_Service.cs" />
     <Compile Include="Services\Abstract\IEST_Service.cs" />
+    <Compile Include="Services\Abstract\IEST_DataCleanseService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\EntityModel\EntityModel\EntityModel.csproj">
       <Project>{6516b7eb-1179-420b-9c3d-eb0861be2254}</Project>
       <Name>EntityModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\ESTReporting.EntityModel\ESTReporting.EntityModel.csproj">
+      <Project>{A9398C2F-2C31-4A18-BF37-BA672C640427}</Project>
+      <Name>ESTReporting.EntityModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ServiceModel\ServiceModel\ServiceModel.csproj">
       <Project>{ABEE5D8F-7141-4C54-958F-E50B4D350C89}</Project>
       <Name>ServiceModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

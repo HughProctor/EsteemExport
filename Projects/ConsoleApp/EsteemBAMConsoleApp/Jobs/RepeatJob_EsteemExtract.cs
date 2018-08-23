@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EntityModel;
-using EntityModel.Mappers;
+using BusinessModel.Mappers;
 using EntityModel.Repository;
 using Infrastructure.FileExport;
 using SchedulerManager.Mechanism;
@@ -9,12 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessModel.Services.Abstract;
+using EntityModel.Repository.Abstract;
+using BusinessModel.Services;
 
 namespace EsteemBAMConsoleApp.Jobs
 {
     public class RepeatJob_EsteemExtract : Job
     {
-        SCAuditRepository _sCAuditService;
+        ISCAuditRepository _sCAuditService;
+        IEST_DataCleanseService _dataCleanseService;
+
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
         private string _typePrefix = "SCAudit_";
@@ -24,6 +29,7 @@ namespace EsteemBAMConsoleApp.Jobs
         public RepeatJob_EsteemExtract()
         {
             _sCAuditService = new SCAuditRepository();
+            _dataCleanseService = new EST_DataCleanseService();
 
             _startDateTimeString = string.IsNullOrEmpty(_startDateTimeString) ? "01/01/2017" : _startDateTimeString;
             _endDateTimeString = string.IsNullOrEmpty(_endDateTimeString) ? "30/11/2017" : _endDateTimeString;
@@ -69,7 +75,7 @@ namespace EsteemBAMConsoleApp.Jobs
 
         private void ExportToJson()
         {
-            var returnList = Map.Map_Results(GetAll_BaseQuery());
+            var returnList = _dataCleanseService.Process_SCAuditList(GetAll_BaseQuery());
 
             JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_" + (counter + 1).ToString().PadLeft(6, '0'), returnList, returnList.Count, "ScheduleRepeaterFullJoin",
                 _startDateTime, _currentTime);

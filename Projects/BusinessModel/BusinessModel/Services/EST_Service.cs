@@ -1,7 +1,7 @@
 ﻿using BusinessModel.Models;
 using BusinessModel.Services.Abstract;
 using EntityModel;
-using EntityModel.Mappers;
+using BusinessModel.Mappers;
 using EntityModel.Repository;
 using EntityModel.Repository.Abstract;
 using System;
@@ -15,21 +15,23 @@ namespace BusinessModel.Services
         #region Fields
         ISCAuditRepository _sCAuditService;
         ISCDeployRepository _sCDeployService;
+        IEST_DataCleanseService _dataCleanseService;
         private string _startDateTimeString = "";
         private string _endDateTimeString = "";
         DateTime _startDateTime;
         DateTime _endDateTime;
         #endregion Fields
 
-        public EST_Service() : this(new SCAuditRepository(), new SCDeployRepository())
+        public EST_Service() : this(new SCAuditRepository(), new SCDeployRepository(), new EST_DataCleanseService())
         {
         }
 
-        public EST_Service(ISCAuditRepository auditService, ISCDeployRepository deployService)
+        public EST_Service(ISCAuditRepository auditService, ISCDeployRepository deployService, IEST_DataCleanseService dataCleanseService)
         {
             Map.Init();
             _sCAuditService = auditService;
             _sCDeployService = deployService;
+            _dataCleanseService = dataCleanseService;
         }
 
         public EST_DataExportModel GetExportData(IQueryBuilder queryBuilder)
@@ -81,9 +83,9 @@ namespace BusinessModel.Services
             return returnList;
         }
 
-        internal List<SCAuditExt> Get_New_Item(List<SCAudit> returnList)
+        internal List<SCAuditBsm> Get_New_Item(List<SCAudit> returnList)
         {
-            var newItemList = Map.Map_Results(returnList
+            var newItemList = _dataCleanseService.Process_SCAuditList(returnList
                 .Where
                 (
                     item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
@@ -93,9 +95,9 @@ namespace BusinessModel.Services
             return newItemList;
         }
 
-        internal List<SCAuditExt> Get_Location_Change(List<SCAudit> returnList)
+        internal List<SCAuditBsm> Get_Location_Change(List<SCAudit> returnList)
         {
-            var newItemList = Map.Map_Results(returnList
+            var newItemList = _dataCleanseService.Process_SCAuditList(returnList
                 .Where
                 (
                     item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
@@ -108,9 +110,9 @@ namespace BusinessModel.Services
             return newItemList;
         }
 
-        internal List<SCAuditExt> Get_Asset_Tag_Change(List<SCAudit> returnList)
+        internal List<SCAuditBsm> Get_Asset_Tag_Change(List<SCAudit> returnList)
         {
-            var newItemList = Map.Map_Results(returnList
+            var newItemList = _dataCleanseService.Process_SCAuditList(returnList
                 .Where
                 (
                     item => (item.Audit_Part_Num.ToUpper().StartsWith("BNL")
@@ -121,9 +123,9 @@ namespace BusinessModel.Services
             return newItemList;
         }
 
-        internal List<SCAuditDeployExt> Get_Deployed_to_BAM_User(List<SCAuditDeploy> returnList)
+        internal List<SCAuditDeployBsm> Get_Deployed_to_BAM_User(List<SCAuditDeploy> returnList)
         {
-            var newItemList = Map.Map_Results(returnList
+            var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
                 .Where
                 (
                     item => item.Audit_Ser_Num.StartsWith("BAM")
@@ -131,9 +133,9 @@ namespace BusinessModel.Services
             return newItemList;
         }
 
-        internal List<SCAuditDeployExt> Get_Returned_from_BAM_User(List<SCAuditDeploy> returnList)
+        internal List<SCAuditDeployBsm> Get_Returned_from_BAM_User(List<SCAuditDeploy> returnList)
         {
-            var newItemList = Map.Map_Results(returnList
+            var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
                 .Where
                 (
                     item => !string.IsNullOrEmpty(item.Audit_Ser_Num_Returned)

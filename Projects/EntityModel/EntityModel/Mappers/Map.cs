@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using EntityModel.Models;
+using ESTReporting.EntityModel.Models;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,6 +39,5 @@ namespace EntityModel.Mappers
 
             return mappedList;
         }
-
     }
 }

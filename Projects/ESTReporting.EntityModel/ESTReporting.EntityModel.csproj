@@ -49,6 +49,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BAMEsteemExportContext.cs" />
+    <Compile Include="Migrations\201808221353586_Initial.cs" />
+    <Compile Include="Migrations\201808221353586_Initial.Designer.cs">
+      <DependentUpon>201808221353586_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221400479_RenameTables.cs" />
+    <Compile Include="Migrations\201808221400479_RenameTables.Designer.cs">
+      <DependentUpon>201808221400479_RenameTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808221405446_SeedData.cs" />
+    <Compile Include="Migrations\201808221405446_SeedData.Designer.cs">
+      <DependentUpon>201808221405446_SeedData.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PartManufacturer.cs" />
     <Compile Include="Models\ESTPartDescription.cs" />
@@ -61,6 +73,16 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201808221353586_Initial.resx">
+      <DependentUpon>201808221353586_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221400479_RenameTables.resx">
+      <DependentUpon>201808221400479_RenameTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808221405446_SeedData.resx">
+      <DependentUpon>201808221405446_SeedData.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

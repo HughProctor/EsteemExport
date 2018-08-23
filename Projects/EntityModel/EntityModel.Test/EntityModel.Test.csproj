@@ -46,7 +46,7 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BAM_Report_QueryDataSet_Tests.cs" />
+    <Compile Include="BaseTestClass.cs" />
     <Compile Include="SCAuditDeploy_ExportDataTests.cs" />
     <Compile Include="SCPart_ExportDataTests.cs" />
     <Compile Include="SCAudit_ExportDataTests.cs" />
@@ -57,6 +57,10 @@
     <Compile Include="SqlQueryTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\ESTReporting.EntityModel\ESTReporting.EntityModel.csproj">
+      <Project>{a9398c2f-2c31-4a18-bf37-ba672c640427}</Project>
+      <Name>ESTReporting.EntityModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
       <Project>{66E4081A-8098-4755-8DC5-B1D1218E76DB}</Project>
       <Name>Infrastructure</Name>
@@ -66,7 +70,11 @@
       <Name>EntityModel</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper">
       <Version>4.2.1</Version>

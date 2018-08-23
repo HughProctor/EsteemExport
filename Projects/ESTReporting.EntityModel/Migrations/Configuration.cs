@@ -1,6 +1,7 @@
 namespace ESTReporting.EntityModel.Migrations
 {
     using ESTReporting.EntityModel.SeedData;
+    using System;
     using System.Data.Entity.Migrations;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Context.BAMEsteemExportContext>
@@ -8,6 +9,7 @@ namespace ESTReporting.EntityModel.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            
         }
 
         protected override void Seed(Context.BAMEsteemExportContext context)
@@ -20,6 +22,7 @@ namespace ESTReporting.EntityModel.Migrations
             PartManufacturer_Data.GetManufacturers().ForEach(item =>
             {
                 item.Id = count;
+                item.CreatedDate = DateTime.Now;
                 context.PartManufacturers.AddOrUpdate(x => x.Id, item);
                 count++;
             });

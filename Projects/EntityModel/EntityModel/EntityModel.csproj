@@ -34,8 +34,13 @@
       <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,14 +54,10 @@
     <Compile Include="BusinessLogic\TestData.cs" />
     <Compile Include="Entities\HWAssetStatus.cs" />
     <Compile Include="Entities\Abstract\ISCAuditExt.cs" />
-    <Compile Include="Entities\SCAuditDeployExt.cs" />
     <Compile Include="Entities\SCAuditDeploy.cs" />
-    <Compile Include="Entities\SCAuditExt.cs" />
     <Compile Include="Entities\SCPart.cs" />
     <Compile Include="Entities\TransactionType.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
-    <Compile Include="Mappers\AutoMapperExtensions.cs" />
-    <Compile Include="Mappers\Map.cs" />
     <Compile Include="Models\ManufacturerModel.cs" />
     <Compile Include="Models\PartDescriptionModel.cs" />
     <Compile Include="Models\SCAuditDeployModel.cs" />
@@ -79,6 +80,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ESTReporting.EntityModel\ESTReporting.EntityModel.csproj">
+      <Project>{a9398c2f-2c31-4a18-bf37-ba672c640427}</Project>
+      <Name>ESTReporting.EntityModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

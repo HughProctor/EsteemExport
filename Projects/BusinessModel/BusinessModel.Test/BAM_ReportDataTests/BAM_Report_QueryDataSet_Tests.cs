@@ -305,7 +305,7 @@ namespace BusinessModel.Test
                     "Item No: " + count.ToString() + " doesn't StartWith either BAM :" + item.Audit_Ser_Num);
             }
 
-            JSON_FileExport.WriteFile(_typePrefix + "S04_Deployed_to_BAM_User", newItemList, newItemList.Count, "BAMReport");
+            JSON_FileExport.WriteFile(_typePrefix + "S05_Returned_from_BAM_User", newItemList, newItemList.Count, "BAMReport");
         }
     }
 }

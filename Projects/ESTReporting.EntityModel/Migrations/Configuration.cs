@@ -19,11 +19,19 @@ namespace ESTReporting.EntityModel.Migrations
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
             var count = 1;
-            PartManufacturer_Data.GetManufacturers().ForEach(item =>
+            PartManufacturerData.GetManufacturers().ForEach(item =>
             {
                 item.Id = count;
                 item.CreatedDate = DateTime.Now;
                 context.PartManufacturers.AddOrUpdate(x => x.Id, item);
+                count++;
+            });
+            count = 1;
+            PartModelData.GetModels().ForEach(item =>
+            {
+                item.Id = count;
+                item.CreatedDate = DateTime.Now;
+                context.PartModels.AddOrUpdate(x => x.Id, item);
                 count++;
             });
         }

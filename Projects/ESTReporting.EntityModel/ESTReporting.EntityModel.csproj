@@ -61,12 +61,17 @@
     <Compile Include="Migrations\201808221405446_SeedData.Designer.cs">
       <DependentUpon>201808221405446_SeedData.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808231442012_UpdatePartModel.cs" />
+    <Compile Include="Migrations\201808231442012_UpdatePartModel.Designer.cs">
+      <DependentUpon>201808231442012_UpdatePartModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\PartManufacturer.cs" />
     <Compile Include="Models\ESTPartDescription.cs" />
     <Compile Include="Models\ESTPart.cs" />
     <Compile Include="Models\PartModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeedData\PartModelData.cs" />
     <Compile Include="SeedData\PartManufacturerData.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808221405446_SeedData.resx">
       <DependentUpon>201808221405446_SeedData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808231442012_UpdatePartModel.resx">
+      <DependentUpon>201808231442012_UpdatePartModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

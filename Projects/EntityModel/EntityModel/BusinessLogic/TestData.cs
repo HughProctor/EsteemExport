@@ -67,33 +67,33 @@ namespace EntityModel.BusinessLogic
                 new ManufacturerModel() { Name = "Novell", Code = "NOV", CodeEsteemAlt = "NOV" },
                 new ManufacturerModel() { Name = "Prologic", Code = "PRO", CodeEsteemAlt = "PRO" },
                 new ManufacturerModel() { Name = "Quantum", Code = "QUA", CodeEsteemAlt = "QUA" },
-                new ManufacturerModel() { Name = "QUME", Code = "QUM", CodeEsteemAlt = "QUM" },
-                new ManufacturerModel() { Name = "RACAL", Code = "RAC", CodeEsteemAlt = "RAC" },
-                new ManufacturerModel() { Name = "RAMESYS", Code = "RAM", CodeEsteemAlt = "RAM" },
-                new ManufacturerModel() { Name = "REALPOS", Code = "REP", CodeEsteemAlt = "REP" },
-                new ManufacturerModel() { Name = "REDSKY", Code = "RED", CodeEsteemAlt = "RED" },
-                new ManufacturerModel() { Name = "REED", Code = "REE", CodeEsteemAlt = "REE" },
-                new ManufacturerModel() { Name = "RETAIL", Code = "RET", CodeEsteemAlt = "RET" },
-                new ManufacturerModel() { Name = "SARIAN", Code = "SAR", CodeEsteemAlt = "SAR" },
+                new ManufacturerModel() { Name = "Qume", Code = "QUM", CodeEsteemAlt = "QUM" },
+                new ManufacturerModel() { Name = "Racal", Code = "RAC", CodeEsteemAlt = "RAC" },
+                new ManufacturerModel() { Name = "Ramesys", Code = "RAM", CodeEsteemAlt = "RAM" },
+                new ManufacturerModel() { Name = "Realpos", Code = "REP", CodeEsteemAlt = "REP" },
+                new ManufacturerModel() { Name = "Redsky", Code = "RED", CodeEsteemAlt = "RED" },
+                new ManufacturerModel() { Name = "Reed", Code = "REE", CodeEsteemAlt = "REE" },
+                new ManufacturerModel() { Name = "Retail", Code = "RET", CodeEsteemAlt = "RET" },
+                new ManufacturerModel() { Name = "Sarian", Code = "SAR", CodeEsteemAlt = "SAR" },
                 new ManufacturerModel() { Name = "SB", Code = "SBX", CodeEsteemAlt = "SB" },
-                new ManufacturerModel() { Name = "HONEYWELL", Code = "HON", CodeEsteemAlt = "HON" },
-                new ManufacturerModel() { Name = "STAR", Code = "STA", CodeEsteemAlt = "STA" },
-                new ManufacturerModel() { Name = "SCANMAN", Code = "SCM", CodeEsteemAlt = "SCM" },
-                new ManufacturerModel() { Name = "SCANPARTNER", Code = "SCP", CodeEsteemAlt = "SCP" },
-                new ManufacturerModel() { Name = "SCANPLUS", Code = "SCS", CodeEsteemAlt = "SCS" },
-                new ManufacturerModel() { Name = "SEAGATE", Code = "SEA", CodeEsteemAlt = "SEA" },
-                new ManufacturerModel() { Name = "SHERWOOD", Code = "SHE", CodeEsteemAlt = "SHE" },
-                new ManufacturerModel() { Name = "SHIVA", Code = "SHI", CodeEsteemAlt = "SHI" },
-                new ManufacturerModel() { Name = "SIEMENS", Code = "SIE", CodeEsteemAlt = "SIE" },
-                new ManufacturerModel() { Name = "SILEX", Code = "SIL", CodeEsteemAlt = "SIL" },
-                new ManufacturerModel() { Name = "SIRACOM", Code = "SIR", CodeEsteemAlt = "SIR" },
-                new ManufacturerModel() { Name = "VERITAS", Code = "VER", CodeEsteemAlt = "VER" },
-                new ManufacturerModel() { Name = "APC", Code = "APC", CodeEsteemAlt = "APC" },
-                new ManufacturerModel() { Name = "APRICOT", Code = "APR", CodeEsteemAlt = "APR" },
-                new ManufacturerModel() { Name = "ARNEL", Code = "ARN", CodeEsteemAlt = "ARN" },
-                new ManufacturerModel() { Name = "ARNET", Code = "ART", CodeEsteemAlt = "ART" },
-                new ManufacturerModel() { Name = "ASROCK", Code = "ASR", CodeEsteemAlt = "ASR" },
-                new ManufacturerModel() { Name = "CLONE", Code = "CLO", CodeEsteemAlt = "CLO" },
+                new ManufacturerModel() { Name = "Honeywell", Code = "HON", CodeEsteemAlt = "HON" },
+                new ManufacturerModel() { Name = "Star", Code = "STA", CodeEsteemAlt = "STA" },
+                new ManufacturerModel() { Name = "Scanman", Code = "SCM", CodeEsteemAlt = "SCM" },
+                new ManufacturerModel() { Name = "Scanpartner", Code = "SCP", CodeEsteemAlt = "SCP" },
+                new ManufacturerModel() { Name = "Scanplus", Code = "SCS", CodeEsteemAlt = "SCS" },
+                new ManufacturerModel() { Name = "Seagate", Code = "SEA", CodeEsteemAlt = "SEA" },
+                new ManufacturerModel() { Name = "Sherwood", Code = "SHE", CodeEsteemAlt = "SHE" },
+                new ManufacturerModel() { Name = "Shiva", Code = "SHI", CodeEsteemAlt = "SHI" },
+                new ManufacturerModel() { Name = "Siemens", Code = "SIE", CodeEsteemAlt = "SIE" },
+                new ManufacturerModel() { Name = "Silex", Code = "SIL", CodeEsteemAlt = "SIL" },
+                new ManufacturerModel() { Name = "Siracom", Code = "SIR", CodeEsteemAlt = "SIR" },
+                new ManufacturerModel() { Name = "Veritas", Code = "VER", CodeEsteemAlt = "VER" },
+                new ManufacturerModel() { Name = "Apc", Code = "APC", CodeEsteemAlt = "APC" },
+                new ManufacturerModel() { Name = "Apricot", Code = "APR", CodeEsteemAlt = "APR" },
+                new ManufacturerModel() { Name = "Arnel", Code = "ARN", CodeEsteemAlt = "ARN" },
+                new ManufacturerModel() { Name = "Arnet", Code = "ART", CodeEsteemAlt = "ART" },
+                new ManufacturerModel() { Name = "Asrock", Code = "ASR", CodeEsteemAlt = "ASR" },
+                new ManufacturerModel() { Name = "Clone", Code = "CLO", CodeEsteemAlt = "CLO" },
             };
 
             return returnList;
@@ -279,20 +279,17 @@ namespace EntityModel.BusinessLogic
             new PartDescriptionModel()
             {
                 EsteemCode = "MOC",
-                Description =
-                "Monitor complete",
+                Description = "Monitor complete",
                 FullDescription =   "Complete monitors" },
             new PartDescriptionModel()
             {
                 EsteemCode = "MOP",
-                Description =
-                "Monitor parts",
+                Description = "Monitor parts",
                 FullDescription =   "Monitor parts EG Invertors, Stands, Buttons, Bezels" },
             new PartDescriptionModel()
             {
                 EsteemCode = "NOC",
-                Description =
-                "Notebook complete",
+                Description = "Notebook complete",
                 FullDescription =   "Complete notebooks of all types EG Netbook, Ultra" },
             new PartDescriptionModel()
             {
@@ -303,12 +300,12 @@ namespace EntityModel.BusinessLogic
             {
                 EsteemCode = "OTH",
                 Description = "Other parts",
-                FullDescription =   "Parts not catergorised and new code creation is not warranted." },
+                FullDescription = "Parts not catergorised and new code creation is not warranted." },
             new PartDescriptionModel()
             {
                 EsteemCode = "POC",
-                Description =  "Pos complete",
-                FullDescription =   "Complete POS units" },
+                Description = "Pos complete",
+                FullDescription = "Complete POS units" },
             new PartDescriptionModel()
             {
                 EsteemCode = "POP",
@@ -318,12 +315,12 @@ namespace EntityModel.BusinessLogic
             {
                 EsteemCode = "SOF",
                 Description = "Software",
-                FullDescription =   "Software of all types EF FPP, Licence" },
+                FullDescription = "Software of all types EF FPP, Licence" },
             new PartDescriptionModel()
             {
                 EsteemCode = "SVC",
                 Description = "Server complete",
-                FullDescription =   "Complete servers of any form factor and size" },
+                FullDescription = "Complete servers of any form factor and size" },
             new PartDescriptionModel()
             {
                 EsteemCode = "SVP ",

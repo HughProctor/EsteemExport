@@ -63,7 +63,6 @@ namespace BusinessModel.Test
             //    if (bamAssetList != null) apiTemplateList.Add(bamAssetList);
             //});
 
-
             JSON_FileExport.WriteFile(_typePrefix + "B01_ExportData", apiTemplateList, apiTemplateList.Count);
             JSON_FileExport.WriteFile(_typePrefix + "B01_ExportData_NotExistBAM", notExistInBam, notExistInBam.Count);
         }
@@ -89,7 +88,6 @@ namespace BusinessModel.Test
                 var bamAssetList = hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
                 if (bamAssetList != null) apiTemplateList.Add(bamAssetList);
             });
-
 
             JSON_FileExport.WriteFile(_typePrefix + "B01_ExportData", apiTemplateList, apiTemplateList.Count);
         }

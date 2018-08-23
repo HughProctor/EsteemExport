@@ -1,0 +1,42 @@
+{
+  "RecordCount": 1,
+  "Data": [
+    {
+      "Audit_Part_Num_New": "ZBOOK17-G3",
+      "Asset_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Asset_Desc_Code": "NOCHPX",
+      "Asset_Desc_Code_New": null,
+      "Asset_Desc_Code_Pre": "NOC",
+      "Asset_Desc_Code_Suf": "HPX",
+      "Asset_Desc_Code_Split": [
+        "HP",
+        "ZBOOK",
+        "17",
+        "G3",
+        "MOBILE",
+        "WSTATION"
+      ],
+      "Manufacturer": "Hewlet-Packard",
+      "Model": "Notebook complete",
+      "SerialNumber": "CND6518FDK",
+      "AssetName": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "DisplayName": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "RequestUser": "Forster, Gary",
+      "HWAssetStatus": 0,
+      "Audit_Ser_Num": "BAM-L-004775/CND6518FDK",
+      "Audit_Ser_Num_Returned": "BAM-L-004212",
+      "Audit_Part_Num": "BNL-ZBOOK17-G3",
+      "Audit_Part_Num_Returned": "BNL-ZBOOK17-G3",
+      "Audit_Prod_Desc": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Prod_Desc_Returned": "HP ZBOOK 17 G3 MOBILE WSTATION",
+      "Audit_Source_Site_Num": null,
+      "Audit_Dest_Site_Num": null,
+      "Audit_Part_Type": "R",
+      "Audit_Part_Code": "NOCHPX",
+      "Audit_Rem": null,
+      "Audit_User": "Gary Forster",
+      "Audit_Last_Update": "2017-07-20T15:16:43",
+      "Audit_Cost_Code": ""
+    }
+  ]
+}

@@ -6,7 +6,7 @@ namespace ServiceModel.Models.BAM
 {
     public class HardwareTemplate_FullList
     {
-        public List<BAM_HardwareTemplate_Full> BAM_HardwareTemplate_FullList { get; set; }
+        public List<HardwareTemplate_Full> BAM_HardwareTemplate_FullList { get; set; }
     }
 
     public class TargetHardwareAssetHasPrimaryUser
@@ -18,8 +18,8 @@ namespace ServiceModel.Models.BAM
         public string Path { get; set; }
         public string ClassName { get; set; }
         public string FullClassName { get; set; }
-        public DateTime TimeAdded { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? TimeAdded { get; set; }
+        public DateTime? LastModified { get; set; }
         public string LastModifiedBy { get; set; }
         public AssetStatus AssetStatus { get; set; }
         public string BAMCostCode { get; set; }
@@ -66,8 +66,8 @@ namespace ServiceModel.Models.BAM
         public string Path { get; set; }
         public string ClassName { get; set; }
         public string FullClassName { get; set; }
-        public DateTime TimeAdded { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? TimeAdded { get; set; }
+        public DateTime? LastModified { get; set; }
         public string LastModifiedBy { get; set; }
         public AssetStatus AssetStatus { get; set; }
         public string BAMCostCode { get; set; }
@@ -157,7 +157,7 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        public string Id { get; set; }
+        //public string Id { get; set; }
     }
 
     public class TargetHardwareAssetHasLocation
@@ -187,10 +187,10 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        public string Id { get; set; }
+        //public string Id { get; set; }
     }
 
-    public class BAM_HardwareTemplate_Full : BAM_HardwareTemplate, IBAM_HardwareTemplate_Full, IBAM_HardwareTemplate
+    public class HardwareTemplate_Full : HardwareTemplate, IHardwareTemplate_Full, IHardwareTemplate
     {
         public TargetHardwareAssetHasPrimaryUser Target_HardwareAssetHasPrimaryUser { get; set; }
         public OwnedBy OwnedBy { get; set; }

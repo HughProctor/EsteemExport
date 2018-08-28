@@ -7,13 +7,13 @@ namespace ESTReporting.EntityModel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class RenameTables : IMigrationMetadata
+    public sealed partial class RemoveRedundantRefColumns : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(RenameTables));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(RemoveRedundantRefColumns));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808221400479_RenameTables"; }
+            get { return "201808241228250_RemoveRedundantRefColumns"; }
         }
         
         string IMigrationMetadata.Source

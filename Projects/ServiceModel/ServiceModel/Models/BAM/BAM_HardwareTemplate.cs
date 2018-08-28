@@ -6,7 +6,7 @@ namespace ServiceModel.Models.BAM
 {
     public class HardwareTemplateList
     {
-        public List<BAM_HardwareTemplate> BAM_HardwareTemplates { get; set; }
+        public List<HardwareTemplate> BAM_HardwareTemplates { get; set; }
     }
 
     public class AssetStatus : BAM_Object
@@ -47,7 +47,7 @@ namespace ServiceModel.Models.BAM
         public string RelationshipId { get; set; }
     }
 
-    public class BAM_HardwareTemplate : IBAM_HardwareTemplate
+    public class HardwareTemplate : IHardwareTemplate
     {
         public string ClassTypeId { get; set; }
         public string BaseId { get; set; }
@@ -56,8 +56,8 @@ namespace ServiceModel.Models.BAM
         public string Path { get; set; }
         public string ClassName { get; set; }
         public string FullClassName { get; set; }
-        public DateTime TimeAdded { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? TimeAdded { get; set; }
+        public DateTime? LastModified { get; set; }
         public string LastModifiedBy { get; set; }
         public AssetStatus AssetStatus { get; set; }
         public string AssetTag { get; set; }

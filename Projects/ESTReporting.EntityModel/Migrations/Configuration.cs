@@ -9,7 +9,6 @@ namespace ESTReporting.EntityModel.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            
         }
 
         protected override void Seed(Context.BAMEsteemExportContext context)

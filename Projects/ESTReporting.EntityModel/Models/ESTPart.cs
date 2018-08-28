@@ -2,11 +2,8 @@
 
 namespace ESTReporting.EntityModel.Models
 {
-    public class ESTPart
+    public class ESTPart : BaseObjectProperties
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public string Manufacturer { get; set; }
         public string Model { get; set; }
         public string SerialNumber { get; set; }

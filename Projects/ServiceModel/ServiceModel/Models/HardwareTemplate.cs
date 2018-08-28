@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ServiceModel.Models
 {
-    public class HardwareTemplate
+    public class HardwareTemplate_Json
     {
         [JsonProperty("formJson")]
         public FormJson formJson { get; set; }
@@ -19,8 +19,8 @@ namespace ServiceModel.Models
         [JsonProperty("isDirty")]
         public bool IsDirty { get; set; }
         [JsonProperty("current")]
-        public BAM_HardwareTemplate Current { get; set; }
+        public HardwareTemplate Current { get; set; }
         [JsonProperty("original")]
-        public BAM_HardwareTemplate Original { get; set; }
+        public HardwareTemplate Original { get; set; }
     }
 }

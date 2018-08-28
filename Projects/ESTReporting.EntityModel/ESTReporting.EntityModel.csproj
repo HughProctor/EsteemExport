@@ -49,27 +49,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\BAMEsteemExportContext.cs" />
-    <Compile Include="Migrations\201808221353586_Initial.cs" />
-    <Compile Include="Migrations\201808221353586_Initial.Designer.cs">
-      <DependentUpon>201808221353586_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201808240815482_Initial.cs" />
+    <Compile Include="Migrations\201808240815482_Initial.Designer.cs">
+      <DependentUpon>201808240815482_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808221400479_RenameTables.cs" />
-    <Compile Include="Migrations\201808221400479_RenameTables.Designer.cs">
-      <DependentUpon>201808221400479_RenameTables.cs</DependentUpon>
+    <Compile Include="Migrations\201808241226180_AddingBAMReportingTables.cs" />
+    <Compile Include="Migrations\201808241226180_AddingBAMReportingTables.Designer.cs">
+      <DependentUpon>201808241226180_AddingBAMReportingTables.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808221405446_SeedData.cs" />
-    <Compile Include="Migrations\201808221405446_SeedData.Designer.cs">
-      <DependentUpon>201808221405446_SeedData.cs</DependentUpon>
+    <Compile Include="Migrations\201808241228250_RemoveRedundantRefColumns.cs" />
+    <Compile Include="Migrations\201808241228250_RemoveRedundantRefColumns.Designer.cs">
+      <DependentUpon>201808241228250_RemoveRedundantRefColumns.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808231442012_UpdatePartModel.cs" />
-    <Compile Include="Migrations\201808231442012_UpdatePartModel.Designer.cs">
-      <DependentUpon>201808231442012_UpdatePartModel.cs</DependentUpon>
+    <Compile Include="Migrations\201808241521233_UpdateDateTimeNulls.cs" />
+    <Compile Include="Migrations\201808241521233_UpdateDateTimeNulls.Designer.cs">
+      <DependentUpon>201808241521233_UpdateDateTimeNulls.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\BAM_HardwareTemplate.cs" />
+    <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
+    <Compile Include="Models\BAM_Object.cs" />
+    <Compile Include="Models\BAM_Reporting.cs" />
+    <Compile Include="Models\BaseObjects\BaseObjectProperties.cs" />
     <Compile Include="Models\PartManufacturer.cs" />
     <Compile Include="Models\ESTPartDescription.cs" />
     <Compile Include="Models\ESTPart.cs" />
     <Compile Include="Models\PartModel.cs" />
+    <Compile Include="Models\EST_SCAudit.cs" />
+    <Compile Include="Models\EST_SCAuditDeploy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeedData\PartModelData.cs" />
     <Compile Include="SeedData\PartManufacturerData.cs" />
@@ -79,17 +86,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808221353586_Initial.resx">
-      <DependentUpon>201808221353586_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808240815482_Initial.resx">
+      <DependentUpon>201808240815482_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221400479_RenameTables.resx">
-      <DependentUpon>201808221400479_RenameTables.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808241226180_AddingBAMReportingTables.resx">
+      <DependentUpon>201808241226180_AddingBAMReportingTables.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808221405446_SeedData.resx">
-      <DependentUpon>201808221405446_SeedData.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808241228250_RemoveRedundantRefColumns.resx">
+      <DependentUpon>201808241228250_RemoveRedundantRefColumns.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808231442012_UpdatePartModel.resx">
-      <DependentUpon>201808231442012_UpdatePartModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808241521233_UpdateDateTimeNulls.resx">
+      <DependentUpon>201808241521233_UpdateDateTimeNulls.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

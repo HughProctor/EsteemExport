@@ -31,41 +31,41 @@ namespace ServiceModel.Services
         #endregion
 
         #region CRUD
-        public List<BAM_HardwareTemplate> GetHardwareAsset(string serialNumber)
+        public List<Models.BAM.HardwareTemplate> GetHardwareAsset(string serialNumber)
         {
-            var returnValue = new List<BAM_HardwareTemplate>();
+            var returnValue = new List<Models.BAM.HardwareTemplate>();
 
             var content = CreateProjectionFilter_StringContent(serialNumber);
             var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
 
-            returnValue = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate>>(resultSring_Get);
+            returnValue = JsonConvert.DeserializeObject<List<Models.BAM.HardwareTemplate>>(resultSring_Get);
 
             return returnValue;
         }
 
-        public List<BAM_HardwareTemplate_Full> GetHardwareAsset_Full(string serialNumber)
+        public List<HardwareTemplate_Full> GetHardwareAsset_Full(string serialNumber)
         {
-            var returnValue = new List<BAM_HardwareTemplate_Full>();
+            var returnValue = new List<HardwareTemplate_Full>();
 
             var content = CreateProjectionFilter_StringContent(serialNumber, true);
             var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
 
-            returnValue = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate_Full>>(resultSring_Get);
+            returnValue = JsonConvert.DeserializeObject<List<HardwareTemplate_Full>>(resultSring_Get);
 
             return returnValue;
         }
 
-        public List<BAM_HardwareTemplate> UpdateTemplate(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate)
+        public List<Models.BAM.HardwareTemplate> UpdateTemplate(Models.BAM.HardwareTemplate newTemplate, Models.BAM.HardwareTemplate originalTemplate)
         {
-            var returnValue = new List<BAM_HardwareTemplate>();
+            var returnValue = new List<Models.BAM.HardwareTemplate>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
-            var template = new HardwareTemplate()
+            var template = new Models.HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -76,13 +76,13 @@ namespace ServiceModel.Services
             return BAM_ApiPost(newTemplate, originalTemplate, returnValue, template);
         }
 
-        public List<BAM_HardwareTemplate_Full> UpdateTemplate(BAM_HardwareTemplate_Full newTemplate, BAM_HardwareTemplate_Full originalTemplate)
+        public List<HardwareTemplate_Full> UpdateTemplate(HardwareTemplate_Full newTemplate, HardwareTemplate_Full originalTemplate)
         {
-            var returnValue = new List<BAM_HardwareTemplate_Full>();
+            var returnValue = new List<HardwareTemplate_Full>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
-            var template = new HardwareTemplate()
+            var template = new Models.HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -93,13 +93,13 @@ namespace ServiceModel.Services
             return BAM_ApiPost(newTemplate, originalTemplate, returnValue, template);
         }
 
-        public List<BAM_HardwareTemplate> InsertTemplate(BAM_HardwareTemplate newTemplate)
+        public List<Models.BAM.HardwareTemplate> InsertTemplate(Models.BAM.HardwareTemplate newTemplate)
         {
-            var returnValue = new List<BAM_HardwareTemplate>();
+            var returnValue = new List<Models.BAM.HardwareTemplate>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
-            var template = new HardwareTemplate()
+            var template = new Models.HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -112,7 +112,7 @@ namespace ServiceModel.Services
         #endregion
 
         #region Private Post
-        private List<BAM_HardwareTemplate> BAM_ApiPost(BAM_HardwareTemplate newTemplate, BAM_HardwareTemplate originalTemplate, List<BAM_HardwareTemplate> returnValue, HardwareTemplate template)
+        private List<Models.BAM.HardwareTemplate> BAM_ApiPost(Models.BAM.HardwareTemplate newTemplate, Models.BAM.HardwareTemplate originalTemplate, List<Models.BAM.HardwareTemplate> returnValue, Models.HardwareTemplate_Json template)
         {
             var jsonSettings = new JsonSerializerSettings
             {
@@ -143,7 +143,7 @@ namespace ServiceModel.Services
             return returnValue;
         }
 
-        private List<BAM_HardwareTemplate_Full> BAM_ApiPost(BAM_HardwareTemplate_Full newTemplate, BAM_HardwareTemplate_Full originalTemplate, List<BAM_HardwareTemplate_Full> returnValue, HardwareTemplate template)
+        private List<HardwareTemplate_Full> BAM_ApiPost(HardwareTemplate_Full newTemplate, HardwareTemplate_Full originalTemplate, List<HardwareTemplate_Full> returnValue, Models.HardwareTemplate_Json template)
         {
             var jsonSettings = new JsonSerializerSettings
             {
@@ -166,8 +166,8 @@ namespace ServiceModel.Services
             //var result = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate>>(resultSring);
             /////-------------This could be moved out and converted into an async Task ---- we can handle response outside///
             var result = JsonConvert.DeserializeObject<BAM_Api_SuccessResponse>(resultSring);
-            if (result.BaseId != newTemplate.BaseId)
-                throw new Exception("Updated BaseId's didn't match");
+            //if (result.BaseId != newTemplate.BaseId)
+            //    throw new Exception("Updated BaseId's didn't match");
 
             returnValue.Add(newTemplate);
             returnValue.Add(originalTemplate);
@@ -205,9 +205,9 @@ namespace ServiceModel.Services
         #endregion
 
         #region Set Values
-        public BAM_HardwareTemplate CreateNewTemplate()
+        public HardwareTemplate CreateNewTemplate()
         {
-            var returnValue = new BAM_HardwareTemplate() {
+            var returnValue = new Models.BAM.HardwareTemplate() {
                 LastModified = new DateTime(0001, 01, 01, 00, 00, 00),
                 LastModifiedBy = "7431e155-3d9e-4724-895e-c03ba951a352",
                 ClassTypeId = "20d06950-4c1a-1afa-41a6-f46f4f863550",
@@ -219,7 +219,7 @@ namespace ServiceModel.Services
             return returnValue;
         }
 
-        public BAM_HardwareTemplate SetHardwareAssetStatus(BAM_HardwareTemplate template, EST_HWAssetStatus hWAssetStatus)
+        public HardwareTemplate SetHardwareAssetStatus(Models.BAM.HardwareTemplate template, EST_HWAssetStatus hWAssetStatus)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
@@ -230,7 +230,7 @@ namespace ServiceModel.Services
             return newHardwareAsset;
         }
 
-        public BAM_HardwareTemplate_Full SetHardwareAssetStatus(BAM_HardwareTemplate_Full template, EST_HWAssetStatus hWAssetStatus)
+        public HardwareTemplate_Full SetHardwareAssetStatus(HardwareTemplate_Full template, EST_HWAssetStatus hWAssetStatus)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
@@ -241,7 +241,7 @@ namespace ServiceModel.Services
             return newHardwareAsset;
         }
 
-        public BAM_HardwareTemplate_Full SetHardwareAssetPrimaryUser(BAM_HardwareTemplate_Full template, BAM_User user)
+        public HardwareTemplate_Full SetHardwareAssetPrimaryUser(HardwareTemplate_Full template, BAM_User user)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
@@ -258,7 +258,7 @@ namespace ServiceModel.Services
             return newHardwareAsset;
         }
 
-        public BAM_HardwareTemplate_Full SetLocation(BAM_HardwareTemplate_Full template, string siteLocation)
+        public HardwareTemplate_Full SetLocation(HardwareTemplate_Full template, string siteLocation)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
@@ -280,7 +280,7 @@ namespace ServiceModel.Services
             return newHardwareAsset;
         }
 
-        public BAM_HardwareTemplate SetAssetTag(BAM_HardwareTemplate template, string assetTag)
+        public HardwareTemplate SetAssetTag(Models.BAM.HardwareTemplate template, string assetTag)
         {
             if (template == null)
                 throw new Exception("Template must not be null");

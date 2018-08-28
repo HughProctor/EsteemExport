@@ -57,6 +57,7 @@
     <Compile Include="Mappers\AutoMapperExtensions.cs" />
     <Compile Include="Mappers\Map.cs" />
     <Compile Include="Models\Abstract\ISCBaseObject.cs" />
+    <Compile Include="Models\BAM_Reporting.cs" />
     <Compile Include="Models\EST_DataExportModel.cs" />
     <Compile Include="Models\BAMDataModel.cs" />
     <Compile Include="Models\SCAuditDeployBsm.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Services\EST_Service.cs" />
     <Compile Include="Services\Abstract\IEST_Service.cs" />
     <Compile Include="Services\Abstract\IEST_DataCleanseService.cs" />
+    <Compile Include="Services\Abstract\IReportingService.cs" />
+    <Compile Include="Services\ReportingService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

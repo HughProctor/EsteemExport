@@ -23,7 +23,7 @@ namespace BusinessModel.Test
         {
             var estService = new EST_Service();
             var hardwareAssetService = new BAM_HardwareAssetServices();
-            var apiTemplateList = new List<BAM_HardwareTemplate_Full>();
+            var apiTemplateList = new List<HardwareTemplate_Full>();
             var notExistInBam = new List<SCAuditBsm>();
 
             var queryBuilder = new QueryBuilder
@@ -72,7 +72,7 @@ namespace BusinessModel.Test
         {
             var estService = new EST_Service();
             var hardwareAssetService = new BAM_HardwareAssetServices();
-            var apiTemplateList = new List<BAM_HardwareTemplate_Full>();
+            var apiTemplateList = new List<HardwareTemplate_Full>();
 
             var queryBuilder = new QueryBuilder
             {

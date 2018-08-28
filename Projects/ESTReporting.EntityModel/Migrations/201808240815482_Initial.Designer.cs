@@ -13,7 +13,7 @@ namespace ESTReporting.EntityModel.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808221353586_Initial"; }
+            get { return "201808240815482_Initial"; }
         }
         
         string IMigrationMetadata.Source

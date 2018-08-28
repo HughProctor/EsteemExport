@@ -11,109 +11,107 @@ using ESTReporting.EntityModel.Models;
 
 namespace ESTReportingSite.Controllers
 {
-    public class PartManufacturersController : Controller
+    public class ESTPartsController : Controller
     {
         private BAMEsteemExportContext db = new BAMEsteemExportContext();
 
-        // GET: PartManufacturers
+        // GET: ESTParts
         public ActionResult Index()
         {
-            return View(db.PartManufacturers.ToList());
+            return View(db.ESTParts.ToList());
         }
 
-        // GET: PartManufacturers/Details/5
+        // GET: ESTParts/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PartManufacturer partManufacturer = db.PartManufacturers.Find(id);
-            if (partManufacturer == null)
+            ESTPart eSTPart = db.ESTParts.Find(id);
+            if (eSTPart == null)
             {
                 return HttpNotFound();
             }
-            return View(partManufacturer);
+            return View(eSTPart);
         }
 
-        // GET: PartManufacturers/Create
+        // GET: ESTParts/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: PartManufacturers/Create
+        // POST: ESTParts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Code,CodeEsteem,CodeEsteemAlt")] PartManufacturer partManufacturer)
+        public ActionResult Create([Bind(Include = "Id,CreatedDate,UpdatedDate,Manufacturer,Model,SerialNumber,AssetName,DisplayName,RequestUser,CostCode")] ESTPart eSTPart)
         {
-            partManufacturer.CreatedDate = DateTime.Now;
             if (ModelState.IsValid)
             {
-                db.PartManufacturers.Add(partManufacturer);
+                db.ESTParts.Add(eSTPart);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(partManufacturer);
+            return View(eSTPart);
         }
 
-        // GET: PartManufacturers/Edit/5
+        // GET: ESTParts/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PartManufacturer partManufacturer = db.PartManufacturers.Find(id);
-            if (partManufacturer == null)
+            ESTPart eSTPart = db.ESTParts.Find(id);
+            if (eSTPart == null)
             {
                 return HttpNotFound();
             }
-            return View(partManufacturer);
+            return View(eSTPart);
         }
 
-        // POST: PartManufacturers/Edit/5
+        // POST: ESTParts/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Code,CodeEsteem,CodeEsteemAlt")] PartManufacturer partManufacturer)
+        public ActionResult Edit([Bind(Include = "Id,CreatedDate,UpdatedDate,Manufacturer,Model,SerialNumber,AssetName,DisplayName,RequestUser,CostCode")] ESTPart eSTPart)
         {
             if (ModelState.IsValid)
             {
-                partManufacturer.UpdatedDate = DateTime.Now;
-                db.Entry(partManufacturer).State = EntityState.Modified;
+                db.Entry(eSTPart).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(partManufacturer);
+            return View(eSTPart);
         }
 
-        // GET: PartManufacturers/Delete/5
+        // GET: ESTParts/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            PartManufacturer partManufacturer = db.PartManufacturers.Find(id);
-            if (partManufacturer == null)
+            ESTPart eSTPart = db.ESTParts.Find(id);
+            if (eSTPart == null)
             {
                 return HttpNotFound();
             }
-            return View(partManufacturer);
+            return View(eSTPart);
         }
 
-        // POST: PartManufacturers/Delete/5
+        // POST: ESTParts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            PartManufacturer partManufacturer = db.PartManufacturers.Find(id);
-            db.PartManufacturers.Remove(partManufacturer);
+            ESTPart eSTPart = db.ESTParts.Find(id);
+            db.ESTParts.Remove(eSTPart);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

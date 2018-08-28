@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using ESTReporting.EntityModel.Models;
 using System;
 using System.Linq;
 using System.Reflection;
@@ -32,6 +33,14 @@ namespace BusinessModel.Mappers
             }
             return expression;
         }
+
+        public static IMappingExpression<TSource, TDestination> DefaultValues<TSource, TDestination>(this IMappingExpression<TSource, TDestination> mappingExpression)
+            where TDestination : BaseObjectProperties
+        {
+            mappingExpression.ForMember(dest => dest.CreatedDate, opt => opt.UseValue(DateTime.Now));
+            return mappingExpression;
+        }
+
     }
 
     public class TypeTypeConverter : ITypeConverter<string, Type>

@@ -3,11 +3,8 @@ using System.Collections.Generic;
 
 namespace ESTReporting.EntityModel.Models
 {
-    public class PartManufacturer
+    public class PartManufacturer : BaseObjectProperties
     {
-        public int Id { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
         public string Name { get; set; }
         public string Code { get; set; }
         public string CodeEsteem { get; set; }

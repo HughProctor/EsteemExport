@@ -121,7 +121,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             var result = new HardwareTemplate_FullList()
             {
-                BAM_HardwareTemplate_FullList = JsonConvert.DeserializeObject<BAM_HardwareTemplate_Full[]>(resultSring_Get).ToList()
+                BAM_HardwareTemplate_FullList = JsonConvert.DeserializeObject<HardwareTemplate_Full[]>(resultSring_Get).ToList()
             };
 
             Assert.IsNotNull(result, "Result didn't deserialize to BAM_HardwareTemplate_Full");
@@ -161,7 +161,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
             Assert.IsFalse(string.IsNullOrEmpty(resultSring_Get), "Query resultSring is null");
-            var result = JsonConvert.DeserializeObject<BAM_HardwareTemplate[]>(resultSring_Get);
+            var result = JsonConvert.DeserializeObject<HardwareTemplate[]>(resultSring_Get);
             Assert.IsNotNull(result, "Result didn't deserialize to BAM_HardwareTemplate_Full");
             Assert.IsTrue(result.Any(), "Result didn't any results");
             Assert.IsTrue(result.First().SerialNumber == serialNumber, "SerialNumbers don't match");

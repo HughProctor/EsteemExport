@@ -1,6 +1,6 @@
 ﻿namespace ServiceModel.Models.BAM.Abstract
 {
-    public interface IBAM_HardwareTemplate_Full
+    public interface IHardwareTemplate_Full
     {
         string BAMAcessoriesCost { get; set; }
         string BAMAverageSpeed { get; set; }

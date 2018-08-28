@@ -47,7 +47,7 @@ namespace ServiceModel.Models.BAM
         public int ViewCount { get; set; }
         public int CommentCount { get; set; }
         public double AverageRating { get; set; }
-        public DateTime LastModifiedDate { get; set; }
+        public DateTime? LastModifiedDate { get; set; }
     }
 
     public class ArticleList

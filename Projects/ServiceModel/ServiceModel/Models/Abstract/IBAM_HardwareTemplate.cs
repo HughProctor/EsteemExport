@@ -2,7 +2,7 @@
 
 namespace ServiceModel.Models.BAM.Abstract
 {
-    public interface IBAM_HardwareTemplate
+    public interface IHardwareTemplate
     {
         AssetStatus AssetStatus { get; set; }
         string AssetTag { get; set; }
@@ -44,6 +44,6 @@ namespace ServiceModel.Models.BAM.Abstract
         string Path { get; set; }
         DateTime? ReceivedDate { get; set; }
         string SerialNumber { get; set; }
-        DateTime TimeAdded { get; set; }
+        DateTime? TimeAdded { get; set; }
     }
 }

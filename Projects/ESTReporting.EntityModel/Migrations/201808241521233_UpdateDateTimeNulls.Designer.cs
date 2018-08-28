@@ -7,13 +7,13 @@ namespace ESTReporting.EntityModel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class SeedData : IMigrationMetadata
+    public sealed partial class UpdateDateTimeNulls : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(SeedData));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDateTimeNulls));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808221405446_SeedData"; }
+            get { return "201808241521233_UpdateDateTimeNulls"; }
         }
         
         string IMigrationMetadata.Source

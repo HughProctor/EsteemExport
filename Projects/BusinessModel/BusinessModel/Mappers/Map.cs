@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using BusinessModel.Models;
 using EntityModel;
+using ESTReporting.EntityModel.Models;
+//using ESTReporting.EntityModel.Models;
 using ServiceModel.Models.BAM;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,14 +18,47 @@ namespace BusinessModel.Mappers
                 cfg.AllowNullCollections = true;
                 cfg.CreateMap<SCAudit, SCAuditBsm>().IgnoreAllNonExisting();
                 cfg.CreateMap<SCAuditDeploy, SCAuditDeployBsm>().IgnoreAllNonExisting();
-                cfg.CreateMap<BAM_HardwareTemplate, BAM_HardwareTemplate_Full>().IgnoreAllNonExisting();
-                cfg.CreateMap<BAM_HardwareTemplate_Full, BAM_HardwareTemplate>().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareTemplate, HardwareTemplate_Full>().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareTemplate_Full, HardwareTemplate>().IgnoreAllNonExisting();
                 cfg.CreateMap<SCAuditBsm, BAMDataModel>().IgnoreAllNonExisting();
                 cfg.CreateMap<SCAuditDeployBsm, BAMDataModel>().IgnoreAllNonExisting();
-
+                //cfg.CreateMap<BAM_HardwareTemplate, HardwareTemplate>().IgnoreAllNonExisting();
+                //cfg.CreateMap<BAM_HardwareTemplate_Full, HardwareTemplate_Full>().IgnoreAllNonExisting();
+                cfg.CreateMap<BAM_ReportingBsm, BAM_Reporting>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditBsm, SCAudit>().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditDeployBsm, SCAuditDeploy>().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditBsm, EST_SCAudit>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<SCAuditDeployBsm, EST_SCAuditDeploy>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareTemplate, BAM_HardwareTemplate>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareTemplate_Full, BAM_HardwareTemplate_Full>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<TargetHardwareAssetHasCostCenter, BAM_TargetHardwareAssetHasCostCenter>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<TargetHardwareAssetHasLocation, BAM_TargetHardwareAssetHasLocation>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<TargetHardwareAssetHasPrimaryUser, BAM_TargetHardwareAssetHasPrimaryUser>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<AssetStatus, BAM_AssetStatus>()
+                    .ForMember(src => src.CreatedDate, opt => opt.UseValue(DateTime.Now))
+                    .ForMember(src => src.BAM_Id, dest => dest.MapFrom(o => o.Id))
+                    .ForMember(src => src.Id, opt => opt.Ignore())
+                    .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareAssetStatus, BAM_HardwareAssetStatus>()
+                    .ForMember(src => src.BAM_Id, dest => dest.MapFrom(o => o.Id))
+                    .ForMember(src => src.Id, opt => opt.Ignore())
+                    .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareAssetType, BAM_HardwareAssetType>()
+                    .ForMember(src => src.BAM_Id, dest => dest.MapFrom(o => o.Id))
+                    .ForMember(src => src.Id, opt => opt.Ignore())
+                    .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<ManufacturerEnum, BAM_ManufacturerEnum>()
+                    .ForMember(src => src.BAM_Id, dest => dest.MapFrom(o => o.Id))
+                    .ForMember(src => src.Id, opt => opt.Ignore())
+                    .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<ModelEnum, BAM_ModelEnum>()
+                    .ForMember(src => src.BAM_Id, dest => dest.MapFrom(o => o.Id))
+                    .ForMember(src => src.Id, opt => opt.Ignore())
+                    .DefaultValues().IgnoreAllNonExisting();
             });
             Mapper.AssertConfigurationIsValid();
         }
+
 
         //public static List<SCAuditExt> Map_Results(List<SCAudit> records)
         //{
@@ -46,14 +82,14 @@ namespace BusinessModel.Mappers
         //    return mappedList;
         //}
 
-        public static BAM_HardwareTemplate Map_Results(BAM_HardwareTemplate_Full record)
+        public static HardwareTemplate Map_Results(HardwareTemplate_Full record)
         {
-            return Mapper.Map<BAM_HardwareTemplate_Full, BAM_HardwareTemplate>(record);
+            return Mapper.Map<HardwareTemplate_Full, HardwareTemplate>(record);
         }
 
-        public static BAM_HardwareTemplate_Full Map_Results(BAM_HardwareTemplate record)
+        public static HardwareTemplate_Full Map_Results(HardwareTemplate record)
         {
-            return Mapper.Map<BAM_HardwareTemplate, BAM_HardwareTemplate_Full>(record);
+            return Mapper.Map<HardwareTemplate, HardwareTemplate_Full>(record);
         }
 
         public static SCAuditBsm Map_Results(SCAudit record)
@@ -84,6 +120,11 @@ namespace BusinessModel.Mappers
         public static List<BAMDataModel> Map_Results(List<SCAuditDeployBsm> record)
         {
             return Mapper.Map<List<SCAuditDeployBsm>, List<BAMDataModel>>(record);
+        }
+
+        public static List<BAM_Reporting> Map_Results(List<BAM_ReportingBsm> records)
+        {
+            return Mapper.Map<List<BAM_ReportingBsm>, List<BAM_Reporting>>(records);
         }
 
     }

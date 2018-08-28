@@ -19,7 +19,7 @@ namespace BusinessModel.Services
         public EST_DataCleanseService()
         {
             dbContext = new BAMEsteemExportContext();
-            PartManufacturers = dbContext.PartManufacturers.ToList();
+            PartManufacturers = dbContext.PartManufacturers.Where(x => x.Name == "Cables").ToList();
             PartModels = dbContext.PartModels.ToList();
         }
 

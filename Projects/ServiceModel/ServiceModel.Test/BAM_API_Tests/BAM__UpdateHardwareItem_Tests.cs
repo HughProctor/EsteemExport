@@ -63,7 +63,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsFalse(newHardwareAsset.Equals(originalhardwareAsset), "Clone object didn't work");
             Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name != originalhardwareAsset.HardwareAssetStatus.Name, "Pre-Update Asset status didn't change");
             Assert.IsTrue(newHardwareAsset.HardwareAssetStatus.Name == updateAssetStatus.ToBAMString(), "Pre-Update Asset status doesn't equal BAM AssetStatus Enum");
-            List<BAM_HardwareTemplate> hardwareAssetList = new List<BAM_HardwareTemplate>();
+            List<HardwareTemplate> hardwareAssetList = new List<HardwareTemplate>();
             try
             {
                 hardwareAssetList = hardwareAssetService.UpdateTemplate(newHardwareAsset, originalhardwareAsset);
@@ -103,7 +103,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var newHardwareAsset = hardwareAssetService.SetHardwareAssetStatus(originalhardwareAsset, updateAssetStatus);
 
             newHardwareAsset.LastModified = DateTime.Now;
-            List<BAM_HardwareTemplate> hardwareAssetList = new List<BAM_HardwareTemplate>();
+            List<HardwareTemplate> hardwareAssetList = new List<HardwareTemplate>();
             hardwareAssetList = hardwareAssetService.UpdateTemplate(newHardwareAsset, originalhardwareAsset);
             Assert.IsNotNull(hardwareAssetList, "Return list is null");
             Assert.IsTrue(hardwareAssetList.Count > 1, "Return list doesn't include 2 records");

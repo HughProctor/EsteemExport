@@ -7,13 +7,13 @@ namespace ESTReporting.EntityModel.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class UpdatePartModel : IMigrationMetadata
+    public sealed partial class AddingBAMReportingTables : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatePartModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddingBAMReportingTables));
         
         string IMigrationMetadata.Id
         {
-            get { return "201808231442012_UpdatePartModel"; }
+            get { return "201808241226180_AddingBAMReportingTables"; }
         }
         
         string IMigrationMetadata.Source

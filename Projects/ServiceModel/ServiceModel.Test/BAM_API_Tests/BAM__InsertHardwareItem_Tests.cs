@@ -51,7 +51,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsTrue(assetStatus.Name == asset.HWAssetStatus.ToDescriptionString(), "assetStatus record is not the same");
 
             // Get Projection Template
-            var hardwareTemplate = new BAM_HardwareTemplate_Full()
+            var hardwareTemplate = new HardwareTemplate_Full()
             {
                 LastModified = new DateTime(),
                 ClassTypeId = hardwareAssetTemplateId,
@@ -84,7 +84,7 @@ namespace ServiceModel.Test.BAM_API_Tests
                 
             };
 
-            var template = new HardwareTemplate()
+            var template = new Models.HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -134,7 +134,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var resultSring = queryResult_Set.Content.ReadAsStringAsync().Result;
             Assert.IsFalse(string.IsNullOrEmpty(resultSring), "Query resultSring is null");
 
-            var result = JsonConvert.DeserializeObject<BAM_HardwareTemplate[]>(resultSring);
+            var result = JsonConvert.DeserializeObject<HardwareTemplate[]>(resultSring);
 
             Assert.IsNotNull(result, "Query result is null");
             ////Assert.IsNotNull(result.TemplateClasses, "Articles list is null");
@@ -172,7 +172,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsTrue(assetStatus.Name == asset.HWAssetStatus.ToDescriptionString(), "assetStatus record is not the same");
 
             // Get Projection Template
-            var hardwareTemplate = new BAM_HardwareTemplate()
+            var hardwareTemplate = new Models.BAM.HardwareTemplate()
             {
                 LastModified = new DateTime(0001, 01, 01, 00, 00, 00),
                 LastModifiedBy = "7431e155-3d9e-4724-895e-c03ba951a352",

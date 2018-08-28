@@ -162,8 +162,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ESTPartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartManufacturersController.cs" />
+    <Compile Include="Controllers\PartModelsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -253,6 +255,16 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\PartModels\Create.cshtml" />
+    <Content Include="Views\PartModels\Delete.cshtml" />
+    <Content Include="Views\PartModels\Details.cshtml" />
+    <Content Include="Views\PartModels\Edit.cshtml" />
+    <Content Include="Views\PartModels\Index.cshtml" />
+    <Content Include="Views\ESTParts\Create.cshtml" />
+    <Content Include="Views\ESTParts\Delete.cshtml" />
+    <Content Include="Views\ESTParts\Details.cshtml" />
+    <Content Include="Views\ESTParts\Edit.cshtml" />
+    <Content Include="Views\ESTParts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

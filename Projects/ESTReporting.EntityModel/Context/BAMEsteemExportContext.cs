@@ -19,6 +19,18 @@ namespace ESTReporting.EntityModel.Context
         public DbSet<PartManufacturer> PartManufacturers { get; set; }
         public DbSet<ESTPartDescription> ESTPartDescriptions { get; set; }
         public DbSet<PartModel> PartModels { get; set; }
+        public DbSet<BAM_Reporting> BAM_Reporting { get; set; }
+        public DbSet<EST_SCAudit> SCAudit { get; set; }
+        public DbSet<EST_SCAuditDeploy> SCAuditDeploy { get; set; }
+        public DbSet<BAM_HardwareTemplate_Full> BAM_HardwareTemplate_Full { get; set; }
+        public DbSet<BAM_TargetHardwareAssetHasCostCenter> BAM_TargetHardwareAssetHasCostCenter { get; set; }
+        public DbSet<BAM_TargetHardwareAssetHasLocation> BAM_TargetHardwareAssetHasLocation { get; set; }
+        public DbSet<BAM_TargetHardwareAssetHasPrimaryUser> BAM_TargetHardwareAssetHasPrimaryUser { get; set; }
+        public DbSet<BAM_AssetStatus> BAM_AssetStatus { get; set; }
+        public DbSet<BAM_HardwareAssetStatus> BAM_HardwareAssetStatus { get; set; }
+        public DbSet<BAM_HardwareAssetType> BAM_HardwareAssetType { get; set; }
+        public DbSet<BAM_ManufacturerEnum> BAM_ManufacturerEnum { get; set; }
+        public DbSet<BAM_ModelEnum> BAM_ModelEnum { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

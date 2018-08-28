@@ -111,8 +111,6 @@ namespace BusinessModel.Test
             var noModelList = newItemList.Where(x => string.IsNullOrEmpty(x.Model)).ToList();
             var faultyList = newItemList.Where(x => x.Asset_Desc_Code_Split.Any(code => code.ToUpper() == "IPAD") && !string.IsNullOrEmpty(x.Model) && x.Model == "Cables").ToList();
 
-
-
             JSON_FileExport.WriteFile(_typePrefix + "S01_New_Item_In_Esteem_All", newItemList, newItemList.Count, "EST_BadData");
             JSON_FileExport.WriteFile(_typePrefix + "S01_New_Item_In_Esteem_Model", modelList, modelList.Count, "EST_BadData");
             JSON_FileExport.WriteFile(_typePrefix + "S01_New_Item_In_Esteem_NoModel", noModelList, noModelList.Count, "EST_BadData");

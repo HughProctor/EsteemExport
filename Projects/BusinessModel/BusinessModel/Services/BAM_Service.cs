@@ -41,9 +41,9 @@ namespace BusinessModel.Services
             var dataExport = _estService.GetExportData(queryBuilder);
 
             //dataExport = Process_NewItemList(dataExport);
-            dataExport = Process_LocationChangeList(dataExport);
+            //dataExport = Process_LocationChangeList(dataExport);
             //dataExport = Process_AssetTagChangeList(dataExport);
-            //dataExport = Process_DeployedToBAMUserList(dataExport);
+            dataExport = Process_DeployedToBAMUserList(dataExport);
             //dataExport = Process_ReturnedFromBAMUserList(dataExport);
 
             // Save any Exceptions to the BAMEsteemExportDB

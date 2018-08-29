@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ESTReporting.EntityModel.Models.BAM_Reporting>
+﻿@model IEnumerable<ESTReporting.EntityModel.Models.BAM_Deployments>
 
 @{
     ViewBag.Title = "Index";
@@ -6,13 +6,13 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>BAM Error Reporting</h2>
+        <h2>BAM Deployments</h2>
         <ol class="breadcrumb">
             <li>
                 <a href="@Url.Action("Index", "Home")">Home &nbsp; / &nbsp;</a>
             </li>
             <li>
-                <a>Error Reporting &nbsp; / &nbsp;</a>
+                <a>BAM Deployments&nbsp; / &nbsp;</a>
             </li>
             <li class="active">
                 <strong>Index</strong>
@@ -79,44 +79,44 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                            <tr>
-                                <td class="hidden" id="rownumber_@Html.IdForModel()">
-                                    @Html.DisplayFor(modelItem => item.Id)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.CreatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.DeletedDate)
-                                </td>
-                                <td>
-                                    @if (item.SCAudit_Item != null)
-                                    {
-                                        <a href="javascript:void(0);" class="anchorDetail" data-url="EST_SCAudit"
-                                           data-id="@item.SCAudit_Item.Id">@Html.DisplayFor(modelItem => item.SCAudit_Item.Audit_Ser_Num)</a>
-                                    }
-                                </td>
-                                <td>
-                                    @if (item.SCAuditDeploy_Item != null)
-                                    {
-                                        <a href="javascript:void(0);" class="anchorDetail" data-url="EST_SCAuditDeploy"
-                                           data-id="item.SCAuditDeploy_Item.Id">@Html.DisplayFor(modelItem => item.SCAuditDeploy_Item.Audit_Ser_Num)</a>
-                                    }
-                                </td>
-                                <td>
-                                    @if (item.BAM_HardwareTemplate_Exception != null)
-                                    {
-                                        <a href="javascript:void(0);" class="anchorDetail" data-url="BAM_HardwareTemplate"
-                                           data-id="@item.BAM_HardwareTemplate_Exception.Id">@Html.DisplayFor(modelItem => item.BAM_HardwareTemplate_Exception.SerialNumber)</a>
-                                    }
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td class="hidden" id="rownumber_@Html.IdForModel()">
+                                        @Html.DisplayFor(modelItem => item.Id)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeletedDate)
+                                    </td>
+                                    <td>
+                                        @if (item.SCAudit_Item != null)
+                                        {
+                                            <a href="javascript:void(0);" class="anchorDetail" data-url="EST_SCAudit"
+                                               data-id="@item.SCAudit_Item.Id">@Html.DisplayFor(modelItem => item.SCAudit_Item.Audit_Ser_Num)</a>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.SCAuditDeploy_Item != null)
+                                        {
+                                            <a href="javascript:void(0);" class="anchorDetail" data-url="EST_SCAuditDeploy"
+                                               data-id="item.SCAuditDeploy_Item.Id">@Html.DisplayFor(modelItem => item.SCAuditDeploy_Item.Audit_Ser_Num)</a>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.BAM_HardwareTemplate_Exception != null)
+                                        {
+                                            <a href="javascript:void(0);" class="anchorDetail" data-url="BAM_HardwareTemplate"
+                                               data-id="@item.BAM_HardwareTemplate_Exception.Id">@Html.DisplayFor(modelItem => item.BAM_HardwareTemplate_Exception.SerialNumber)</a>
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -125,9 +125,9 @@
         </div>
     </div>
 </div>
-<div id="myModalContent"></div>  
-      
-</div> 
+<div id="myModalContent"></div>
+
+</div>
 @section Styles {
     @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
 }
@@ -193,7 +193,7 @@
                         alert("Dynamic content load failed.");
                     }
                 });
-            });  
+            });
         });
     </script>
 }

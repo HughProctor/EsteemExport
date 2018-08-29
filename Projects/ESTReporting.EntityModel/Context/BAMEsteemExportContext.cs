@@ -31,6 +31,7 @@ namespace ESTReporting.EntityModel.Context
         public DbSet<BAM_HardwareAssetType> BAM_HardwareAssetType { get; set; }
         public DbSet<BAM_ManufacturerEnum> BAM_ManufacturerEnum { get; set; }
         public DbSet<BAM_ModelEnum> BAM_ModelEnum { get; set; }
+        public DbSet<BAM_Deployments> BAM_Deployments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

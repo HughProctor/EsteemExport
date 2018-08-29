@@ -73,10 +73,15 @@
     <Compile Include="Migrations\201808281510427_UpdateDateTimeNulls3.Designer.cs">
       <DependentUpon>201808281510427_UpdateDateTimeNulls3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808291541483_BAM_Deployments.cs" />
+    <Compile Include="Migrations\201808291541483_BAM_Deployments.Designer.cs">
+      <DependentUpon>201808291541483_BAM_Deployments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
     <Compile Include="Models\BAM_Object.cs" />
+    <Compile Include="Models\BAM_Deployments.cs" />
     <Compile Include="Models\BAM_Reporting.cs" />
     <Compile Include="Models\BaseObjects\BaseObjectProperties.cs" />
     <Compile Include="Models\PartManufacturer.cs" />
@@ -111,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808281510427_UpdateDateTimeNulls3.resx">
       <DependentUpon>201808281510427_UpdateDateTimeNulls3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808291541483_BAM_Deployments.resx">
+      <DependentUpon>201808291541483_BAM_Deployments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

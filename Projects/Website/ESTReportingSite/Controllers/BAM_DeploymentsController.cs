@@ -1,20 +1,24 @@
-﻿using ESTReporting.EntityModel.Context;
-using ESTReporting.EntityModel.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
+using ESTReporting.EntityModel.Context;
+using ESTReporting.EntityModel.Models;
 
 namespace ESTReportingSite.Controllers
 {
-    public class BAM_ReportingController : Controller
+    public class BAM_DeploymentsController : Controller
     {
         private BAMEsteemExportContext db = new BAMEsteemExportContext();
 
-        // GET: BAM_Reporting
+        // GET: BAM_Deployments
         public ActionResult Index()
         {
-            var data = db.BAM_Reporting
+            var data = db.BAM_Deployments
                 .Include(x => x.SCAuditDeploy_Item)
                 .Include(x => x.SCAudit_Item)
                 .Include(x => x.BAM_HardwareTemplate_Exception)
@@ -44,97 +48,97 @@ namespace ESTReportingSite.Controllers
             return PartialView("EST_SCAuditDeploy_PartialView", data);
         }
 
-        // GET: BAM_Reporting/Details/5
+        // GET: BAM_Deployments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BAM_Reporting bAM_Reporting = db.BAM_Reporting.Find(id);
-            if (bAM_Reporting == null)
+            BAM_Deployments bAM_Deployments = db.BAM_Deployments.Find(id);
+            if (bAM_Deployments == null)
             {
                 return HttpNotFound();
             }
-            return View(bAM_Reporting);
+            return View(bAM_Deployments);
         }
 
-        // GET: BAM_Reporting/Create
+        // GET: BAM_Deployments/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: BAM_Reporting/Create
+        // POST: BAM_Deployments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CreatedDate,UpdatedDate,DeletedDate")] BAM_Reporting bAM_Reporting)
+        public ActionResult Create([Bind(Include = "Id,CreatedDate,UpdatedDate,DeletedDate")] BAM_Deployments bAM_Deployments)
         {
             if (ModelState.IsValid)
             {
-                db.BAM_Reporting.Add(bAM_Reporting);
+                db.BAM_Deployments.Add(bAM_Deployments);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(bAM_Reporting);
+            return View(bAM_Deployments);
         }
 
-        // GET: BAM_Reporting/Edit/5
+        // GET: BAM_Deployments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BAM_Reporting bAM_Reporting = db.BAM_Reporting.Find(id);
-            if (bAM_Reporting == null)
+            BAM_Deployments bAM_Deployments = db.BAM_Deployments.Find(id);
+            if (bAM_Deployments == null)
             {
                 return HttpNotFound();
             }
-            return View(bAM_Reporting);
+            return View(bAM_Deployments);
         }
 
-        // POST: BAM_Reporting/Edit/5
+        // POST: BAM_Deployments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CreatedDate,UpdatedDate,DeletedDate")] BAM_Reporting bAM_Reporting)
+        public ActionResult Edit([Bind(Include = "Id,CreatedDate,UpdatedDate,DeletedDate")] BAM_Deployments bAM_Deployments)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(bAM_Reporting).State = EntityState.Modified;
+                db.Entry(bAM_Deployments).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(bAM_Reporting);
+            return View(bAM_Deployments);
         }
 
-        // GET: BAM_Reporting/Delete/5
+        // GET: BAM_Deployments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            BAM_Reporting bAM_Reporting = db.BAM_Reporting.Find(id);
-            if (bAM_Reporting == null)
+            BAM_Deployments bAM_Deployments = db.BAM_Deployments.Find(id);
+            if (bAM_Deployments == null)
             {
                 return HttpNotFound();
             }
-            return View(bAM_Reporting);
+            return View(bAM_Deployments);
         }
 
-        // POST: BAM_Reporting/Delete/5
+        // POST: BAM_Deployments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            BAM_Reporting bAM_Reporting = db.BAM_Reporting.Find(id);
-            db.BAM_Reporting.Remove(bAM_Reporting);
+            BAM_Deployments bAM_Deployments = db.BAM_Deployments.Find(id);
+            db.BAM_Deployments.Remove(bAM_Deployments);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

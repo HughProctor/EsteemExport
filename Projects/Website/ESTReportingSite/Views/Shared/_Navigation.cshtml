@@ -24,18 +24,20 @@
                 <div class="logo-element">EST</div>
             </li>
             <li class="@Html.IsSelected(controller: "PartManufacturers")">
-                <a href="@Url.Action("Index", "PartManufacturers")"><i class="fa fa-th-large"></i> <span class="nav-label">PartManufacturers</span></a>
+                <a href="@Url.Action("Index", "PartManufacturers")"><i class="fa fa-th-large"></i> <span class="nav-label">Part Manufacturers</span></a>
             </li>
             <li class="@Html.IsSelected(controller: " PartModels")">
-                <a href="@Url.Action("Index", "PartModels" )"><i class="fa fa-diamond"></i> <span class="nav-label">PartModels</span></a>
+                <a href="@Url.Action("Index", "PartModels" )"><i class="fa fa-diamond"></i> <span class="nav-label">Part Models</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "ESTParts")">
-                <a href="@Url.Action("Index", "ESTParts")"><i class="fa fa-flask"></i> <span class="nav-label">ESTParts</span></a>
+                <a href="@Url.Action("Index", "ESTParts")"><i class="fa fa-flask"></i> <span class="nav-label">EST Parts</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "BAM_Reporting")">
-                <a href="@Url.Action("Index", "BAM_Reporting")"><i class="fa fa-flask"></i> <span class="nav-label">BAM_Reporting</span></a>
+                <a href="@Url.Action("Index", "BAM_Reporting")"><i class="fa fa-flask"></i> <span class="nav-label">BAM Reporting</span></a>
             </li>
-
+            <li class="@Html.IsSelected(controller: "BAM_Deployments")">
+                <a href="@Url.Action("Index", "BAM_Deployments")"><i class="fa fa-flask"></i> <span class="nav-label">BAM Deployments</span></a>
+            </li>
         </ul>
     </div>
 </nav>

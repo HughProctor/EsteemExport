@@ -13,7 +13,7 @@ namespace ESTReporting.EntityModel.Models
         public string Audit_Part_Type { get; set; }
         public string Audit_Rem { get; set; }
         public string Audit_User { get; set; }
-        public DateTime Audit_Last_Update { get; set; }
-        public DateTime Audit_Move_Date { get; set; }
+        public DateTime? Audit_Last_Update { get; set; }
+        public DateTime? Audit_Move_Date { get; set; }
     }
 }

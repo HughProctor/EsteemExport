@@ -37,6 +37,8 @@ namespace ESTReporting.EntityModel.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Properties<DateTime>()
+                .Configure(c => c.HasColumnType("datetime2"));
 
             //modelBuilder.Entity<Item>().ToTable("Items");
         }

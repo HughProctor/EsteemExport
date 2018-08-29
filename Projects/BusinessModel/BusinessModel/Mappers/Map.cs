@@ -29,8 +29,12 @@ namespace BusinessModel.Mappers
                 cfg.CreateMap<SCAuditDeployBsm, SCAuditDeploy>().IgnoreAllNonExisting();
                 cfg.CreateMap<SCAuditBsm, EST_SCAudit>().DefaultValues().IgnoreAllNonExisting();
                 cfg.CreateMap<SCAuditDeployBsm, EST_SCAuditDeploy>().DefaultValues().IgnoreAllNonExisting();
-                cfg.CreateMap<HardwareTemplate, BAM_HardwareTemplate>().DefaultValues().IgnoreAllNonExisting();
-                cfg.CreateMap<HardwareTemplate_Full, BAM_HardwareTemplate_Full>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareTemplate, BAM_HardwareTemplate>()
+                    .ForMember(dest => dest.LastModified, opt => opt.Condition(src => src.LastModified != default(DateTime)))
+                    .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<HardwareTemplate_Full, BAM_HardwareTemplate_Full>()
+                    .ForMember(dest => dest.LastModified, opt => opt.Condition(src => src.LastModified != default(DateTime)))
+                    .DefaultValues().IgnoreAllNonExisting();
                 cfg.CreateMap<TargetHardwareAssetHasCostCenter, BAM_TargetHardwareAssetHasCostCenter>().DefaultValues().IgnoreAllNonExisting();
                 cfg.CreateMap<TargetHardwareAssetHasLocation, BAM_TargetHardwareAssetHasLocation>().DefaultValues().IgnoreAllNonExisting();
                 cfg.CreateMap<TargetHardwareAssetHasPrimaryUser, BAM_TargetHardwareAssetHasPrimaryUser>().DefaultValues().IgnoreAllNonExisting();

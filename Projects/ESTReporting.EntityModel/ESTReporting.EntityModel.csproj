@@ -65,6 +65,14 @@
     <Compile Include="Migrations\201808241521233_UpdateDateTimeNulls.Designer.cs">
       <DependentUpon>201808241521233_UpdateDateTimeNulls.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808281504512_UpdateDateTimeNulls2.cs" />
+    <Compile Include="Migrations\201808281504512_UpdateDateTimeNulls2.Designer.cs">
+      <DependentUpon>201808281504512_UpdateDateTimeNulls2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808281510427_UpdateDateTimeNulls3.cs" />
+    <Compile Include="Migrations\201808281510427_UpdateDateTimeNulls3.Designer.cs">
+      <DependentUpon>201808281510427_UpdateDateTimeNulls3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -97,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808241521233_UpdateDateTimeNulls.resx">
       <DependentUpon>201808241521233_UpdateDateTimeNulls.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281504512_UpdateDateTimeNulls2.resx">
+      <DependentUpon>201808281504512_UpdateDateTimeNulls2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808281510427_UpdateDateTimeNulls3.resx">
+      <DependentUpon>201808281510427_UpdateDateTimeNulls3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

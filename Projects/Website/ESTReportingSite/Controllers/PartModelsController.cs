@@ -18,7 +18,7 @@ namespace ESTReportingSite.Controllers
         // GET: PartModels
         public ActionResult Index()
         {
-            return View(db.PartModels.ToList());
+            return View(db.PartModels.ToList().OrderBy(x => x.Name));
         }
 
         // GET: PartModels/Details/5

@@ -140,7 +140,7 @@ namespace BusinessModel.Test
             Assert.IsNotNull(updatedHardwareAsset, "Updated Asset is null");
             Assert.IsTrue(updatedHardwareAsset.SerialNumber == asset.SerialNumber, "SerialNumbers don't match");
 
-            updatedModifiedDate = updatedHardwareAsset.LastModified;
+            updatedModifiedDate = (DateTime)updatedHardwareAsset.LastModified;
 
             // Check Updates worked successfully
             Assert.IsTrue(updatedModifiedDate != originalModifiedDate, "Original and Updated LastModified Date are the same");
@@ -209,7 +209,7 @@ namespace BusinessModel.Test
             Assert.IsNotNull(updatedHardwareAsset, "Updated Asset is null");
             Assert.IsTrue(updatedHardwareAsset.SerialNumber == asset.SerialNumber, "SerialNumbers don't match");
 
-            updatedModifiedDate = updatedHardwareAsset.LastModified;
+            updatedModifiedDate = (DateTime)updatedHardwareAsset.LastModified;
 
             // Check Updates worked successfully
             Assert.IsTrue(updatedModifiedDate != originalModifiedDate, "Original and Updated LastModified Date are the same");

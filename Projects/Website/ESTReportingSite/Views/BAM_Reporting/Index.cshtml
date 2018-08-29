@@ -1,0 +1,219 @@
+﻿@model IEnumerable<ESTReporting.EntityModel.Models.BAM_Reporting>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>BAM Error Reporting</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Home")">Home &nbsp; / &nbsp;</a>
+            </li>
+            <li>
+                <a>Error Reporting &nbsp; / &nbsp;</a>
+            </li>
+            <li class="active">
+                <strong>Index</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+        <p style="margin-top: 1.5rem;margin-right: 10px;float:right;">@Html.ActionLink("Create New", "Create", new { id = 1 }, new { @class = "btn btn-primary btn-lg" })</p>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Basic Data Tables example with responsive plugin</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DeletedDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SCAudit_Item)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SCAuditDeploy_Item)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BAM_HardwareTemplate_Exception)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DeletedDate)
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal" href="#modal-form-scaudit">@Html.DisplayFor(modelItem => item.SCAudit_Item.Audit_Ser_Num)</a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal" href="#modal-form-scauditdeploy">@Html.DisplayFor(modelItem => item.SCAuditDeploy_Item.Audit_Ser_Num)</a>
+                                    </td>
+                                    <td>
+                                        <a data-toggle="modal" href="#modal-form-hardware">@Html.DisplayFor(modelItem => item.BAM_HardwareTemplate_Exception.SerialNumber)</a>
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-form-hardware" class="modal hide fade" aria-labelledby="modal-formLabel" aria-hidden="true" tabindex="-1" role="dialog" style="position: absolute; top: 10px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100 font-weight-bold">BAM_HardwareTemplate_Full</h4>
+                <a class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().BAM_HardwareTemplate_Exception != null)
+                {
+                    @Html.Partial("BAM_HardwareTemplate_Full_PartialView", Model.FirstOrDefault().BAM_HardwareTemplate_Exception);
+                }
+                </div>
+        </div>
+    </div>
+</div>
+<div id="modal-form-scaudit" class="modal hide fade" aria-labelledby="modal-formLabel" aria-hidden="true" tabindex="-1" role="dialog" style="position: absolute; top: 10px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100 font-weight-bold">EST SC Audit</h4>
+                <a class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().SCAudit_Item != null)
+                {
+                    @Html.Partial("EST_SCAudit_PartialView", Model.FirstOrDefault().SCAudit_Item);
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-form-scauditdeploy" class="modal hide fade" aria-labelledby="modal-formLabel" aria-hidden="true" tabindex="-1" role="dialog" style="position: absolute; top: 10px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100 font-weight-bold">EST SC Audit Deploy</h4>
+                <a class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body">
+                @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().SCAuditDeploy_Item != null)
+                {
+                    @Html.Partial("EST_SCAuditDeploy_PartialView", Model.FirstOrDefault().SCAuditDeploy_Item);
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var oTable = $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "paging": true,
+                "pagingType": "full_numbers",
+                "order": [[2, "asc"]],
+                "columnDefs": [
+                    {
+                        "targets": [1],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [2],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [6],
+                        "orderable": false,
+                        "searchable": false
+                    }
+                ]
+            });
+
+            $(window).bind('resize', function () {
+                oTable.fnAdjustColumnSizing();
+            });
+
+        });
+    </script>
+}
+
+
+@*@section Scripts {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.close').click(function () {
+                    $("#modal-form").modal('hide');
+                });
+            });
+        </script>
+    }*@

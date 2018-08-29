@@ -23,7 +23,7 @@ namespace ServiceModel.Models.BAM.Abstract
         string HardwareAssetID { get; set; }
         HardwareAssetStatus HardwareAssetStatus { get; set; }
         HardwareAssetType HardwareAssetType { get; set; }
-        DateTime LastModified { get; set; }
+        DateTime? LastModified { get; set; }
         string LastModifiedBy { get; set; }
         DateTime? LoanedDate { get; set; }
         DateTime? LoanReturnedDate { get; set; }

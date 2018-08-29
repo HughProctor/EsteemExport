@@ -102,7 +102,7 @@ namespace BusinessModel.Services
             if (model == null) return model;
             var returnList = new List<SCAuditBsm>();
 
-            model.LocationChangeList.Skip(1).Take(5).ToList().ForEach(asset => {
+            model.LocationChangeList.Skip(1).Take(1).ToList().ForEach(asset => {
                 HardwareTemplate_Full newHardwareAsset;
 
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();

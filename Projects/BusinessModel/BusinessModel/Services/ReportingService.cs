@@ -18,8 +18,8 @@ namespace BusinessModel.Services
         public void ProcessExceptions(List<BAM_ReportingBsm> reporting)
         {
             if (reporting == null || !reporting.Any()) return;
-
-            dbContext.BAM_Reporting.AddRange(Map.Map_Results(reporting));
+            var mapResults = Map.Map_Results(reporting);
+            dbContext.BAM_Reporting.AddRange(mapResults);
             dbContext.SaveChanges();
         }
     }

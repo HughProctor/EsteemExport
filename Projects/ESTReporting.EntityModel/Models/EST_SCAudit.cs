@@ -15,5 +15,11 @@ namespace ESTReporting.EntityModel.Models
         public string Audit_User { get; set; }
         public DateTime? Audit_Last_Update { get; set; }
         public DateTime? Audit_Move_Date { get; set; }
+        public string AssetName { get; set; }
+        public string DisplayName { get; set; }
+        public string Manufacturer { get; set; }
+        public string Model { get; set; }
+        public string RequestUser { get; set; }
+        public string SerialNumber { get; set; }
     }
 }

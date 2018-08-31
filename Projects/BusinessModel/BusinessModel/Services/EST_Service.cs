@@ -43,12 +43,15 @@ namespace BusinessModel.Services
             string whereExpression = "WHERE [Part_Type] = 'R' AND [PART_DESC] NOT LIKE '%**%' ";
             _queryBuilder.WhereExpression = whereExpression;
 
+            // Build the Query
             _sCAuditService.QueryBuilderObject = _queryBuilder;
             _sCDeployService.QueryBuilderObject = _queryBuilder;
 
+            // Get the data
             var returnAuditList = GetData_Audit_BaseQuery();
             var returnDeployList = GetData_Deploy_BaseQuery();
 
+            // Cleanse, Reduce and subset data
             returnValue.NewItemList = Get_New_Item(returnAuditList);
             returnValue.LocationChangeList = Get_Location_Change(returnAuditList);
             returnValue.AssetTagChangeList = Get_Asset_Tag_Change(returnAuditList);
@@ -91,7 +94,7 @@ namespace BusinessModel.Services
                     item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
                         && item.Audit_Rem.StartsWith("Added PO")
                         && (item.Audit_Dest_Site_Num.ToUpper().StartsWith("E-") || item.Audit_Dest_Site_Num.ToUpper() == "LTX")
-                ).ToList());
+                ).ToList().Distinct().ToList());
             return newItemList;
         }
 
@@ -106,7 +109,7 @@ namespace BusinessModel.Services
                          || item.Audit_Dest_Site_Num.ToUpper() == "LTX BAD"
                          || item.Audit_Dest_Site_Num.ToUpper() == "BNLSCRAP"
                         )
-                ).ToList());
+                ).ToList().Distinct().ToList());
             return newItemList;
         }
 
@@ -115,11 +118,11 @@ namespace BusinessModel.Services
             var newItemList = _dataCleanseService.Process_SCAuditList(returnList
                 .Where
                 (
-                    item => (item.Audit_Part_Num.ToUpper().StartsWith("BNL")
+                    item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
                         && item.Audit_Rem.ToUpper().StartsWith("ID CHANGED FROM")
                         && (item.Audit_Dest_Site_Num.ToUpper().StartsWith("E-") || item.Audit_Dest_Site_Num.ToUpper() == "LTX")
                         && (item.Audit_Ser_Num.StartsWith("BAM-") && item.Audit_Ser_Num.Contains("/"))
-                )).ToList());
+                ).ToList().Distinct().ToList());
             return newItemList;
         }
 
@@ -129,7 +132,7 @@ namespace BusinessModel.Services
                 .Where
                 (
                     item => item.Audit_Ser_Num.StartsWith("BAM")
-                ).ToList());
+                ).ToList().Distinct().ToList());
             return newItemList;
         }
 
@@ -140,7 +143,7 @@ namespace BusinessModel.Services
                 (
                     item => !string.IsNullOrEmpty(item.Audit_Ser_Num_Returned)
                         && item.Audit_Ser_Num.StartsWith("BAM")
-                ).ToList());
+                ).ToList().Distinct().ToList());
             return newItemList;
         }
         #endregion

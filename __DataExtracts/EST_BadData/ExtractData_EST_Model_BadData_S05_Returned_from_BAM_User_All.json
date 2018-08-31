@@ -13,7 +13,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG74938W3",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -47,7 +47,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154Z77",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -81,7 +81,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7402DCC",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -115,7 +115,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154Z59",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -149,7 +149,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZMW",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -183,7 +183,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG71550JR",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -217,7 +217,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZNM",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -251,7 +251,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZNB",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -285,7 +285,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZDM",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -319,7 +319,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZNS",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -353,7 +353,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154Z3L",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -387,7 +387,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZDZ",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -421,7 +421,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZC1",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -455,7 +455,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154ZQS",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -489,7 +489,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG7154Z7R",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -526,7 +526,7 @@
         "MOBILE",
         "WSTATION"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "Notebook complete",
       "SerialNumber": "CND6518FDK",
       "AssetName": "HP ZBOOK 17 G3 MOBILE WSTATION",
@@ -563,7 +563,7 @@
         "MOBILE",
         "WSTATION"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CND4232PZB",
       "AssetName": "HP ZBOOK 17 G2 MOBILE WSTATION",
@@ -597,7 +597,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG6314SW2",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -633,7 +633,7 @@
         "MOBILE",
         "WORKSTATION"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CND4110PKV",
       "AssetName": "HP ZBOOK 17 MOBILE WORKSTATION",
@@ -669,7 +669,7 @@
         "MOB",
         "WORKSTA"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CNU416BTQF",
       "AssetName": "HP 9470M ELITEBOOK MOB WORKSTA",
@@ -705,7 +705,7 @@
         "MOB",
         "WORKSTA"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CNU409BQN6",
       "AssetName": "HP 9470M ELITEBOOK MOB WORKSTA",
@@ -739,7 +739,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG6384Z2R",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -773,7 +773,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG6404Y9L",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -808,7 +808,7 @@
         "1040",
         "G1"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "8CG50101LV",
       "AssetName": "HP ELITEBOOK 1040 G1",
@@ -844,7 +844,7 @@
         "MOB",
         "WORKSTA"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CNU416BTRC",
       "AssetName": "HP 9470M ELITEBOOK MOB WORKSTA",
@@ -880,7 +880,7 @@
         "MOB",
         "WORKSTA"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CNU404B8GF",
       "AssetName": "HP 9470M ELITEBOOK MOB WORKSTA",
@@ -914,7 +914,7 @@
         "840G3",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG6384YDQ",
       "AssetName": "HP 840G3 ELITEBOOK",
@@ -948,7 +948,7 @@
         "840G2",
         "ELITEBOOK"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "5CG55146R6",
       "AssetName": "HP 840G2 ELITEBOOK",
@@ -984,7 +984,7 @@
         "MOB",
         "WORKSTA"
       ],
-      "Manufacturer": "Hewlet-Packard",
+      "Manufacturer": null,
       "Model": "",
       "SerialNumber": "CNU416BV2M",
       "AssetName": "HP 9470M ELITEBOOK MOB WORKSTA",

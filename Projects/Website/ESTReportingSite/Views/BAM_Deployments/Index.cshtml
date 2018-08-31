@@ -49,29 +49,35 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <table id="ExceptionTable" class="table table-striped table-bordered table-hover dataTables-example">
+                    <table id="ExceptionTable" class="table table-striped table-bordered table-hover dataTables-example" style="width:100%;">
                         <thead>
                             <tr>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Id)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.CreatedDate)
+                                    @Html.DisplayNameFor(model => model.SerialNumber)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.CreatedDate))
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.DeletedDate)
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.UpdatedDate))
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.SCAudit_Item)
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.DeletedDate))
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.SCAuditDeploy_Item)
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.AssetStatus).ToString().Replace('_', ' '))
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.BAM_HardwareTemplate_Exception)
+                                    @Html.DisplayNameFor(model => model.SCAudit_Item).ToString().Replace('_', ' ')
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SCAuditDeploy_Item).ToString().Replace('_', ' ')
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BAM_HardwareTemplate_Exception).ToString().Replace('_', ' ')
                                 </th>
                                 <th></th>
                             </tr>
@@ -79,44 +85,50 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td class="hidden" id="rownumber_@Html.IdForModel()">
-                                        @Html.DisplayFor(modelItem => item.Id)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.UpdatedDate)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DeletedDate)
-                                    </td>
-                                    <td>
-                                        @if (item.SCAudit_Item != null)
-                                        {
-                                            <a href="javascript:void(0);" class="anchorDetail" data-url="EST_SCAudit"
-                                               data-id="@item.SCAudit_Item.Id">@Html.DisplayFor(modelItem => item.SCAudit_Item.Audit_Ser_Num)</a>
-                                        }
-                                    </td>
-                                    <td>
-                                        @if (item.SCAuditDeploy_Item != null)
-                                        {
-                                            <a href="javascript:void(0);" class="anchorDetail" data-url="EST_SCAuditDeploy"
-                                               data-id="item.SCAuditDeploy_Item.Id">@Html.DisplayFor(modelItem => item.SCAuditDeploy_Item.Audit_Ser_Num)</a>
-                                        }
-                                    </td>
-                                    <td>
-                                        @if (item.BAM_HardwareTemplate_Exception != null)
-                                        {
-                                            <a href="javascript:void(0);" class="anchorDetail" data-url="BAM_HardwareTemplate"
-                                               data-id="@item.BAM_HardwareTemplate_Exception.Id">@Html.DisplayFor(modelItem => item.BAM_HardwareTemplate_Exception.SerialNumber)</a>
-                                        }
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td class="hidden" id="rownumber_@Html.IdForModel()">
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeletedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AssetStatus)
+                                </td>
+                                <td>
+                                    @if (item.SCAudit_Item != null)
+                                    {
+                                        <a href="javascript:void(0);" onclick="OpenModelWindow($(this))" class="anchorDetail" data-url="EST_SCAudit"
+                                           data-id="@item.SCAudit_Item.Id">@Html.DisplayFor(modelItem => item.SCAudit_Item.Audit_Ser_Num)</a>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.SCAuditDeploy_Item != null)
+                                    {
+                                        <a href="javascript:void(0);" onclick="OpenModelWindow($(this))" class="anchorDetail" data-url="EST_SCAuditDeploy"
+                                           data-id="@item.SCAuditDeploy_Item.Id">@Html.DisplayFor(modelItem => item.SCAuditDeploy_Item.Audit_Ser_Num)</a>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.BAM_HardwareTemplate_Exception != null)
+                                    {
+                                        <a href="javascript:void(0);" onclick="OpenModelWindow($(this))" class="anchorDetail" data-url="BAM_HardwareTemplate"
+                                           data-id="@item.BAM_HardwareTemplate_Exception.Id">@Html.DisplayFor(modelItem => item.BAM_HardwareTemplate_Exception.SerialNumber)</a>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -148,15 +160,15 @@
                 },
                 "paging": true,
                 "pagingType": "full_numbers",
-                "order": [[2, "asc"]],
+                "order": [[3, "asc"]],
                 "columnDefs": [
                     {
-                        "targets": [2],
+                        "targets": [3],
                         "visible": false,
                         "searchable": false
                     },
                     {
-                        "targets": [3],
+                        "targets": [4],
                         "visible": false,
                         "searchable": false
                     },
@@ -173,27 +185,48 @@
                 oTable.fnAdjustColumnSizing();
             });
 
-            $(".anchorDetail").click(function () {
-                var $buttonClicked = $(this);
-                var id = $buttonClicked.attr('data-id');
-                var url = yourApp.Urls.baseUrl + "BAM_Reporting/" + $buttonClicked.attr('data-url');
-                var options = { "backdrop": "static", keyboard: true };
-                $.ajax({
-                    type: "GET",
-                    url: url,
-                    contentType: "application/json; charset=utf-8",
-                    data: { "id": id },
-                    datatype: "json",
-                    success: function (data) {
-                        $('#myModalContent').html(data);
-                        $('#myModal').modal(options);
-                        $('#myModal').modal('show');
-                    },
-                    error: function () {
-                        alert("Dynamic content load failed.");
-                    }
-                });
-            });
+            //$(".anchorDetail").click(function () {
+            //    var $buttonClicked = $(this);
+            //    var id = $buttonClicked.attr('data-id');
+            //    var url = yourApp.Urls.baseUrl + "BAM_Reporting/" + $buttonClicked.attr('data-url');
+            //    var options = { "backdrop": "static", keyboard: true };
+            //    $.ajax({
+            //        type: "GET",
+            //        url: url,
+            //        contentType: "application/json; charset=utf-8",
+            //        data: { "id": id },
+            //        datatype: "json",
+            //        success: function (data) {
+            //            $('#myModalContent').html(data);
+            //            $('#myModal').modal(options);
+            //            $('#myModal').modal('show');
+            //        },
+            //        error: function () {
+            //            alert("Dynamic content load failed.");
+            //        }
+            //    });
+            //});
         });
+        function OpenModelWindow(buttonClicked) {
+            var $buttonClicked = buttonClicked; // $(this);
+            var id = $buttonClicked.attr('data-id');
+            var url = yourApp.Urls.baseUrl + "BAM_Deployments/" + $buttonClicked.attr('data-url');
+            var options = { "backdrop": "static", keyboard: true };
+            $.ajax({
+                type: "GET",
+                url: url,
+                contentType: "application/json; charset=utf-8",
+                data: { "id": id },
+                datatype: "json",
+                success: function (data) {
+                    $('#myModalContent').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        };  
     </script>
 }

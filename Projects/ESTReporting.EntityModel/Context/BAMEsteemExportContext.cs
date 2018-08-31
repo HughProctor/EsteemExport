@@ -32,6 +32,7 @@ namespace ESTReporting.EntityModel.Context
         public DbSet<BAM_ManufacturerEnum> BAM_ManufacturerEnum { get; set; }
         public DbSet<BAM_ModelEnum> BAM_ModelEnum { get; set; }
         public DbSet<BAM_Deployments> BAM_Deployments { get; set; }
+        public DbSet<ServiceProgressReport> ServiceProgressReport { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -40,8 +41,6 @@ namespace ESTReporting.EntityModel.Context
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
             modelBuilder.Properties<DateTime>()
                 .Configure(c => c.HasColumnType("datetime2"));
-
-            //modelBuilder.Entity<Item>().ToTable("Items");
         }
     }
 }

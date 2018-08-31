@@ -9,8 +9,8 @@
                     <span aria-hidden="true">&times;</span>
                 </a>
             </div>
-            <div class="modal-body">
-                <div>
+            <div class="modal-body container">
+                <div class="one">
                     <dl class="dl-horizontal">
                         <dt>
                             @Html.DisplayNameFor(model => model.Audit_Ser_Num)
@@ -124,6 +124,40 @@
                             @Html.DisplayFor(model => model.DeletedDate)
                         </dd>
 
+                    </dl>
+                </div>
+                <div class="two">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SerialNumber)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SerialNumber)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AssetName)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AssetName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Manufacturer)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Manufacturer)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Model)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Model)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.RequestUser)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RequestUser)
+                        </dd>
                     </dl>
                 </div>
                 <p>

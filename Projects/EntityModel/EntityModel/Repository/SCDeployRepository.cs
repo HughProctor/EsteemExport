@@ -52,6 +52,8 @@ namespace EntityModel.Repository
                 "NULLIF(LTRIM(RTRIM(SCP.[Part_Alt_Part_Num])), '') AS [Part_Code], " +
                 "NULLIF(LTRIM(RTRIM(SL.[Fsrl_Call_Num])), '') AS [Call_Num], " +
                 "NULLIF(LTRIM(RTRIM(SC.[Call_Contact])), '') AS [Call_Contact], " +
+                "NULLIF(LTRIM(RTRIM(SC.[Call_Num])), '') AS [Call_Num], " +
+                "NULLIF(LTRIM(RTRIM(SC.[Call_Ref])), '') AS [Call_Ref], " +
                 "CASE WHEN LEFT([Call_Phone], 2) LIKE '0%' THEN NULL ELSE LTRIM(RTRIM([Call_Phone])) END AS [Cost_Code], " +
                 "SL.[Fsrl_Last_Update] AS [UPDATE_DATE] " +
                 "FROM [SCFsrl] AS SL (NOLOCK) ";
@@ -118,6 +120,8 @@ namespace EntityModel.Repository
                             Audit_Cost_Code = reader["Cost_Code"].ToString(),
                             //Audit_Rem = reader["REMARK"].ToString(),
                             Audit_User = reader["Call_Contact"].ToString(),
+                            Audit_Call_Num = reader["Call_Num"].ToString(),
+                            Audit_Call_Ref = reader["Call_Ref"].ToString(),
                             //Audit_Move_Date = DateTime.Parse(reader["MOVE_DATE"].ToString()),
                             Audit_Last_Update = DateTime.Parse(reader["UPDATE_DATE"].ToString())
                         });

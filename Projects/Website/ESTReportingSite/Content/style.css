@@ -5568,7 +5568,7 @@ ol.unstyled {
     bottom: 0;
     left: 0;
     padding: 10px 20px;
-    position: absolute;
+    position: fixed;
     right: 0;
 }
 
@@ -11570,4 +11570,18 @@ body.md-skin {
 
 .ibox-title .float-right {
     margin-right: -75px;
+}
+
+.containerModal {
+    width: 100%;
+    margin: auto;
+}
+
+.one {
+    width: 50%;
+    float: left;
+    margin-right: 30px;
+}
+
+.two {
 }

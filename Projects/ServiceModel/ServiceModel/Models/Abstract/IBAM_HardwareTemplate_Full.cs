@@ -14,7 +14,7 @@
         string BAMIMEINumber { get; set; }
         string BAMIPAddress { get; set; }
         string BAMLineSpeed { get; set; }
-        double BAMMonthlyCharge { get; set; }
+        double? BAMMonthlyCharge { get; set; }
         string BAMPhoneLine { get; set; }
         string BAMPhoneSystem { get; set; }
         string BAMSIMNumber { get; set; }

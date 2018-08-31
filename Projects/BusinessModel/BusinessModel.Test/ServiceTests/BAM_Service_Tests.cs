@@ -22,7 +22,7 @@ namespace BusinessModel.Test
 
             var service = new BAM_Service();
 
-            var records = service.ExportDataToBAM(queryBuilder);
+            var records = service.ExportDataToBAM(queryBuilder).Result;
         }
     }
 }

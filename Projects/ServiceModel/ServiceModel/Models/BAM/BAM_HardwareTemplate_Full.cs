@@ -133,7 +133,7 @@ namespace ServiceModel.Models.BAM
         public string NetworkName { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        public int OffsetInMinuteFromGreenwichTime { get; set; }
+        public int? OffsetInMinuteFromGreenwichTime { get; set; }
         public string OrganizationalUnit { get; set; }
         public string PhysicalProcessors { get; set; }
         public string PrincipalName { get; set; }
@@ -157,7 +157,7 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        //public string Id { get; set; }
+        public string Id { get; set; }
     }
 
     public class TargetHardwareAssetHasLocation
@@ -187,7 +187,7 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string Notes { get; set; }
         public ObjectStatus ObjectStatus { get; set; }
-        //public string Id { get; set; }
+        public string Id { get; set; }
     }
 
     public class HardwareTemplate_Full : HardwareTemplate, IHardwareTemplate_Full, IHardwareTemplate
@@ -209,7 +209,7 @@ namespace ServiceModel.Models.BAM
         public string BAMIMEINumber { get; set; }
         public string BAMIPAddress { get; set; }
         public string BAMLineSpeed { get; set; }
-        public double BAMMonthlyCharge { get; set; }
+        public double? BAMMonthlyCharge { get; set; }
         public string BAMPhoneLine { get; set; }
         public string BAMPhoneSystem { get; set; }
         public string BAMSIMNumber { get; set; }

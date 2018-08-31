@@ -1,0 +1,114 @@
+﻿@model ESTReporting.EntityModel.Models.ServiceProgressReport
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ServiceProgressReport</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EsteemExtractDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EsteemExtractDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BAMExportDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BAMExportDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProcessSuccessFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProcessSuccessFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewItemCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewItemCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocationChangeCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocationChangeCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssetTagChangeCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssetTagChangeCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeployedCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeployedCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnedCount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnedCount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeletedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeletedDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

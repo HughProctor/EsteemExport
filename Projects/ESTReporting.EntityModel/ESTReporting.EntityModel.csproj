@@ -77,6 +77,26 @@
     <Compile Include="Migrations\201808291541483_BAM_Deployments.Designer.cs">
       <DependentUpon>201808291541483_BAM_Deployments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808300907117_BAM_Deployments_AssetStatus.cs" />
+    <Compile Include="Migrations\201808300907117_BAM_Deployments_AssetStatus.Designer.cs">
+      <DependentUpon>201808300907117_BAM_Deployments_AssetStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808310821109_Added_ESTAudit_BaseClass.cs" />
+    <Compile Include="Migrations\201808310821109_Added_ESTAudit_BaseClass.Designer.cs">
+      <DependentUpon>201808310821109_Added_ESTAudit_BaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808310826395_Added_SerialNumber.cs" />
+    <Compile Include="Migrations\201808310826395_Added_SerialNumber.Designer.cs">
+      <DependentUpon>201808310826395_Added_SerialNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808311443299_Added_CallNum_CallRef.cs" />
+    <Compile Include="Migrations\201808311443299_Added_CallNum_CallRef.Designer.cs">
+      <DependentUpon>201808311443299_Added_CallNum_CallRef.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201808311503382_Add_Table_ServiceProgressReport.cs" />
+    <Compile Include="Migrations\201808311503382_Add_Table_ServiceProgressReport.Designer.cs">
+      <DependentUpon>201808311503382_Add_Table_ServiceProgressReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -84,12 +104,15 @@
     <Compile Include="Models\BAM_Deployments.cs" />
     <Compile Include="Models\BAM_Reporting.cs" />
     <Compile Include="Models\BaseObjects\BaseObjectProperties.cs" />
+    <Compile Include="Models\BaseObjects\SCBaseObject.cs" />
+    <Compile Include="Models\EST_HWAssetStatus.cs" />
     <Compile Include="Models\PartManufacturer.cs" />
     <Compile Include="Models\ESTPartDescription.cs" />
     <Compile Include="Models\ESTPart.cs" />
     <Compile Include="Models\PartModel.cs" />
     <Compile Include="Models\EST_SCAudit.cs" />
     <Compile Include="Models\EST_SCAuditDeploy.cs" />
+    <Compile Include="Models\ServiceProgressReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeedData\PartModelData.cs" />
     <Compile Include="SeedData\PartManufacturerData.cs" />
@@ -119,6 +142,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808291541483_BAM_Deployments.resx">
       <DependentUpon>201808291541483_BAM_Deployments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808300907117_BAM_Deployments_AssetStatus.resx">
+      <DependentUpon>201808300907117_BAM_Deployments_AssetStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808310821109_Added_ESTAudit_BaseClass.resx">
+      <DependentUpon>201808310821109_Added_ESTAudit_BaseClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808310826395_Added_SerialNumber.resx">
+      <DependentUpon>201808310826395_Added_SerialNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808311443299_Added_CallNum_CallRef.resx">
+      <DependentUpon>201808311443299_Added_CallNum_CallRef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808311503382_Add_Table_ServiceProgressReport.resx">
+      <DependentUpon>201808311503382_Add_Table_ServiceProgressReport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

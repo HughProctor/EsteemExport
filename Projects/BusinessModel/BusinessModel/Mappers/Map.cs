@@ -59,32 +59,12 @@ namespace BusinessModel.Mappers
                     .ForMember(src => src.BAM_Id, dest => dest.MapFrom(o => o.Id))
                     .ForMember(src => src.Id, opt => opt.Ignore())
                     .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<BAM_ReportingBsm, BAM_Deployments>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<ServiceProgressReportBsm, ServiceProgressReport>().DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<ServiceProgressReport, ServiceProgressReportBsm>().IgnoreAllNonExisting();
             });
             Mapper.AssertConfigurationIsValid();
         }
-
-
-        //public static List<SCAuditExt> Map_Results(List<SCAudit> records)
-        //{
-        //    var mappedList = new List<SCAuditExt>();
-        //    if (records == null || !records.Any()) return mappedList;
-
-        //    mappedList = Mapper.Map<List<SCAudit>, List<SCAuditExt>>(records);
-        //    mappedList.ForEach(item => item.Asset_Desc_Code_Split = item.Asset_Desc.ToUpper().Split(' ').ToList());
-
-        //    return mappedList;
-        //}
-
-        //public static List<SCAuditDeployExt> Map_Results(List<SCAuditDeploy> records)
-        //{
-        //    var mappedList = new List<SCAuditDeployExt>();
-        //    if (records == null || !records.Any()) return mappedList;
-
-        //    mappedList = Mapper.Map<List<SCAuditDeploy>, List<SCAuditDeployExt>>(records);
-        //    mappedList.ForEach(item => item.Asset_Desc_Code_Split = item.Asset_Desc.ToUpper().Split(' ').ToList());
-
-        //    return mappedList;
-        //}
 
         public static HardwareTemplate Map_Results(HardwareTemplate_Full record)
         {
@@ -131,5 +111,19 @@ namespace BusinessModel.Mappers
             return Mapper.Map<List<BAM_ReportingBsm>, List<BAM_Reporting>>(records);
         }
 
+        public static List<BAM_Deployments> Map_Results(List<BAM_ReportingBsm> records, bool bills)
+        {
+            return Mapper.Map<List<BAM_ReportingBsm>, List<BAM_Deployments>>(records);
+        }
+
+        public static ServiceProgressReport Map_Results(ServiceProgressReportBsm record)
+        {
+            return Mapper.Map<ServiceProgressReportBsm, ServiceProgressReport>(record);
+        }
+
+        public static ServiceProgressReportBsm Map_Results(ServiceProgressReport record)
+        {
+            return Mapper.Map<ServiceProgressReport, ServiceProgressReportBsm>(record);
+        }
     }
 }

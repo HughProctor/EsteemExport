@@ -98,7 +98,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             var originalhardwareAsset = result.First();
 
-            originalModifiedDate = originalhardwareAsset.LastModified;
+            originalModifiedDate = (DateTime)originalhardwareAsset.LastModified;
 
             var newHardwareAsset = hardwareAssetService.SetHardwareAssetStatus(originalhardwareAsset, updateAssetStatus);
 
@@ -113,7 +113,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsNotNull(updatedHardwareAsset, "Updated Asset is null");
             Assert.IsTrue(updatedHardwareAsset.SerialNumber == serialNumber, "SerialNumbers don't match");
 
-            updatedModifiedDate = updatedHardwareAsset.LastModified;
+            updatedModifiedDate = (DateTime)updatedHardwareAsset.LastModified;
 
             Assert.IsTrue(updatedModifiedDate != originalModifiedDate, "Original and Updated LastModified Date are the same");
             Assert.IsTrue(updatedModifiedDate > originalModifiedDate, "Updated LastModified Date is not greater that the Original");

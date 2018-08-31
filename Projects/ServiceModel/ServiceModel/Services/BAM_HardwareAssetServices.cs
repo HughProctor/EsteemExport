@@ -127,7 +127,7 @@ namespace ServiceModel.Services
             {
                 string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;
                 ExceptionResponse exceptionResponse = JsonConvert.DeserializeObject<ExceptionResponse>(responseContent);
-                throw new Exception(exceptionResponse.Exception);
+                //throw new Exception(exceptionResponse.Exception);
             }
 
             var resultSring = queryResult_Set.Content.ReadAsStringAsync().Result;
@@ -135,8 +135,8 @@ namespace ServiceModel.Services
             //var result = JsonConvert.DeserializeObject<List<BAM_HardwareTemplate>>(resultSring);
             /////-------------This could be moved out and converted into an async Task ---- we can handle response outside///
             var result = JsonConvert.DeserializeObject<BAM_Api_SuccessResponse>(resultSring);
-            if (result.BaseId != newTemplate.BaseId)
-                throw new Exception("Updated BaseId's didn't match");
+            //if (result.BaseId != newTemplate.BaseId)
+            //    throw new Exception("Updated BaseId's didn't match");
 
             returnValue.Add(newTemplate);
             returnValue.Add(originalTemplate);
@@ -158,7 +158,7 @@ namespace ServiceModel.Services
             {
                 string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;
                 ExceptionResponse exceptionResponse = JsonConvert.DeserializeObject<ExceptionResponse>(responseContent);
-                throw new Exception(exceptionResponse.Exception);
+                //throw new Exception(exceptionResponse.Exception);
             }
 
             var resultSring = queryResult_Set.Content.ReadAsStringAsync().Result;

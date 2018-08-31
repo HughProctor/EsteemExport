@@ -30,6 +30,12 @@ namespace ServiceModel.Models.Esteem
         Ammended = 8,
         [BAMStringValue("Disposed")]
         [Description("Disposed")]
-        Disposed = 9
+        Disposed = 9,
+        [BAMStringValue("NA")]
+        [Description("Location Changed")]
+        LocationChanged = 10,
+        [BAMStringValue("NA")]
+        [Description("Asset Tag Changed")]
+        AssetTagChanged = 11
     }
 }

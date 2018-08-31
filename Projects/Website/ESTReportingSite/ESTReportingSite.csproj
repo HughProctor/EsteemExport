@@ -168,6 +168,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PartManufacturersController.cs" />
     <Compile Include="Controllers\PartModelsController.cs" />
+    <Compile Include="Controllers\ServiceProgressReportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1256,6 +1257,11 @@
     <Content Include="Views\BAM_Deployments\BAM_HardwareTemplate_Full_PartialView.cshtml" />
     <Content Include="Views\BAM_Deployments\EST_SCAudit_PartialView.cshtml" />
     <Content Include="Views\BAM_Deployments\EST_SCAuditDeploy_PartialView.cshtml" />
+    <Content Include="Views\ServiceProgressReports\Create.cshtml" />
+    <Content Include="Views\ServiceProgressReports\Delete.cshtml" />
+    <Content Include="Views\ServiceProgressReports\Details.cshtml" />
+    <Content Include="Views\ServiceProgressReports\Edit.cshtml" />
+    <Content Include="Views\ServiceProgressReports\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

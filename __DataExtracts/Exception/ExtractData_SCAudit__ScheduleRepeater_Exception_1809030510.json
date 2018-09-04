@@ -1,0 +1,17 @@
+{
+  "RecordCount": 0,
+  "Data": {
+    "ClassName": "System.InvalidOperationException",
+    "Message": "The model backing the 'BAMEsteemExportContext' context has changed since the database was created. Consider using Code First Migrations to update the database (http://go.microsoft.com/fwlink/?LinkId=238269).",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Data.Entity.CreateDatabaseIfNotExists`1.InitializeDatabase(TContext context)\r\n   at System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()\r\n   at System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)\r\n   at System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()\r\n   at System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)\r\n   at System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)\r\n   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)\r\n   at System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()\r\n   at System.Data.Entity.Internal.InternalContext.Initialize()\r\n   at System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)\r\n   at System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()\r\n   at System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()\r\n   at System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()\r\n   at System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)\r\n   at BusinessModel.Services.EST_DataCleanseService..ctor() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_DataCleanseService.cs:line 22\r\n   at BusinessModel.Services.EST_Service..ctor() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 25\r\n   at BusinessModel.Services.BAM_Service..ctor(IEST_Service estService, IBAM_HardwareAssetServices bAM_HardwareAsset, IBAM_AssetStatusService assetStatusService, IBAM_UserService userService, IReportingService reportingService) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 39\r\n   at BusinessModel.Services.BAM_Service..ctor() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 32\r\n   at EsteemBAMConsoleApp.Jobs.RepeatJob_EsteemExtract_01.RunProcess() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\ConsoleApp\\EsteemBAMConsoleApp\\Jobs\\RepeatJob_EsteemExtract_01.cs:line 66",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": "8\nInitializeDatabase\nEntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Data.Entity.CreateDatabaseIfNotExists`1\nVoid InitializeDatabase(TContext)",
+    "HResult": -2146233079,
+    "Source": "EntityFramework",
+    "WatsonBuckets": null
+  }
+}

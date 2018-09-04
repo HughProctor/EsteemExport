@@ -30,6 +30,18 @@ namespace ESTReportingSite.Controllers
             return PartialView("BAM_HardwareTemplate_Full_PartialView", data);
         }
 
+        public ActionResult BAM_HardwareTemplate_From_Report(int id)
+        {
+            var data = db.BAM_Reporting
+                .Include(x => x.SCAuditDeploy_Item)
+                .Include(x => x.SCAudit_Item)
+                .Include(x => x.BAM_HardwareTemplate_Exception)
+                .Where(x => x.ServiceProgressReport.Id == id)
+                .ToList();
+
+            return View("Index", data);
+        }
+
         public ActionResult EST_SCAudit(int id)
         {
             var data = db.SCAudit

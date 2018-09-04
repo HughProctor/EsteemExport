@@ -16,8 +16,8 @@ namespace BusinessModel.Test
             Map.Init();
 
             IQueryBuilder queryBuilder = new QueryBuilder();
-            queryBuilder.StartDateString = "01/01/2017";
-            queryBuilder.EndDateString = "01/05/2018";
+            queryBuilder.StartDateString = "04/01/2017";
+            queryBuilder.EndDateString = "01/05/2017";
             queryBuilder.PageCount = 100000000;
 
             var service = new BAM_Service();

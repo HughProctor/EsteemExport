@@ -17,7 +17,7 @@ using System.Threading.Tasks;
 
 namespace BusinessModel.Services
 {
-    public class BAM_Service : IBAM_Service
+    public class BAM_Service : IBAM_Service, IDisposable
     {
         IEST_Service _estService;
         IBAM_HardwareAssetServices _hardwareAssetService;
@@ -27,15 +27,19 @@ namespace BusinessModel.Services
         List<BAM_ReportingBsm> _billables;
         IReportingService _reportingService;
         ServiceProgressReportBsm _progressReport;
+        BAM_ApiClient bam_ApiClient;
 
-        public BAM_Service() : this(new EST_Service(), new BAM_HardwareAssetServices(), new BAM_AssetStatusService(), new BAM_UserService(), new ReportingService()) { }
+        public BAM_Service() : this(null, null, null, null, null) { }
 
         public BAM_Service(IEST_Service estService, IBAM_HardwareAssetServices bAM_HardwareAsset, IBAM_AssetStatusService assetStatusService, IBAM_UserService userService, IReportingService reportingService)
         {
+            bam_ApiClient = new BAM_ApiClient();
+            Task.Run(() => bam_ApiClient.Setup()).Wait();
+            
             _estService = estService ?? new EST_Service();
-            _hardwareAssetService = bAM_HardwareAsset ?? new BAM_HardwareAssetServices();
-            _assetStatusService = assetStatusService ?? new BAM_AssetStatusService();
-            _userService = userService ?? new BAM_UserService();
+            _hardwareAssetService = bAM_HardwareAsset ?? new BAM_HardwareAssetServices(bam_ApiClient);
+            _assetStatusService = assetStatusService ?? new BAM_AssetStatusService(bam_ApiClient);
+            _userService = userService ?? new BAM_UserService(bam_ApiClient);
             _reportingService = reportingService ?? new ReportingService();
             _reportings = new List<BAM_ReportingBsm>();
             _billables = new List<BAM_ReportingBsm>();
@@ -49,16 +53,23 @@ namespace BusinessModel.Services
 
             // Query, cleanse and subset the data
             var dataExport = _estService.GetExportData(queryBuilder);
+            queryBuilder = _estService._queryBuilder;
 
             _progressReport.EsteemExtractDateTime = DateTime.Now;
+            _progressReport.QueryStartParameters = queryBuilder.StartDate;
+            _progressReport.QueryEndParameters = queryBuilder.EndDate;
+            _progressReport.QueryString = queryBuilder.LastQueryString;
+
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
-            var newItemTask = Process_NewItemList(dataExport);
-            var locationTask = Process_LocationChangeList(dataExport);
-            var assetTagTask = Process_AssetTagChangeList(dataExport);
-            var deployTask = Process_DeployedToBAMUserList(dataExport);
-            var returnTask = Process_ReturnedFromBAMUserList(dataExport);
-            dataExport = (await Task.WhenAll(newItemTask, locationTask, assetTagTask, deployTask, returnTask)).First();
+            // Process the Data
+            var newItemTask = Process_NewItemList(dataExport, _progressReport);
+            //var locationTask = Process_LocationChangeList(dataExport, _progressReport);
+            //var assetTagTask = Process_AssetTagChangeList(dataExport, _progressReport);
+            //var deployTask = Process_DeployedToBAMUserList(dataExport, _progressReport);
+            //var returnTask = Process_ReturnedFromBAMUserList(dataExport, _progressReport);
+            //dataExport = (await Task.WhenAll(newItemTask, locationTask, assetTagTask, deployTask, returnTask)).First();
+            dataExport = (await Task.WhenAll(newItemTask)).First();
 
             _progressReport.BAMExportDateTime = DateTime.Now;
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
@@ -74,35 +85,47 @@ namespace BusinessModel.Services
             _progressReport.AssetTagChangeCount = dataExport.AssetTagChangeList.Count;
             _progressReport.DeployedCount = dataExport.DeployedToBAMUserList.Count;
             _progressReport.ReturnedCount = dataExport.ReturnedFromBAMUserList.Count;
-            _progressReport.ProcessSuccessFlag = true;
+            _progressReport.ExceptionCountTotal = _progressReport.NewItemCount + _progressReport.LocationChangeCount +
+                _progressReport.AssetTagChangeCount + _progressReport.DeployedCount + _progressReport.ReturnedCount;
+            _progressReport.ProcessSuccessFlag = _progressReport.ExceptionCountTotal == 0 ? true : false;
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
             return dataExport;
         }
 
-        internal async Task<EST_DataExportModel> Process_NewItemList(EST_DataExportModel model)
+        internal async Task<EST_DataExportModel> Process_NewItemList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;
             var returnList = new List<SCAuditBsm>();
 
-            model.NewItemList.Take(10).ToList().ForEach(asset =>
+            model.NewItemList.ToList().ForEach(asset =>
             {
+                // Check the Item doesn't already exist in the system
+                var existingBamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
+                // If so.. add it to the Updates - Change Location List
+                if (existingBamTemplate != null)
+                {
+                    model.LocationChangeList.Add(asset);
+                    return;
+                }
                 // Create New Item Template - set default values
-                ServiceModel.Models.BAM.HardwareTemplate bamTemplate = CreateNewItem(asset);
+                HardwareTemplate bamTemplate = CreateNewItem(asset);
                 _hardwareAssetService.UpdateTemplate(bamTemplate, null);
 
                 var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-                if (updatedbamTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
-                {
-                    _reportings.Add(new BAM_ReportingBsm()
+                if (updatedbamTemplate == null)
+                    if (updatedbamTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
                     {
-                        SerialNumber = asset.SerialNumber,
-                        AssetStatus = EST_HWAssetStatus.NewItem,
-                        SCAudit_Item = asset,
-                        BAM_HardwareTemplate_Exception = updatedbamTemplate,
-                    });
-                    returnList.Add(asset);
-                }
+                        _reportings.Add(new BAM_ReportingBsm()
+                        {
+                            ServiceProgressReportId = serviceProgressReport.Id,
+                            SerialNumber = asset.SerialNumber,
+                            AssetStatus = EST_HWAssetStatus.NewItem,
+                            SCAudit_Item = asset,
+                            BAM_HardwareTemplate_Exception = updatedbamTemplate,
+                        });
+                        returnList.Add(asset);
+                    }
             });
             return model;
         }
@@ -126,12 +149,12 @@ namespace BusinessModel.Services
             return bamTemplate;
         }
 
-        internal async Task<EST_DataExportModel> Process_LocationChangeList(EST_DataExportModel model)
+        internal async Task<EST_DataExportModel> Process_LocationChangeList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;
             var returnList = new List<SCAuditBsm>();
 
-            model.LocationChangeList.Take(10).ToList().ToList().ForEach(asset => {
+            model.LocationChangeList.ToList().ForEach(asset => {
                 HardwareTemplate_Full newHardwareAsset;
 
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
@@ -149,6 +172,7 @@ namespace BusinessModel.Services
                 {
                     _reportings.Add(new BAM_ReportingBsm()
                     {
+                        ServiceProgressReportId = serviceProgressReport.Id,
                         SerialNumber = asset.SerialNumber,
                         AssetStatus = EST_HWAssetStatus.LocationChanged,
                         SCAudit_Item = asset,
@@ -161,12 +185,12 @@ namespace BusinessModel.Services
             return model;
         }
 
-        internal async Task<EST_DataExportModel> Process_AssetTagChangeList(EST_DataExportModel model)
+        internal async Task<EST_DataExportModel> Process_AssetTagChangeList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;
             var returnList = new List<SCAuditBsm>();
 
-            model.AssetTagChangeList.Take(10).ToList().ForEach(asset => {
+            model.AssetTagChangeList.ToList().ForEach(asset => {
                 ServiceModel.Models.BAM.HardwareTemplate newHardwareAsset;
 
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
@@ -184,6 +208,7 @@ namespace BusinessModel.Services
                 {
                     _reportings.Add(new BAM_ReportingBsm()
                     {
+                        ServiceProgressReportId = serviceProgressReport.Id,
                         SerialNumber = asset.SerialNumber,
                         AssetStatus = EST_HWAssetStatus.AssetTagChanged,
                         SCAudit_Item = asset,
@@ -196,12 +221,12 @@ namespace BusinessModel.Services
             return model;
         }
 
-        internal async Task<EST_DataExportModel> Process_DeployedToBAMUserList(EST_DataExportModel model)
+        internal async Task<EST_DataExportModel> Process_DeployedToBAMUserList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;
             var returnList = new List<SCAuditDeployBsm>();
 
-            model.DeployedToBAMUserList.Take(10).ToList().ForEach(asset => {
+            model.DeployedToBAMUserList.ToList().ForEach(asset => {
                 HardwareTemplate_Full newHardwareAsset;
                 if (string.IsNullOrEmpty(asset.RequestUser)) {
                     returnList.Add(asset); return;
@@ -229,6 +254,7 @@ namespace BusinessModel.Services
                 {
                     _reportings.Add(new BAM_ReportingBsm()
                     {
+                        ServiceProgressReportId = serviceProgressReport.Id,
                         SerialNumber = asset.SerialNumber,
                         AssetStatus = EST_HWAssetStatus.Deployed,
                         SCAuditDeploy_Item = asset,
@@ -238,6 +264,7 @@ namespace BusinessModel.Services
                 }
                 _billables.Add(new BAM_ReportingBsm()
                 {
+                    ServiceProgressReportId = serviceProgressReport.Id,
                     SerialNumber = asset.SerialNumber,
                     AssetStatus = EST_HWAssetStatus.Deployed,
                     SCAuditDeploy_Item = asset,
@@ -249,12 +276,12 @@ namespace BusinessModel.Services
             return model;
         }
 
-        internal async Task<EST_DataExportModel> Process_ReturnedFromBAMUserList(EST_DataExportModel model)
+        internal async Task<EST_DataExportModel> Process_ReturnedFromBAMUserList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;
             var returnList = new List<SCAuditDeployBsm>();
 
-            model.ReturnedFromBAMUserList.Take(10).ToList().ForEach(asset => {
+            model.ReturnedFromBAMUserList.ToList().ForEach(asset => {
                 HardwareTemplate_Full newHardwareAsset;
 
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
@@ -283,6 +310,7 @@ namespace BusinessModel.Services
                 {
                     _reportings.Add(new BAM_ReportingBsm()
                     {
+                        ServiceProgressReportId = serviceProgressReport.Id,
                         SerialNumber = asset.SerialNumber,
                         AssetStatus = EST_HWAssetStatus.Returned,
                         SCAuditDeploy_Item = asset,
@@ -292,6 +320,7 @@ namespace BusinessModel.Services
                 }
                 _billables.Add(new BAM_ReportingBsm()
                 {
+                    ServiceProgressReportId = serviceProgressReport.Id,
                     SerialNumber = asset.SerialNumber,
                     AssetStatus = EST_HWAssetStatus.Returned,
                     SCAuditDeploy_Item = asset,
@@ -300,6 +329,11 @@ namespace BusinessModel.Services
             });
             model.ReturnedFromBAMUserList = returnList;
             return model;
+        }
+
+        public void Dispose()
+        {
+
         }
     }
 }

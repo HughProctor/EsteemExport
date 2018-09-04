@@ -14,20 +14,42 @@ using System.Threading.Tasks;
 
 namespace ServiceModel.Services
 {
-    public class BAM_HardwareAssetServices : BAM_ApiClient, IBAM_HardwareAssetServices
+    public class BAM_HardwareAssetServices : IBAM_HardwareAssetServices //BAM_ApiClient, 
     {
         IBAM_AssetStatusService _assetStatusService;
+        public BAM_ApiClient _bamclient;
 
         #region Constructors
-        public BAM_HardwareAssetServices() : this(new BAM_AssetStatusService())
+        public BAM_HardwareAssetServices() : this(null, null)
         {
+        }
+        public BAM_HardwareAssetServices(BAM_ApiClient bamclient)
+        {
+            _bamclient = bamclient;
+            if (_bamclient == null)
+            {
+                _bamclient = new BAM_ApiClient();
+                Task.Run(() => _bamclient.Setup()).Wait();
+            }
+            _assetStatusService = new BAM_AssetStatusService(_bamclient);
         }
 
-        public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService) 
+        public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService, BAM_ApiClient bamclient)
         {
-            _assetStatusService = assetStatusService;
-            Task.Run(() => this.Setup()).Wait();
+            _bamclient = bamclient;
+            if (_bamclient == null)
+            {
+                _bamclient = new BAM_ApiClient();
+                Task.Run(() => _bamclient.Setup()).Wait();
+            }
+            _assetStatusService = assetStatusService ?? new BAM_AssetStatusService(_bamclient);
         }
+
+        //public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService) 
+        //{
+        //    _assetStatusService = assetStatusService ?? new BAM_AssetStatusService();
+        //    Task.Run(() => this.Setup()).Wait();
+        //}
         #endregion
 
         #region CRUD
@@ -36,7 +58,7 @@ namespace ServiceModel.Services
             var returnValue = new List<Models.BAM.HardwareTemplate>();
 
             var content = CreateProjectionFilter_StringContent(serialNumber);
-            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamclient._client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
 
@@ -50,7 +72,7 @@ namespace ServiceModel.Services
             var returnValue = new List<HardwareTemplate_Full>();
 
             var content = CreateProjectionFilter_StringContent(serialNumber, true);
-            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamclient._client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
 
@@ -59,13 +81,13 @@ namespace ServiceModel.Services
             return returnValue;
         }
 
-        public List<Models.BAM.HardwareTemplate> UpdateTemplate(Models.BAM.HardwareTemplate newTemplate, Models.BAM.HardwareTemplate originalTemplate)
+        public List<HardwareTemplate> UpdateTemplate(HardwareTemplate newTemplate, HardwareTemplate originalTemplate)
         {
-            var returnValue = new List<Models.BAM.HardwareTemplate>();
+            var returnValue = new List<HardwareTemplate>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
-            var template = new Models.HardwareTemplate_Json()
+            var template = new HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -82,7 +104,7 @@ namespace ServiceModel.Services
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
-            var template = new Models.HardwareTemplate_Json()
+            var template = new HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -93,13 +115,13 @@ namespace ServiceModel.Services
             return BAM_ApiPost(newTemplate, originalTemplate, returnValue, template);
         }
 
-        public List<Models.BAM.HardwareTemplate> InsertTemplate(Models.BAM.HardwareTemplate newTemplate)
+        public List<HardwareTemplate> InsertTemplate(HardwareTemplate newTemplate)
         {
-            var returnValue = new List<Models.BAM.HardwareTemplate>();
+            var returnValue = new List<HardwareTemplate>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
-            var template = new Models.HardwareTemplate_Json()
+            var template = new HardwareTemplate_Json()
             {
                 formJson = new FormJson()
                 {
@@ -109,10 +131,28 @@ namespace ServiceModel.Services
             };
             return BAM_ApiPost(newTemplate, null, returnValue, template);
         }
+
+        public List<HardwareTemplate_Full> InsertTemplate(HardwareTemplate_Full newTemplate)
+        {
+            var returnValue = new List<HardwareTemplate_Full>();
+            if (newTemplate == null)
+                throw new Exception("Template must not be null");
+
+            var template = new HardwareTemplate_Json()
+            {
+                formJson = new FormJson()
+                {
+                    Original = null,
+                    Current = newTemplate
+                }
+            };
+            return BAM_ApiPost(newTemplate, null, returnValue, template);
+        }
+
         #endregion
 
         #region Private Post
-        private List<Models.BAM.HardwareTemplate> BAM_ApiPost(Models.BAM.HardwareTemplate newTemplate, Models.BAM.HardwareTemplate originalTemplate, List<Models.BAM.HardwareTemplate> returnValue, Models.HardwareTemplate_Json template)
+        private List<HardwareTemplate> BAM_ApiPost(HardwareTemplate newTemplate, HardwareTemplate originalTemplate, List<HardwareTemplate> returnValue, Models.HardwareTemplate_Json template)
         {
             var jsonSettings = new JsonSerializerSettings
             {
@@ -122,7 +162,7 @@ namespace ServiceModel.Services
             var json = JsonConvert.SerializeObject(template);//, jsonSettings
             var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
 
-            var queryResult_Set = _client.PostAsync("Projection/Commit", content).Result;
+            var queryResult_Set = _bamclient._client.PostAsync("Projection/Commit", content).Result;
             if (!queryResult_Set.IsSuccessStatusCode)
             {
                 string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;
@@ -153,7 +193,7 @@ namespace ServiceModel.Services
             var json = JsonConvert.SerializeObject(template);//, jsonSettings
             var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
 
-            var queryResult_Set = _client.PostAsync("Projection/Commit", content).Result;
+            var queryResult_Set = _bamclient._client.PostAsync("Projection/Commit", content).Result;
             if (!queryResult_Set.IsSuccessStatusCode)
             {
                 string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;

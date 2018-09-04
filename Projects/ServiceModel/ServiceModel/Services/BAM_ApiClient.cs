@@ -18,6 +18,12 @@ namespace ServiceModel.Services
 
         public async Task Setup()
         {
+            if (_client?.DefaultRequestHeaders?.Authorization != null)
+            {
+                var authToken = _client?.DefaultRequestHeaders?.Authorization;
+                if (string.IsNullOrEmpty(authToken.Parameter))
+                    return;
+            }
             _handler = new HttpClientHandler();
             _handler.ClientCertificateOptions = ClientCertificateOption.Manual;
             _handler.ServerCertificateCustomValidationCallback =

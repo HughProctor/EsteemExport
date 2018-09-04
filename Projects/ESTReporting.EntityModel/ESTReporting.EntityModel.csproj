@@ -97,6 +97,22 @@
     <Compile Include="Migrations\201808311503382_Add_Table_ServiceProgressReport.Designer.cs">
       <DependentUpon>201808311503382_Add_Table_ServiceProgressReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809031400042_Add_ServiceProgressReportFK_to_BAMReport.cs" />
+    <Compile Include="Migrations\201809031400042_Add_ServiceProgressReportFK_to_BAMReport.Designer.cs">
+      <DependentUpon>201809031400042_Add_ServiceProgressReportFK_to_BAMReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809031534274_Add_FK_ServiceProgressReport_Id.cs" />
+    <Compile Include="Migrations\201809031534274_Add_FK_ServiceProgressReport_Id.Designer.cs">
+      <DependentUpon>201809031534274_Add_FK_ServiceProgressReport_Id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809031546136_Add_ExceptionCountTotal.cs" />
+    <Compile Include="Migrations\201809031546136_Add_ExceptionCountTotal.Designer.cs">
+      <DependentUpon>201809031546136_Add_ExceptionCountTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809031628349_Add_ExceptionCountTotal1.cs" />
+    <Compile Include="Migrations\201809031628349_Add_ExceptionCountTotal1.Designer.cs">
+      <DependentUpon>201809031628349_Add_ExceptionCountTotal1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -157,6 +173,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808311503382_Add_Table_ServiceProgressReport.resx">
       <DependentUpon>201808311503382_Add_Table_ServiceProgressReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031400042_Add_ServiceProgressReportFK_to_BAMReport.resx">
+      <DependentUpon>201809031400042_Add_ServiceProgressReportFK_to_BAMReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031534274_Add_FK_ServiceProgressReport_Id.resx">
+      <DependentUpon>201809031534274_Add_FK_ServiceProgressReport_Id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031546136_Add_ExceptionCountTotal.resx">
+      <DependentUpon>201809031546136_Add_ExceptionCountTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809031628349_Add_ExceptionCountTotal1.resx">
+      <DependentUpon>201809031628349_Add_ExceptionCountTotal1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

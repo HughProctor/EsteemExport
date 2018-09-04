@@ -20,6 +20,7 @@ namespace BusinessModel.Services
         private string _endDateTimeString = "";
         DateTime _startDateTime;
         DateTime _endDateTime;
+        public IQueryBuilder _queryBuilder { get; set; }
         #endregion Fields
 
         public EST_Service() : this(new SCAuditRepository(), new SCDeployRepository(), new EST_DataCleanseService())
@@ -38,7 +39,7 @@ namespace BusinessModel.Services
         {
             var returnValue = new EST_DataExportModel();
 
-            IQueryBuilder _queryBuilder = SetDefaultValues(queryBuilder);
+            _queryBuilder = SetDefaultValues(queryBuilder);
 
             string whereExpression = "WHERE [Part_Type] = 'R' AND [PART_DESC] NOT LIKE '%**%' ";
             _queryBuilder.WhereExpression = whereExpression;

@@ -12,12 +12,13 @@ using System.Threading.Tasks;
 using BusinessModel.Services.Abstract;
 using EntityModel.Repository.Abstract;
 using BusinessModel.Services;
+using EsteemBAMConsoleApp.Models;
 
 namespace EsteemBAMConsoleApp.Jobs
 {
     public class RepeatJob_EsteemExtract_01 : Job
     {
-        IBAM_Service _bamService;
+        //IBAM_Service _bamService;
         IQueryBuilder _queryBuilder;
 
         private string _startDateTimeString = "";
@@ -28,17 +29,17 @@ namespace EsteemBAMConsoleApp.Jobs
 
         public RepeatJob_EsteemExtract_01()
         {
-            _bamService = new BAM_Service();
+            //_bamService = new BAM_Service();
             _queryBuilder = new QueryBuilder();
 
-            _startDateTimeString = string.IsNullOrEmpty(_startDateTimeString) ? "01/01/2017" : _startDateTimeString;
+            _startDateTimeString = string.IsNullOrEmpty(_startDateTimeString) ? "03/01/2017" : _startDateTimeString;
             _endDateTimeString = string.IsNullOrEmpty(_endDateTimeString) ? "30/11/2017" : _endDateTimeString;
 
             DateTime.TryParse(_startDateTimeString, out _startDateTime);
             DateTime.TryParse(_endDateTimeString, out var endDateTime);
 
             _queryBuilder.StartDateString = _startDateTimeString;
-            _queryBuilder.EndDateString = _endDateTimeString;
+            //_queryBuilder.EndDateString = _endDateTimeString;
             _queryBuilder.PageCount = 100000000;
 
             _currentTime = _startDateTime;
@@ -50,6 +51,7 @@ namespace EsteemBAMConsoleApp.Jobs
             _startDateTime =_currentTime;
 
             _queryBuilder.StartDate = _startDateTime;
+            //_startDateTimeString = _startDateTime.ToString();
             //_sCAuditService.EndDate = endDateTime;
             _queryBuilder.PageCount = 10000;
             //_sCAuditService.TimeRange = counter == 0 ? 1 : counter * 24;
@@ -59,19 +61,28 @@ namespace EsteemBAMConsoleApp.Jobs
 
         private void RunProcess()
         {
-            var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
-
-            var countValue = (counter + 1).ToString().PadLeft(6, '0');
-            JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_NewItemList" + countValue, returnList.NewItemList, returnList.NewItemList.Count, "ScheduleRepeater",
-                _startDateTime, _currentTime);
-            JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_LocationChangeList" + countValue, returnList.LocationChangeList, returnList.NewItemList.Count, "ScheduleRepeater",
-                _startDateTime, _currentTime);
-            JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_AssetTagChangeList" + countValue, returnList.AssetTagChangeList, returnList.NewItemList.Count, "ScheduleRepeater",
-                _startDateTime, _currentTime);
-            JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_DeployedToBAMUserList" + countValue, returnList.DeployedToBAMUserList, returnList.NewItemList.Count, "ScheduleRepeater",
-                _startDateTime, _currentTime);
-            JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_ReturnedFromBAMUserList" + countValue, returnList.ReturnedFromBAMUserList, returnList.NewItemList.Count, "ScheduleRepeater",
-                _startDateTime, _currentTime);
+            try
+            {
+                var _bamService = new BAM_Service();
+                var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                //JSON_FileExport.WriteFile(_typePrefix + "ScheduledJob_TimeStamp", returnList.NewItemList, returnList.NewItemList.Count, "ScheduleRepeaterFinal",
+                //    _startDateTime, _currentTime);
+                //var countValue = (counter + 1).ToString().PadLeft(6, '0');
+                //JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_NewItemList" + countValue, returnList.NewItemList, returnList.NewItemList.Count, "ScheduleRepeaterFinal",
+                //    _startDateTime, _currentTime);
+                //JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_LocationChangeList" + countValue, returnList.LocationChangeList, returnList.LocationChangeList.Count, "ScheduleRepeaterFinal",
+                //    _startDateTime, _currentTime);
+                //JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_AssetTagChangeList" + countValue, returnList.AssetTagChangeList, returnList.AssetTagChangeList.Count, "ScheduleRepeaterFinal",
+                //    _startDateTime, _currentTime);
+                //JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_DeployedToBAMUserList" + countValue, returnList.DeployedToBAMUserList, returnList.DeployedToBAMUserList.Count, "ScheduleRepeaterFinal",
+                //    _startDateTime, _currentTime);
+                //JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_ReturnedFromBAMUserList" + countValue, returnList.ReturnedFromBAMUserList, returnList.ReturnedFromBAMUserList.Count, "ScheduleRepeaterFinal",
+                //    _startDateTime, _currentTime);
+            }
+            catch (Exception exp)
+            {
+                JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_Exception_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
+            }
         }
 
 
@@ -105,9 +116,9 @@ namespace EsteemBAMConsoleApp.Jobs
         /// </summary>
         public override void DoJob()
         {
-            SleepTimer(0, 0, 1);
+            SleepTimer(1, 0, 0);
             ServiceSetup();
-            Console.WriteLine(String.Format("This is the execution number \"{0}\" of the Job \"{1}\" - DateStart: {2}, CurrentTime: {3}.", counter.ToString(), this.GetName(), _startDateTimeString, _currentTime.ToString()));
+            Console.WriteLine(String.Format("This is the execution number \"{0}\" of the Job \"{1}\" - DateStart: {2}, CurrentTime: {3}.", counter.ToString(), this.GetName(), _startDateTime, _currentTime.ToString()));
             RunProcess();
             counter++;
         }

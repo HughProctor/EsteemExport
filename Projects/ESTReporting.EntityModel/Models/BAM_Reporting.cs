@@ -9,5 +9,7 @@ namespace ESTReporting.EntityModel.Models
         public EST_SCAudit SCAudit_Item { get; set; }
         public EST_SCAuditDeploy SCAuditDeploy_Item { get; set; }
         public BAM_HardwareTemplate_Full BAM_HardwareTemplate_Exception { get; set; }
+        public int ServiceProgressReportId { get; set; }
+        public virtual ServiceProgressReport ServiceProgressReport { get; set; }
     }
 }

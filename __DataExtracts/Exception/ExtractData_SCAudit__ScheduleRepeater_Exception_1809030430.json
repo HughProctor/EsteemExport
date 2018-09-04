@@ -1,0 +1,46 @@
+{
+  "RecordCount": 0,
+  "Data": {
+    "ClassName": "System.AggregateException",
+    "Message": "One or more errors occurred.",
+    "Data": null,
+    "InnerException": {
+      "ClassName": "System.InvalidOperationException",
+      "Message": "Sequence contains more than one element",
+      "Data": null,
+      "InnerException": null,
+      "HelpURL": null,
+      "StackTraceString": "   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)\r\n   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)\r\n   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)\r\n   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)\r\n   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)\r\n   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)\r\n   at System.Data.Entity.Migrations.DbSetMigrationsExtensions.AddOrUpdate[TEntity](DbSet`1 set, IEnumerable`1 identifyingProperties, InternalSet`1 internalSet, TEntity[] entities)\r\n   at System.Data.Entity.Migrations.DbSetMigrationsExtensions.AddOrUpdate[TEntity](IDbSet`1 set, Expression`1 identifierExpression, TEntity[] entities)\r\n   at BusinessModel.Services.ReportingService.ServiceProgressReporting(ServiceProgressReportBsm serviceProgressReport) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\ReportingService.cs:line 55\r\n   at BusinessModel.Services.BAM_Service.<ExportDataToBAM>d__11.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 74",
+      "RemoteStackTraceString": null,
+      "RemoteStackIndex": 0,
+      "ExceptionMethod": "8\nSingleOrDefault\nSystem.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Linq.Enumerable\nTSource SingleOrDefault[TSource](System.Collections.Generic.IEnumerable`1[TSource])",
+      "HResult": -2146233079,
+      "Source": "System.Core",
+      "WatsonBuckets": null
+    },
+    "HelpURL": null,
+    "StackTraceString": "   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)\r\n   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)\r\n   at System.Threading.Tasks.Task`1.get_Result()\r\n   at EsteemBAMConsoleApp.Jobs.RepeatJob_EsteemExtract_01.RunProcess() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\ConsoleApp\\EsteemBAMConsoleApp\\Jobs\\RepeatJob_EsteemExtract_01.cs:line 67",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": "8\nThrowIfExceptional\nmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Threading.Tasks.Task\nVoid ThrowIfExceptional(Boolean)",
+    "HResult": -2146233088,
+    "Source": "mscorlib",
+    "WatsonBuckets": null,
+    "InnerExceptions": [
+      {
+        "ClassName": "System.InvalidOperationException",
+        "Message": "Sequence contains more than one element",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)\r\n   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__2[TResult](IEnumerable`1 sequence)\r\n   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)\r\n   at System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)\r\n   at System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)\r\n   at System.Linq.Queryable.SingleOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)\r\n   at System.Data.Entity.Migrations.DbSetMigrationsExtensions.AddOrUpdate[TEntity](DbSet`1 set, IEnumerable`1 identifyingProperties, InternalSet`1 internalSet, TEntity[] entities)\r\n   at System.Data.Entity.Migrations.DbSetMigrationsExtensions.AddOrUpdate[TEntity](IDbSet`1 set, Expression`1 identifierExpression, TEntity[] entities)\r\n   at BusinessModel.Services.ReportingService.ServiceProgressReporting(ServiceProgressReportBsm serviceProgressReport) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\ReportingService.cs:line 55\r\n   at BusinessModel.Services.BAM_Service.<ExportDataToBAM>d__11.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 74",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": "8\nSingleOrDefault\nSystem.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Linq.Enumerable\nTSource SingleOrDefault[TSource](System.Collections.Generic.IEnumerable`1[TSource])",
+        "HResult": -2146233079,
+        "Source": "System.Core",
+        "WatsonBuckets": null
+      }
+    ]
+  }
+}

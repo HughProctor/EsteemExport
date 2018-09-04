@@ -1,0 +1,46 @@
+{
+  "RecordCount": 0,
+  "Data": {
+    "ClassName": "System.AggregateException",
+    "Message": "One or more errors occurred.",
+    "Data": null,
+    "InnerException": {
+      "ClassName": "System.NullReferenceException",
+      "Message": "Object reference not set to an instance of an object.",
+      "Data": null,
+      "InnerException": null,
+      "HelpURL": null,
+      "StackTraceString": "   at ServiceModel.Services.BAM_UserService.GetUser(String userName) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\ServiceModel\\ServiceModel\\Services\\BAM_UserService.cs:line 36\r\n   at BusinessModel.Services.BAM_Service.<>c__DisplayClass16_0.<Process_DeployedToBAMUserList>b__0(SCAuditDeployBsm asset) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 219\r\n   at System.Collections.Generic.List`1.ForEach(Action`1 action)\r\n   at BusinessModel.Services.BAM_Service.<Process_DeployedToBAMUserList>d__16.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 214\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at BusinessModel.Services.BAM_Service.<ExportDataToBAM>d__11.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 66",
+      "RemoteStackTraceString": null,
+      "RemoteStackIndex": 0,
+      "ExceptionMethod": "8\nGetUser\nServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nServiceModel.Services.BAM_UserService\nServiceModel.Models.BAM.BAM_User GetUser(System.String)",
+      "HResult": -2147467261,
+      "Source": "ServiceModel",
+      "WatsonBuckets": null
+    },
+    "HelpURL": null,
+    "StackTraceString": "   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)\r\n   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)\r\n   at System.Threading.Tasks.Task`1.get_Result()\r\n   at EsteemBAMConsoleApp.Jobs.RepeatJob_EsteemExtract_01.RunProcess() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\ConsoleApp\\EsteemBAMConsoleApp\\Jobs\\RepeatJob_EsteemExtract_01.cs:line 67",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": "8\nThrowIfExceptional\nmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Threading.Tasks.Task\nVoid ThrowIfExceptional(Boolean)",
+    "HResult": -2146233088,
+    "Source": "mscorlib",
+    "WatsonBuckets": null,
+    "InnerExceptions": [
+      {
+        "ClassName": "System.NullReferenceException",
+        "Message": "Object reference not set to an instance of an object.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at ServiceModel.Services.BAM_UserService.GetUser(String userName) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\ServiceModel\\ServiceModel\\Services\\BAM_UserService.cs:line 36\r\n   at BusinessModel.Services.BAM_Service.<>c__DisplayClass16_0.<Process_DeployedToBAMUserList>b__0(SCAuditDeployBsm asset) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 219\r\n   at System.Collections.Generic.List`1.ForEach(Action`1 action)\r\n   at BusinessModel.Services.BAM_Service.<Process_DeployedToBAMUserList>d__16.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 214\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at BusinessModel.Services.BAM_Service.<ExportDataToBAM>d__11.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 66",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": "8\nGetUser\nServiceModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nServiceModel.Services.BAM_UserService\nServiceModel.Models.BAM.BAM_User GetUser(System.String)",
+        "HResult": -2147467261,
+        "Source": "ServiceModel",
+        "WatsonBuckets": null
+      }
+    ]
+  }
+}

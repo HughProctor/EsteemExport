@@ -17,5 +17,9 @@ namespace ESTReporting.EntityModel.Models
         public int? AssetTagChangeCount { get; set; }
         public int? DeployedCount { get; set; }
         public int? ReturnedCount { get; set; }
+        public int? ExceptionCountTotal { get; set; }
+        public DateTime? QueryStartParameters { get; set; }
+        public DateTime? QueryEndParameters { get; set; }
+        public string QueryString { get; set; }
     }
 }

@@ -65,6 +65,9 @@
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.ProcessSuccessFlag))
                                 </th>
                                 <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.ExceptionCountTotal))
+                                </th>
+                                <th>
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.NewItemCount))
                                 </th>
                                 <th>
@@ -88,41 +91,45 @@
                         <tbody>
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.StartDateTime)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.EsteemExtractDateTime)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.BAMExportDateTime)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ProcessSuccessFlag)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NewItemCount)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.LocationChangeCount)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.AssetTagChangeCount)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DeployedCount)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ReturnedCount)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CreatedDate)
-                                    </td>
-                                    <td>
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.StartDateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.EsteemExtractDateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.BAMExportDateTime)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ProcessSuccessFlag)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ExceptionCountTotal)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NewItemCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.LocationChangeCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AssetTagChangeCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeployedCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReturnedCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Details", "BAM_HardwareTemplate_From_Report", "BAM_Reporting", new { id = item.Id }, null)
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
                             }
                         </tbody>
                     </table>
@@ -151,7 +158,7 @@
                 },
                 "paging": true,
                 "pagingType": "full_numbers",
-                "order": [[0, "asc"]],
+                "order": [[0, "desc"]],
             });
 
             $(window).bind('resize', function () {

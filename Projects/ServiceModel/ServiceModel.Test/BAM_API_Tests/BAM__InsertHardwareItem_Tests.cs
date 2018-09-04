@@ -39,7 +39,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             };
 
             // Get User
-            IBAM_UserService userService = new BAM_UserService();
+            IBAM_UserService userService = new BAM_UserService(_bamClient);
             var user = userService.GetUser(asset.RequestUser);
             Assert.IsNotNull(user, "User item is null");
             Assert.IsTrue(user.Name == asset.RequestUser, "user record is not the same");
@@ -160,26 +160,32 @@ namespace ServiceModel.Test.BAM_API_Tests
             };
 
             // Get User
-            IBAM_UserService userService = new BAM_UserService();
+            IBAM_UserService userService = new BAM_UserService(_bamClient);
             var user = userService.GetUser(asset.RequestUser);
             Assert.IsNotNull(user, "User item is null");
             Assert.IsTrue(user.Name == asset.RequestUser, "user record is not the same");
 
             // Get AssetStatus
-            IBAM_AssetStatusService assetStatusService = new BAM_AssetStatusService();
+            IBAM_AssetStatusService assetStatusService = new BAM_AssetStatusService(_bamClient);
             var assetStatus = assetStatusService.GetAssetStatusTemplate(asset.HWAssetStatus);
             Assert.IsNotNull(assetStatus, "assetStatus item is null");
             Assert.IsTrue(assetStatus.Name == asset.HWAssetStatus.ToDescriptionString(), "assetStatus record is not the same");
+
+            Guid.TryParse("c0c58e7f-7865-55cc-4600-753305b9be64", out var classTypeId);
+            Guid.TryParse("e728d3d3-3104-47e3-b760-9b9863ebbd9a", out var baseId);
+            Guid.TryParse("b4a14ffd-52c8-064f-c936-67616c245b35", out var hardwareAssetTypeId);
+            Guid.TryParse("acdcedb7-100c-8c91-d664-4629a218bd94", out var objectStatusId);
 
             // Get Projection Template
             var hardwareTemplate = new Models.BAM.HardwareTemplate()
             {
                 LastModified = new DateTime(0001, 01, 01, 00, 00, 00),
-                LastModifiedBy = "7431e155-3d9e-4724-895e-c03ba951a352",
-                ClassTypeId = "20d06950-4c1a-1afa-41a6-f46f4f863550",
-                BaseId = "e728d3d3-3104-47e3-b760-9b9863ebbd9a",
-                ClassName = "Cireson.AssetManagement.HardwareAsset",
-                FullClassName = "Hardware Asset",
+                //LastModifiedBy = null,
+                TimeAdded = new DateTime(0001, 01, 01, 00, 00, 00),
+                ClassTypeId = classTypeId.ToString(),
+                BaseId = null, // baseId.ToString(),
+                //ClassName = "Cireson.AssetManagement.HardwareAsset",
+                //FullClassName = "Hardware Asset",
                 Manufacturer = asset.Manufacturer,
                 Model = asset.Model,
                 SerialNumber = asset.SerialNumber,
@@ -189,9 +195,14 @@ namespace ServiceModel.Test.BAM_API_Tests
                 Description = "Hugh Testing",
                 HardwareAssetType = new HardwareAssetType()
                 {
-                    Id = "b4a14ffd-52c8-064f-c936-67616c245b35",
-                    Name = "Computer"
+                    Id = hardwareAssetTypeId.ToString(),
+                    //Name = "Computer"
                 },
+                HardwareAssetID = Guid.NewGuid().ToString(),
+                ObjectStatus = new ObjectStatus()
+                {
+                    Id = objectStatusId.ToString()
+                }
                 //Target_HardwareAssetHasCostCenter = new TargetHardwareAssetHasCostCenter()
                 //{
                 //    Id = "128bdb2d-f5bd-f8b6-440e-e3f7d8ab4858",
@@ -209,7 +220,7 @@ namespace ServiceModel.Test.BAM_API_Tests
                 //}
 
             };
-            var hardwareAssetService = new BAM_HardwareAssetServices();
+            var hardwareAssetService = new BAM_HardwareAssetServices(_bamClient);
 
             var returnItems = hardwareAssetService.InsertTemplate(hardwareTemplate).FirstOrDefault();
             Assert.IsNotNull(returnItems, "Updated Asset is null");
@@ -227,5 +238,105 @@ namespace ServiceModel.Test.BAM_API_Tests
 
         }
 
+        [TestMethod]
+        public async Task B01_InsertNewAsset_Basic()
+        {
+            Guid.TryParse("c0c58e7f-7865-55cc-4600-753305b9be64", out var classTypeId);
+            Guid.TryParse("e728d3d3-3104-47e3-b760-9b9863ebbd9a", out var baseId);
+            Guid.TryParse("b4a14ffd-52c8-064f-c936-67616c245b35", out var hardwareAssetTypeId);
+            Guid.TryParse("acdcedb7-100c-8c91-d664-4629a218bd94", out var objectStatusId);
+            var hardwareAssetId = Guid.NewGuid();
+            // Get a dummy Asset
+            var asset = GetBAMAsset();
+
+            var name = "Hugh test";
+            var serialNumber = "HUGHTEST" + new Random().Next();
+
+            var assetStatusEnum = EST_HWAssetStatus.NewItem;
+            IBAM_AssetStatusService assetStatusService = new BAM_AssetStatusService(_bamClient);
+            var assetStatus = assetStatusService.GetAssetStatusTemplate(assetStatusEnum);
+
+            // Get Projection Template
+            var hardwareTemplate = new HardwareTemplate_Full()
+            {
+                ClassName = null,
+                FullClassName = null,
+                BaseId = null, 
+                LastModified = new DateTime(0001, 01, 01, 00, 00, 00),
+                TimeAdded = new DateTime(0001, 01, 01, 00, 00, 00),
+                //LastModifiedBy = null,
+                ClassTypeId = classTypeId.ToString(),
+                HardwareAssetID = hardwareAssetId.ToString(),
+                Name = name,
+                ObjectStatus = new ObjectStatus()
+                {
+                    Id = objectStatusId.ToString()
+                },
+                SerialNumber = serialNumber,
+                Manufacturer = asset.Manufacturer,
+                Model = asset.Model,
+                AssetTag = "LOCATION" + asset.AssetName,
+                DisplayName = asset.DisplayName,
+                HardwareAssetStatus = assetStatus,
+                Description = "Hugh Testing",
+                //HardwareAssetType = new HardwareAssetType()
+                //{
+                //    Id = hardwareAssetTypeId.ToString(),
+                //},
+                //Target_HardwareAssetHasCostCenter = new TargetHardwareAssetHasCostCenter()
+                //{
+                //    Id = "128bdb2d-f5bd-f8b6-440e-e3f7d8ab4858",
+                //    DisplayName = "BBN.014A"
+                //},
+                Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation()
+                {
+                    Id = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
+                    //DisplayName = "Esteem"
+                },
+                //Target_HardwareAssetHasPrimaryUser = new TargetHardwareAssetHasPrimaryUser()
+                //{
+                //    ClassTypeId = user.Id,
+                //    FullName = user.Name,
+                //}
+
+            };
+            var hardwareAssetService = new BAM_HardwareAssetServices(_bamClient);
+
+            var returnItems = hardwareAssetService.InsertTemplate(hardwareTemplate).FirstOrDefault();
+            //Assert.IsNotNull(returnItems, "Updated Asset is null");
+            //Assert.IsTrue(returnItems.SerialNumber == hardwareTemplate.SerialNumber, "SerialNumbers don't match");
+
+            var updatedHardwareAsset = hardwareAssetService.GetHardwareAsset_Full(serialNumber).FirstOrDefault();
+
+            Assert.IsNotNull(updatedHardwareAsset, "Updated Asset is null");
+            Assert.IsTrue(updatedHardwareAsset.SerialNumber == serialNumber, "SerialNumbers don't match");
+            Assert.IsNotNull(updatedHardwareAsset.HardwareAssetStatus, "AssetStatus is null");
+            Assert.IsTrue(updatedHardwareAsset.HardwareAssetStatus.Name == assetStatusEnum.ToDescriptionString(), "AssetStatus don't match");
+            Assert.IsTrue(updatedHardwareAsset.Manufacturer == asset.Manufacturer, "Manufacturer don't match");
+            Assert.IsTrue(updatedHardwareAsset.Model == asset.Model, "Model don't match");
+            Assert.IsTrue(updatedHardwareAsset.DisplayName == asset.DisplayName, "Model don't match");
+            Assert.IsNotNull(updatedHardwareAsset.Target_HardwareAssetHasLocation, "Target_HardwareAssetHasLocation is null");
+            Assert.IsTrue(updatedHardwareAsset.Target_HardwareAssetHasLocation.Name == "Esteem", "Target_HardwareAssetHasLocation don't match");
+
+            //updatedModifiedDate = (DateTime)updatedHardwareAsset.LastModified;
+
+            //Assert.IsTrue(updatedModifiedDate != originalModifiedDate, "Original and Updated LastModified Date are the same");
+            //Assert.IsTrue(updatedModifiedDate > originalModifiedDate, "Updated LastModified Date is not greater that the Original");
+
+        }
+
+        public BAM_Asset GetBAMAsset()
+        {
+            return new BAM_Asset()
+            {
+                Manufacturer = "Hewlet-Packard",
+                Model = "HP ELITEBOOK 840G3",
+                SerialNumber = "5CG749386E",
+                AssetName = "BAM-L-005289",
+                DisplayName = "HP ELITEBOOK 840G3 - Test",
+                RequestUser = "Riley, Roger",
+                HWAssetStatus = EST_HWAssetStatus.NewItem
+            };
+        }
     }
 }

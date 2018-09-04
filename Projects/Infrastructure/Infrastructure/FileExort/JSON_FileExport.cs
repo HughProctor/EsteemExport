@@ -40,6 +40,55 @@ namespace Infrastructure.FileExport
             }
         }
 
+        public static void WriteFile(string fileExt, object data, string subFolder = null)
+        {
+            if (string.IsNullOrEmpty(fileExt) || data == null)
+                throw new Exception("JSON_FileExport FileExt and Data object cannot be null or empty");
+
+            var path = Path.Combine(_fileLocation, string.IsNullOrEmpty(subFolder) ? "" : subFolder);
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            path = path.EndsWith("\\") ? path : path + "\\";
+
+            using (StreamWriter file = File.CreateText(string.Concat(path, _filePrefix, fileExt, ".json")))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Formatting = Formatting.Indented;
+                //serialize object directly into file stream
+
+                var jsonExport = new JsonExport_StartEndDate()
+                {
+                    Data = data
+                };
+                serializer.Serialize(file, jsonExport);
+            }
+        }
+
+        //public static void ReadFile(string fileExt, string subFolder = null)
+        //{
+        //    if (string.IsNullOrEmpty(fileExt) || data == null)
+        //        throw new Exception("JSON_FileExport FileExt and Data object cannot be null or empty");
+
+        //    var path = Path.Combine(_fileLocation, string.IsNullOrEmpty(subFolder) ? "" : subFolder);
+        //    if (!Directory.Exists(path))
+        //        Directory.CreateDirectory(path);
+        //    path = path.EndsWith("\\") ? path : path + "\\";
+
+        //    using (StreamWriter file = File..ReadAllLines(string.Concat(path, _filePrefix, fileExt, ".json")))
+        //    {
+        //        JsonSerializer serializer = new JsonSerializer();
+        //        serializer.Formatting = Formatting.Indented;
+        //        //serialize object directly into file stream
+
+        //        var jsonExport = new JsonExport_StartEndDate()
+        //        {
+        //            Data = data
+        //        };
+        //        serializer.Serialize(file, jsonExport);
+        //    }
+        //}
+
+
         public static void WriteFile(string fileExt, object data, int count, string subFolder = null, DateTime? startDate = null, DateTime? endDate = null)
         {
             if (string.IsNullOrEmpty(fileExt) || data == null)

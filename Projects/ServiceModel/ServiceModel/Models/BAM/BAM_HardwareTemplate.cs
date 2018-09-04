@@ -1,4 +1,5 @@
-﻿using ServiceModel.Models.BAM.Abstract;
+﻿using Newtonsoft.Json;
+using ServiceModel.Models.BAM.Abstract;
 using System;
 using System.Collections.Generic;
 
@@ -89,6 +90,7 @@ namespace ServiceModel.Models.BAM
         public ObjectStatus ObjectStatus { get; set; }
         public DateTime? ReceivedDate { get; set; }
         public string SerialNumber { get; set; }
+        [JsonIgnore]
         public string ObjectId { get; set; }
         //public List<NameRelationship> NameRelationship { get; set; }
     }

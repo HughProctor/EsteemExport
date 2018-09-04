@@ -4,15 +4,27 @@ using ServiceModel.Models.Esteem;
 using ServiceModel.Services.Abstract;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ServiceModel.Services
 {
-    public class BAM_AssetStatusService : BAM_ApiClient, IBAM_AssetStatusService
+    public class BAM_AssetStatusService : IBAM_AssetStatusService //BAM_ApiClient, 
     {
-        public BAM_AssetStatusService()
+        public BAM_ApiClient _bamclient;
+
+        public BAM_AssetStatusService() : this(null)
         {
-            Task.Run(() => this.Setup()).Wait(); 
+        }
+
+        public BAM_AssetStatusService(BAM_ApiClient bamclient)
+        {
+            _bamclient = bamclient;
+            if (_bamclient == null)
+            {
+                _bamclient = new BAM_ApiClient();
+                Task.Run(() => _bamclient.Setup()).Wait();
+            }
         }
 
         public AssetStatus GetAssetStatusTemplate2(EST_HWAssetStatus assetStatus)
@@ -23,7 +35,7 @@ namespace ServiceModel.Services
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
                 id, itemFiler, flatten);
-            var queryResult = _client.GetAsync("Enum/GetList" + queryFilter).Result;
+            var queryResult = _bamclient._client.GetAsync("Enum/GetList" + queryFilter).Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 
@@ -44,7 +56,7 @@ namespace ServiceModel.Services
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
                 id, itemFiler, flatten);
-            var queryResult = _client.GetAsync("Enum/GetList" + queryFilter).Result;
+            var queryResult = _bamclient._client.GetAsync("Enum/GetList" + queryFilter).Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 

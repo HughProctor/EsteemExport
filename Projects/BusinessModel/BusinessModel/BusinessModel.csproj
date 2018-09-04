@@ -58,6 +58,8 @@
     <Compile Include="Mappers\Map.cs" />
     <Compile Include="Models\Abstract\ISCBaseObject.cs" />
     <Compile Include="Models\BAM_Reporting.cs" />
+    <Compile Include="Models\BaseObjects\BaseObjectProperties.cs" />
+    <Compile Include="Models\BaseObjects\SCBaseObject.cs" />
     <Compile Include="Models\EST_DataExportModel.cs" />
     <Compile Include="Models\BAMDataModel.cs" />
     <Compile Include="Models\SCAuditDeployBsm.cs" />

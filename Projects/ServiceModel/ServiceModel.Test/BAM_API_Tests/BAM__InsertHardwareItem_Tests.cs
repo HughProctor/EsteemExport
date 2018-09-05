@@ -20,7 +20,7 @@ namespace ServiceModel.Test.BAM_API_Tests
     {
         private string _typePrefix = "BAM_API_";
 
-        [TestMethod]
+        //[TestMethod]
         public async Task B00_InsertNewAsset_OLD()
         {
             //var hardwareAssetTemplateId = "c0c58e7f-7865-55cc-4600-753305b9be64";
@@ -121,7 +121,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var json = JsonConvert.SerializeObject(template, jsonSettings);
             var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
 
-            var queryResult_Set = _client.PostAsync("Projection/Commit", content).Result;
+            var queryResult_Set = _bamClient._client.PostAsync("api/V3/Projection/Commit", content).Result;
             if (!queryResult_Set.IsSuccessStatusCode)
             {
                 string responseContent = await queryResult_Set.Content.ReadAsStringAsync();
@@ -256,6 +256,10 @@ namespace ServiceModel.Test.BAM_API_Tests
             IBAM_AssetStatusService assetStatusService = new BAM_AssetStatusService(_bamClient);
             var assetStatus = assetStatusService.GetAssetStatusTemplate(assetStatusEnum);
 
+            var userFilter = "Britton, David";
+            IBAM_UserService bamUserService = new BAM_UserService();
+            var user = bamUserService.GetUser(userFilter);
+
             // Get Projection Template
             var hardwareTemplate = new HardwareTemplate_Full()
             {
@@ -283,21 +287,21 @@ namespace ServiceModel.Test.BAM_API_Tests
                 //{
                 //    Id = hardwareAssetTypeId.ToString(),
                 //},
-                //Target_HardwareAssetHasCostCenter = new TargetHardwareAssetHasCostCenter()
-                //{
-                //    Id = "128bdb2d-f5bd-f8b6-440e-e3f7d8ab4858",
-                //    DisplayName = "BBN.014A"
-                //},
+                Target_HardwareAssetHasCostCenter = new TargetHardwareAssetHasCostCenter()
+                {
+                    BaseId = "128bdb2d-f5bd-f8b6-440e-e3f7d8ab4858",
+                    //DisplayName = "BBN.014A"
+                },
                 Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation()
                 {
-                    Id = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
+                    //Id = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
+                    BaseId = "ae7423eb-0952-d69c-4d7d-77f1699bfe92",
                     //DisplayName = "Esteem"
                 },
-                //Target_HardwareAssetHasPrimaryUser = new TargetHardwareAssetHasPrimaryUser()
-                //{
-                //    ClassTypeId = user.Id,
-                //    FullName = user.Name,
-                //}
+                Target_HardwareAssetHasPrimaryUser = new TargetHardwareAssetHasPrimaryUser()
+                {
+                    BaseId = user.Id
+                }
 
             };
             var hardwareAssetService = new BAM_HardwareAssetServices(_bamClient);
@@ -317,6 +321,8 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsTrue(updatedHardwareAsset.DisplayName == asset.DisplayName, "Model don't match");
             Assert.IsNotNull(updatedHardwareAsset.Target_HardwareAssetHasLocation, "Target_HardwareAssetHasLocation is null");
             Assert.IsTrue(updatedHardwareAsset.Target_HardwareAssetHasLocation.Name == "Esteem", "Target_HardwareAssetHasLocation don't match");
+            Assert.IsNotNull(updatedHardwareAsset.Target_HardwareAssetHasPrimaryUser, "Target_HardwareAssetHasPrimaryUser is null");
+            Assert.IsTrue(updatedHardwareAsset.Target_HardwareAssetHasPrimaryUser.DisplayName == userFilter, "Target_HardwareAssetHasPrimaryUser don't match");
 
             //updatedModifiedDate = (DateTime)updatedHardwareAsset.LastModified;
 

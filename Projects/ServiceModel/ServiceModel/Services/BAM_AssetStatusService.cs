@@ -35,7 +35,7 @@ namespace ServiceModel.Services
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
                 id, itemFiler, flatten);
-            var queryResult = _bamclient._client.GetAsync("Enum/GetList" + queryFilter).Result;
+            var queryResult = _bamclient._client.GetAsync("api/V3/Enum/GetList" + queryFilter).Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 
@@ -56,7 +56,7 @@ namespace ServiceModel.Services
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
                 id, itemFiler, flatten);
-            var queryResult = _bamclient._client.GetAsync("Enum/GetList" + queryFilter).Result;
+            var queryResult = _bamclient._client.GetAsync("api/V3/Enum/GetList" + queryFilter).Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 

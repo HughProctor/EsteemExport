@@ -47,7 +47,7 @@ namespace ESTReportingSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,EsteemCode,EsteemCodeAlt,Description,FullDescription")] PartModel partModel)
+        public ActionResult Create([Bind(Include = "Id,Name,EsteemCode,EsteemCodeAlt,Description,FullDescription,IsInScope")] PartModel partModel)
         {
             partModel.CreatedDate = DateTime.Now;
             if (ModelState.IsValid)
@@ -80,7 +80,7 @@ namespace ESTReportingSite.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,EsteemCode,EsteemCodeAlt,Description,FullDescription")] PartModel partModel)
+        public ActionResult Edit([Bind(Include = "Id,Name,EsteemCode,EsteemCodeAlt,Description,FullDescription,IsInScope")] PartModel partModel)
         {
             if (ModelState.IsValid)
             {

@@ -12,5 +12,6 @@ namespace BusinessModel.Models
         public HardwareTemplate_Full BAM_HardwareTemplate_Exception { get; set; }
         public int ServiceProgressReportId { get; set; }
         public ServiceProgressReportBsm ServiceProgressReport { get; set; }
+        public string ExceptionMessage { get; set; }
     }
 }

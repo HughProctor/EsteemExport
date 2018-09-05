@@ -57,7 +57,7 @@
                                     @Html.DisplayNameFor(model => model.CreatedDate)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.UpdatedDate)
+                                    @Html.DisplayNameFor(model => model.IsInScope)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.Name)
@@ -85,7 +85,7 @@
                                         @Html.DisplayFor(modelItem => item.CreatedDate)
                                     </td>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                        @Html.DisplayFor(modelItem => item.IsInScope)
                                     </td>
                                     <td>
                                         @Html.DisplayFor(modelItem => item.Name)
@@ -134,7 +134,7 @@
                 },
                 "paging": true,
                 "pagingType": "full_numbers",
-                "order": [[3, "asc"]]
+                "order": [[2, "asc"]]
             });
         });
     </script>

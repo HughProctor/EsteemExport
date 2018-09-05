@@ -15,8 +15,8 @@ namespace ServiceModel.Test.BAM_API_Tests
     [TestClass]
     public class BAM_API_Authentication_Tests 
     {
-        //https://lab.esteemapi.bamnuttall.co.uk/api/V3/Authorization/GetToken?UserName=SCSM_Esteem_API&Password=Sn0wDrag0n77*&LanguageCode=en
-        //https://lab.esteemapi.bamnuttall.co.uk/api/V3/Authorization/GetToken?UserName={UserName}&Password={Password}&LanguageCode={LanguageCode}
+        //https://labesteemapi.bamnuttall.co.uk/api/V3/Authorization/GetToken?UserName=SCSM_Esteem_API&Password=Sn0wDrag0n77*&LanguageCode=en
+        //https://labesteemapi.bamnuttall.co.uk/api/V3/Authorization/GetToken?UserName={UserName}&Password={Password}&LanguageCode={LanguageCode}
         [TestMethod]
         public async Task Auth_GetToken_Test()
         {
@@ -30,7 +30,7 @@ namespace ServiceModel.Test.BAM_API_Tests
                     };
                 using (HttpClient _client = new HttpClient(_handler))
                 {
-                    var _clientUri = new Uri(@"https://lab.esteemapi.bamnuttall.co.uk/api/V3/");
+                    var _clientUri = new Uri(@"https://labesteemapi.bamnuttall.co.uk/");
                     _client.BaseAddress = _clientUri;
                     var authLogin = new AuthorizationModel()
                     {
@@ -44,7 +44,7 @@ namespace ServiceModel.Test.BAM_API_Tests
                     _client.DefaultRequestHeaders.Accept.Clear();
                     _client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    var tokenResult = await _client.PostAsync("Authorization/GetToken", content);
+                    var tokenResult = await _client.PostAsync("api/V3/Authorization/GetToken", content);
 
                     authLogin.AuthToken = tokenResult.Content.ReadAsStringAsync().Result;
 

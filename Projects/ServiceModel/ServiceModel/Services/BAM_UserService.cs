@@ -33,7 +33,7 @@ namespace ServiceModel.Services
             var queryFilter = string.Format("?userFilter={0}&filterByAnalyst={1}&groupsOnly={2}&maxNumberOfResults={3}&fetchAll={4}",
                     userFilter, filterByAnalyst, groupsOnly, maxNumberOfResults, fetchAll
                 );
-            var queryResult = _bamclient._client.GetAsync("User/GetUserList" + queryFilter).Result;
+            var queryResult = _bamclient._client.GetAsync("api/V3/User/GetUserList" + queryFilter).Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 

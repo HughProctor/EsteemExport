@@ -113,6 +113,30 @@
     <Compile Include="Migrations\201809031628349_Add_ExceptionCountTotal1.Designer.cs">
       <DependentUpon>201809031628349_Add_ExceptionCountTotal1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809050954562_Add_EST_BAM_ModelLookup.cs" />
+    <Compile Include="Migrations\201809050954562_Add_EST_BAM_ModelLookup.Designer.cs">
+      <DependentUpon>201809050954562_Add_EST_BAM_ModelLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051106243_Add_EST_BAM_ModelLookup_UpdateColumns.cs" />
+    <Compile Include="Migrations\201809051106243_Add_EST_BAM_ModelLookup_UpdateColumns.Designer.cs">
+      <DependentUpon>201809051106243_Add_EST_BAM_ModelLookup_UpdateColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051239583_Add_EST_BAM_ModelLookup_BaseId.cs" />
+    <Compile Include="Migrations\201809051239583_Add_EST_BAM_ModelLookup_BaseId.Designer.cs">
+      <DependentUpon>201809051239583_Add_EST_BAM_ModelLookup_BaseId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051247350_Add_EST_BAM_ModelLookup_BaseId_NameChange.cs" />
+    <Compile Include="Migrations\201809051247350_Add_EST_BAM_ModelLookup_BaseId_NameChange.Designer.cs">
+      <DependentUpon>201809051247350_Add_EST_BAM_ModelLookup_BaseId_NameChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051431218_Add_PartModel_InScope.cs" />
+    <Compile Include="Migrations\201809051431218_Add_PartModel_InScope.Designer.cs">
+      <DependentUpon>201809051431218_Add_PartModel_InScope.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201809051518380_Add_ESTModelLookup_ModelType.cs" />
+    <Compile Include="Migrations\201809051518380_Add_ESTModelLookup_ModelType.Designer.cs">
+      <DependentUpon>201809051518380_Add_ESTModelLookup_ModelType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -121,6 +145,7 @@
     <Compile Include="Models\BAM_Reporting.cs" />
     <Compile Include="Models\BaseObjects\BaseObjectProperties.cs" />
     <Compile Include="Models\BaseObjects\SCBaseObject.cs" />
+    <Compile Include="Models\EST_BAM_ModelLookup.cs" />
     <Compile Include="Models\EST_HWAssetStatus.cs" />
     <Compile Include="Models\PartManufacturer.cs" />
     <Compile Include="Models\ESTPartDescription.cs" />
@@ -185,6 +210,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809031628349_Add_ExceptionCountTotal1.resx">
       <DependentUpon>201809031628349_Add_ExceptionCountTotal1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809050954562_Add_EST_BAM_ModelLookup.resx">
+      <DependentUpon>201809050954562_Add_EST_BAM_ModelLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051106243_Add_EST_BAM_ModelLookup_UpdateColumns.resx">
+      <DependentUpon>201809051106243_Add_EST_BAM_ModelLookup_UpdateColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051239583_Add_EST_BAM_ModelLookup_BaseId.resx">
+      <DependentUpon>201809051239583_Add_EST_BAM_ModelLookup_BaseId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051247350_Add_EST_BAM_ModelLookup_BaseId_NameChange.resx">
+      <DependentUpon>201809051247350_Add_EST_BAM_ModelLookup_BaseId_NameChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051431218_Add_PartModel_InScope.resx">
+      <DependentUpon>201809051431218_Add_PartModel_InScope.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809051518380_Add_ESTModelLookup_ModelType.resx">
+      <DependentUpon>201809051518380_Add_ESTModelLookup_ModelType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

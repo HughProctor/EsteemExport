@@ -54,11 +54,11 @@ namespace EntityModel.Repository
             else _whereExpression = "";
             WhereExpression = string.IsNullOrEmpty(WhereExpression) ? _whereExpression :
                  string.IsNullOrEmpty(_whereExpression) ? WhereExpression : _whereExpression + WhereExpression.Replace("WHERE", "AND");
-            //WhereExpression = !string.IsNullOrEmpty(WhereExpression) ? WhereExpression + "AND [Part_Type] != 'D' " : "WHERE [Part_Type] != 'D'";
+            WhereExpression = !string.IsNullOrEmpty(WhereExpression) ? WhereExpression + "AND [Part_Type] != 'D' " : "WHERE [Part_Type] != 'D'";
 
             OrderBy = !string.IsNullOrEmpty(OrderBy) ? OrderBy : _orderBy;
-
-            QueryBuilderObject.LastQueryString = LastQueryString = returnQueryString = QueryString + WhereExpression + OrderBy;
+            //QueryBuilderObject.LastQueryString =
+             LastQueryString = returnQueryString = QueryString + WhereExpression + OrderBy;
             // Need to reset the Where and Order by, otherwise they remain in memory for next request
             Reset();
 

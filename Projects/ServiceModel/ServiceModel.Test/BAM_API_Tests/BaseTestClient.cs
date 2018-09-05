@@ -17,7 +17,7 @@ namespace ServiceModel.Test.BAM_API_Tests
     public class BaseTestClient
     {
         public HttpClientHandler _handler;
-        public HttpClient _client;
+        //public HttpClient _client;
         public Uri _clientUri;
         public AuthorizationModel _authLogin;
         public BAM_ApiClient _bamClient;
@@ -43,7 +43,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         //    };
 
         //    _client = new HttpClient(_handler);
-        //    _clientUri = new Uri(@"https://lab.esteemapi.bamnuttall.co.uk/api/V3/");
+        //    _clientUri = new Uri(@"https://labesteemapi.bamnuttall.co.uk/api/V3/");
         //    _client.BaseAddress = _clientUri;
 
         //    _authLogin = new AuthorizationModel()

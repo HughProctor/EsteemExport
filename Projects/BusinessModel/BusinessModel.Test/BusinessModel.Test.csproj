@@ -66,6 +66,7 @@
     <Compile Include="BAM_API_DataExport_Tests.cs" />
     <Compile Include="BAM_ReportDataTests\BAM_Report_EmptyModel_Tests.cs" />
     <Compile Include="BAM_ReportDataTests\BAM_Report_QueryDataSet_Tests.cs" />
+    <Compile Include="ServiceTests\EST_BAM_ModelLookupServiceTests.cs" />
     <Compile Include="ServiceTests\EST_Service_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTests\BAM_Service_Tests.cs" />

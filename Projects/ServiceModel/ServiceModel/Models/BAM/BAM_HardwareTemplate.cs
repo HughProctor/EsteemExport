@@ -24,6 +24,14 @@ namespace ServiceModel.Models.BAM
 
     public class HardwareAssetType : BAM_Object
     {
+        public static implicit operator string(HardwareAssetType v)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Target_HardwareAssetHasCatalogItem : BAM_Object
+    {
     }
 
     public class ManufacturerEnum : BAM_Object
@@ -92,6 +100,6 @@ namespace ServiceModel.Models.BAM
         public string SerialNumber { get; set; }
         [JsonIgnore]
         public string ObjectId { get; set; }
-        //public List<NameRelationship> NameRelationship { get; set; }
+        public List<NameRelationship> NameRelationship { get; set; }
     }
 }

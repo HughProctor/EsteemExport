@@ -31,7 +31,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             //var queryFilter = string.Format("?id={0}&createdById={1}", hardwareAssetTemplateId, user.Id);
 
-            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamClient._client.PostAsync("api/V3/Projection/GetProjectionByCriteria", content).Result;
             Assert.IsTrue(queryResult_Get.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult_Get.StatusCode.ToString());
             Assert.IsNotNull(queryResult_Get, "queryResult is empty");
 
@@ -80,7 +80,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             //var queryFilter = string.Format("?id={0}&createdById={1}", hardwareAssetTemplateId, user.Id);
 
-            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamClient._client.PostAsync("api/V3/Projection/GetProjectionByCriteria", content).Result;
             Assert.IsTrue(queryResult_Get.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult_Get.StatusCode.ToString());
             Assert.IsNotNull(queryResult_Get, "queryResult is empty");
 
@@ -112,7 +112,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             var content = new StringContent(jsonCriteria, Encoding.UTF8, "application/json");
 
-            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamClient._client.PostAsync("api/V3/Projection/GetProjectionByCriteria", content).Result;
             Assert.IsTrue(queryResult_Get.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult_Get.StatusCode.ToString());
             Assert.IsNotNull(queryResult_Get, "queryResult is empty");
 
@@ -155,7 +155,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             var content = new StringContent(jsonCriteria, Encoding.UTF8, "application/json");
 
-            var queryResult_Get = _client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamClient._client.PostAsync("api/V3/Projection/GetProjectionByCriteria", content).Result;
             Assert.IsTrue(queryResult_Get.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult_Get.StatusCode.ToString());
             Assert.IsNotNull(queryResult_Get, "queryResult is empty");
 

@@ -25,7 +25,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var queryFilter = string.Format("?userFilter={0}&filterByAnalyst={1}&groupsOnly={2}&maxNumberOfResults={3}&fetchAll={4}",
                     userFilter, filterByAnalyst, groupsOnly, maxNumberOfResults, fetchAll
                 );
-            var queryResult = _client.GetAsync("User/GetUserList" + queryFilter).Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/User/GetUserList" + queryFilter).Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -63,7 +63,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var queryFilter = string.Format("?userFilter={0}&filterByAnalyst={1}&groupsOnly={2}&maxNumberOfResults={3}&fetchAll={4}",
                     userFilter, filterByAnalyst, groupsOnly, maxNumberOfResults, fetchAll
                 );
-            var queryResult = _client.GetAsync("User/GetUserList" + queryFilter).Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/User/GetUserList" + queryFilter).Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");

@@ -7,7 +7,7 @@ namespace ServiceModel.Services.Abstract
 {
     public interface IBAM_HardwareAssetServices
     {
-        HardwareTemplate CreateNewTemplate();
+        HardwareTemplate_Full CreateNewTemplate();
 
         string CreateProjectionFilter(string serialNumber, bool useFullProjection = false);
         StringContent CreateProjectionFilter_StringContent(string serialNumber, bool useFullProjection = false);
@@ -24,5 +24,6 @@ namespace ServiceModel.Services.Abstract
         HardwareTemplate_Full SetHardwareAssetStatus(HardwareTemplate_Full template, EST_HWAssetStatus hWAssetStatus);
         HardwareTemplate_Full SetLocation(HardwareTemplate_Full template, string audit_Dest_Site_Num);
         HardwareTemplate SetAssetTag(HardwareTemplate template, string assetTag);
+        HardwareTemplate_Full SetCostCode(HardwareTemplate_Full newHardwareAsset, string audit_Cost_Code);
     }
 }

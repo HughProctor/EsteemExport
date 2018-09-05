@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Infrastructure.FileExport;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using ServiceModel.Extensions;
 using ServiceModel.Models;
@@ -18,6 +19,7 @@ namespace ServiceModel.Services
     {
         IBAM_AssetStatusService _assetStatusService;
         public BAM_ApiClient _bamclient;
+        public List<NameRelationship> _bamApiRelationships;
 
         #region Constructors
         public BAM_HardwareAssetServices() : this(null, null)
@@ -32,6 +34,9 @@ namespace ServiceModel.Services
                 Task.Run(() => _bamclient.Setup()).Wait();
             }
             _assetStatusService = new BAM_AssetStatusService(_bamclient);
+
+            var jsonNameRelationships = JSON_FileExport.ReadFile("NameRelationships.json", "JsonStatics");
+            _bamApiRelationships = JsonConvert.DeserializeObject<List<NameRelationship>>(jsonNameRelationships);
         }
 
         public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService, BAM_ApiClient bamclient)
@@ -53,12 +58,12 @@ namespace ServiceModel.Services
         #endregion
 
         #region CRUD
-        public List<Models.BAM.HardwareTemplate> GetHardwareAsset(string serialNumber)
+        public List<HardwareTemplate> GetHardwareAsset(string serialNumber)
         {
             var returnValue = new List<Models.BAM.HardwareTemplate>();
 
             var content = CreateProjectionFilter_StringContent(serialNumber);
-            var queryResult_Get = _bamclient._client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamclient._client.PostAsync("api/V3/Projection/GetProjectionByCriteria", content).Result;
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
 
@@ -72,7 +77,7 @@ namespace ServiceModel.Services
             var returnValue = new List<HardwareTemplate_Full>();
 
             var content = CreateProjectionFilter_StringContent(serialNumber, true);
-            var queryResult_Get = _bamclient._client.PostAsync("Projection/GetProjectionByCriteria", content).Result;
+            var queryResult_Get = _bamclient._client.PostAsync("api/V3/Projection/GetProjectionByCriteria", content).Result;
 
             var resultSring_Get = queryResult_Get.Content.ReadAsStringAsync().Result;
 
@@ -86,6 +91,9 @@ namespace ServiceModel.Services
             var returnValue = new List<HardwareTemplate>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
+
+            // Set API NameRelationship default values
+            newTemplate.NameRelationship = _bamApiRelationships;
 
             var template = new HardwareTemplate_Json()
             {
@@ -104,6 +112,9 @@ namespace ServiceModel.Services
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
+            // Set API NameRelationship default values
+            newTemplate.NameRelationship = _bamApiRelationships;
+
             var template = new HardwareTemplate_Json()
             {
                 formJson = new FormJson()
@@ -121,6 +132,9 @@ namespace ServiceModel.Services
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
 
+            // Set API NameRelationship default values
+            newTemplate.NameRelationship = _bamApiRelationships;
+
             var template = new HardwareTemplate_Json()
             {
                 formJson = new FormJson()
@@ -137,6 +151,9 @@ namespace ServiceModel.Services
             var returnValue = new List<HardwareTemplate_Full>();
             if (newTemplate == null)
                 throw new Exception("Template must not be null");
+
+            // Set API NameRelationship default values
+            newTemplate.NameRelationship = _bamApiRelationships;
 
             var template = new HardwareTemplate_Json()
             {
@@ -162,7 +179,7 @@ namespace ServiceModel.Services
             var json = JsonConvert.SerializeObject(template);//, jsonSettings
             var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
 
-            var queryResult_Set = _bamclient._client.PostAsync("Projection/Commit", content).Result;
+            var queryResult_Set = _bamclient._client.PostAsync("api/V3/Projection/Commit", content).Result;
             if (!queryResult_Set.IsSuccessStatusCode)
             {
                 string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;
@@ -193,7 +210,7 @@ namespace ServiceModel.Services
             var json = JsonConvert.SerializeObject(template);//, jsonSettings
             var content = new StringContent(JsonConvert.SerializeObject(template), Encoding.UTF8, "application/json");
 
-            var queryResult_Set = _bamclient._client.PostAsync("Projection/Commit", content).Result;
+            var queryResult_Set = _bamclient._client.PostAsync("api/V3/Projection/Commit", content).Result;
             if (!queryResult_Set.IsSuccessStatusCode)
             {
                 string responseContent = queryResult_Set.Content.ReadAsStringAsync().Result;
@@ -245,21 +262,32 @@ namespace ServiceModel.Services
         #endregion
 
         #region Set Values
-        public HardwareTemplate CreateNewTemplate()
+        public HardwareTemplate_Full CreateNewTemplate()
         {
-            var returnValue = new Models.BAM.HardwareTemplate() {
+            Guid.TryParse("c0c58e7f-7865-55cc-4600-753305b9be64", out var classTypeId);
+            Guid.TryParse("e728d3d3-3104-47e3-b760-9b9863ebbd9a", out var baseId);
+            Guid.TryParse("b4a14ffd-52c8-064f-c936-67616c245b35", out var hardwareAssetTypeId);
+            Guid.TryParse("acdcedb7-100c-8c91-d664-4629a218bd94", out var objectStatusId);
+            var hardwareAssetId = Guid.NewGuid();
+
+            var returnValue = new HardwareTemplate_Full() {
+                ClassName = null,
+                FullClassName = null,
+                BaseId = null,
                 LastModified = new DateTime(0001, 01, 01, 00, 00, 00),
-                LastModifiedBy = "7431e155-3d9e-4724-895e-c03ba951a352",
-                ClassTypeId = "20d06950-4c1a-1afa-41a6-f46f4f863550",
-          //      BaseId = "e728d3d3-3104-47e3-b760-9b9863ebbd9a", -- This is the Unique Identifier
-                ClassName = "Cireson.AssetManagement.HardwareAsset",
-                FullClassName = "Hardware Asset",
+                TimeAdded = new DateTime(0001, 01, 01, 00, 00, 00),
+                ClassTypeId = classTypeId.ToString(),
+                HardwareAssetID = hardwareAssetId.ToString(),
+                ObjectStatus = new ObjectStatus()
+                {
+                    Id = objectStatusId.ToString()
+                },
             };
 
             return returnValue;
         }
 
-        public HardwareTemplate SetHardwareAssetStatus(Models.BAM.HardwareTemplate template, EST_HWAssetStatus hWAssetStatus)
+        public HardwareTemplate SetHardwareAssetStatus(HardwareTemplate template, EST_HWAssetStatus hWAssetStatus)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
@@ -281,6 +309,17 @@ namespace ServiceModel.Services
             return newHardwareAsset;
         }
 
+        public HardwareTemplate_Full SetCostCode(HardwareTemplate_Full template, string costCode)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(hWAssetStatus);
+            return newHardwareAsset;
+        }
+
         public HardwareTemplate_Full SetHardwareAssetPrimaryUser(HardwareTemplate_Full template, BAM_User user)
         {
             if (template == null)
@@ -288,12 +327,9 @@ namespace ServiceModel.Services
 
             // Clone the object so we can check the changes
             var newHardwareAsset = CloneObject.Clone(template);
-            newHardwareAsset.Target_HardwareAssetHasPrimaryUser = new TargetHardwareAssetHasPrimaryUser
+            newHardwareAsset.OwnedBy = new OwnedBy
             {
-                ClassTypeId = "a1239454-c42e-7f65-6ce0-47bb8141adea",
                 BaseId = user.Id,
-                DisplayName = user.Name,
-                UPN = user.Email
             }; 
             return newHardwareAsset;
         }
@@ -309,18 +345,18 @@ namespace ServiceModel.Services
             //{
                 newHardwareAsset.Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation
                 {
-                    ClassTypeId = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
+                    //ClassTypeId = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
                     BaseId = "ae7423eb-0952-d69c-4d7d-77f1699bfe92",
-                    DisplayName = "Esteem",
-                    ClassName = "Cireson.AssetManagement.Location",
-                    FullClassName = "Location",
-                    LastModified = DateTime.Now,
+                    //DisplayName = "Esteem",
+                    //ClassName = "Cireson.AssetManagement.Location",
+                    //FullClassName = "Location",
+                    //LastModified = DateTime.Now,
                 };
             //}
             return newHardwareAsset;
         }
 
-        public HardwareTemplate SetAssetTag(Models.BAM.HardwareTemplate template, string assetTag)
+        public HardwareTemplate SetAssetTag(HardwareTemplate template, string assetTag)
         {
             if (template == null)
                 throw new Exception("Template must not be null");

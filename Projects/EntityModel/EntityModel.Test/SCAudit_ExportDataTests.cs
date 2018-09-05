@@ -1,4 +1,5 @@
 ﻿using EntityModel.Repository;
+using EntityModel.Repository.Abstract;
 using EntityModel.Test.Specifications;
 using Infrastructure.FileExport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -27,13 +28,14 @@ namespace EntityModel.Test
             var returnList = new List<SCAudit>();
             _startDateTimeString = string.IsNullOrEmpty(_startDateTimeString) ? "01/11/2017" : _startDateTimeString;
             _endDateTimeString = string.IsNullOrEmpty(_endDateTimeString) ? "30/11/2017" : _endDateTimeString;
+            IQueryBuilder queryBuilder = new QueryBuilder();
 
             DateTime.TryParse(_startDateTimeString, out var startDateTime);
             DateTime.TryParse(_endDateTimeString, out var endDateTime);
             _sCAuditService.StartDate = startDateTime;
             _sCAuditService.EndDate = endDateTime;
             _sCAuditService.PageCount = 10000000;
-
+            //queryBuilder.StartDate
             returnList = _sCAuditService.GetAll();
             return returnList;
         }

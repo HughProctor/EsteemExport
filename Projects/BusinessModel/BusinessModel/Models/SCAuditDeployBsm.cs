@@ -25,5 +25,8 @@ namespace BusinessModel
         public string DisplayName { get; set; }
         public string RequestUser { get; set; }
         public HWAssetStatus HWAssetStatus { get; set; }
+        public string AssetTag { get; set; }
+        public string CostCode { get; set; }
+        public string SerialNumberReturned { get; internal set; }
     }
 }

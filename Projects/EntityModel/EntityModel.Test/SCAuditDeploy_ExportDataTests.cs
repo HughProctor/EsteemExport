@@ -41,7 +41,7 @@ namespace EntityModel.Test
         [TestMethod]
         public void ExportToJson()
         {
-            _sCDeployService.WhereExpression = "WHERE ISNULL(Fsrl_Ret_ID, '') <> '' ";
+            //_sCDeployService.WhereExpression = "WHERE ISNULL(Fsrl_Ret_ID, '') <> '' ";
 
             var returnList = GetAll_BaseQuery();
             Assert.IsTrue(returnList.Any(), "Query didn't return any results");

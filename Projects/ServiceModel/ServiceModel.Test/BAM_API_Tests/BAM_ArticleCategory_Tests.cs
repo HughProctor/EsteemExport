@@ -17,7 +17,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         [TestMethod]
         public async Task BAM_ArticleCategory_Get_FlatList()
         {
-            var queryResult = _client.GetAsync("ArticleCategory").Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/ArticleCategory").Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -37,7 +37,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         [TestMethod]
         public async Task BAM_Article_Get_List()
         {
-            var queryResult = _client.GetAsync("Article").Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/Article").Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -56,7 +56,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         [TestMethod]
         public async Task BAM_Template_Classes_Get_List()
         {
-            var queryResult = _client.GetAsync("Template/GetAllClasses").Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/Template/GetAllClasses").Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -84,7 +84,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         [TestMethod]
         public async Task BAM_HardwareAssetNotificationTemplate_Get_List()
         {
-            var queryResult = _client.GetAsync("Template/GetHardwareAssetNotificationTemplates").Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/Template/GetHardwareAssetNotificationTemplates").Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -116,7 +116,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             Assert.IsNotNull(deviceItem, "deviceItem is empty");
             Assert.IsFalse(string.IsNullOrEmpty(deviceItem.Id), "deviceItem id is empty");
 
-            var queryResult = _client.GetAsync(string.Format("Template/GetTemplates?classId={0}", deviceItem.Id)).Result;
+            var queryResult = _bamClient._client.GetAsync(string.Format("api/V3/Template/GetTemplates?classId={0}", deviceItem.Id)).Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -150,7 +150,7 @@ namespace ServiceModel.Test.BAM_API_Tests
             var queryFilter = string.Format("?userFilter={0}&filterByAnalyst={1}&groupsOnly={2}&maxNumberOfResults={3}&fetchAll={4}",
                     userFilter, filterByAnalyst, groupsOnly, maxNumberOfResults, fetchAll
                 );
-            var queryResult = _client.GetAsync("User/GetUserList" + queryFilter).Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/User/GetUserList" + queryFilter).Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -180,7 +180,7 @@ namespace ServiceModel.Test.BAM_API_Tests
         [TestMethod]
         public async Task BAM_Config_HardwareAsset_Get_List()
         {
-            var queryResult = _client.GetAsync("Config/GetPopulatedConfigClasses").Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/Config/GetPopulatedConfigClasses").Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -217,7 +217,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
             var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
                 id, itemFiler, flatten);
-            var queryResult = _client.GetAsync("Enum/GetList" + queryFilter).Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/Enum/GetList" + queryFilter).Result;
 
             Assert.IsTrue(queryResult.IsSuccessStatusCode, "Query Status Code isn't Success: " + queryResult.StatusCode.ToString());
             Assert.IsNotNull(queryResult, "queryResult is empty");
@@ -245,7 +245,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
         private TemplateClassList GetTemplateList()
         {
-            var queryResult = _client.GetAsync("Template/GetAllClasses").Result;
+            var queryResult = _bamClient._client.GetAsync("api/V3/Template/GetAllClasses").Result;
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 
             var resultTemp = JsonConvert.DeserializeObject<TemplateClass[]>(resultSring);
@@ -259,7 +259,7 @@ namespace ServiceModel.Test.BAM_API_Tests
 
         private Config Get_HardwareAsset_ConfigItem()
         {
-            var queryResult = _client.GetAsync("Config/GetPopulatedConfigClasses").Result;
+            var queryResult = _bamClient._client.GetAsync("Config/GetPopulatedConfigClasses").Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
 

@@ -20,7 +20,7 @@ namespace BusinessModel.Services
         {
             dbContext = new BAMEsteemExportContext();
             PartManufacturers = dbContext.PartManufacturers.Where(x => x.Name == "Cables").ToList();
-            PartModels = dbContext.PartModels.ToList();
+            PartModels = dbContext.PartModels.Where(x => x.IsInScope == true).ToList();
         }
 
         public List<BAMDataModel> ProcessSCAuditList(List<SCAudit> sCAudits)
@@ -51,6 +51,7 @@ namespace BusinessModel.Services
                         manu.Code?.ToUpper() == code.ToUpper() || manu.CodeEsteem?.ToUpper() == code.ToUpper()
                         || manu.CodeEsteemAlt?.ToUpper() == code.ToUpper()))?.FirstOrDefault()?.Name;
 
+                // 
                 var model = PartModels.Where(mod => 
                     scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCode || scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCodeAlt)?.FirstOrDefault();
                 //if (model != null)
@@ -96,13 +97,30 @@ namespace BusinessModel.Services
                     scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCode || scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCodeAlt)?.FirstOrDefault();
                 scAuditBsm.Model = model?.Name ?? model?.Description ?? "";
 
-                scAuditBsm.SerialNumber = (bool)scAuditBsm.Audit_Ser_Num?.Contains('/') ? scAuditBsm.Audit_Ser_Num.Substring(scAuditBsm.Audit_Ser_Num.IndexOf('/') + 1) : scAuditBsm.Audit_Ser_Num;
+                // Clean Asset Tag
+                scAuditBsm.AssetTag = (bool)scAuditBsm.Audit_Ser_Num?.Contains('/') ? 
+                    scAuditBsm.Audit_Ser_Num.Substring(0, scAuditBsm.Audit_Ser_Num.IndexOf('/')) : scAuditBsm.Audit_Ser_Num;
+                scAuditBsm.AssetTag = scAuditBsm.AssetTag.Trim();
+
+                // Clean SerialNumber
+                scAuditBsm.SerialNumber = (bool)scAuditBsm.Audit_Ser_Num?.Contains('/') ? 
+                    scAuditBsm.Audit_Ser_Num.Substring(scAuditBsm.Audit_Ser_Num.IndexOf('/') + 1) : scAuditBsm.Audit_Ser_Num;
+                scAuditBsm.SerialNumber = scAuditBsm.SerialNumber.Trim();
+
+                // Clean SerialNumberReturned
+                scAuditBsm.SerialNumberReturned = (bool)scAuditBsm.Audit_Ser_Num_Returned?.Contains('/') ?
+                    scAuditBsm.Audit_Ser_Num_Returned.Substring(scAuditBsm.Audit_Ser_Num_Returned.IndexOf('/') + 1) : scAuditBsm.Audit_Ser_Num_Returned;
+                scAuditBsm.SerialNumberReturned = scAuditBsm.SerialNumberReturned.Trim();
+
                 scAuditBsm.DisplayName = scAuditBsm.AssetName;
                 var userName = (bool)scAuditBsm.Audit_User?.Contains('/') ? scAuditBsm.Audit_User.Substring(0, scAuditBsm.Audit_User.IndexOf('/')).Trim() : scAuditBsm.Audit_User;
                 var userNameSplit = userName.Split(' ');
                 scAuditBsm.RequestUser = userNameSplit.Length > 1 ? userNameSplit[1] + ", " + userNameSplit[0] : userName;
 
-                //scAuditBsm.CostCode = scAuditBsm.Audit_Cost_Code?
+                scAuditBsm.CostCode = string.IsNullOrEmpty(scAuditBsm.Audit_Cost_Code) ? scAuditBsm.Audit_Cost_Code : 
+                    scAuditBsm.Audit_Cost_Code.Contains('/') ? scAuditBsm.Audit_Cost_Code.Split('/')?[1] :
+                        scAuditBsm.Audit_Cost_Code.Contains('\\') ? scAuditBsm.Audit_Cost_Code.Split('\\')?[1] : scAuditBsm.Audit_Cost_Code;
+
                 returnList.Add(scAuditBsm);
             });
 

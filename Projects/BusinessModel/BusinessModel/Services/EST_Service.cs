@@ -59,6 +59,12 @@ namespace BusinessModel.Services
             returnValue.DeployedToBAMUserList = Get_Deployed_to_BAM_User(returnDeployList);
             returnValue.ReturnedFromBAMUserList = Get_Returned_from_BAM_User(returnDeployList);
 
+
+            returnValue.ReturnedFromBAMList = Get_ReturnedFromBAM(returnAuditList);
+            returnValue.RetiredAssetList = Get_RetiredAsset(returnAuditList);
+            returnValue.DisplosedAssetList = Get_DisplosedAsset(returnAuditList);
+            returnValue.SwappedAssetList = Get_SwappedAsset(returnDeployList);
+
             return returnValue;
         }
 
@@ -99,6 +105,19 @@ namespace BusinessModel.Services
             return newItemList;
         }
 
+        //internal List<SCAuditBsm> Get_New_Item_Configured(List<SCAudit> returnList)
+        //{
+        //    var newItemList = _dataCleanseService.Process_SCAuditList(returnList
+        //        .Where
+        //        (
+        //            item => item.Audit_Part_Num.ToUpper().StartsWith("BNL")
+        //                && item.Audit_Rem.StartsWith("Added PO")
+        //                && item.
+        //                && (item.Audit_Dest_Site_Num.ToUpper().StartsWith("E-") || item.Audit_Dest_Site_Num.ToUpper() == "LTX")
+        //        ).ToList().Distinct().ToList());
+        //    return newItemList;
+        //}
+
         internal List<SCAuditBsm> Get_Location_Change(List<SCAudit> returnList)
         {
             var newItemList = _dataCleanseService.Process_SCAuditList(returnList
@@ -132,21 +151,78 @@ namespace BusinessModel.Services
             var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
                 .Where
                 (
-                    item => item.Audit_Ser_Num.StartsWith("BAM")
+                    item => item.Audit_Part_Num.StartsWith("BNL")
+                        && string.IsNullOrEmpty(item.Audit_Part_Num_Returned) == true
                 ).ToList().Distinct().ToList());
             return newItemList;
         }
 
+        /// <summary>
+        /// Depreciated
+        /// </summary>
+        /// <param name="returnList"></param>
+        /// <returns></returns>
         internal List<SCAuditDeployBsm> Get_Returned_from_BAM_User(List<SCAuditDeploy> returnList)
         {
             var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
                 .Where
                 (
                     item => !string.IsNullOrEmpty(item.Audit_Ser_Num_Returned)
+                        && (item.Audit_Dest_Site_Num.StartsWith("BNLTEST") || item.Audit_Dest_Site_Num.StartsWith("LTXR"))
                         && item.Audit_Ser_Num.StartsWith("BAM")
                 ).ToList().Distinct().ToList());
             return newItemList;
         }
+
+
+
+        /*---------------------*/
+        private List<SCAuditBsm> Get_ReturnedFromBAM(List<SCAudit> returnList)
+        {
+            var newItemList = _dataCleanseService.Process_SCAuditList(returnList
+                .Where
+                (
+                    item => item.Audit_Part_Num.StartsWith("BNL") && 
+                        (item.Audit_Source_Site_Num.StartsWith("BNLTEST") ||
+                            item.Audit_Source_Site_Num.StartsWith("LTXR"))
+                ).ToList().Distinct().ToList());
+            return newItemList;
+        }
+
+        private List<SCAuditBsm> Get_RetiredAsset(List<SCAudit> returnList)
+        {
+            var newItemList = _dataCleanseService.Process_SCAuditList(returnList
+                .Where
+                (
+                    item => item.Audit_Part_Num.StartsWith("BNL") &&
+                        item.Audit_Dest_Site_Num.StartsWith("BNLSCRAP")
+                ).ToList().Distinct().ToList());
+            return newItemList;
+        }
+
+        private List<SCAuditBsm> Get_DisplosedAsset(List<SCAudit> returnList)
+        {
+            var newItemList = _dataCleanseService.Process_SCAuditList(returnList
+                .Where
+                (
+                    item => item.Audit_Part_Num.StartsWith("BNL") &&
+                        item.Audit_Source_Site_Num.StartsWith("BNLSCRAP") &&
+                        string.IsNullOrEmpty(item.Audit_Dest_Site_Num) == true
+                ).ToList().Distinct().ToList());
+            return newItemList;
+        }
+
+        private List<SCAuditDeployBsm> Get_SwappedAsset(List<SCAuditDeploy> returnList)
+        {
+            var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
+                .Where
+                (
+                    item => item.Audit_Part_Num.StartsWith("BNL")
+                        && string.IsNullOrEmpty(item.Audit_Part_Num_Returned) == false
+                ).ToList().Distinct().ToList());
+            return newItemList;
+        }
+
         #endregion
     }
 }

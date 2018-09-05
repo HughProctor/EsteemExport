@@ -1,0 +1,46 @@
+{
+  "RecordCount": 0,
+  "Data": {
+    "ClassName": "System.AggregateException",
+    "Message": "One or more errors occurred.",
+    "Data": null,
+    "InnerException": {
+      "ClassName": "System.NullReferenceException",
+      "Message": "Object reference not set to an instance of an object.",
+      "Data": null,
+      "InnerException": null,
+      "HelpURL": null,
+      "StackTraceString": "   at BusinessModel.Services.EST_Service.<>c.<Get_Returned_from_BAM_User>b__21_0(SCAuditDeploy item) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 159\r\n   at System.Linq.Enumerable.WhereListIterator`1.MoveNext()\r\n   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)\r\n   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)\r\n   at BusinessModel.Services.EST_Service.Get_Returned_from_BAM_User(List`1 returnList) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 156\r\n   at BusinessModel.Services.EST_Service.GetExportData(IQueryBuilder queryBuilder) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 60\r\n   at BusinessModel.Services.BAM_Service.<ExportDataToBAM>d__11.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 56",
+      "RemoteStackTraceString": null,
+      "RemoteStackIndex": 0,
+      "ExceptionMethod": "8\n<Get_Returned_from_BAM_User>b__21_0\nBusinessModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nBusinessModel.Services.EST_Service+<>c\nBoolean <Get_Returned_from_BAM_User>b__21_0(EntityModel.SCAuditDeploy)",
+      "HResult": -2147467261,
+      "Source": "BusinessModel",
+      "WatsonBuckets": null
+    },
+    "HelpURL": null,
+    "StackTraceString": "   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)\r\n   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)\r\n   at System.Threading.Tasks.Task`1.get_Result()\r\n   at EsteemBAMConsoleApp.Jobs.RepeatJob_EsteemExtract_01.RunProcess() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\ConsoleApp\\EsteemBAMConsoleApp\\Jobs\\RepeatJob_EsteemExtract_01.cs:line 67",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": "8\nThrowIfExceptional\nmscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Threading.Tasks.Task\nVoid ThrowIfExceptional(Boolean)",
+    "HResult": -2146233088,
+    "Source": "mscorlib",
+    "WatsonBuckets": null,
+    "InnerExceptions": [
+      {
+        "ClassName": "System.NullReferenceException",
+        "Message": "Object reference not set to an instance of an object.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at BusinessModel.Services.EST_Service.<>c.<Get_Returned_from_BAM_User>b__21_0(SCAuditDeploy item) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 159\r\n   at System.Linq.Enumerable.WhereListIterator`1.MoveNext()\r\n   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)\r\n   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)\r\n   at BusinessModel.Services.EST_Service.Get_Returned_from_BAM_User(List`1 returnList) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 156\r\n   at BusinessModel.Services.EST_Service.GetExportData(IQueryBuilder queryBuilder) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 60\r\n   at BusinessModel.Services.BAM_Service.<ExportDataToBAM>d__11.MoveNext() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 56",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": "8\n<Get_Returned_from_BAM_User>b__21_0\nBusinessModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null\nBusinessModel.Services.EST_Service+<>c\nBoolean <Get_Returned_from_BAM_User>b__21_0(EntityModel.SCAuditDeploy)",
+        "HResult": -2147467261,
+        "Source": "BusinessModel",
+        "WatsonBuckets": null
+      }
+    ]
+  }
+}

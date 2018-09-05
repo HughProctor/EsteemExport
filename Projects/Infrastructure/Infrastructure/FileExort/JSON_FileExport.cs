@@ -64,30 +64,24 @@ namespace Infrastructure.FileExport
             }
         }
 
-        //public static void ReadFile(string fileExt, string subFolder = null)
-        //{
-        //    if (string.IsNullOrEmpty(fileExt) || data == null)
-        //        throw new Exception("JSON_FileExport FileExt and Data object cannot be null or empty");
+        public static string ReadFile(string fileName, string filePath = null)
+        {
+            if (string.IsNullOrEmpty(fileName) || filePath == null)
+                throw new Exception("JSON_FileExport FileExt and Folder cannot be null");
 
-        //    var path = Path.Combine(_fileLocation, string.IsNullOrEmpty(subFolder) ? "" : subFolder);
-        //    if (!Directory.Exists(path))
-        //        Directory.CreateDirectory(path);
-        //    path = path.EndsWith("\\") ? path : path + "\\";
+            var returnValue = "";
+            var path = Path.Combine(filePath, fileName);
+            if (!Directory.Exists(filePath))
+                throw new Exception("JSON_FileExport FileExt and Folder cannot be null");
+            if (!File.Exists(path))
+                throw new Exception("JSON_FileExport FileExt and Folder cannot be null");
 
-        //    using (StreamWriter file = File..ReadAllLines(string.Concat(path, _filePrefix, fileExt, ".json")))
-        //    {
-        //        JsonSerializer serializer = new JsonSerializer();
-        //        serializer.Formatting = Formatting.Indented;
-        //        //serialize object directly into file stream
-
-        //        var jsonExport = new JsonExport_StartEndDate()
-        //        {
-        //            Data = data
-        //        };
-        //        serializer.Serialize(file, jsonExport);
-        //    }
-        //}
-
+            using (StreamReader r = new StreamReader(path))
+            {
+                returnValue = r.ReadToEnd();
+            }
+            return returnValue;
+        }
 
         public static void WriteFile(string fileExt, object data, int count, string subFolder = null, DateTime? startDate = null, DateTime? endDate = null)
         {

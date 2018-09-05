@@ -67,12 +67,14 @@
     <Compile Include="Models\ServiceProgressReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BAM_Service.cs" />
+    <Compile Include="Services\EST_BAM_ModelLookupService.cs" />
     <Compile Include="Services\EST_DataCleanseService.cs" />
     <Compile Include="Services\EST_Service.cs" />
     <Compile Include="Services\Abstract\IEST_Service.cs" />
     <Compile Include="Services\Abstract\IEST_DataCleanseService.cs" />
     <Compile Include="Services\Abstract\IReportingService.cs" />
     <Compile Include="Services\Abstract\IBAM_Service.cs" />
+    <Compile Include="Services\Abstract\IEST_BAM_ModelLookupService.cs" />
     <Compile Include="Services\ReportingService.cs" />
   </ItemGroup>
   <ItemGroup>

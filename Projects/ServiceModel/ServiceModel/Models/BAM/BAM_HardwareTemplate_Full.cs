@@ -214,5 +214,6 @@ namespace ServiceModel.Models.BAM
         public string BAMPhoneSystem { get; set; }
         public string BAMSIMNumber { get; set; }
         public string BAMWhiteSky { get; set; }
+        public Target_HardwareAssetHasCatalogItem Target_HardwareAssetHasCatalogItem { get; set; }
     }
 }

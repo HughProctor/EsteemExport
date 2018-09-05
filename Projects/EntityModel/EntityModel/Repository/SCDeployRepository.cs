@@ -52,12 +52,12 @@ namespace EntityModel.Repository
                 "NULLIF(LTRIM(RTRIM(SCP.[Part_Alt_Part_Num])), '') AS [Part_Code], " +
                 "NULLIF(LTRIM(RTRIM(SL.[Fsrl_Call_Num])), '') AS [Call_Num], " +
                 "NULLIF(LTRIM(RTRIM(SC.[Call_Contact])), '') AS [Call_Contact], " +
-                "NULLIF(LTRIM(RTRIM(SC.[Call_Num])), '') AS [Call_Num], " +
+                //"NULLIF(LTRIM(RTRIM(SC.[Call_Num])), '') AS [Call_Num], " +
                 "NULLIF(LTRIM(RTRIM(SC.[Call_Ref])), '') AS [Call_Ref], " +
                 "CASE WHEN LEFT([Call_Phone], 2) LIKE '0%' THEN NULL ELSE LTRIM(RTRIM([Call_Phone])) END AS [Cost_Code], " +
                 "SL.[Fsrl_Last_Update] AS [UPDATE_DATE] " +
                 "FROM [SCFsrl] AS SL (NOLOCK) ";
-            QueryStringJoin = "FULL JOIN [SCPart] AS SCP ON SL.[Fsrl_Ret_Part_Num] = SCP.[Part_Num] ";
+            QueryStringJoin = "FULL JOIN [SCPart] AS SCP ON SL.[Fsrl_Part_Num] = SCP.[Part_Num] ";
             QueryStringJoin += "FULL JOIN [SCCall] AS SC ON SL.[Fsrl_Call_Num] = SC.[Call_Num] ";
             QueryStringJoin += "FULL JOIN [SCCalt] AS SCT ON SC.[Call_Calt_Code] = SCT.[Calt_Code] ";
             QueryString = QueryString + QueryStringJoin;
@@ -77,7 +77,7 @@ namespace EntityModel.Repository
             else _whereExpression = "";
             WhereExpression = string.IsNullOrEmpty(WhereExpression) ? _whereExpression :
                  string.IsNullOrEmpty(_whereExpression) ? WhereExpression : _whereExpression + WhereExpression.Replace("WHERE", "AND");
-            //WhereExpression = !string.IsNullOrEmpty(WhereExpression) ? WhereExpression + "AND [Part_Type] != 'D' " : "WHERE [Part_Type] != 'D'";
+            WhereExpression = !string.IsNullOrEmpty(WhereExpression) ? WhereExpression + "AND [Part_Type] != 'D' " : "WHERE [Part_Type] != 'D'";
 
 
             OrderBy = !string.IsNullOrEmpty(OrderBy) ? OrderBy : _orderBy;

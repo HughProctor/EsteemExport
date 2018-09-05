@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="BAM_API_Tests\BAM_API_Authentication_Tests.cs" />
     <Compile Include="BAM_API_Tests\BAM_GetUsers.cs" />
+    <Compile Include="BAM_API_Tests\BAM__GetHManufacturerItem_Tests.cs" />
     <Compile Include="BAM_API_Tests\BAM__GetHardwareItem_Tests.cs" />
     <Compile Include="BAM_API_Tests\BAM__InsertHardwareItem_Tests.cs" />
     <Compile Include="BAM_API_Tests\BAM__UpdateHardwareItem_Tests.cs" />

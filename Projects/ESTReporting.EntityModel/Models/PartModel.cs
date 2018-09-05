@@ -9,5 +9,6 @@ namespace ESTReporting.EntityModel.Models
         public string EsteemCodeAlt { get; set; }
         public string Description { get; set; }
         public string FullDescription { get; set; }
+        public bool IsInScope { get; set; }
     }
 }

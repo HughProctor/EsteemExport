@@ -66,7 +66,8 @@ namespace EsteemBAMConsoleApp.Jobs
 
                 //var lastProcessedReport = _dbContext.ServiceProgressReport.OrderByDescending(x => x.StartDateTime).LastOrDefault();
                 // In the occasion that the Current Running Process over writes the Last Entry, then we need to calculate the Time Gap
-                var lastProcessedReports = _dbContext.ServiceProgressReport.OrderByDescending(x => x.StartDateTime).Take(2).ToList();
+                var lastProcessedReports = _dbContext.ServiceProgressReport.Where(x => x.ServiceJobType == 3)
+                    .OrderByDescending(x => x.StartDateTime).Take(2).ToList();
                 if (lastProcessedReports == null && !lastProcessedReports.Any()) return;
 
                 // Incase there is only one record
@@ -99,7 +100,7 @@ namespace EsteemBAMConsoleApp.Jobs
 
                 for (var i = 0; i < count; i++)
                 {
-                    var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                    var returnList = _bamService.ExportDataToBAM(_queryBuilder, 1).Result;
                     _queryBuilder.StartDate = _queryBuilder.StartDate.AddHours(i);
                 }
             }

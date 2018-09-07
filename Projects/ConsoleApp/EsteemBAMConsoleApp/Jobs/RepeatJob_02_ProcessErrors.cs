@@ -88,7 +88,7 @@ namespace EsteemBAMConsoleApp.Jobs
                             //    _queryBuilder.StartDate.AddHours(1) : _queryBuilder.EndDate;
 
                         _queryBuilder.WhereExpression = whereStatement;
-                        var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                        var returnList = _bamService.ExportDataToBAM(_queryBuilder, 2).Result;
                     }
                 });
             }

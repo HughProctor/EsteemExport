@@ -16,9 +16,9 @@ namespace Esteem.ServiceHost
         /// <param name="args">The args.</param>
         static void Main(string[] args)
         {
-            if (!Debugger.IsAttached)
-                Debugger.Launch();
-            Debugger.Break();
+            //if (!Debugger.IsAttached)
+            //    Debugger.Launch();
+            //Debugger.Break();
 
             EventLogging.CreateEventLog();
             EventLogging.WriteEvent("Esteem Data Export Service Starting");

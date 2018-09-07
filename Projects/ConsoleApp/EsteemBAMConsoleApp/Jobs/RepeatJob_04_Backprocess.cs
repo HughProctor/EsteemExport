@@ -33,7 +33,7 @@ namespace EsteemBAMConsoleApp.Jobs
             _queryBuilder = new QueryBuilder();
 
             _startDateTimeString = string.IsNullOrEmpty(_startDateTimeString) ? "03/01/2017" : _startDateTimeString;
-            _endDateTimeString = string.IsNullOrEmpty(_endDateTimeString) ? "30/11/2017" : _endDateTimeString;
+            _endDateTimeString = string.IsNullOrEmpty(_endDateTimeString) ? "30/12/2019" : _endDateTimeString;
 
             DateTime.TryParse(_startDateTimeString, out _startDateTime);
             DateTime.TryParse(_endDateTimeString, out var endDateTime);
@@ -64,7 +64,7 @@ namespace EsteemBAMConsoleApp.Jobs
             try
             {
                 var _bamService = new BAM_Service();
-                var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                var returnList = _bamService.ExportDataToBAM(_queryBuilder, 4).Result;
             }
             catch (Exception exp)
             {
@@ -118,7 +118,7 @@ namespace EsteemBAMConsoleApp.Jobs
         {
             if (_startDateTime >= _startDateTime.AddYears(1)) return false;
             if (_startDateTime >= DateTime.Now) return false;
-            return true;
+            return false;
         }
 
         /// <summary>

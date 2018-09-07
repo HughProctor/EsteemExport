@@ -100,7 +100,7 @@ namespace Esteem.ServiceHost.Jobs
 
                 for (var i = 0; i < count; i++)
                 {
-                    var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                    var returnList = _bamService.ExportDataToBAM(_queryBuilder, 1).Result;
                     _queryBuilder.StartDate = _queryBuilder.StartDate.AddHours(i);
                 }
             }

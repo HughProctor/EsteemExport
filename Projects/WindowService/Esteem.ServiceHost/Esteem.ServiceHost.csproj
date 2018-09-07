@@ -64,12 +64,6 @@
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
-    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -114,8 +108,7 @@
     <Compile Include="Jobs\RepeatJob_02_ProcessErrors.cs" />
     <Compile Include="Jobs\RepeatJob_03_StartNow.cs" />
     <Compile Include="Jobs\RepeatJob_04_Backprocess.cs" />
-    <Compile Include="Jobs\RepeatJob_05_PurgeData.cs" />
-    <Compile Include="Jobs\RepeatJob_EsteemExtract_Original.cs" />
+    <Compile Include="Jobs\RepeatJob_00_EsteemExtract_Original.cs" />
     <Compile Include="Models\ScheduledJobModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!--<None Include="packages.config" />-->

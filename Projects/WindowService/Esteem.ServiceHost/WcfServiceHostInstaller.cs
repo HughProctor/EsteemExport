@@ -123,9 +123,9 @@ namespace Esteem.ServiceHost
             }
 
             // Log
-            Context.LogMessage(string.Format(CultureInfo.InvariantCulture, "Name: {0}", _serviceInstaller.ServiceName));
-            Context.LogMessage(string.Format(CultureInfo.InvariantCulture, "Display Name: {0}", _serviceInstaller.DisplayName));
-            Context.LogMessage(string.Format(CultureInfo.InvariantCulture, "Description: {0}", _serviceInstaller.Description));
+            Context.LogMessage(string.Format("Name: {0}", _serviceInstaller.ServiceName));
+            Context.LogMessage(string.Format("Display Name: {0}", _serviceInstaller.DisplayName));
+            Context.LogMessage(string.Format("Description: {0}", _serviceInstaller.Description));
         }
 
         /// <summary>

@@ -59,7 +59,7 @@ namespace BusinessModel.Services
 
             // Query, cleanse and subset the data
             //if (_dataExport == null)
-             var   _dataExport = _estService.GetExportData(queryBuilder);
+             var _dataExport = _estService.GetExportData(queryBuilder);
 
             queryBuilder = _estService._queryBuilder;
 

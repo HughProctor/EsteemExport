@@ -31,7 +31,7 @@ namespace EsteemBAMConsoleApp.Jobs
         {
             _queryBuilder = new QueryBuilder();
 
-            _startDateTime = DateTime.Now;
+            _startDateTime = DateTime.Now.AddHours(-1);
             _queryBuilder.StartDate = _startDateTime;
             _queryBuilder.TimeRange = 1;
 
@@ -56,7 +56,7 @@ namespace EsteemBAMConsoleApp.Jobs
             try
             {
                 var _bamService = new BAM_Service();
-                var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                var returnList = _bamService.ExportDataToBAM(_queryBuilder, 3).Result;
             }
             catch (Exception exp)
             {

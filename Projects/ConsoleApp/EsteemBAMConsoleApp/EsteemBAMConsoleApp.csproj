@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
-    <OutputPath>bin\Publish\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\..\..\_EsteemToBAMExportPublish\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
@@ -81,7 +81,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Jobs\RepeatJob_00_EsteemExtract_Original.cs" />
+    <Compile Include="Jobs\RepeatJob_01_ProcessCatchup.cs" />
+    <Compile Include="Jobs\RepeatJob_02_ProcessErrors.cs" />
+    <Compile Include="Jobs\RepeatJob_03_StartNow.cs" />
+    <Compile Include="Jobs\RepeatJob_04_Backprocess.cs" />
+    <Compile Include="Jobs\RepeatJob_05_PurgeData.cs" />
     <Compile Include="Models\ScheduledJobModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

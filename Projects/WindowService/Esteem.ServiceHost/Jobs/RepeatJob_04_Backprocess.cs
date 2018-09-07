@@ -64,7 +64,7 @@ namespace Esteem.ServiceHost.Jobs
             try
             {
                 var _bamService = new BAM_Service();
-                var returnList = _bamService.ExportDataToBAM(_queryBuilder).Result;
+                var returnList = _bamService.ExportDataToBAM(_queryBuilder, 4).Result;
             }
             catch (Exception exp)
             {

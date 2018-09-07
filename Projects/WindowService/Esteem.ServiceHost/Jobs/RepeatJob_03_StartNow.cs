@@ -31,7 +31,7 @@ namespace Esteem.ServiceHost.Jobs
         {
             _queryBuilder = new QueryBuilder();
 
-            _startDateTime = DateTime.Now;
+            _startDateTime = DateTime.Now.AddHours(-1);
             _queryBuilder.StartDate = _startDateTime;
             _queryBuilder.TimeRange = 1;
 

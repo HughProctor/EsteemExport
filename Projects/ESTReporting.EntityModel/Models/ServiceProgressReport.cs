@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ESTReporting.EntityModel.Models
 {
@@ -21,5 +17,6 @@ namespace ESTReporting.EntityModel.Models
         public DateTime? QueryStartParameters { get; set; }
         public DateTime? QueryEndParameters { get; set; }
         public string QueryString { get; set; }
+        public int ServiceJobType { get; set; } 
     }
 }

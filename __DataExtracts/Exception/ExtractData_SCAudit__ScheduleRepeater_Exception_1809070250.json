@@ -1,0 +1,17 @@
+{
+  "RecordCount": 0,
+  "Data": {
+    "ClassName": "System.InvalidOperationException",
+    "Message": "Sequence contains no matching element",
+    "Data": null,
+    "InnerException": null,
+    "HelpURL": null,
+    "StackTraceString": "   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source, Func`2 predicate)\r\n   at BusinessModel.Mappers.MappingExpressionExtensions.IgnoreAllNonExisting[TSource,TDestination](IMappingExpression`2 expression) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Mappers\\AutoMapperExtensions.cs:line 17\r\n   at BusinessModel.Mappers.Map.<>c.<Init>b__0_0(IMapperConfiguration cfg) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Mappers\\Map.cs:line 21\r\n   at AutoMapper.Mapper.Initialize(Action`1 action)\r\n   at BusinessModel.Mappers.Map.Init() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Mappers\\Map.cs:line 17\r\n   at BusinessModel.Services.EST_Service..ctor(ISCAuditRepository auditService, ISCDeployRepository deployService, IEST_DataCleanseService dataCleanseService) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 32\r\n   at BusinessModel.Services.EST_Service..ctor() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\EST_Service.cs:line 26\r\n   at BusinessModel.Services.BAM_Service..ctor(IEST_Service estService, IBAM_HardwareAssetServices bAM_HardwareAsset, IBAM_AssetStatusService assetStatusService, IBAM_UserService userService, IReportingService reportingService) in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 40\r\n   at BusinessModel.Services.BAM_Service..ctor() in C:\\Users\\BAMEsteemExportAdmin\\Source\\Repos\\EsteemExport\\Projects\\BusinessModel\\BusinessModel\\Services\\BAM_Service.cs:line 33\r\n   at Esteem.ServiceHost.Jobs.RepeatJob_04_Backprocess.RunProcess() in C:\\Users\\BAMEsteemExportAdmin\\source\\repos\\EsteemExport\\Projects\\WindowService\\Esteem.ServiceHost\\Jobs\\RepeatJob_04_Backprocess.cs:line 66",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": "8\nFirst\nSystem.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089\nSystem.Linq.Enumerable\nTSource First[TSource](System.Collections.Generic.IEnumerable`1[TSource], System.Func`2[TSource,System.Boolean])",
+    "HResult": -2146233079,
+    "Source": "System.Core",
+    "WatsonBuckets": null
+  }
+}

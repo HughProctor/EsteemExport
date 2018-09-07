@@ -12,6 +12,7 @@ namespace ServiceModel.Services
     public class BAM_AssetStatusService : IBAM_AssetStatusService //BAM_ApiClient, 
     {
         public BAM_ApiClient _bamclient;
+        public List<HardwareAssetStatus> HardwareAssetStatusList { get; set; }
 
         public BAM_AssetStatusService() : this(null)
         {
@@ -25,6 +26,7 @@ namespace ServiceModel.Services
                 _bamclient = new BAM_ApiClient();
                 Task.Run(() => _bamclient.Setup()).Wait();
             }
+            HardwareAssetStatusList = GetAssetStatusTemplateList();
         }
 
         public AssetStatus GetAssetStatusTemplate2(EST_HWAssetStatus assetStatus)
@@ -68,5 +70,22 @@ namespace ServiceModel.Services
             var newItem = result.HardwareAssetStatuses.Where(x => x.Name == assetStatus.ToBAMString()).FirstOrDefault();
             return newItem;
         }
+
+        public List<HardwareAssetStatus> GetAssetStatusTemplateList()
+        {
+            var id = "6b7304c4-1b09-bffc-3fe3-1cfd3eb630cb";
+            var itemFiler = EST_HWAssetStatus.NewItem.ToBAMString();
+            var flatten = false;
+
+            var queryFilter = string.Format("?id={0}&itemFilter={1}&Flatten={2}",
+                id, itemFiler, flatten);
+            var queryResult = _bamclient._client.GetAsync("api/V3/Enum/GetList" + queryFilter).Result;
+
+            var resultSring = queryResult.Content.ReadAsStringAsync().Result;
+
+            var result = JsonConvert.DeserializeObject<List<HardwareAssetStatus>>(resultSring);
+            return result;
+        }
+
     }
 }

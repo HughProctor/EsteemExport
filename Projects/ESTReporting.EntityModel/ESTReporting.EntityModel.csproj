@@ -29,6 +29,15 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -137,6 +146,10 @@
     <Compile Include="Migrations\201809051518380_Add_ESTModelLookup_ModelType.Designer.cs">
       <DependentUpon>201809051518380_Add_ESTModelLookup_ModelType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809071512595_Add_Service_Progress_ServiceJobType.cs" />
+    <Compile Include="Migrations\201809071512595_Add_Service_Progress_ServiceJobType.Designer.cs">
+      <DependentUpon>201809071512595_Add_Service_Progress_ServiceJobType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -228,6 +241,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809051518380_Add_ESTModelLookup_ModelType.resx">
       <DependentUpon>201809051518380_Add_ESTModelLookup_ModelType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809071512595_Add_Service_Progress_ServiceJobType.resx">
+      <DependentUpon>201809071512595_Add_Service_Progress_ServiceJobType.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BusinessModel.BusinessLogic;
 using BusinessModel.Mappers;
 using BusinessModel.Models;
 using BusinessModel.Services.Abstract;
@@ -15,12 +16,17 @@ namespace BusinessModel.Services
         private BAMEsteemExportContext dbContext;
         private List<PartManufacturer> PartManufacturers;
         private List<PartModel> PartModels;
+        private ManufacturerComparer manufacturerComparer;
 
         public EST_DataCleanseService()
         {
             dbContext = new BAMEsteemExportContext();
-            PartManufacturers = dbContext.PartManufacturers.Where(x => x.Name == "Cables").ToList();
+            PartManufacturers = dbContext.PartManufacturers.ToList();
             PartModels = dbContext.PartModels.Where(x => x.IsInScope == true).ToList();
+            manufacturerComparer = new ManufacturerComparer()
+            {
+                Manufacturers = PartManufacturers
+            };
         }
 
         public List<BAMDataModel> ProcessSCAuditList(List<SCAudit> sCAudits)
@@ -36,28 +42,44 @@ namespace BusinessModel.Services
                 var scAuditBsm = new SCAuditBsm();
                 scAuditBsm = Map.Map_Results(item);
 
-                scAuditBsm.Audit_Part_Num_New = scAuditBsm.Audit_Part_Num?.Replace("BNL-", "").Replace("-NEW", "");
-                scAuditBsm.AssetName = scAuditBsm.Audit_Prod_Desc?.Replace("BNL ", "")?.Replace("  ", " ")?.Trim();
-                scAuditBsm.Asset_Desc = scAuditBsm.Audit_Prod_Desc?.Replace("BNL ", "");
 
                 scAuditBsm.Asset_Desc_Code = scAuditBsm.Audit_Prod_Desc_Alt;
+                scAuditBsm.Asset_Desc = scAuditBsm.Audit_Prod_Desc?.Replace("HPX", "HP").Replace("TAC", "").Replace("BNL", "").Replace("MOBILE", "")
+                    .Replace("WSTATION", "").Replace("WSTA", "").Replace("  ", " ").Replace("CLOUD MANAGED", "")//.Replace("ELITE", "ELITEBOOK")
+                    .Trim();
 
                 scAuditBsm.Asset_Desc_Code_Pre = string.IsNullOrEmpty(scAuditBsm.Asset_Desc_Code) ? "" : scAuditBsm.Asset_Desc_Code.Substring(0, 3);
                 scAuditBsm.Asset_Desc_Code_Suf = !string.IsNullOrEmpty(scAuditBsm.Asset_Desc_Code) && scAuditBsm.Asset_Desc_Code?.Length > 3 ? scAuditBsm.Asset_Desc_Code.Substring(3) : "";
 
                 scAuditBsm.Asset_Desc_Code_Split = scAuditBsm.Asset_Desc?.ToUpper()?.Split(' ').Distinct().ToList();
+                //scAuditBsm.Asset_Desc_Code_Split = scAuditBsm.Asset_Desc?.ToUpper()?.Split(' ').Distinct().OrderBy(x => x, new SemiNumericComparer()).ToList();
+                //scAuditBsm.Asset_Desc_Code_Split = scAuditBsm.Asset_Desc?.ToUpper()?.Split(' ').Distinct().OrderBy(x => x, manufacturerComparer).ThenByDescending(x => x, new SemiNumericComparer()).ToList();
 
+                var model = PartModels.Where(mod => 
+                    scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCode || scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCodeAlt)?.FirstOrDefault();
+
+                /*----------------------------- If no Model exists then we're skipping the item ---- We don't want it --------------*/
+                // Important Business Logic
+                if (model == null)
+                    return;
+
+                scAuditBsm.Model = model?.Name ?? model?.Description ?? "";
+                scAuditBsm.Audit_Part_Num_New = scAuditBsm.Audit_Part_Num?.Replace("BNL-", "").Replace("-NEW", "");
+                scAuditBsm.AssetName = scAuditBsm.Audit_Prod_Desc?.Replace("BNL ", "")?.Replace("  ", " ")?.Trim();
                 scAuditBsm.Manufacturer = PartManufacturers.Where(manu => scAuditBsm.Asset_Desc_Code_Split.Any(code => manu.Name?.ToUpper() == code.ToUpper() ||
                         manu.Code?.ToUpper() == code.ToUpper() || manu.CodeEsteem?.ToUpper() == code.ToUpper()
                         || manu.CodeEsteemAlt?.ToUpper() == code.ToUpper()))?.FirstOrDefault()?.Name;
 
-                // 
-                var model = PartModels.Where(mod => 
-                    scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCode || scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCodeAlt)?.FirstOrDefault();
-                //if (model != null)
-                scAuditBsm.Model = model?.Name ?? model?.Description ?? "";
+                // Clean Asset Tag
+                scAuditBsm.AssetTag = (bool)scAuditBsm.Audit_Ser_Num?.Contains('/') ?
+                    scAuditBsm.Audit_Ser_Num.Substring(0, scAuditBsm.Audit_Ser_Num.IndexOf('/')) : scAuditBsm.Audit_Ser_Num;
+                scAuditBsm.AssetTag = scAuditBsm.AssetTag.Trim();
 
-                scAuditBsm.SerialNumber = (bool)item.Audit_Ser_Num?.Contains('/') ? item.Audit_Ser_Num.Substring(item.Audit_Ser_Num.IndexOf('/') + 1) : (item.Audit_Ser_Num ?? "");
+                // Clean SerialNumber
+                scAuditBsm.SerialNumber = (bool)scAuditBsm.Audit_Ser_Num?.Contains('/') ?
+                    scAuditBsm.Audit_Ser_Num.Substring(scAuditBsm.Audit_Ser_Num.IndexOf('/') + 1) : scAuditBsm.Audit_Ser_Num;
+                scAuditBsm.SerialNumber = scAuditBsm.SerialNumber.Trim();
+
                 scAuditBsm.DisplayName = scAuditBsm.AssetName;
                 var userName = (bool)scAuditBsm.Audit_User?.Contains('/') ? scAuditBsm.Audit_User.Substring(0, scAuditBsm.Audit_User.IndexOf('/')).Trim() : (scAuditBsm.Audit_User ?? "");
                 var userNameSplit = userName.Split(' ');
@@ -76,26 +98,35 @@ namespace BusinessModel.Services
                 var scAuditBsm = new SCAuditDeployBsm();
                 scAuditBsm = Map.Map_Results(item);
 
-                scAuditBsm.Audit_Part_Num_New = scAuditBsm.Audit_Part_Num?.Replace("BNL-", "").Replace("-NEW", "");
-                scAuditBsm.AssetName = scAuditBsm.Audit_Prod_Desc?.Replace("BNL ", "")?.Replace("  ", " ")?.Trim();
-                scAuditBsm.Asset_Desc = scAuditBsm.Audit_Prod_Desc?.Replace("BNL ", "");
 
                 scAuditBsm.Asset_Desc_Code = scAuditBsm.Audit_Part_Code;
+                scAuditBsm.Asset_Desc = scAuditBsm.Audit_Prod_Desc?.Replace("HPX", "HP").Replace("TAC", "").Replace("BNL", "").Replace("MOBILE", "")
+                    .Replace("WSTATION", "").Replace("WSTA", "").Replace("  ", " ").Replace("CLOUD MANAGED", "")//.Replace("ELITE", "ELITEBOOK")
+                    .Trim();
 
                 scAuditBsm.Asset_Desc_Code_Pre = string.IsNullOrEmpty(scAuditBsm.Asset_Desc_Code) ? "" : scAuditBsm.Asset_Desc_Code.Substring(0, 3);
                 scAuditBsm.Asset_Desc_Code_Suf = !string.IsNullOrEmpty(scAuditBsm.Asset_Desc_Code) && scAuditBsm.Asset_Desc_Code?.Length > 3 ? scAuditBsm.Asset_Desc_Code.Substring(3) : "";
 
                 scAuditBsm.Asset_Desc_Code_Split = scAuditBsm.Asset_Desc?.ToUpper()?.Split(' ').Distinct().ToList();
+                //scAuditBsm.Asset_Desc_Code_Split = scAuditBsm.Asset_Desc?.ToUpper()?.Split(' ').Distinct().OrderBy(x => x, new SemiNumericComparer()).ToList();
+                //scAuditBsm.Asset_Desc_Code_Split = scAuditBsm.Asset_Desc?.ToUpper()?.Split(' ').Distinct().OrderBy(x => x, manufacturerComparer).ThenByDescending(x => x, new SemiNumericComparer()).ToList();
                 scAuditBsm.Asset_Desc_Code_Pre = string.IsNullOrEmpty(scAuditBsm.Asset_Desc_Code) ? "" : scAuditBsm.Asset_Desc_Code.Substring(0, 3);
                 scAuditBsm.Asset_Desc_Code_Suf = !string.IsNullOrEmpty(scAuditBsm.Asset_Desc_Code) && scAuditBsm.Asset_Desc_Code?.Length > 3 ? scAuditBsm.Asset_Desc_Code.Substring(3) : "";
 
+                var model = PartModels.Where(mod =>
+                    scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCode || scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCodeAlt)?.FirstOrDefault();
+
+                /*----------------------------- If no Model exists then we're skipping the item ---- We don't want it --------------*/
+                // Important Business Logic
+                if (model == null) return;
+
+                scAuditBsm.Model = model?.Name ?? model?.Description ?? "";
+                scAuditBsm.Audit_Part_Num_New = scAuditBsm.Audit_Part_Num?.Replace("BNL-", "").Replace("-NEW", "");
+                scAuditBsm.AssetName = scAuditBsm.Audit_Prod_Desc?.Replace("BNL ", "")?.Replace("  ", " ")?.Trim();
                 scAuditBsm.Manufacturer = PartManufacturers.Where(t1 => scAuditBsm.Asset_Desc_Code_Split.Any(t2 => t1.Name?.ToUpper() == t2.ToUpper() ||
                         t1.Code?.ToUpper() == t2.ToUpper() || t1.CodeEsteem?.ToUpper() == t2.ToUpper()
                         || t1.CodeEsteemAlt?.ToUpper() == t2.ToUpper()))?.FirstOrDefault()?.Name;
 
-                var model = PartModels.Where(mod =>
-                    scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCode || scAuditBsm.Asset_Desc_Code_Pre == mod.EsteemCodeAlt)?.FirstOrDefault();
-                scAuditBsm.Model = model?.Name ?? model?.Description ?? "";
 
                 // Clean Asset Tag
                 scAuditBsm.AssetTag = (bool)scAuditBsm.Audit_Ser_Num?.Contains('/') ? 

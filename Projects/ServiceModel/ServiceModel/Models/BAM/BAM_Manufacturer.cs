@@ -14,5 +14,6 @@ namespace ServiceModel.Models.BAM
         public string Name { get; set; }
         public string ModelString { get; set; }
         public string ManufacturerString { get; set; }
+        public Type Type { get; set; }
     }
 }

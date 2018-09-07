@@ -1,4 +1,4 @@
-﻿namespace LayrCake.WCFServiceHost
+﻿namespace Esteem.ServiceHost
 {
     partial class WcfServiceHostInstaller
     {

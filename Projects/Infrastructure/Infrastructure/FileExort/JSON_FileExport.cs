@@ -6,8 +6,8 @@ namespace Infrastructure.FileExport
 {
     public static class JSON_FileExport
     {
-        //public const string _fileLocation = @"C:\Users\proctorh\source\repos\ExtractData\ExtractData_";
-        public const string _fileLocation = @"..\..\..\..\..\__DataExtracts";
+        public const string _fileLocation = @"C:\_EsteemToBAMExport";
+        //public const string _fileLocation = @"..\..\..\..\..\__DataExtracts";
         public const string _filePrefix = "ExtractData_";
 
         public static void WriteFile(string fileExt, object data, int count)

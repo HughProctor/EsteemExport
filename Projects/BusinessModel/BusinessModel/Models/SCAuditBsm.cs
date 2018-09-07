@@ -23,5 +23,6 @@ namespace BusinessModel
         public string AssetName { get; set; }
         public string DisplayName { get; set; }
         public string RequestUser { get; set; }
+        public string AssetTag { get; set; }
     }
 }

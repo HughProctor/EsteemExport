@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using ServiceModel.Models.BAM;
 using ServiceModel.Models.Esteem;
 using ServiceModel.Services.Abstract;
@@ -31,9 +32,16 @@ namespace ServiceModel.Services
             var queryResult = _bamclient._client.GetAsync("Search/GetSearchObjectsWithEnumObjectByClassId" + queryFilter).Result;
 
             var resultSring = queryResult.Content.ReadAsStringAsync().Result;
-
-            var resultTemp = JsonConvert.DeserializeObject<List<BAM_Manufacturer>>(resultSring);
+            var jToken = JObject.Parse(resultSring)["Data"];
+            var resultTemp = jToken.ToObject<List<BAM_Manufacturer>>();
+            //var resultTemp = JsonConvert.DeserializeObject<List<BAM_Manufacturer>>(resultSring);
             return resultTemp;
         }
     }
+
+    //private class BAM_Manufacturer
+    //{
+    //    public object[] Data { get; set; }
+    //    public string Total { get; set; }
+    //}
 }

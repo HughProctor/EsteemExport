@@ -16,7 +16,7 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "CAB",
                     Description = "Cables",
-                    FullDescription = "Cables EG Ide, SAS, Kettle lead"
+                    FullDescription = "Cables EG Ide, SAS, Kettle lead",
                 },
                 new PartModel()
                 {
@@ -88,7 +88,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "NET",
                     Description = "Network items",
-                    FullDescription =   "Network items EG Switches, KVM,Modems, print servers" },
+                    FullDescription =   "Network items EG Switches, KVM,Modems, print servers",
+                    IsInScope = true
+                },
                 new PartModel()
                 {
                     EsteemCode = "PSU",
@@ -98,12 +100,14 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "SCA",
                     Description = "Scanner related",
-                    FullDescription =   "Scanners, whole and part" },
+                    FullDescription =   "Scanners, whole and part",
+                },
                 new PartModel()
                 {
                     EsteemCode = "TOU",
                     Description = "Touch screen related",
-                    FullDescription =   "Touchscreens, Whole and part" },
+                    FullDescription =   "Touchscreens, Whole and part",
+                },
                 new PartModel()
                 {
                     EsteemCode = "CDC",
@@ -168,7 +172,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "PCC",
                     Description = "PC complete",
-                    FullDescription =   "Complete Pc's of any form factor" },
+                    FullDescription =   "Complete Pc's of any form factor",
+                    IsInScope = true
+                },
                 new PartModel()
                 {
                     EsteemCode = "PCP",
@@ -178,7 +184,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "PRC",
                     Description = "Printers Complete",
-                    FullDescription =   "Complete printers of all types EG Laser, DOT, Thermal" },
+                    FullDescription =   "Complete printers of all types EG Laser, DOT, Thermal",
+                    IsInScope = true
+                },
                 new PartModel()
                 {
                     EsteemCode = "PRP",
@@ -198,7 +206,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "NOC",
                     Description = "Notebook complete",
-                    FullDescription =   "Complete notebooks of all types EG Netbook, Ultra" },
+                    FullDescription =   "Complete notebooks of all types EG Netbook, Ultra",
+                    IsInScope = true
+                },
                 new PartModel()
                 {
                     EsteemCode = "NOP",
@@ -213,7 +223,8 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "POC",
                     Description = "Pos complete",
-                    FullDescription = "Complete POS units" },
+                    FullDescription = "Complete POS units",
+                },
                 new PartModel()
                 {
                     EsteemCode = "POP",
@@ -228,7 +239,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "SVC",
                     Description = "Server complete",
-                    FullDescription = "Complete servers of any form factor and size" },
+                    FullDescription = "Complete servers of any form factor and size",
+                    IsInScope = true
+                },
                 new PartModel()
                 {
                     EsteemCode = "SVP ",
@@ -238,7 +251,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "TAC",
                     Description = "Tablet Complete",
-                    FullDescription =   "Ipads etc" },
+                    FullDescription =   "Ipads etc",
+                    IsInScope = true
+                },
                 new PartModel()
                 {
                     EsteemCode = "TAP",
@@ -248,7 +263,9 @@ namespace ESTReporting.EntityModel.SeedData
                 {
                     EsteemCode = "UPS ",
                     Description = "UPS related",
-                    FullDescription =   "UPS, Whole and part" }
+                    FullDescription =   "UPS, Whole and part",
+                    IsInScope = true
+                }
             };
 
             return returnList;

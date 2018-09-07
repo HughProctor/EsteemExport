@@ -7,5 +7,7 @@ namespace ServiceModel.Services.Abstract
     {
         BAM_User GetUser(string userName);
         List<BAM_User> GetUserList();
+        List<BAM_User> UserList { get; set; }
+
     }
 }

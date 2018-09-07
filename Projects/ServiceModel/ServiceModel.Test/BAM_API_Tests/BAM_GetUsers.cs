@@ -97,8 +97,21 @@ namespace ServiceModel.Test.BAM_API_Tests
             IBAM_UserService bamUserService = new BAM_UserService();
             var user = bamUserService.GetUser(userFilter);
 
-            Assert.IsNotNull(user, "Eleanor Westwood is null");
-            Assert.IsTrue(user.Name == userFilter, "Eleanor Westwood is null");
+            Assert.IsNotNull(user, "User record is null");
+            Assert.IsTrue(user.Name == userFilter, "Britton, David is null");
+        }
+
+        [TestMethod]
+        public async Task BAM_User_Get_List()
+        {
+            var userFilter = "Britton, David";
+
+            IBAM_UserService bamUserService = new BAM_UserService();
+            var userList = bamUserService.GetUserList();
+
+            Assert.IsNotNull(userList, "BAM User list is null");
+            Assert.IsTrue(userList.Any(), "BAM User list doesn't contain any records");
+            Assert.IsTrue(userList.Any(x => x.Name == userFilter), "Britton, David is null");
         }
     }
 }

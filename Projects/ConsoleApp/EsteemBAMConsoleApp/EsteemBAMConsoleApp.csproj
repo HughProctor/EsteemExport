@@ -31,6 +31,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <OutputPath>bin\Publish\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
@@ -71,7 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Jobs\RepeatJob_EsteemExtract_01.cs" />
+    <Compile Include="Jobs\RepeatJob_00_EsteemExtract_Original.cs" />
     <Compile Include="Models\ScheduledJobModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,6 +98,10 @@
     <ProjectReference Include="..\..\EntityModel\EntityModel\EntityModel.csproj">
       <Project>{6516b7eb-1179-420b-9c3d-eb0861be2254}</Project>
       <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ESTReporting.EntityModel\ESTReporting.EntityModel.csproj">
+      <Project>{a9398c2f-2c31-4a18-bf37-ba672c640427}</Project>
+      <Name>ESTReporting.EntityModel</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
       <Project>{66e4081a-8098-4755-8dc5-b1d1218e76db}</Project>

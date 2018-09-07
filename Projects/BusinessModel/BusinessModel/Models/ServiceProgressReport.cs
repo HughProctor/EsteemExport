@@ -17,5 +17,6 @@ namespace BusinessModel.Models
         public DateTime? QueryStartParameters { get; set; }
         public DateTime? QueryEndParameters { get; set; }
         public string QueryString { get; set; }
+        public int ServiceJobType { get; set; }
     }
 }

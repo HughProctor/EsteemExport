@@ -10,7 +10,7 @@ namespace Esteem.ServiceHost
     public static class EventLogging
     {
         public const string EVENT_LOG_NAME = "Esteem.ServiceHost";
-        public const string EVENT_LOG_SOURCE = "LayrCake_WCF";
+        public const string EVENT_LOG_SOURCE = "EsteemExportToBAM";
         public static EventLog ServiceHostEventLog = new EventLog(EVENT_LOG_NAME, Environment.MachineName, EVENT_LOG_SOURCE);
         private const string REG_KEY_NAME = @"SYSTEM\CurrentControlSet\Services\EventLog\" + EVENT_LOG_NAME + @"\" + EVENT_LOG_SOURCE;
 

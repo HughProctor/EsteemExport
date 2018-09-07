@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ServiceProcess;
+﻿using BusinessModel.Mappers;
+using SchedulerManager.Mechanism;
+using System;
+using System.Diagnostics;
 
-namespace LayrCake.WCFServiceHost
+namespace Esteem.ServiceHost
 {
     /// <summary>
     /// A console host.
     /// </summary>
-    public class WcfConsoleHost
+    public class ServiceHost
     {
         /// <summary>
         /// The main entry point for the application.
@@ -15,43 +16,25 @@ namespace LayrCake.WCFServiceHost
         /// <param name="args">The args.</param>
         static void Main(string[] args)
         {
-#if DEBUG
-            AttachDebugger.Debug();
-            args = new List<string> {"-D"}.ToArray();
-#endif
-            // Puts it into Debug allowed (Development mode)
-            if (args.Length > 0 && args[0].Trim().ToUpperInvariant() == "-D")
+            if (!Debugger.IsAttached)
+                Debugger.Launch();
+            Debugger.Break();
+
+            EventLogging.CreateEventLog();
+            EventLogging.WriteEvent("Esteem Data Export Service Starting");
+
+            Console.WriteLine("Esteem Data Export Service Starting");
+            try
             {
-                // Attaches a VS debugger depending upon the appSettings compilation debug value
-                Console.WriteLine("Wcf Service Host");
+                Map.Init();
+                JobManager jobManager = new JobManager();
+                EventLogging.WriteEvent("Esteem Data Export Service Executing");
 
-                // Start all services
-                var container = new WcfServiceHostContainer();
-                container.StartServices();
-
-                Console.WriteLine("Hosting the following services:");
-                string[] names = container.GetHostedServiceNames();
-
-                foreach (string name in names)
-                {
-                    Console.WriteLine("Service: " + name);
-                }
-
-                Console.WriteLine("Press <Enter> to close.");
-                Console.ReadLine();
-
-                // Stop all services
-                container.StopServices();
-                container = null;
+                jobManager.ExecuteAllJobs();
             }
-            else
+            catch (Exception exception)
             {
-                // Run the service
-                var wcfServiceHost = new ServiceBase[] 
-                { 
-                    new WcfServiceHost() 
-                };
-                ServiceBase.Run(wcfServiceHost);
+                EventLogging.WriteError(exception.Message);
             }
         }
     }

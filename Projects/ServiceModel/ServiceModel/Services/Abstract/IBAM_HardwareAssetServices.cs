@@ -16,7 +16,7 @@ namespace ServiceModel.Services.Abstract
         List<HardwareTemplate_Full> GetHardwareAsset_Full(string serialNumber);
 
         List<HardwareTemplate> InsertTemplate(HardwareTemplate newTemplate);
-        HardwareTemplate_Full SetHardwareAssetPrimaryUser(HardwareTemplate_Full template, BAM_User user);
+        HardwareTemplate_Full SetHardwareAssetPrimaryUser(HardwareTemplate_Full template, string userName);
         List<HardwareTemplate> UpdateTemplate(HardwareTemplate newTemplate, HardwareTemplate originalTemplate);
         List<HardwareTemplate_Full> UpdateTemplate(HardwareTemplate_Full newTemplate, HardwareTemplate_Full originalTemplate);
 
@@ -25,5 +25,7 @@ namespace ServiceModel.Services.Abstract
         HardwareTemplate_Full SetLocation(HardwareTemplate_Full template, string audit_Dest_Site_Num);
         HardwareTemplate SetAssetTag(HardwareTemplate template, string assetTag);
         HardwareTemplate_Full SetCostCode(HardwareTemplate_Full newHardwareAsset, string audit_Cost_Code);
+        BAM_User GetUser(string userName);
+        HardwareTemplate_Full SetUser(HardwareTemplate_Full template, BAM_User user);
     }
 }

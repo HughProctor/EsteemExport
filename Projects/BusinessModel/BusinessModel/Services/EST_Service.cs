@@ -57,7 +57,7 @@ namespace BusinessModel.Services
             returnValue.LocationChangeList = Get_Location_Change(returnAuditList);
             returnValue.AssetTagChangeList = Get_Asset_Tag_Change(returnAuditList);
             returnValue.DeployedToBAMUserList = Get_Deployed_to_BAM_User(returnDeployList);
-            returnValue.ReturnedFromBAMUserList = Get_Returned_from_BAM_User(returnDeployList);
+            //returnValue.ReturnedFromBAMUserList = Get_Returned_from_BAM_User(returnDeployList); Depreciated
 
 
             returnValue.ReturnedFromBAMList = Get_ReturnedFromBAM(returnAuditList);

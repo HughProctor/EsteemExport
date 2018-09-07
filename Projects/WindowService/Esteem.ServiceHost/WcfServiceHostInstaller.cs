@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration.Install;
-using System.Linq;
 using System.ServiceProcess;
 using System.Globalization;
 using System.Diagnostics;
-using Microsoft.Win32;
+using Esteem.ServiceHost;
 
-namespace LayrCake.WCFServiceHost
+namespace Esteem.ServiceHost
 {
     /// <summary>
     /// Installs the service host.
@@ -43,7 +41,7 @@ namespace LayrCake.WCFServiceHost
         {
             InitializeComponent();
             //Debugger.Launch();
-            EventLogging.WriteEvent("WcfServiceHostInstaller Start");
+            EventLogging.WriteEvent("Esteem Data Export Start");
             PerformInstall();
         }
 

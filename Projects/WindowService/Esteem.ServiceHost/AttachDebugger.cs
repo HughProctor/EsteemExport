@@ -5,7 +5,7 @@ using System.Text;
 using System.Configuration;
 using System.Diagnostics;
 
-namespace LayrCake.WCFServiceHost
+namespace Esteem.ServiceHost
 {
     public static class AttachDebugger
     {

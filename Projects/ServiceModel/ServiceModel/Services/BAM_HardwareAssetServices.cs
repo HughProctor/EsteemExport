@@ -17,12 +17,15 @@ namespace ServiceModel.Services
 {
     public class BAM_HardwareAssetServices : IBAM_HardwareAssetServices //BAM_ApiClient, 
     {
-        IBAM_AssetStatusService _assetStatusService;
         public BAM_ApiClient _bamclient;
         public List<NameRelationship> _bamApiRelationships;
+        IBAM_AssetStatusService _assetStatusService;
+        IBAM_UserService _userService;
+        IBAM_CostCenterService _costCenterService;
+
 
         #region Constructors
-        public BAM_HardwareAssetServices() : this(null, null)
+        public BAM_HardwareAssetServices() : this(null)
         {
         }
         public BAM_HardwareAssetServices(BAM_ApiClient bamclient)
@@ -34,21 +37,23 @@ namespace ServiceModel.Services
                 Task.Run(() => _bamclient.Setup()).Wait();
             }
             _assetStatusService = new BAM_AssetStatusService(_bamclient);
+            _userService = new BAM_UserService(_bamclient);
+            _costCenterService = new BAM_CostCenterService(_bamclient);
 
             var jsonNameRelationships = JSON_FileExport.ReadFile("NameRelationships.json", "JsonStatics");
             _bamApiRelationships = JsonConvert.DeserializeObject<List<NameRelationship>>(jsonNameRelationships);
         }
 
-        public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService, BAM_ApiClient bamclient)
-        {
-            _bamclient = bamclient;
-            if (_bamclient == null)
-            {
-                _bamclient = new BAM_ApiClient();
-                Task.Run(() => _bamclient.Setup()).Wait();
-            }
-            _assetStatusService = assetStatusService ?? new BAM_AssetStatusService(_bamclient);
-        }
+        //public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService, BAM_ApiClient bamclient)
+        //{
+        //    _bamclient = bamclient;
+        //    if (_bamclient == null)
+        //    {
+        //        _bamclient = new BAM_ApiClient();
+        //        Task.Run(() => _bamclient.Setup()).Wait();
+        //    }
+        //    _assetStatusService = assetStatusService ?? new BAM_AssetStatusService(_bamclient);
+        //}
 
         //public BAM_HardwareAssetServices(IBAM_AssetStatusService assetStatusService) 
         //{
@@ -305,7 +310,7 @@ namespace ServiceModel.Services
 
             // Clone the object so we can check the changes
             var newHardwareAsset = CloneObject.Clone(template);
-            newHardwareAsset.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(hWAssetStatus);
+            newHardwareAsset.HardwareAssetStatus = _assetStatusService.HardwareAssetStatusList.FirstOrDefault(x => x.Name == hWAssetStatus.ToDescriptionString());
             return newHardwareAsset;
         }
 
@@ -316,11 +321,11 @@ namespace ServiceModel.Services
 
             // Clone the object so we can check the changes
             var newHardwareAsset = CloneObject.Clone(template);
-            newHardwareAsset.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(hWAssetStatus);
+            newHardwareAsset.Target_HardwareAssetHasCostCenter = _costCenterService.CostCenterList.FirstOrDefault(x => x.DisplayName == costCode);
             return newHardwareAsset;
         }
 
-        public HardwareTemplate_Full SetHardwareAssetPrimaryUser(HardwareTemplate_Full template, BAM_User user)
+        public HardwareTemplate_Full SetHardwareAssetPrimaryUser(HardwareTemplate_Full template, string userName)
         {
             if (template == null)
                 throw new Exception("Template must not be null");
@@ -329,7 +334,7 @@ namespace ServiceModel.Services
             var newHardwareAsset = CloneObject.Clone(template);
             newHardwareAsset.OwnedBy = new OwnedBy
             {
-                BaseId = user.Id,
+                BaseId = _userService.UserList.FirstOrDefault(x => x.Name == userName).Id
             }; 
             return newHardwareAsset;
         }
@@ -345,12 +350,7 @@ namespace ServiceModel.Services
             //{
                 newHardwareAsset.Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation
                 {
-                    //ClassTypeId = "b1ae24b1-f520-4960-55a2-62029b1ea3f0",
                     BaseId = "ae7423eb-0952-d69c-4d7d-77f1699bfe92",
-                    //DisplayName = "Esteem",
-                    //ClassName = "Cireson.AssetManagement.Location",
-                    //FullClassName = "Location",
-                    //LastModified = DateTime.Now,
                 };
             //}
             return newHardwareAsset;
@@ -366,6 +366,26 @@ namespace ServiceModel.Services
             newHardwareAsset.AssetTag = assetTag;
             return newHardwareAsset;
         }
+
+        public BAM_User GetUser(string userName)
+        {
+            return _userService.UserList.FirstOrDefault(x => x.Name == userName);
+        }
+
+        public HardwareTemplate_Full SetUser(HardwareTemplate_Full template, BAM_User user)
+        {
+            if (template == null)
+                throw new Exception("Template must not be null");
+
+            // Clone the object so we can check the changes
+            var newHardwareAsset = CloneObject.Clone(template);
+            newHardwareAsset.OwnedBy = new OwnedBy
+            {
+                BaseId = user.Id
+            };
+            return newHardwareAsset;
+        }
+
         #endregion
     }
 }

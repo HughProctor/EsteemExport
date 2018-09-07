@@ -22,15 +22,13 @@ namespace BusinessModel.Services
     {
         IEST_Service _estService;
         IBAM_HardwareAssetServices _hardwareAssetService;
-        IBAM_AssetStatusService _assetStatusService;
-        IBAM_UserService _userService;
         List<BAM_ReportingBsm> _reportings;
         List<BAM_ReportingBsm> _billables;
         IReportingService _reportingService;
         ServiceProgressReportBsm _progressReport;
         BAM_ApiClient bam_ApiClient;
         IEST_BAM_ModelLookupService _BAM_ModelLookupService;
-        List<BAM_User> _userList;
+        //public EST_DataExportModel _dataExport { get; set; }
 
         public BAM_Service() : this(null, null, null, null, null) { }
 
@@ -41,47 +39,50 @@ namespace BusinessModel.Services
             
             _estService = estService ?? new EST_Service();
             _hardwareAssetService = bAM_HardwareAsset ?? new BAM_HardwareAssetServices(bam_ApiClient);
-            _assetStatusService = assetStatusService ?? new BAM_AssetStatusService(bam_ApiClient);
-            _userService = userService ?? new BAM_UserService(bam_ApiClient);
             _reportingService = reportingService ?? new ReportingService();
             _reportings = new List<BAM_ReportingBsm>();
             _billables = new List<BAM_ReportingBsm>();
             _progressReport = new ServiceProgressReportBsm();
+            _BAM_ModelLookupService = new EST_BAM_ModelLookupService();
         }
 
         public async Task<EST_DataExportModel> ExportDataToBAM(IQueryBuilder queryBuilder)
         {
+            return await ExportDataToBAM(queryBuilder, 0);
+        }
+
+        public async Task<EST_DataExportModel> ExportDataToBAM(IQueryBuilder queryBuilder, int jobType)
+        {
             _progressReport.StartDateTime = DateTime.Now;
+            _progressReport.ServiceJobType = jobType;
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
             // Query, cleanse and subset the data
-            var dataExport = _estService.GetExportData(queryBuilder);
+            //if (_dataExport == null)
+             var   _dataExport = _estService.GetExportData(queryBuilder);
+
             queryBuilder = _estService._queryBuilder;
 
             _progressReport.EsteemExtractDateTime = DateTime.Now;
             _progressReport.QueryStartParameters = queryBuilder.StartDate;
             _progressReport.QueryEndParameters = queryBuilder.EndDate;
             _progressReport.QueryString = queryBuilder.LastQueryString;
-
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
-            // Get list of Users
-            _userList = _userService.GetUserList();
-
             // Process the Data
-            var newItemTask = Process_NewItemList(dataExport, _progressReport);
-            var locationTask = Process_LocationChangeList(dataExport, _progressReport);
-            var assetTagTask = Process_AssetTagChangeList(dataExport, _progressReport);
-            var deployTask = Process_DeployedToBAMUserList(dataExport, _progressReport);
-            var returnTask = Process_ReturnedFromBAMUserList(dataExport, _progressReport);
+            var newItemTask = Process_NewItemList(_dataExport, _progressReport);
+            //var locationTask = Process_LocationChangeList(dataExport, _progressReport); Depreciated
+            var assetTagTask = Process_AssetTagChangeList(_dataExport, _progressReport);
+            var deployTask = Process_DeployedToBAMUserList(_dataExport, _progressReport);
+            //var returnTask = Process_ReturnedFromBAMUserList(dataExport, _progressReport); Depreciated
 
-            var returnNewTask = Process_ReturnedFromBAMList(dataExport, _progressReport);
-            var retiredTask = Process_RetiredAssetList(dataExport, _progressReport);
-            var disposedTask = Process_DisplosedAssetList(dataExport, _progressReport);
-            var swappedTask = Process_SwappedAssetList(dataExport, _progressReport);
+            var returnNewTask = Process_ReturnedFromBAMList(_dataExport, _progressReport);
+            var retiredTask = Process_RetiredAssetList(_dataExport, _progressReport);
+            var disposedTask = Process_DisplosedAssetList(_dataExport, _progressReport);
+            var swappedTask = Process_SwappedAssetList(_dataExport, _progressReport);
 
-            dataExport = (await Task.WhenAll(newItemTask, locationTask, assetTagTask, deployTask, returnTask,
-                returnNewTask, retiredTask, disposedTask, swappedTask
+            _dataExport = (await Task.WhenAll(newItemTask, assetTagTask, deployTask, //locationTask,returnTask,
+                    returnNewTask, retiredTask, disposedTask, swappedTask
                 )).First();
             //dataExport = (await Task.WhenAll(returnTask)).First();
 
@@ -94,11 +95,11 @@ namespace BusinessModel.Services
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
             _progressReport.BAMExportDateTime = DateTime.Now;
-            _progressReport.NewItemCount = dataExport.NewItemList.Count;
-            _progressReport.LocationChangeCount = dataExport.LocationChangeList.Count;
-            _progressReport.AssetTagChangeCount = dataExport.AssetTagChangeList.Count;
-            _progressReport.DeployedCount = dataExport.DeployedToBAMUserList.Count;
-            _progressReport.ReturnedCount = dataExport.ReturnedFromBAMUserList.Count;
+            _progressReport.NewItemCount = _dataExport.NewItemList.Count;
+            _progressReport.LocationChangeCount = _dataExport.LocationChangeList.Count;
+            _progressReport.AssetTagChangeCount = _dataExport.AssetTagChangeList.Count;
+            _progressReport.DeployedCount = _dataExport.DeployedToBAMUserList.Count;
+            _progressReport.ReturnedCount = _dataExport.ReturnedFromBAMList.Count;
 
 
             _progressReport.ExceptionCountTotal = _progressReport.NewItemCount + _progressReport.LocationChangeCount +
@@ -106,7 +107,7 @@ namespace BusinessModel.Services
             _progressReport.ProcessSuccessFlag = _progressReport.ExceptionCountTotal == 0 ? true : false;
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
-            return dataExport;
+            return _dataExport;
         }
 
         internal async Task<EST_DataExportModel> Process_NewItemList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
@@ -131,9 +132,13 @@ namespace BusinessModel.Services
                 // Create New Item Template - set default values
                 HardwareTemplate_Full bamTemplate = CreateNewItem(asset);
 
-                _BAM_ModelLookupService.SetModelData(bamTemplate);
+                var hasModelRecord = false;
+                bamTemplate = _BAM_ModelLookupService.SetModelData(bamTemplate, asset.Asset_Desc, out hasModelRecord);
 
-                var returnItems = _hardwareAssetService.InsertTemplate(bamTemplate).FirstOrDefault();
+                if (hasModelRecord)
+                {
+                    var returnItems = _hardwareAssetService.InsertTemplate(bamTemplate).FirstOrDefault();
+                }
 
                 var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
                 if (updatedbamTemplate == null)
@@ -164,7 +169,7 @@ namespace BusinessModel.Services
             bamTemplate.AssetTag = string.Empty;  // = asset.AssetName;
             bamTemplate.Name = asset.SerialNumber;  //asset.AssetName;
             bamTemplate.DisplayName = asset.SerialNumber; //asset.DisplayName;
-            bamTemplate.HardwareAssetStatus = _assetStatusService.GetAssetStatusTemplate(EST_HWAssetStatus.NewItem);
+            bamTemplate = _hardwareAssetService.SetHardwareAssetStatus(bamTemplate, EST_HWAssetStatus.NewItem);
             //bamTemplate.Description = "Hugh Testing";
             bamTemplate.Notes = asset.AssetName + " Created by Esteem to BAM Export";
             bamTemplate.Target_HardwareAssetHasLocation = new TargetHardwareAssetHasLocation()
@@ -276,7 +281,7 @@ namespace BusinessModel.Services
                 }
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
 
-                var user = _userService.GetUser(asset.RequestUser);
+                var user = _hardwareAssetService.GetUser(asset.RequestUser);
                 if (user == null || !user.Name.Contains(asset.RequestUser)) {
                     _reportings.Add(new BAM_ReportingBsm()
                     {
@@ -294,7 +299,7 @@ namespace BusinessModel.Services
                 // The asset is not null and User is correct, HardwareStatus is Deployed and location is null then return
                 if (bamTemplate != null && (bool)bamTemplate?.OwnedBy?.DisplayName?.Contains(user.Name)
                     && bamTemplate?.HardwareAssetStatus?.Name == EST_HWAssetStatus.Deployed.ToBAMString() 
-                    && bamTemplate.AssetTag == asset.AssetTag && bamTemplate.Name == asset.AssetTag && bamTemplate.DisplayName == asset.AssetTag
+                    && bamTemplate?.AssetTag == asset.AssetTag && bamTemplate?.Name == asset.AssetTag && bamTemplate?.DisplayName == asset.AssetTag
                     && bamTemplate?.Target_HardwareAssetHasLocation == null)
                     return;
                 else if (bamTemplate != null)
@@ -304,7 +309,7 @@ namespace BusinessModel.Services
 
                 newHardwareAsset.Target_HardwareAssetHasLocation = null;
                 newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Deployed);
-                newHardwareAsset = _hardwareAssetService.SetHardwareAssetPrimaryUser(newHardwareAsset, user);
+                newHardwareAsset = _hardwareAssetService.SetUser(newHardwareAsset, user);
 
                 newHardwareAsset = _hardwareAssetService.SetCostCode(newHardwareAsset, asset.CostCode);
 
@@ -343,6 +348,12 @@ namespace BusinessModel.Services
             return model;
         }
 
+        /// <summary>
+        /// Depreciated
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="serviceProgressReport"></param>
+        /// <returns></returns>
         internal async Task<EST_DataExportModel> Process_ReturnedFromBAMUserList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;

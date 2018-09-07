@@ -63,12 +63,15 @@ namespace BusinessModel.Mappers
                 cfg.CreateMap<ServiceProgressReportBsm, ServiceProgressReport>().DefaultValues().IgnoreAllNonExisting();
                 cfg.CreateMap<ServiceProgressReport, ServiceProgressReportBsm>().IgnoreAllNonExisting();
                 cfg.CreateMap<BAM_Manufacturer, EST_BAM_ModelLookup>()
+                    .ForMember(src => src.Id, opt => opt.Ignore())
                     .ForMember(src => src.BAM_Name, dest => dest.MapFrom(o => o.Name))
                     .ForMember(src => src.BAM_DisplayName, dest => dest.MapFrom(o => o.DisplayName))
                     .ForMember(src => src.BAM_ManufacturerString, dest => dest.MapFrom(o => o.ManufacturerString))
                     .ForMember(src => src.BAM_ModelString, dest => dest.MapFrom(o => o.ModelString))
                     .ForMember(src => src.BAM_BaseId, dest => dest.MapFrom(o => o.BaseId))
+                    .ForMember(src => src.BAM_ModelType, dest => dest.MapFrom(o => o.Type.Name) )
                     .DefaultValues().IgnoreAllNonExisting();
+                cfg.CreateMap<EST_BAM_ModelLookup, EST_BAM_ModelLookupBsm>().IgnoreAllNonExisting();
             });
             Mapper.AssertConfigurationIsValid();
         }
@@ -136,6 +139,11 @@ namespace BusinessModel.Mappers
         public static List<EST_BAM_ModelLookup> Map_Results(List<BAM_Manufacturer> records)
         {
             return Mapper.Map<List<BAM_Manufacturer>, List<EST_BAM_ModelLookup>>(records);
+        }
+
+        public static List<EST_BAM_ModelLookupBsm> Map_Results(List<EST_BAM_ModelLookup> records)
+        {
+            return Mapper.Map<List<EST_BAM_ModelLookup>, List<EST_BAM_ModelLookupBsm>>(records);
         }
 
     }

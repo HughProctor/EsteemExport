@@ -8,8 +8,8 @@
     <ProjectGuid>{DD1D5088-4AA8-40C7-AB43-8560A116C6FD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LayrCake.WCFServiceHost</RootNamespace>
-    <AssemblyName>LayrCake.WCFServiceHost</AssemblyName>
+    <RootNamespace>Esteem.ServiceHost</RootNamespace>
+    <AssemblyName>Esteem.ServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
@@ -41,7 +41,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\_WCFRelease\</OutputPath>
+    <OutputPath>..\..\..\_EsteemToBAMExport\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -50,19 +50,25 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
+    <OutputPath>..\..\..\..\..\..\..\..\_EsteemToBAMExport\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\AutoMapper.4.2.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="CommonServiceLocator, Version=2.0.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\CommonServiceLocator.2.0.3\lib\net45\CommonServiceLocator.dll</HintPath>
-    </Reference>
-    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -70,15 +76,24 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Infrastructure, Version=2.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\LayrCakeEA_WCFServiceHost.2.0.0.6\lib\Infrastructure.dll</HintPath>
-    </Reference>
-    <Reference Include="Serialize.Linq, Version=1.2.4.0, Culture=neutral, PublicKeyToken=25bcc11ba213b377, processorArchitecture=MSIL">
-      <HintPath>..\..\..\packages\LayrCakeEA_WCFServiceHost.2.0.0.6\lib\Serialize.Linq.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http, Version=4.1.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Net.Http.4.3.3\lib\net46\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -93,23 +108,18 @@
     <Reference Include="System.ServiceProcess" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyLoader.cs" />
     <Compile Include="AttachDebugger.cs" />
-    <Compile Include="DebugConfigurationElement.cs" />
     <Compile Include="EventLogging.cs" />
+    <Compile Include="Jobs\RepeatJob_01_ProcessCatchup.cs" />
+    <Compile Include="Jobs\RepeatJob_02_ProcessErrors.cs" />
+    <Compile Include="Jobs\RepeatJob_03_StartNow.cs" />
+    <Compile Include="Jobs\RepeatJob_04_Backprocess.cs" />
+    <Compile Include="Jobs\RepeatJob_05_PurgeData.cs" />
+    <Compile Include="Jobs\RepeatJob_EsteemExtract_Original.cs" />
+    <Compile Include="Models\ScheduledJobModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!--<None Include="packages.config" />-->
-    <Compile Include="ServiceConfigurationElement.cs" />
-    <Compile Include="ServiceConfigurationSection.cs" />
-    <Compile Include="ServiceElementCollection.cs" />
     <Compile Include="WcfConsoleHost.cs" />
-    <Compile Include="WcfServiceHost.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="WcfServiceHost.designer.cs">
-      <DependentUpon>WcfServiceHost.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WcfServiceHostContainer.cs" />
     <Compile Include="WcfServiceHostInstaller.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -124,18 +134,6 @@
     <None Include="Esteem.ServiceHost.exe.manifest" />
     <None Include="packages.config" />
     <None Include="WCFServiceHostKey.pfx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_Readme\Elmah.SqlServer.sql" />
-    <Content Include="App_Readme\Elmah.SqlServer.txt" />
-    <Content Include="App_Readme\Elmah.txt" />
-    <Content Include="App_Readme\ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ServiceModelEx\ServiceModelEx.csproj">
-      <Project>{0858c710-af53-4049-b98e-cfe3638d1228}</Project>
-      <Name>ServiceModelEx</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -153,6 +151,28 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BusinessModel\BusinessModel\BusinessModel.csproj">
+      <Project>{3be11ee3-7095-4322-887e-64cd040fb6db}</Project>
+      <Name>BusinessModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\EntityModel\EntityModel\EntityModel.csproj">
+      <Project>{6516B7EB-1179-420B-9C3D-EB0861BE2254}</Project>
+      <Name>EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ESTReporting.EntityModel\ESTReporting.EntityModel.csproj">
+      <Project>{a9398c2f-2c31-4a18-bf37-ba672c640427}</Project>
+      <Name>ESTReporting.EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{66e4081a-8098-4755-8dc5-b1d1218e76db}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\SchedulerManager\SchedulerManager.csproj">
+      <Project>{fc82eab5-3e3a-4ec6-aeb7-c1e3707f6483}</Project>
+      <Name>SchedulerManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

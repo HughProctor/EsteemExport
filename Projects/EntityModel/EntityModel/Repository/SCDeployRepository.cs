@@ -69,7 +69,7 @@ namespace EntityModel.Repository
                     _whereExpression = "WHERE [Fsrl_Last_Update]  >= CONVERT(DATETIME, '" + StartDate + "', 103) AND [Fsrl_Last_Update] <= CONVERT(DATETIME, '" + StartDate.AddHours(TimeRange) + "', 103) ";
                 else if (DateRange > 0)
                     _whereExpression = "WHERE [Fsrl_Last_Update] >= CONVERT(DATETIME, '" + StartDate + "', 103) AND [Fsrl_Last_Update] <= CONVERT(DATETIME, '" + StartDate.AddDays(DateRange) + "', 103) ";
-                else if (EndDate > DateTime.MinValue && EndDate > DateTime.MinValue.AddDays(10))
+                else if (EndDate > DateTime.MinValue && EndDate > DateTime.MinValue.AddDays(1))
                     _whereExpression = "WHERE [Fsrl_Last_Update] >= CONVERT(DATETIME, '" + StartDate + "', 103) AND [Fsrl_Last_Update] <= CONVERT(DATETIME, '" + EndDate + "', 103) ";
                 else
                     _whereExpression = "WHERE [Fsrl_Last_Update] >= CONVERT(DATETIME, '" + StartDate + "', 103) AND [Fsrl_Last_Update] <= CONVERT(DATETIME, '" + StartDate.AddDays(1) + "', 103) ";
@@ -82,7 +82,7 @@ namespace EntityModel.Repository
 
             OrderBy = !string.IsNullOrEmpty(OrderBy) ? OrderBy : _orderBy;
 
-            LastQueryString = returnQueryString = QueryString + WhereExpression + OrderBy;
+            QueryBuilderObject.LastQueryString = LastQueryString = returnQueryString = QueryString + WhereExpression + OrderBy;
             // Need to reset the Where and Order by, otherwise they remain in memory for next request
             Reset();
 

@@ -195,7 +195,7 @@ namespace BusinessModel.Test
             Assert.IsNotNull(user, "User item is null");
             Assert.IsTrue(user.Name.Contains(asset.RequestUser), "user record is not the same");
 
-            newHardwareAsset = hardwareAssetService.SetHardwareAssetPrimaryUser(newHardwareAsset, user);
+            newHardwareAsset = hardwareAssetService.SetUser(newHardwareAsset, user);
 
             // Update BAM record on BAM Api
             var hardwareAssetList = hardwareAssetService.UpdateTemplate(newHardwareAsset, bamAsset);

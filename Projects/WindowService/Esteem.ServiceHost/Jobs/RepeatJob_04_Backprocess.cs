@@ -25,6 +25,7 @@ namespace Esteem.ServiceHost.Jobs
         private string _endDateTimeString = "";
         private string _typePrefix = "SCAudit_";
         private DateTime _startDateTime;
+        private DateTime _endDateTime;
         private DateTime _currentTime;
 
         public RepeatJob_04_Backprocess()
@@ -50,13 +51,17 @@ namespace Esteem.ServiceHost.Jobs
             // Set StartDateTime to be the last recorded Start time
             _startDateTime =_currentTime;
 
+            _endDateTime = _startDateTime.AddMonths(1);
+
             _queryBuilder.StartDate = _startDateTime;
+            _queryBuilder.EndDate = _endDateTime;
+
             //_startDateTimeString = _startDateTime.ToString();
             //_sCAuditService.EndDate = endDateTime;
             _queryBuilder.PageCount = 10000;
             //_sCAuditService.TimeRange = counter == 0 ? 1 : counter * 24;
 
-            _currentTime = _startDateTime.AddHours(24);
+            _currentTime = _startDateTime.AddMonths(1);
         }
 
         private void RunProcess()
@@ -103,7 +108,7 @@ namespace Esteem.ServiceHost.Jobs
         /// </summary>
         public override void DoJob()
         {
-            SleepTimer(0, 0, 30);
+            SleepTimer(5, 0, 0);
             if (_currentTime > DateTime.Now) return;
             ServiceSetup();
             //Console.WriteLine(String.Format("This is the execution number \"{0}\" of the Job \"{1}\" - DateStart: {2}, CurrentTime: {3}.", counter.ToString(), this.GetName(), _startDateTime, _currentTime.ToString()));

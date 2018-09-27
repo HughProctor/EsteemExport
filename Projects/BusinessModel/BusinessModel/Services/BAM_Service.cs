@@ -86,6 +86,10 @@ namespace BusinessModel.Services
             _progressReport.AssetTagChangeCount = _dataExport?.AssetTagChangeList?.Count;
             _progressReport.DeployedCount = _dataExport?.DeployedToBAMUserList?.Count;
             _progressReport.ReturnedCount = _dataExport?.ReturnedFromBAMList?.Count;
+            _progressReport.RetiredCount = _dataExport?.RetiredAssetList?.Count;
+            _progressReport.DisposedCount = _dataExport?.DisplosedAssetList?.Count;
+            _progressReport.SwappedCount = _dataExport?.SwappedAssetList?.Count;
+
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
              await Task.WhenAll(

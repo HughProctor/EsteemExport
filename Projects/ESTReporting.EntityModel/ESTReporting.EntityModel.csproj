@@ -167,6 +167,7 @@
     <Compile Include="Models\EST_SCAudit.cs" />
     <Compile Include="Models\EST_SCAuditDeploy.cs" />
     <Compile Include="Models\ServiceProgressReport.cs" />
+    <Compile Include="Models\SystemSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeedData\PartModelData.cs" />
     <Compile Include="SeedData\PartManufacturerData.cs" />

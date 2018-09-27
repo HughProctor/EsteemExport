@@ -34,7 +34,8 @@ namespace ESTReporting.EntityModel.Context
         public DbSet<BAM_Deployments> BAM_Deployments { get; set; }
         public DbSet<ServiceProgressReport> ServiceProgressReport { get; set; }
         public DbSet<EST_BAM_ModelLookup> EST_BAM_ModelLookup { get; set; }
-        
+        public DbSet<SystemSetting> SystemSetting { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -1,7 +1,6 @@
-﻿using BusinessModel.Mappers;
-using SchedulerManager.Mechanism;
-using System;
+﻿using System;
 using System.Diagnostics;
+using System.ServiceProcess;
 
 namespace Esteem.ServiceHost
 {
@@ -16,34 +15,13 @@ namespace Esteem.ServiceHost
         /// <param name="args">The args.</param>
         static void Main(string[] args)
         {
-            if (!Debugger.IsAttached)
-                Debugger.Launch();
-            Debugger.Break();
-
-            EventLogging.CreateEventLog();
-            EventLogging.WriteEvent("Esteem Data Export Service Starting");
-
-            Console.WriteLine("Esteem Data Export Service Starting");
-
-            Start();
+            ServiceBase[] ServicesToRun;
+            ServicesToRun = new ServiceBase[]
+            {
+                new Service1()
+            };
+            ServiceBase.Run(ServicesToRun);
         }
 
-        private static void Start()
-        {
-            try
-            {
-                Map.Init();
-                JobManager jobManager = new JobManager();
-                EventLogging.WriteEvent("Esteem Data Export Service Executing");
-
-                jobManager.ExecuteAllJobs();
-
-                EventLogging.WriteEvent("Esteem Data Export Service Processing");
-            }
-            catch (Exception exception)
-            {
-                EventLogging.WriteError(exception.Message);
-            }
-        }
     }
 }

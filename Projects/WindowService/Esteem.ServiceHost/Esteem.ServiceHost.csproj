@@ -110,6 +110,12 @@
     <Compile Include="Jobs\RepeatJob_04_Backprocess.cs" />
     <Compile Include="Models\ScheduledJobModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service1.Designer.cs">
+      <DependentUpon>Service1.cs</DependentUpon>
+    </Compile>
     <!--<None Include="packages.config" />-->
     <Compile Include="WcfConsoleHost.cs" />
     <Compile Include="WcfServiceHostInstaller.cs">
@@ -124,6 +130,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Esteem.ServiceHost.exe.manifest" />
+    <None Include="JsonStatics\NameRelationships.json" />
     <None Include="packages.config" />
     <None Include="WCFServiceHostKey.pfx" />
   </ItemGroup>

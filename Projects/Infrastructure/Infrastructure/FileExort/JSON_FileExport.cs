@@ -6,7 +6,7 @@ namespace Infrastructure.FileExport
 {
     public static class JSON_FileExport
     {
-        public const string _fileLocation = @"C:\_EsteemToBAMExport";
+        public const string _fileLocation = @"C:\_EsteemBAMService";
         //public const string _fileLocation = @"..\..\..\..\..\__DataExtracts";
         public const string _filePrefix = "ExtractData_";
 
@@ -70,11 +70,16 @@ namespace Infrastructure.FileExport
                 throw new Exception("JSON_FileExport FileExt and Folder cannot be null");
 
             var returnValue = "";
+            filePath = Path.Combine(_fileLocation, "Service", filePath);
             var path = Path.Combine(filePath, fileName);
-            if (!Directory.Exists(filePath))
-                throw new Exception("JSON_FileExport FileExt and Folder cannot be null");
-            if (!File.Exists(path))
-                throw new Exception("JSON_FileExport FileExt and Folder cannot be null");
+
+            if (!Directory.Exists(filePath) && !File.Exists(path))
+            {
+                //string applicationDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase);
+                //path = Path.Combine(applicationDirectory, path);
+                if (!File.Exists(path))
+                    throw new Exception("JSON_FileExport FileExt and Folder cannot be null " + path);
+            }
 
             using (StreamReader r = new StreamReader(path))
             {

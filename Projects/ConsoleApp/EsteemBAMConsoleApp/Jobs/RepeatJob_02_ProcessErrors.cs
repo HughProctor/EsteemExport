@@ -94,7 +94,7 @@ namespace EsteemBAMConsoleApp.Jobs
             }
             catch (Exception exp)
             {
-                //JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_02_Exception_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
+                JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_02_Exception_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
             }
         }
 

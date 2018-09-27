@@ -28,7 +28,8 @@ namespace EntityModel.Test
         public void OpenConnection_Test_2()
         {
             // Prepare
-            var connectionString = @"Server=EST-SQL-SVR01;Database=BAMEsteemExportDb;User ID=Esteem\BAMEsteemExportAdmin;Password=4m18w0:0&X39;Integrated Security=SSPI;";
+            //var connectionString = @"Server=EST-SQL-SVR01;Database=BAMEsteemExportDb;User ID=Esteem\BAMEsteemExportAdmin;Password=4m18w0:0&X39;Integrated Security=SSPI;";
+            var connectionString = @"Server=EST-SQL-SVR01;Database=BAMEsteemExportDb;User Id=BamEsteemExportAPISQL1;Password='ty6N5Ik-o0';";
             var sqlDbConnection = new SqlDbConnection();
             var connection = sqlDbConnection.CreateConnection(connectionString);
             // Act

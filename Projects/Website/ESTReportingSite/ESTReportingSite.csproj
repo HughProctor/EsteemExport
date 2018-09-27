@@ -20,8 +20,10 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -461,7 +463,9 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
     <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.svg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -536,11 +540,21 @@
     <Content Include="Images\p_big2.jpg" />
     <Content Include="Images\p_big3.jpg" />
     <Content Include="Images\zender_logo.png" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff" />
-    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
-    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.woff2">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="fonts\font-awesome\fonts\FontAwesome.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="fonts\font-awesome\less\animated.less" />
     <Content Include="fonts\font-awesome\less\bordered-pulled.less" />
     <Content Include="fonts\font-awesome\less\core.less" />
@@ -682,6 +696,8 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -984,8 +1000,6 @@
     <Content Include="Scripts\plugins\dataTables\Responsive-2.2.2\js\responsive.jqueryui.min.js" />
     <Content Include="Scripts\plugins\dataTables\Responsive-2.2.2\js\responsive.semanticui.js" />
     <Content Include="Scripts\plugins\dataTables\Responsive-2.2.2\js\responsive.semanticui.min.js" />
-    <Content Include="Scripts\plugins\dataTables\swf\copy_csv_xls.swf" />
-    <Content Include="Scripts\plugins\dataTables\swf\copy_csv_xls_pdf.swf" />
     <Content Include="Scripts\plugins\daterangepicker\daterangepicker.js" />
     <Content Include="Scripts\plugins\diff_match_patch\javascript\diff_match_patch.js" />
     <Content Include="Scripts\plugins\diff_match_patch\README.txt" />
@@ -1265,6 +1279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\plugins\dataTables\swf\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

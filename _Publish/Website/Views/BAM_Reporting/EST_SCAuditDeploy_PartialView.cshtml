@@ -1,0 +1,206 @@
+﻿@model ESTReporting.EntityModel.Models.EST_SCAuditDeploy
+
+<div id="myModal" class="modal hide fade" aria-labelledby="modal-formLabel" aria-hidden="true" tabindex="-1" role="dialog" style="position: absolute; top: 10px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title w-100 font-weight-bold">EST SC Audit Deploy</h4>
+                <a class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </a>
+            </div>
+            <div class="modal-body container">
+                <div class="one">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Ser_Num)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Ser_Num)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Ser_Num_Returned)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Ser_Num_Returned)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Part_Num)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Part_Num)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Part_Num_Returned)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Part_Num_Returned)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Prod_Desc)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Prod_Desc)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Prod_Desc_Returned)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Prod_Desc_Returned)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Source_Site_Num)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Source_Site_Num)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Dest_Site_Num)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Dest_Site_Num)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Part_Type)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Part_Type)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Part_Code)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Part_Code)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Rem)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Rem)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_User)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_User)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Last_Update)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Last_Update)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Audit_Cost_Code)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Cost_Code)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CreatedDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UpdatedDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UpdatedDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DeletedDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DeletedDate)
+                        </dd>
+
+                    </dl>
+                </div>
+                <div class="two">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            Esteem Call Number
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Call_Num)
+                        </dd>
+                        <dt>
+                            Esteem Call Reference
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Audit_Call_Ref)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.SerialNumber)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.SerialNumber)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AssetName)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.AssetName)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Manufacturer)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Manufacturer)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Model)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.Model)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.RequestUser)
+                        </dt>
+                        <dd>
+                            @Html.DisplayFor(model => model.RequestUser)
+                        </dd>
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

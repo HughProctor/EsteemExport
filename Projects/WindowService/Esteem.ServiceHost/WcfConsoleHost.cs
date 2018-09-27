@@ -16,14 +16,20 @@ namespace Esteem.ServiceHost
         /// <param name="args">The args.</param>
         static void Main(string[] args)
         {
-            //if (!Debugger.IsAttached)
-            //    Debugger.Launch();
-            //Debugger.Break();
+            if (!Debugger.IsAttached)
+                Debugger.Launch();
+            Debugger.Break();
 
             EventLogging.CreateEventLog();
             EventLogging.WriteEvent("Esteem Data Export Service Starting");
 
             Console.WriteLine("Esteem Data Export Service Starting");
+
+            Start();
+        }
+
+        private static void Start()
+        {
             try
             {
                 Map.Init();
@@ -31,6 +37,8 @@ namespace Esteem.ServiceHost
                 EventLogging.WriteEvent("Esteem Data Export Service Executing");
 
                 jobManager.ExecuteAllJobs();
+
+                EventLogging.WriteEvent("Esteem Data Export Service Processing");
             }
             catch (Exception exception)
             {

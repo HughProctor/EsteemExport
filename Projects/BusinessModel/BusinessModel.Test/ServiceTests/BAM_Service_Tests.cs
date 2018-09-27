@@ -13,16 +13,23 @@ namespace BusinessModel.Test
         [TestMethod]
         public void Final_Process_All_Data()
         {
-            Map.Init();
+            try
+            {
+                Map.Init();
 
-            IQueryBuilder queryBuilder = new QueryBuilder();
-            queryBuilder.StartDateString = "01/01/2018";
-            queryBuilder.EndDateString = "01/02/2018";
-            queryBuilder.PageCount = 100000000;
+                IQueryBuilder queryBuilder = new QueryBuilder();
+                queryBuilder.StartDateString = "01/01/2018";
+                queryBuilder.EndDateString = "01/02/2018";
+                queryBuilder.PageCount = 100000000;
 
-            var service = new BAM_Service();
+                var service = new BAM_Service();
 
-            var records = service.ExportDataToBAM(queryBuilder).Result;
+                var records = service.ExportDataToBAM(queryBuilder).Result;
+            }
+            catch (Exception ex)
+            {
+                Assert.IsNull(ex, "ErrorMessage: " + ex.InnerException);
+            }
         }
     }
 }

@@ -68,7 +68,7 @@ namespace Esteem.ServiceHost.Jobs
             }
             catch (Exception exp)
             {
-                JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_Exception_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
+                JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_Exception_04_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
             }
         }
 
@@ -103,7 +103,8 @@ namespace Esteem.ServiceHost.Jobs
         /// </summary>
         public override void DoJob()
         {
-            SleepTimer(1, 0, 0);
+            SleepTimer(0, 0, 30);
+            if (_currentTime > DateTime.Now) return;
             ServiceSetup();
             //Console.WriteLine(String.Format("This is the execution number \"{0}\" of the Job \"{1}\" - DateStart: {2}, CurrentTime: {3}.", counter.ToString(), this.GetName(), _startDateTime, _currentTime.ToString()));
             RunProcess();
@@ -116,9 +117,9 @@ namespace Esteem.ServiceHost.Jobs
         /// <returns>Returns true because this job is repeatable.</returns>
         public override bool IsRepeatable()
         {
-            //if (_startDateTime >= _startDateTime.AddYears(1)) return false;
-            //if (_startDateTime >= DateTime.Now) return false;
-            return false;
+            if (_startDateTime >= _startDateTime.AddYears(1)) return false;
+            if (_startDateTime >= DateTime.Now) return false;
+            return true;
         }
 
         /// <summary>

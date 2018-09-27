@@ -1,0 +1,232 @@
+﻿@model IEnumerable<ESTReporting.EntityModel.Models.BAM_Deployments>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>BAM Deployments</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Home")">Home &nbsp; / &nbsp;</a>
+            </li>
+            <li>
+                <a>BAM Deployments&nbsp; / &nbsp;</a>
+            </li>
+            <li class="active">
+                <strong>Index</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Basic Data Tables example with responsive plugin</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <table id="ExceptionTable" class="table table-striped table-bordered table-hover dataTables-example" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SerialNumber)
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.CreatedDate))
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.UpdatedDate))
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.DeletedDate))
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.AssetStatus).ToString().Replace('_', ' '))
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SCAudit_Item).ToString().Replace('_', ' ')
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SCAuditDeploy_Item).ToString().Replace('_', ' ')
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BAM_HardwareTemplate_Exception).ToString().Replace('_', ' ')
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td class="hidden" id="rownumber_@Html.IdForModel()">
+                                    @Html.DisplayFor(modelItem => item.Id)
+                                </td>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                                </th>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UpdatedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DeletedDate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.AssetStatus)
+                                </td>
+                                <td>
+                                    @if (item.SCAudit_Item != null)
+                                    {
+                                        <a href="javascript:void(0);" onclick="OpenModelWindow($(this))" class="anchorDetail" data-url="EST_SCAudit"
+                                           data-id="@item.SCAudit_Item.Id">@Html.DisplayFor(modelItem => item.SCAudit_Item.Audit_Ser_Num)</a>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.SCAuditDeploy_Item != null)
+                                    {
+                                        <a href="javascript:void(0);" onclick="OpenModelWindow($(this))" class="anchorDetail" data-url="EST_SCAuditDeploy"
+                                           data-id="@item.SCAuditDeploy_Item.Id">@Html.DisplayFor(modelItem => item.SCAuditDeploy_Item.Audit_Ser_Num)</a>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.BAM_HardwareTemplate_Exception != null)
+                                    {
+                                        <a href="javascript:void(0);" onclick="OpenModelWindow($(this))" class="anchorDetail" data-url="BAM_HardwareTemplate"
+                                           data-id="@item.BAM_HardwareTemplate_Exception.Id">@Html.DisplayFor(modelItem => item.BAM_HardwareTemplate_Exception.SerialNumber)</a>
+                                    }
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="myModalContent"></div>
+
+</div>
+@section Styles {
+    @Styles.Render("~/Content/plugins/dataTables/dataTablesStyles")
+}
+
+@section Scripts {
+    @Scripts.Render("~/plugins/dataTables")
+
+    <script type="text/javascript">
+        var yourApp = yourApp || {};
+        yourApp.Urls = yourApp.Urls || {};
+        yourApp.Urls.baseUrl = '@Url.Content("~")';
+        yourApp.Urls.editUserUrl= '@Url.Action("Edit","User")';
+        $(document).ready(function () {
+            var oTable = $('.dataTables-example').dataTable({
+                "dom": 'T<"clear">lfrtip',
+                "tableTools": {
+                    "sSwfPath": "../scripts/plugins/dataTables/swf/copy_csv_xls_pdf.swf"
+                },
+                "paging": true,
+                "pagingType": "full_numbers",
+                "order": [[3, "asc"]],
+                "columnDefs": [
+                    {
+                        "targets": [3],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [4],
+                        "visible": false,
+                        "searchable": false
+                    },
+                    {
+                        "targets": [0],
+                        "orderable": false,
+                        "searchable": false,
+                        "visible": false
+                    }
+                ]
+            });
+
+            $(window).bind('resize', function () {
+                oTable.fnAdjustColumnSizing();
+            });
+
+            //$(".anchorDetail").click(function () {
+            //    var $buttonClicked = $(this);
+            //    var id = $buttonClicked.attr('data-id');
+            //    var url = yourApp.Urls.baseUrl + "BAM_Reporting/" + $buttonClicked.attr('data-url');
+            //    var options = { "backdrop": "static", keyboard: true };
+            //    $.ajax({
+            //        type: "GET",
+            //        url: url,
+            //        contentType: "application/json; charset=utf-8",
+            //        data: { "id": id },
+            //        datatype: "json",
+            //        success: function (data) {
+            //            $('#myModalContent').html(data);
+            //            $('#myModal').modal(options);
+            //            $('#myModal').modal('show');
+            //        },
+            //        error: function () {
+            //            alert("Dynamic content load failed.");
+            //        }
+            //    });
+            //});
+        });
+        function OpenModelWindow(buttonClicked) {
+            var $buttonClicked = buttonClicked; // $(this);
+            var id = $buttonClicked.attr('data-id');
+            var url = yourApp.Urls.baseUrl + "BAM_Deployments/" + $buttonClicked.attr('data-url');
+            var options = { "backdrop": "static", keyboard: true };
+            $.ajax({
+                type: "GET",
+                url: url,
+                contentType: "application/json; charset=utf-8",
+                data: { "id": id },
+                datatype: "json",
+                success: function (data) {
+                    $('#myModalContent').html(data);
+                    $('#myModal').modal(options);
+                    $('#myModal').modal('show');
+                },
+                error: function () {
+                    alert("Dynamic content load failed.");
+                }
+            });
+        };  
+    </script>
+}

@@ -29,7 +29,7 @@ namespace BusinessModel.Services
 
         public EST_Service(ISCAuditRepository auditService, ISCDeployRepository deployService, IEST_DataCleanseService dataCleanseService)
         {
-            Map.Init();
+            //Map.Init();
             _sCAuditService = auditService;
             _sCDeployService = deployService;
             _dataCleanseService = dataCleanseService;

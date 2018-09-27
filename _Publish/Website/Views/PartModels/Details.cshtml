@@ -1,0 +1,120 @@
+﻿@model ESTReporting.EntityModel.Models.PartModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Data Tables</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Home")">Home</a>
+            </li>
+            <li>
+                <a>Tables</a>
+            </li>
+            <li class="active">
+                <strong>Part Manufacturers</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+        <p style="margin-top: 1.5rem;margin-right: 10px;float:right;">@Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary btn-lg" })</p>
+        <p style="margin-top: 1.5rem;margin-right: 10px;float:right;">@Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary btn-lg" })</p>
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Basic Data Tables example with responsive plugin</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-wrench"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li>
+                                <a href="#">Config option 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Config option 2</a>
+                            </li>
+                        </ul>
+                        <a class="close-link">
+                            <i class="fa fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.CreatedDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UpdatedDate)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UpdatedDate)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EsteemCode)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EsteemCode)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.EsteemCodeAlt)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.EsteemCodeAlt)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Description)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Description)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FullDescription)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FullDescription)
+                        </dd>
+
+                    </dl>
+                </div>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

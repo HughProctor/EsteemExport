@@ -71,7 +71,7 @@ namespace BusinessModel.Services
 
             // Process the Data
             var newItemTask = Process_NewItemList(_dataExport, _progressReport);
-            //var locationTask = Process_LocationChangeList(dataExport, _progressReport); Depreciated
+            var locationTask = Process_LocationChangeList(_dataExport, _progressReport); // Depreciated
             var assetTagTask = Process_AssetTagChangeList(_dataExport, _progressReport);
             var deployTask = Process_DeployedToBAMUserList(_dataExport, _progressReport);
             //var returnTask = Process_ReturnedFromBAMUserList(dataExport, _progressReport); Depreciated
@@ -81,9 +81,22 @@ namespace BusinessModel.Services
             var disposedTask = Process_DisplosedAssetList(_dataExport, _progressReport);
             var swappedTask = Process_SwappedAssetList(_dataExport, _progressReport);
 
-            _dataExport = (await Task.WhenAll(newItemTask, assetTagTask, deployTask, //locationTask,returnTask,
-                    returnNewTask, retiredTask, disposedTask, swappedTask
-                )).First();
+            _progressReport.NewItemCount = _dataExport?.NewItemList?.Count;
+            _progressReport.LocationChangeCount = _dataExport?.LocationChangeList?.Count;
+            _progressReport.AssetTagChangeCount = _dataExport?.AssetTagChangeList?.Count;
+            _progressReport.DeployedCount = _dataExport?.DeployedToBAMUserList?.Count;
+            _progressReport.ReturnedCount = _dataExport?.ReturnedFromBAMList?.Count;
+            _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
+
+             await Task.WhenAll(
+                 newItemTask, 
+                 assetTagTask, 
+                 deployTask, 
+                 locationTask, //returnTask,
+                 returnNewTask, 
+                 retiredTask, 
+                 disposedTask, 
+                 swappedTask);
             //dataExport = (await Task.WhenAll(returnTask)).First();
 
             _progressReport.BAMExportDateTime = DateTime.Now;
@@ -95,11 +108,11 @@ namespace BusinessModel.Services
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
             _progressReport.BAMExportDateTime = DateTime.Now;
-            _progressReport.NewItemCount = _dataExport.NewItemList.Count;
-            _progressReport.LocationChangeCount = _dataExport.LocationChangeList.Count;
-            _progressReport.AssetTagChangeCount = _dataExport.AssetTagChangeList.Count;
-            _progressReport.DeployedCount = _dataExport.DeployedToBAMUserList.Count;
-            _progressReport.ReturnedCount = _dataExport.ReturnedFromBAMList.Count;
+            //_progressReport.NewItemCount = _dataExport.NewItemList.Count;
+            //_progressReport.LocationChangeCount = _dataExport.LocationChangeList.Count;
+            //_progressReport.AssetTagChangeCount = _dataExport.AssetTagChangeList.Count;
+            //_progressReport.DeployedCount = _dataExport.DeployedToBAMUserList.Count;
+            //_progressReport.ReturnedCount = _dataExport.ReturnedFromBAMList.Count;
 
 
             _progressReport.ExceptionCountTotal = _progressReport.NewItemCount + _progressReport.LocationChangeCount +
@@ -297,9 +310,13 @@ namespace BusinessModel.Services
                 }
 
                 // The asset is not null and User is correct, HardwareStatus is Deployed and location is null then return
-                if (bamTemplate != null && (bool)bamTemplate?.OwnedBy?.DisplayName?.Contains(user.Name)
+                if (bamTemplate != null 
+                    && bamTemplate?.OwnedBy != null
+                    && (bool)bamTemplate?.OwnedBy?.DisplayName?.Contains(user?.Name)
                     && bamTemplate?.HardwareAssetStatus?.Name == EST_HWAssetStatus.Deployed.ToBAMString() 
-                    && bamTemplate?.AssetTag == asset.AssetTag && bamTemplate?.Name == asset.AssetTag && bamTemplate?.DisplayName == asset.AssetTag
+                    && bamTemplate?.AssetTag == asset.AssetTag 
+                    && bamTemplate?.Name == asset.AssetTag 
+                    && bamTemplate?.DisplayName == asset.AssetTag
                     && bamTemplate?.Target_HardwareAssetHasLocation == null)
                     return;
                 else if (bamTemplate != null)
@@ -617,17 +634,17 @@ namespace BusinessModel.Services
                 _hardwareAssetService.UpdateTemplate(newReturnedHardwareAsset, returnedBamTemplate);
                 #endregion Returned
 
-                // Check Update was successful
-                var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-                if (updatedbamTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
+                // Check Deployed Update was successful
+                var updatedDeployedTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
+                if (updatedDeployedTemplate?.Target_HardwareAssetHasLocation?.DisplayName == "Esteem")
                 {
                     _reportings.Add(new BAM_ReportingBsm()
                     {
                         ServiceProgressReportId = serviceProgressReport.Id,
-                        SerialNumber = asset.SerialNumber,
-                        AssetStatus = EST_HWAssetStatus.Returned,
+                        SerialNumber = updatedDeployedTemplate.SerialNumber,
+                        AssetStatus = EST_HWAssetStatus.Deployed,
                         SCAuditDeploy_Item = asset,
-                        BAM_HardwareTemplate_Exception = updatedbamTemplate,
+                        BAM_HardwareTemplate_Exception = updatedDeployedTemplate,
                         ExceptionMessage = "Failed to Update"
                     });
                     returnList.Add(asset);
@@ -635,10 +652,34 @@ namespace BusinessModel.Services
                 _billables.Add(new BAM_ReportingBsm()
                 {
                     ServiceProgressReportId = serviceProgressReport.Id,
-                    SerialNumber = asset.SerialNumber,
-                    AssetStatus = EST_HWAssetStatus.Returned,
+                    SerialNumber = updatedDeployedTemplate.SerialNumber,
+                    AssetStatus = EST_HWAssetStatus.Deployed,
                     SCAuditDeploy_Item = asset,
-                    BAM_HardwareTemplate_Exception = updatedbamTemplate,
+                    BAM_HardwareTemplate_Exception = updatedDeployedTemplate,
+                });
+
+                // Check Returned Update was successful
+                var updatedReturnedTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumberReturned).FirstOrDefault();
+                if (updatedReturnedTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
+                {
+                    _reportings.Add(new BAM_ReportingBsm()
+                    {
+                        ServiceProgressReportId = serviceProgressReport.Id,
+                        SerialNumber = updatedReturnedTemplate.SerialNumber,
+                        AssetStatus = EST_HWAssetStatus.Deployed,
+                        SCAuditDeploy_Item = asset,
+                        BAM_HardwareTemplate_Exception = updatedDeployedTemplate,
+                        ExceptionMessage = "Failed to Update"
+                    });
+                    returnList.Add(asset);
+                }
+                _billables.Add(new BAM_ReportingBsm()
+                {
+                    ServiceProgressReportId = serviceProgressReport.Id,
+                    SerialNumber = updatedReturnedTemplate.SerialNumber,
+                    AssetStatus = EST_HWAssetStatus.Deployed,
+                    SCAuditDeploy_Item = asset,
+                    BAM_HardwareTemplate_Exception = updatedReturnedTemplate,
                 });
             });
             model.SwappedAssetList = returnList;

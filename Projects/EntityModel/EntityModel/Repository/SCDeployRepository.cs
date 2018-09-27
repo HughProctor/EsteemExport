@@ -82,7 +82,9 @@ namespace EntityModel.Repository
 
             OrderBy = !string.IsNullOrEmpty(OrderBy) ? OrderBy : _orderBy;
 
-            QueryBuilderObject.LastQueryString = LastQueryString = returnQueryString = QueryString + WhereExpression + OrderBy;
+            LastQueryString = returnQueryString = QueryString + WhereExpression + OrderBy;
+            if (QueryBuilderObject != null)
+                QueryBuilderObject.LastQueryString = LastQueryString;
             // Need to reset the Where and Order by, otherwise they remain in memory for next request
             Reset();
 

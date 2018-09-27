@@ -12,6 +12,8 @@
     <AssemblyName>Esteem.ServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,10 +26,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,7 +41,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\_EsteemToBAMExport\</OutputPath>
+    <OutputPath>..\..\..\_Publish\Service\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -108,7 +108,6 @@
     <Compile Include="Jobs\RepeatJob_02_ProcessErrors.cs" />
     <Compile Include="Jobs\RepeatJob_03_StartNow.cs" />
     <Compile Include="Jobs\RepeatJob_04_Backprocess.cs" />
-    <Compile Include="Jobs\RepeatJob_00_EsteemExtract_Original.cs" />
     <Compile Include="Models\ScheduledJobModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <!--<None Include="packages.config" />-->

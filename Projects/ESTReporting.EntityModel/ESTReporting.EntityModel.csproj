@@ -150,6 +150,10 @@
     <Compile Include="Migrations\201809071512595_Add_Service_Progress_ServiceJobType.Designer.cs">
       <DependentUpon>201809071512595_Add_Service_Progress_ServiceJobType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809271216592_SystemSettingTable.cs" />
+    <Compile Include="Migrations\201809271216592_SystemSettingTable.Designer.cs">
+      <DependentUpon>201809271216592_SystemSettingTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -245,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809071512595_Add_Service_Progress_ServiceJobType.resx">
       <DependentUpon>201809071512595_Add_Service_Progress_ServiceJobType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809271216592_SystemSettingTable.resx">
+      <DependentUpon>201809271216592_SystemSettingTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

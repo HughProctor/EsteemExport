@@ -51,17 +51,17 @@ namespace Esteem.ServiceHost.Jobs
             // Set StartDateTime to be the last recorded Start time
             _startDateTime =_currentTime;
 
-            _endDateTime = _startDateTime.AddMonths(1);
+            _endDateTime = _startDateTime.AddDays(7);
 
             _queryBuilder.StartDate = _startDateTime;
             _queryBuilder.EndDate = _endDateTime;
 
             //_startDateTimeString = _startDateTime.ToString();
             //_sCAuditService.EndDate = endDateTime;
-            _queryBuilder.PageCount = 10000;
+            _queryBuilder.PageCount = 1000000;
             //_sCAuditService.TimeRange = counter == 0 ? 1 : counter * 24;
 
-            _currentTime = _startDateTime.AddMonths(1);
+            _currentTime = _startDateTime.AddDays(7);
         }
 
         private void RunProcess()
@@ -109,7 +109,12 @@ namespace Esteem.ServiceHost.Jobs
         public override void DoJob()
         {
             SleepTimer(5, 0, 0);
+
             if (_currentTime > DateTime.Now) return;
+            // Don't process between 9pm and 4am - the System is overloaded with nightly reporting processes
+            if (_currentTime.Hour > 21 || _currentTime.Hour < 4)
+                return;
+
             ServiceSetup();
             //Console.WriteLine(String.Format("This is the execution number \"{0}\" of the Job \"{1}\" - DateStart: {2}, CurrentTime: {3}.", counter.ToString(), this.GetName(), _startDateTime, _currentTime.ToString()));
             RunProcess();

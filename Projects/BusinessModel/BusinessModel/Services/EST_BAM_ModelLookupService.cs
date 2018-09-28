@@ -109,7 +109,9 @@ namespace BusinessModel.Services
             }; 
             bamTemplate.HardwareAssetType = new HardwareAssetType()
             {
-                Id = modelItem?.BAM_ModelType.Substring(0, modelItem.BAM_ModelType.IndexOf(';'))
+                Id = string.IsNullOrEmpty(modelItem?.BAM_ModelType) ? "" : 
+                    !modelItem.BAM_ModelType.Contains(';') ? modelItem?.BAM_ModelType :
+                        modelItem?.BAM_ModelType.Substring(0, modelItem.BAM_ModelType.IndexOf(';'))
             };
             return bamTemplate;
         }

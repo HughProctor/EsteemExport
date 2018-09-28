@@ -68,6 +68,12 @@
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.ExceptionCountTotal))
                                 </th>
                                 <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.QueryStartParameters))
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.QueryEndParameters))
+                                </th>
+                                <th>
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.NewItemCount))
                                 </th>
                                 <th>
@@ -83,7 +89,13 @@
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.ReturnedCount))
                                 </th>
                                 <th>
-                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.CreatedDate))
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.SwappedCount))
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.RetiredCount))
+                                </th>
+                                <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.DisposedCount))
                                 </th>
                                 <th></th>
                             </tr>
@@ -108,6 +120,12 @@
                                     @Html.DisplayFor(modelItem => item.ExceptionCountTotal)
                                 </td>
                                 <td>
+                                    @Html.DisplayFor(modelItem => item.QueryStartParameters)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.QueryEndParameters)
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.NewItemCount)
                                 </td>
                                 <td>
@@ -123,7 +141,13 @@
                                     @Html.DisplayFor(modelItem => item.ReturnedCount)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.CreatedDate)
+                                    @Html.DisplayFor(modelItem => item.SwappedCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RetiredCount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DisposedCount)
                                 </td>
                                 <td>
                                     @Html.ActionLink("Details", "BAM_HardwareTemplate_From_Report", "BAM_Reporting", new { id = item.Id }, null)

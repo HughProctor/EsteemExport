@@ -1,5 +1,6 @@
 ﻿using EntityModel.Connection;
 using EntityModel.Repository.Abstract;
+using Infrastructure.FileExport;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -115,9 +116,10 @@ namespace EntityModel.Repository
                     Reset();
                     reader.Close();
                 }
-                catch (Exception exception)
+                catch (Exception exp)
                 {
-                    Console.WriteLine(exception.Message);
+                    JSON_FileExport.WriteFile("EntityModel" + "_ScheduleRepeater_Exception_04_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
+                    Console.WriteLine(exp.Message);
                 }
             }
 

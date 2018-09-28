@@ -105,6 +105,10 @@
       <Project>{A9398C2F-2C31-4A18-BF37-BA672C640427}</Project>
       <Name>ESTReporting.EntityModel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure\Infrastructure.csproj">
+      <Project>{66E4081A-8098-4755-8DC5-B1D1218E76DB}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\ServiceModel\ServiceModel\ServiceModel.csproj">
       <Project>{ABEE5D8F-7141-4C54-958F-E50B4D350C89}</Project>
       <Name>ServiceModel</Name>

@@ -52,7 +52,7 @@ namespace BusinessModel.Services
         public ServiceProgressReportBsm ServiceProgressReporting(ServiceProgressReportBsm serviceProgressReport)
         {
             var mapResults = Map.Map_Results(serviceProgressReport);
-            dbContext.ServiceProgressReport.AddOrUpdate(dbItem => new { dbItem.StartDateTime }, mapResults);
+            dbContext.ServiceProgressReport.AddOrUpdate(dbItem => new { dbItem.StartDateTime, dbItem.ServiceJobType }, mapResults);
             dbContext.SaveChanges();
             var returnResults = Map.Map_Results(mapResults);
             return returnResults; // serviceProgressReport;

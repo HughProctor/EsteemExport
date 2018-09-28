@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="FileExort\JSON_FileExport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Email.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

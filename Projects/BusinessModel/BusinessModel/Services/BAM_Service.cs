@@ -15,6 +15,8 @@ using ServiceModel.Extensions;
 using System;
 using System.Threading.Tasks;
 using ServiceModel;
+using System.Diagnostics;
+using Infrastructure;
 
 namespace BusinessModel.Services
 {
@@ -36,7 +38,11 @@ namespace BusinessModel.Services
         {
             bam_ApiClient = new BAM_ApiClient();
             Task.Run(() => bam_ApiClient.Setup()).Wait();
-            
+            //if (!Debugger.IsAttached)
+            //    Debugger.Launch();
+            //else
+            //    Debugger.Break();
+
             _estService = estService ?? new EST_Service();
             _hardwareAssetService = bAM_HardwareAsset ?? new BAM_HardwareAssetServices(bam_ApiClient);
             _reportingService = reportingService ?? new ReportingService();
@@ -71,11 +77,9 @@ namespace BusinessModel.Services
 
             // Process the Data
             var newItemTask = Process_NewItemList(_dataExport, _progressReport);
-            var locationTask = Process_LocationChangeList(_dataExport, _progressReport); // Depreciated
+            var locationTask = Process_LocationChangeList(_dataExport, _progressReport); 
             var assetTagTask = Process_AssetTagChangeList(_dataExport, _progressReport);
             var deployTask = Process_DeployedToBAMUserList(_dataExport, _progressReport);
-            //var returnTask = Process_ReturnedFromBAMUserList(dataExport, _progressReport); Depreciated
-
             var returnNewTask = Process_ReturnedFromBAMList(_dataExport, _progressReport);
             var retiredTask = Process_RetiredAssetList(_dataExport, _progressReport);
             var disposedTask = Process_DisplosedAssetList(_dataExport, _progressReport);
@@ -92,7 +96,7 @@ namespace BusinessModel.Services
 
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
-             await Task.WhenAll(
+            _dataExport = (await Task.WhenAll(
                  newItemTask, 
                  assetTagTask, 
                  deployTask, 
@@ -100,8 +104,7 @@ namespace BusinessModel.Services
                  returnNewTask, 
                  retiredTask, 
                  disposedTask, 
-                 swappedTask);
-            //dataExport = (await Task.WhenAll(returnTask)).First();
+                 swappedTask)).First();
 
             _progressReport.BAMExportDateTime = DateTime.Now;
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
@@ -112,16 +115,13 @@ namespace BusinessModel.Services
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
             _progressReport.BAMExportDateTime = DateTime.Now;
-            //_progressReport.NewItemCount = _dataExport.NewItemList.Count;
-            //_progressReport.LocationChangeCount = _dataExport.LocationChangeList.Count;
-            //_progressReport.AssetTagChangeCount = _dataExport.AssetTagChangeList.Count;
-            //_progressReport.DeployedCount = _dataExport.DeployedToBAMUserList.Count;
-            //_progressReport.ReturnedCount = _dataExport.ReturnedFromBAMList.Count;
 
-
-            _progressReport.ExceptionCountTotal = _progressReport.NewItemCount + _progressReport.LocationChangeCount +
-                _progressReport.AssetTagChangeCount + _progressReport.DeployedCount + _progressReport.ReturnedCount;
+            _progressReport.ExceptionCountTotal = _reportings.Count;
             _progressReport.ProcessSuccessFlag = _progressReport.ExceptionCountTotal == 0 ? true : false;
+
+            if (!_progressReport.ProcessSuccessFlag && jobType == 3)
+                Email.Send(_progressReport.Id);
+
             _progressReport = _reportingService.ServiceProgressReporting(_progressReport);
 
             return _dataExport;
@@ -369,78 +369,6 @@ namespace BusinessModel.Services
             return model;
         }
 
-        /// <summary>
-        /// Depreciated
-        /// </summary>
-        /// <param name="model"></param>
-        /// <param name="serviceProgressReport"></param>
-        /// <returns></returns>
-        internal async Task<EST_DataExportModel> Process_ReturnedFromBAMUserList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
-        {
-            if (model == null) return model;
-            var returnList = new List<SCAuditDeployBsm>();
-
-            model.ReturnedFromBAMUserList.ToList().ForEach(asset => {
-                HardwareTemplate_Full newHardwareAsset;
-
-                var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-
-                // The asset is not null and User is null, HardwareStatus is correct and location is Esteem then return
-                if (bamTemplate != null && bamTemplate?.Target_HardwareAssetHasPrimaryUser == null
-                    && bamTemplate?.HardwareAssetStatus?.Name == 
-                            ((bool)asset.Audit_Dest_Site_Num?.Contains("BNLSCRAP") ? EST_HWAssetStatus.Disposed.ToBAMString() :
-                            (bool)asset.Audit_Dest_Site_Num?.Contains("LTX BAD") ? EST_HWAssetStatus.Retired.ToBAMString() :
-                            EST_HWAssetStatus.Returned.ToBAMString())
-
-                    && bamTemplate?.Target_HardwareAssetHasLocation?.DisplayName == "Esteem")
-                    return;
-                else if (bamTemplate != null)
-                    newHardwareAsset = CloneObject.Clone(bamTemplate);
-                else
-                    newHardwareAsset = CreateNewItem(asset);
-
-                // Set Hardware Status is BAD, Scrapped or Returned
-                if (asset.Audit_Dest_Site_Num != null && (bool)asset.Audit_Dest_Site_Num?.Contains("BNLSCRAP"))
-                    newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Disposed);
-                else if (asset.Audit_Dest_Site_Num != null && (bool)asset.Audit_Dest_Site_Num?.Contains("LTX BAD"))
-                    newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Retired);
-                else
-                    newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Returned);
-
-                // Set Location to Esteem and User to Null
-                newHardwareAsset = _hardwareAssetService.SetLocation(newHardwareAsset, "Esteem");
-                newHardwareAsset.Target_HardwareAssetHasPrimaryUser = null;
-
-                _hardwareAssetService.UpdateTemplate(newHardwareAsset, bamTemplate);
-
-                // Check Update was successful
-                var updatedbamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
-                if (updatedbamTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
-                {
-                    _reportings.Add(new BAM_ReportingBsm()
-                    {
-                        ServiceProgressReportId = serviceProgressReport.Id,
-                        SerialNumber = asset.SerialNumber,
-                        AssetStatus = EST_HWAssetStatus.Returned,
-                        SCAuditDeploy_Item = asset,
-                        BAM_HardwareTemplate_Exception = updatedbamTemplate,
-                        ExceptionMessage = "Failed to Update"
-                    });
-                    returnList.Add(asset);
-                }
-                _billables.Add(new BAM_ReportingBsm()
-                {
-                    ServiceProgressReportId = serviceProgressReport.Id,
-                    SerialNumber = asset.SerialNumber,
-                    AssetStatus = EST_HWAssetStatus.Returned,
-                    SCAuditDeploy_Item = asset,
-                    BAM_HardwareTemplate_Exception = updatedbamTemplate,
-                });
-            });
-            model.ReturnedFromBAMUserList = returnList;
-            return model;
-        }
-
         internal async Task<EST_DataExportModel> Process_ReturnedFromBAMList(EST_DataExportModel model, ServiceProgressReportBsm serviceProgressReport)
         {
             if (model == null) return model;
@@ -599,8 +527,8 @@ namespace BusinessModel.Services
             var returnList = new List<SCAuditDeployBsm>();
             model.SwappedAssetList.ToList().ForEach(asset =>
             {
+                #region Deploy Process
                 HardwareTemplate_Full newHardwareAsset;
-                HardwareTemplate_Full newReturnedHardwareAsset;
 
                 var bamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
 
@@ -609,18 +537,11 @@ namespace BusinessModel.Services
                 else
                     newHardwareAsset = CreateNewItem(asset);
 
-                var returnedBamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumberReturned).FirstOrDefault();
-
-                if (returnedBamTemplate != null)
-                    newReturnedHardwareAsset = CloneObject.Clone(returnedBamTemplate);
-                else
-                    newReturnedHardwareAsset = CreateNewItem(asset);
-
                 #region Deploy
                 newHardwareAsset.Target_HardwareAssetHasLocation = null;
                 newHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newHardwareAsset, EST_HWAssetStatus.Deployed);
-                newHardwareAsset.OwnedBy = newReturnedHardwareAsset.OwnedBy;
-                newHardwareAsset.Target_HardwareAssetHasCostCenter = newReturnedHardwareAsset.Target_HardwareAssetHasCostCenter;
+                newHardwareAsset.OwnedBy = newHardwareAsset.OwnedBy;
+                newHardwareAsset.Target_HardwareAssetHasCostCenter = newHardwareAsset.Target_HardwareAssetHasCostCenter;
 
                 newHardwareAsset.AssetTag = asset.AssetTag;
                 newHardwareAsset.Name = asset.AssetTag;
@@ -628,15 +549,6 @@ namespace BusinessModel.Services
 
                 _hardwareAssetService.UpdateTemplate(newHardwareAsset, bamTemplate);
                 #endregion Deploy
-
-                #region Returned
-                newReturnedHardwareAsset.OwnedBy = null;
-                newReturnedHardwareAsset.Target_HardwareAssetHasCostCenter = null;
-                newReturnedHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newReturnedHardwareAsset, EST_HWAssetStatus.Returned);
-                newReturnedHardwareAsset = _hardwareAssetService.SetLocation(newReturnedHardwareAsset, "Esteem");
-
-                _hardwareAssetService.UpdateTemplate(newReturnedHardwareAsset, returnedBamTemplate);
-                #endregion Returned
 
                 // Check Deployed Update was successful
                 var updatedDeployedTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumber).FirstOrDefault();
@@ -662,6 +574,28 @@ namespace BusinessModel.Services
                     BAM_HardwareTemplate_Exception = updatedDeployedTemplate,
                 });
 
+                #endregion Deploy Process
+
+                #region Return Process
+
+                HardwareTemplate_Full newReturnedHardwareAsset;
+
+                var returnedBamTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumberReturned).FirstOrDefault();
+
+                if (returnedBamTemplate != null)
+                    newReturnedHardwareAsset = CloneObject.Clone(returnedBamTemplate);
+                else
+                    newReturnedHardwareAsset = CreateNewItem(asset);
+
+                #region Returned
+                newReturnedHardwareAsset.OwnedBy = null;
+                newReturnedHardwareAsset.Target_HardwareAssetHasCostCenter = null;
+                newReturnedHardwareAsset = _hardwareAssetService.SetHardwareAssetStatus(newReturnedHardwareAsset, EST_HWAssetStatus.Returned);
+                newReturnedHardwareAsset = _hardwareAssetService.SetLocation(newReturnedHardwareAsset, "Esteem");
+
+                _hardwareAssetService.UpdateTemplate(newReturnedHardwareAsset, returnedBamTemplate);
+                #endregion Returned
+
                 // Check Returned Update was successful
                 var updatedReturnedTemplate = _hardwareAssetService.GetHardwareAsset_Full(asset.SerialNumberReturned).FirstOrDefault();
                 if (updatedReturnedTemplate?.Target_HardwareAssetHasLocation?.DisplayName != "Esteem")
@@ -670,7 +604,7 @@ namespace BusinessModel.Services
                     {
                         ServiceProgressReportId = serviceProgressReport.Id,
                         SerialNumber = updatedReturnedTemplate.SerialNumber,
-                        AssetStatus = EST_HWAssetStatus.Deployed,
+                        AssetStatus = EST_HWAssetStatus.Returned,
                         SCAuditDeploy_Item = asset,
                         BAM_HardwareTemplate_Exception = updatedDeployedTemplate,
                         ExceptionMessage = "Failed to Update"
@@ -681,10 +615,12 @@ namespace BusinessModel.Services
                 {
                     ServiceProgressReportId = serviceProgressReport.Id,
                     SerialNumber = updatedReturnedTemplate.SerialNumber,
-                    AssetStatus = EST_HWAssetStatus.Deployed,
+                    AssetStatus = EST_HWAssetStatus.Returned,
                     SCAuditDeploy_Item = asset,
                     BAM_HardwareTemplate_Exception = updatedReturnedTemplate,
                 });
+
+                #endregion Return Process
             });
             model.SwappedAssetList = returnList;
             return model;

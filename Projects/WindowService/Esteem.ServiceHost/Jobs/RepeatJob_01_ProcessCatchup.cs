@@ -141,8 +141,13 @@ namespace Esteem.ServiceHost.Jobs
         /// </summary>
         public override void DoJob()
         {
-            SleepTimer(0, 1, 0);
+            SleepTimer(10, 0, 0);
             ServiceSetup();
+
+            // Don't process between 9pm and 4am - the System is overloaded with nightly reporting processes
+            if (_currentTime.Hour > 21 || _currentTime.Hour < 4)
+                return;
+
             //Console.WriteLine(String.Format("This is the execution number \"{0}\" of the Job \"{1}\" - DateStart: {2}, CurrentTime: {3}.", counter.ToString(), this.GetName(), _startDateTime, _currentTime.ToString()));
             RunProcess();
             counter++;

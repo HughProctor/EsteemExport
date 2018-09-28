@@ -154,6 +154,10 @@
     <Compile Include="Migrations\201809271216592_SystemSettingTable.Designer.cs">
       <DependentUpon>201809271216592_SystemSettingTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201809281108431_AddColumn_EST_BAM_ModelLookup__EsteemAltCode.cs" />
+    <Compile Include="Migrations\201809281108431_AddColumn_EST_BAM_ModelLookup__EsteemAltCode.Designer.cs">
+      <DependentUpon>201809281108431_AddColumn_EST_BAM_ModelLookup__EsteemAltCode.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BAM_HardwareTemplate.cs" />
     <Compile Include="Models\BAM_HardwareTemplate_Full.cs" />
@@ -252,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201809271216592_SystemSettingTable.resx">
       <DependentUpon>201809271216592_SystemSettingTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201809281108431_AddColumn_EST_BAM_ModelLookup__EsteemAltCode.resx">
+      <DependentUpon>201809281108431_AddColumn_EST_BAM_ModelLookup__EsteemAltCode.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

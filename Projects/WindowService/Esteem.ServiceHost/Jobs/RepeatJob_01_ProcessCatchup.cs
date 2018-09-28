@@ -16,6 +16,7 @@ using Esteem.ServiceHost.Models;
 using ESTReporting.EntityModel.Context;
 using ESTReporting.EntityModel.Models;
 using System.Data.Entity;
+using Infrastructure;
 
 namespace Esteem.ServiceHost.Jobs
 {
@@ -106,6 +107,7 @@ namespace Esteem.ServiceHost.Jobs
             }
             catch (Exception exp)
             {
+                Email.SendException(exp.Message);
                 JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_Exception_01_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
             }
         }

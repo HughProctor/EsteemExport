@@ -13,6 +13,7 @@ using BusinessModel.Services.Abstract;
 using EntityModel.Repository.Abstract;
 using BusinessModel.Services;
 using Esteem.ServiceHost.Models;
+using Infrastructure;
 
 namespace Esteem.ServiceHost.Jobs
 {
@@ -60,6 +61,7 @@ namespace Esteem.ServiceHost.Jobs
             }
             catch (Exception exp)
             {
+                Email.SendException(exp.Message);
                 JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_Exception_03_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
             }
         }

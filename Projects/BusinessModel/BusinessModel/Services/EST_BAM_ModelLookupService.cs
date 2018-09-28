@@ -32,7 +32,7 @@ namespace BusinessModel.Services
 
             _dbContext = new BAMEsteemExportContext();
             _eST_BAM_Models = GetBAM_ManufacturerList();
-            //_bAM_ModelService = new BAM_ModelService();
+            _bAM_ModelService = new BAM_ModelService();
             //_estService = new EST_Service();
         }
 
@@ -42,7 +42,7 @@ namespace BusinessModel.Services
             var modelLookupList = Map.Map_Results(bamModelList).OrderBy(x => x.BAM_Name).ToList();
             modelLookupList.ForEach(item =>
             {
-                _dbContext.EST_BAM_ModelLookup.AddOrUpdate(item);
+                _dbContext.EST_BAM_ModelLookup.AddOrUpdate(dbItem => new { dbItem.BAM_Name, dbItem.BAM_ModelType }, item);
             });
             _dbContext.SaveChanges();
             var returnList = Map.Map_Results(modelLookupList);
@@ -100,6 +100,27 @@ namespace BusinessModel.Services
                 if ((weight + 2) == count && weight >= 3) { modelItem = item; break; }
             }
             if (modelItem != null) success = true;
+            else // Try to use the EsteemAltCode
+            {
+                foreach (var item in _eST_BAM_Models)
+                {
+                    if (modelItem != null) break;
+                    if (item.BAM_Name == modelName) { modelItem = item; break; }
+                    var itemSplit = item.Esteem_Alt_ModelString.ToUpper().Split(' ');
+                    var count = itemSplit.Length;
+                    var weight = 0;
+                    for (var i = 0; i < itemSplit.Length; i++)
+                    {
+                        if (modelName.Contains(itemSplit[i])) weight++;
+                    };
+                    if (weight == 0) continue;
+                    if (weight == count) { modelItem = item; break; }
+                    if ((weight + 1) == count) { modelItem = item; break; }
+                    if ((weight + 2) == count && weight >= 3) { modelItem = item; break; }
+                }
+            }
+            if (modelItem != null) success = true;
+
             bamTemplate.Manufacturer = modelItem?.BAM_ManufacturerString;
             bamTemplate.Model = modelItem?.BAM_ModelString;
             bamTemplate.Target_HardwareAssetHasCatalogItem = new Target_HardwareAssetHasCatalogItem()

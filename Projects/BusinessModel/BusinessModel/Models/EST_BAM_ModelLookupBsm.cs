@@ -11,5 +11,6 @@
         public string BAM_DisplayName { get; set; }
         public string BAM_BaseId { get; set; }
         public int IsActive { get; set; }
+        public string Esteem_Alt_ModelString { get; set; }
     }
 }

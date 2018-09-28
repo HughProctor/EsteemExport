@@ -1,4 +1,5 @@
-﻿using BusinessModel.Models;
+﻿using BusinessModel.Mappers;
+using BusinessModel.Models;
 using BusinessModel.Services;
 using BusinessModel.Services.Abstract;
 using EntityModel.Repository;
@@ -17,6 +18,7 @@ namespace BusinessModel.Test.ServiceTests
         [TestMethod]
         public void InsertOrUpdate_BAM_Manufacturers()
         {
+            Map.Init();
             _bAM_ModelLookupService = new EST_BAM_ModelLookupService();
 
             var returnList = _bAM_ModelLookupService.GetBAM_Manufacturers();

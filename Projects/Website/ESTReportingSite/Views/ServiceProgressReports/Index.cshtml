@@ -68,6 +68,9 @@
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.ExceptionCountTotal))
                                 </th>
                                 <th>
+                                    @Html.SpaceCapital(Html.DisplayNameFor(model => model.ServiceJobType))
+                                </th>
+                                <th>
                                     @Html.SpaceCapital(Html.DisplayNameFor(model => model.QueryStartParameters))
                                 </th>
                                 <th>
@@ -118,6 +121,9 @@
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.ExceptionCountTotal)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ServiceJobType)
                                 </td>
                                 <td>
                                     @Html.DisplayFor(modelItem => item.QueryStartParameters)

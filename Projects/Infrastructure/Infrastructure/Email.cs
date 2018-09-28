@@ -60,7 +60,7 @@ namespace Infrastructure
             var subject = "Esteem to BAM System Error";
             var body = "There has been an exception in the System \r\n \r\n" + exceptionMessage;
 
-            MailMessage mail = new MailMessage("esteembamexport@gmail.com", "d.bowditch@esteem.co.uk, h.proctor@esteem.co.uk", subject, body);
+            MailMessage mail = new MailMessage("esteembamexport@gmail.com", "D.Sugden@esteem.co.uk, h.proctor@esteem.co.uk", subject, body);
 
             mail.BodyEncoding = UTF8Encoding.UTF8;
             mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;

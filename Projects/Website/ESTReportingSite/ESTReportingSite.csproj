@@ -165,6 +165,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BAM_DeploymentsController.cs" />
+    <Compile Include="Controllers\BAM_ModelLookupController.cs" />
     <Compile Include="Controllers\BAM_ReportingController.cs" />
     <Compile Include="Controllers\ESTPartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -1276,6 +1277,11 @@
     <Content Include="Views\ServiceProgressReports\Details.cshtml" />
     <Content Include="Views\ServiceProgressReports\Edit.cshtml" />
     <Content Include="Views\ServiceProgressReports\Index.cshtml" />
+    <Content Include="Views\BAM_ModelLookup\Create.cshtml" />
+    <Content Include="Views\BAM_ModelLookup\Delete.cshtml" />
+    <Content Include="Views\BAM_ModelLookup\Details.cshtml" />
+    <Content Include="Views\BAM_ModelLookup\Edit.cshtml" />
+    <Content Include="Views\BAM_ModelLookup\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

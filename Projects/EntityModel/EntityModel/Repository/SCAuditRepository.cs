@@ -53,9 +53,9 @@ namespace EntityModel.Repository
                     _whereExpression = "WHERE [Audit_Last_Update] >= CONVERT(DATETIME, '" + StartDate + "', 103) AND [Audit_Last_Update] <= CONVERT(DATETIME, '" + StartDate.AddDays(1) + "', 103) ";
             }
             else _whereExpression = "";
+            WhereExpression = !string.IsNullOrEmpty(WhereExpression) ? WhereExpression + "AND [Part_Type] != 'D' " : "WHERE [Part_Type] != 'D'";
             WhereExpression = string.IsNullOrEmpty(WhereExpression) ? _whereExpression :
                  string.IsNullOrEmpty(_whereExpression) ? WhereExpression : _whereExpression + WhereExpression.Replace("WHERE", "AND");
-            WhereExpression = !string.IsNullOrEmpty(WhereExpression) ? WhereExpression + "AND [Part_Type] != 'D' " : "WHERE [Part_Type] != 'D'";
 
             OrderBy = !string.IsNullOrEmpty(OrderBy) ? OrderBy : _orderBy;
 

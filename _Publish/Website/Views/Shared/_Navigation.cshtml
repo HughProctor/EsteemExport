@@ -19,8 +19,11 @@
             <li class="@Html.IsSelected(controller: " Home")">
                 <a href="@Url.Action("Index", "Home" )"><i class="fa fa-home"></i> <span class="nav-label">Home</span></a>
             </li>
-            <li class="@Html.IsSelected(controller: "ServiceProgressReports")">
-                <a href="@Url.Action("Index", "ServiceProgressReports")"><i class="fa fa-file"></i> <span class="nav-label">Progress Reports</span></a>
+            <li class="@Html.IsSelected(controller: " ServiceProgressReports")">
+                <a href="@Url.Action(" Index", "ServiceProgressReports" )"><i class="fa fa-file"></i> <span class="nav-label">Progress Reports</span></a>
+            </li>
+            <li class="@Html.IsSelected(controller: "BAM_ModelLookup")">
+                <a href="@Url.Action("Index", "BAM_ModelLookup")"><i class="fa fa-file"></i> <span class="nav-label">BAM ModelLookup</span></a>
             </li>
             <li class="@Html.IsSelected(controller: "PartManufacturers")">
                 <a href="@Url.Action("Index", "PartManufacturers")"><i class="fa fa-th-large"></i> <span class="nav-label">Part Manufacturers</span></a>

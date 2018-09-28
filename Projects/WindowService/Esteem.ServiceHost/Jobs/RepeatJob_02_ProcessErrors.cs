@@ -16,6 +16,7 @@ using Esteem.ServiceHost.Models;
 using ESTReporting.EntityModel.Context;
 using ESTReporting.EntityModel.Models;
 using System.Data.Entity;
+using Infrastructure;
 
 namespace Esteem.ServiceHost.Jobs
 {
@@ -64,8 +65,8 @@ namespace Esteem.ServiceHost.Jobs
                 var _bamService = new BAM_Service();
 
                 var reports = _dbContext.ServiceProgressReport
-                    .Where(x => x.ProcessSuccessFlag == false && x.ServiceJobType == 3
-                        && (x.EsteemExtractDateTime == null || x.BAMExportDateTime == null));
+                    .Where(x => x.ProcessSuccessFlag == false && x.ServiceJobType != 2).ToList(); // && x.ServiceJobType == 3
+                        //&& (x.EsteemExtractDateTime == null || x.BAMExportDateTime == null));
                 if (reports == null) return;
 
                 var whereStatement = "";
@@ -94,6 +95,7 @@ namespace Esteem.ServiceHost.Jobs
             }
             catch (Exception exp)
             {
+                Email.SendException(exp.Message);
                 JSON_FileExport.WriteFile(_typePrefix + "_ScheduleRepeater_Exception_02_" + DateTime.Now.ToString("yyMMddhhmm"), exp, 0, "Exception");
             }
         }

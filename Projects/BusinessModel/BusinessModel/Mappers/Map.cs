@@ -71,7 +71,9 @@ namespace BusinessModel.Mappers
                     .ForMember(src => src.BAM_BaseId, dest => dest.MapFrom(o => o.BaseId))
                     .ForMember(src => src.BAM_ModelType, dest => dest.MapFrom(o => o.Type.Name) )
                     .DefaultValues().IgnoreAllNonExisting();
-                cfg.CreateMap<EST_BAM_ModelLookup, EST_BAM_ModelLookupBsm>().IgnoreAllNonExisting();
+                cfg.CreateMap<EST_BAM_ModelLookup, EST_BAM_ModelLookupBsm>()
+                    .ForMember(src => src.IsActive, opt => opt.UseValue(1))
+                    .IgnoreAllNonExisting();
             });
             Mapper.AssertConfigurationIsValid();
         }

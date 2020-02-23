@@ -162,17 +162,17 @@ namespace BusinessModel.Services
         /// </summary>
         /// <param name="returnList"></param>
         /// <returns></returns>
-        internal List<SCAuditDeployBsm> Get_Returned_from_BAM_User(List<SCAuditDeploy> returnList)
-        {
-            var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
-                .Where
-                (
-                    item => !string.IsNullOrEmpty(item.Audit_Ser_Num_Returned)
-                        && (item.Audit_Dest_Site_Num.StartsWith("BNLTEST") || item.Audit_Dest_Site_Num.StartsWith("LTXR"))
-                        && item.Audit_Ser_Num.StartsWith("BAM")
-                ).ToList().Distinct().ToList());
-            return newItemList;
-        }
+        //internal List<SCAuditDeployBsm> Get_Returned_from_BAM_User(List<SCAuditDeploy> returnList)
+        //{
+        //    var newItemList = _dataCleanseService.Process_SCAuditDeployList(returnList
+        //        .Where
+        //        (
+        //            item => !string.IsNullOrEmpty(item.Audit_Ser_Num_Returned)
+        //                && (item.Audit_Dest_Site_Num.StartsWith("BNLTEST") || item.Audit_Dest_Site_Num.StartsWith("LTXR"))
+        //                && item.Audit_Ser_Num.StartsWith("BAM")
+        //        ).ToList().Distinct().ToList());
+        //    return newItemList;
+        //}
 
 
 
